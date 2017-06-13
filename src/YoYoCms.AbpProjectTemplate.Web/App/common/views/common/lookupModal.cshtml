@@ -1,0 +1,24 @@
+﻿@using YoYoCms.AbpProjectTemplate.Localization
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">
+            {{vm.options.title}}
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div busy-if="vm.loading">
+            <form ng-if="vm.options.showFilter">
+                <div class="input-group margin-bottom-10">
+                    <input auto-focus ng-model="vm.options.filterText" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text">
+                    <span class="input-group-btn">
+                        <button ng-click="vm.refreshGrid()" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
+                    </span>
+                </div>
+            </form>
+            <div ui-grid="vm.gridOptions" ui-grid-pagination dir=@(CultureHelper.IsRtl ? "rtl" : "")></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+    </div>
+</div>

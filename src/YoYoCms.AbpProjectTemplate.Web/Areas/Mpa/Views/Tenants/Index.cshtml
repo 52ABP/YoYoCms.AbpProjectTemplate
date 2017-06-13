@@ -1,0 +1,57 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Authorization
+@using YoYoCms.AbpProjectTemplate.Web.Navigation
+@{
+    ViewBag.CurrentPageName = PageNames.App.Host.Tenants;
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Common/_FeaturesTree.min.css")
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Tenants/index.min.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Common/_FeaturesTree.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Tenants/_CreateModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Tenants/_EditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Tenants/_FeaturesModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Tenants/Index.js")
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Tenants")</span> <small>@L("TenantsHeaderInfo")</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        @if (IsGranted(AppPermissions.Pages_Tenants_Create))
+        {
+            <button id="CreateNewTenantButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewTenant")</button>
+        }
+    </div>
+</div>
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-title portlet-title-filter">
+        <div class="inputs inputs-full-width">
+            <div class="portlet-input">
+                <form>
+                    <div class="input-group">
+                        <input id="TenantsTableFilter" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text" value="@ViewBag.FilterText">
+                        <span class="input-group-btn">
+                            <button id="GetTenantsButton" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div>
+            <div id="TenantsTable"></div>
+        </div>
+    </div>
+</div>

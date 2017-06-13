@@ -1,0 +1,28 @@
+﻿@using Abp.Application.Editions
+<div>
+    <form name="editionCreateOrEditForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span ng-if="vm.edition.id">@L("EditEdition"): {{vm.edition.displayName}}</span>
+                <span ng-if="!vm.edition.id">@L("CreateNewEdition")</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <uib-tabset class="tab-container tabbable-line">
+                <uib-tab heading="@L("EditionProperties")">
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                        <input class="form-control" type="text" name="EditionDisplayName" ng-class="{'edited':vm.edition.displayName}" ng-model="vm.edition.displayName" required maxlength="@Edition.MaxDisplayNameLength">
+                        <label>@L("EditionName")</label>
+                    </div>
+                </uib-tab>
+                <uib-tab heading="@L("Features")">
+                    <feature-tree edit-data="vm.featureEditData"></feature-tree>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="editionCreateOrEditForm.$invalid"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+﻿@using Abp.Application.Editions
+@using Abp.Extensions
+@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Editions.CreateOrEditEditionModalViewModel
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditEdition") + ": " + Model.Edition.DisplayName) : L("CreateNewEdition")))
+
+<div class="modal-body">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs ">
+            <li class="active">
+                <a href="#EditionInformationsTab" data-toggle="tab" aria-expanded="true">
+                    @L("EditionProperties")
+                </a>
+            </li>
+            <li class="">
+                <a href="#FeaturesTab" data-toggle="tab" aria-expanded="false">
+                    @L("Features")
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="EditionInformationsTab">
+
+                <form name="EditionInformationsForm" role="form" novalidate class="form-validation">
+
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.Edition.Id" />
+                    }
+
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <input
+                            class="form-control@(Model.Edition.DisplayName.IsNullOrEmpty() ? "" : " edited")"
+                            type="text" name="DisplayName"
+                            value="@Model.Edition.DisplayName"
+                            required 
+                            maxlength="@Edition.MaxDisplayNameLength">
+                        <label>@L("EditionName")</label>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="tab-pane" id="FeaturesTab">
+                @Html.Partial("~/Areas/Mpa/Views/Common/_FeaturesTree.cshtml", Model)
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

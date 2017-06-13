@@ -1,0 +1,54 @@
+﻿[
+  {
+    "outputFile": "App/common/views/layout/header.css",
+    "inputFile": "App/common/views/layout/header.less"
+  },
+  {
+    "outputFile": "Areas/Mpa/Views/Layout/_Layout.css",
+    "inputFile": "Areas/Mpa/Views/Layout/_Layout.less"
+  },
+  {
+    "outputFile": "App/common/views/notifications/index.css",
+    "inputFile": "App/common/views/notifications/index.less"
+  },
+  {
+    "outputFile": "Areas/Mpa/Views/Notifications/Index.css",
+    "inputFile": "Areas/Mpa/Views/Notifications/Index.less"
+  },
+  {
+    "outputFile": "App/app.css",
+    "inputFile": "App/app.less"
+  },
+  {
+    "outputFile": "App/host/views/maintenance/index.css",
+    "inputFile": "App/host/views/maintenance/index.less"
+  },
+  {
+    "outputFile": "Areas/Mpa/Views/Maintenance/Index.css",
+    "inputFile": "Areas/Mpa/Views/Maintenance/Index.less"
+  },
+  {
+    "outputFile": "App/common/views/profile/changePicture.css",
+    "inputFile": "App/common/views/profile/changePicture.less"
+  },
+  {
+    "outputFile": "App/common/views/users/loginAttemptsModal.css",
+    "inputFile": "App/common/views/users/loginAttemptsModal.less"
+  },
+  {
+    "outputFile": "Areas/Mpa/Views/Users/_LoginAttemptsModal.css",
+    "inputFile": "Areas/Mpa/Views/Users/_LoginAttemptsModal.less"
+  },
+  {
+    "outputFile": "App/common/views/layout/chatbar.css",
+    "inputFile": "App/common/views/layout/chatbar.less"
+  },
+  {
+    "outputFile": "Areas/Mpa/Views/Layout/_ChatBar.css",
+    "inputFile": "Areas/Mpa/Views/Layout/_ChatBar.less"
+  },
+  {
+    "outputFile": "Common/Styles/core.css",
+    "inputFile": "Common/Styles/core.less"
+  }
+]

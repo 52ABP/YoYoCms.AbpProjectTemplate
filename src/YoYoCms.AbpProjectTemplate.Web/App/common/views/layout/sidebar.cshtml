@@ -1,0 +1,59 @@
+﻿<div class="page-sidebar navbar-collapse collapse">
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}" ng-if="vm.menu.items.length">
+        <!-- Menu Level 1 -->
+        <li class="nav-item" ng-repeat="menuItem in vm.menu.items" ui-sref-active="active" ng-class="{'start':$first}">
+            <a ui-sref="{{menuItem.url}}" ng-if="!menuItem.items.length">
+                <i class="{{menuItem.icon}}"></i>
+                <span class="title">{{menuItem.displayName}}</span>
+            </a>
+            <a href="javascript:;" class="auto" ng-if="menuItem.items.length">
+                <i class="{{menuItem.icon}}"></i>
+                <span class="title">{{menuItem.displayName}}</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu" ng-if="menuItem.items.length">
+                <!-- Menu Level 2 -->
+                <li class="nav-item" ng-repeat="childMenuItem in menuItem.items" ui-sref-active="active" ng-class="{'start':$first}">
+                    <a ui-sref="{{childMenuItem.url}}" ng-if="!childMenuItem.items.length">
+                        <i class="{{childMenuItem.icon}}"></i>
+                        <span class="title">{{childMenuItem.displayName}}</span>
+                    </a>
+                    <a href="javascript:;" class="auto" ng-if="childMenuItem.items.length">
+                        <i class="{{childMenuItem.icon}}"></i>
+                        <span class="title">{{childMenuItem.displayName}}</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu" ng-if="childMenuItem.items.length">
+                        <!-- Menu Level 3 -->
+                        <li class="nav-item" ng-repeat="childOfChildMenuItem in childMenuItem.items" ui-sref-active="active" ng-class="{'start':$first}">
+                            <a ui-sref="{{childOfChildMenuItem.url}}" ng-if="!childOfChildMenuItem.items.length">
+                                <i class="{{childOfChildMenuItem.icon}}"></i>
+                                <span class="title">{{childOfChildMenuItem.displayName}}</span>
+                            </a>
+                            <a href="javascript:;" class="auto" ng-if="childOfChildMenuItem.items.length">
+                                <i class="{{childOfChildMenuItem.icon}}"></i>
+                                <span class="title">{{childOfChildMenuItem.displayName}}</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu" ng-if="childOfChildMenuItem.items.length">
+                                <!-- Menu Level 4 -->
+                                <li class="nav-item" ng-repeat="childOfChildOfChildMenuItem in childOfChildMenuItem.items" ui-sref-active="active" ng-class="{'start':$first}">
+                                    <a ui-sref="{{childOfChildOfChildMenuItem.url}}">
+                                        <i class="{{childOfChildOfChildMenuItem.icon}}"></i>
+                                        <span class="title">{{childOfChildOfChildMenuItem.displayName}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>   

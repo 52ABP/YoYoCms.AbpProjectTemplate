@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.BodyClass = "page-404-full-page";
+    Layout = "~/Views/Error/_Layout.cshtml";
+}
+<div class="row">
+  <div class="col-md-12 page-404">
+    <div class="number font-red"> 404 </div>
+    <div class="details">
+      <h3>@L("OopsYouAreLost")</h3>
+      <p>
+        @L("WeCanNotFindThePage")<br>
+        <a href="@Url.Action("Index", "Home")" class="link">@L("HomePage")</a>.
+      </p>
+    </div>
+  </div>
+</div>

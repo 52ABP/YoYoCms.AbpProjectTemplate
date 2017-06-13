@@ -1,0 +1,69 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.MultiTenancy
+@using Recaptcha.Web
+@using Recaptcha.Web.Mvc
+@{
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+@section Scripts
+{
+    <script>
+        window.passwordComplexitySetting = @ViewBag.PasswordComplexitySetting;
+    </script>
+    @Html.IncludeScript("~/Views/TenantRegistration/Index.js")
+}
+<form class="register-form" action="@Url.Action("Register")" method="post">
+
+    <h3>@L("TenantSignUp")</h3>
+
+    @if (@ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <i class="fa fa-warning"></i> @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @Html.AntiForgeryToken()
+
+    <p class="hint">
+        @L("TenantInformations")
+    </p>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("TenancyName")</label>
+        <input class="form-control placeholder-no-fix input-ltr" type="text" placeholder="@L("TenancyName")" name="TenancyName" required maxlength="@Tenant.MaxTenancyNameLength" />
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("Name")</label>
+        <input class="form-control placeholder-no-fix" type="text" placeholder="@L("Name")" name="Name" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxNameLength" />
+    </div>
+    <p class="hint">
+        @L("AccountSettings")
+    </p>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("AdminEmailAddress")</label>
+        <input class="form-control placeholder-no-fix" type="email" placeholder="@L("AdminEmailAddress")" name="AdminEmailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength" />
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("AdminPassword")</label>
+        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="AdminPassword" placeholder="@L("AdminPassword")" name="AdminPassword" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("AdminPasswordRepeat")</label>
+        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="@L("AdminPasswordRepeat")" name="AdminPasswordRepeat" required />
+    </div>
+
+    @if (ViewBag.UseCaptcha)
+    {
+        <p class="hint">
+            @L("Captha_Hint")
+        </p>
+        <div class="form-group margin-bottom-20">
+            @Html.Recaptcha(theme: RecaptchaTheme.Red)
+        </div>
+    }
+
+    <div class="form-actions">
+        <a href="@Url.Action("Login","Account")"><button type="button" id="register-back-btn" class="btn btn-default">@L("Back")</button></a>
+        <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">@L("Submit")</button>
+    </div>
+</form>

@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ru">
+  <texts>
+    <text name="HomePage" value="Главная страница" />
+    <text name="AboutUs" value="О нас" />
+    <text name="Administration" value="Администрирование" />
+    <text name="Roles" value="Роли" />
+    <text name="Users" value="Пользователи" />
+    <text name="InvalidFormMessage" value="Данные в форме неверны. Пожалуйста, проверьте и измените их." />
+    <text name="InvalidUserNameOrPassword" value="Неверное имя пользователя или пароль" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="Нет клиента, зарегистрированного под именем {0}" />
+    <text name="TenantIsNotActive" value="Клиент {0} неактивен." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="Пользователь {0} неактивен и не может войти." />
+    <text name="PleaseEnterLoginInformation" value="Пожалуйста, введите информацию для входа" />
+    <text name="TenancyName" value="Имя клиента" />
+    <text name="UserNameOrEmail" value="Имя пользователя или email" />
+    <text name="Password" value="Пароль" />
+    <text name="RememberMe" value="Запомнить" />
+    <text name="LogIn" value="Войти" />
+    <text name="ForgotPassword" value="Восстановить пароль" />
+    <text name="DontYouHaveAnAccount" value="Разве у вас нет профиля?" />
+    <text name="CreateAnAccount" value="Создать профиль" />
+    <text name="Pages" value="Страницы" />
+    <text name="RoleName" value="Имя роли" />
+    <text name="EditRole" value="Изменить роль" />
+    <text name="CreateNewRole" value="Создать новую роль" />
+    <text name="RoleProperties" value="Свойства роли" />
+    <text name="Permissions" value="Права" />
+    <text name="Save" value="Сохранить" />
+    <text name="Cancel" value="Отмена" />
+    <text name="RolesHeaderInfo" value="Использование ролей для группировки прав." />
+    <text name="Static" value="Статичная" />
+    <text name="Actions" value="Действия" />
+    <text name="Delete" value="Удалить" />
+    <text name="SavedSuccessfully" value="Сохранено успешно." />
+    <text name="AreYouSure" value="Вы уверены?" />
+    <text name="YesDelete" value="Да, удалить!" />
+    <text name="DeletingUser" value="Удаление пользователя" />
+    <text name="UsersHeaderInfo" value="Управление пользователями и правами." />
+    <text name="CreateNewUser" value="Создать нового пользователя" />
+    <text name="UserName" value="Имя пользователя" />
+    <text name="Name" value="Имя" />
+    <text name="Surname" value="Фамилия" />
+    <text name="EmailAddress" value="Email адрес" />
+    <text name="LastLoginTime" value="Время последнего входа" />
+    <text name="EditUser" value="Изменить пользователя" />
+    <text name="UserInformations" value="Информация пользователя" />
+    <text name="PasswordRepeat" value="Пароль (повтор)" />
+    <text name="SuccessfullyDeleted" value="Успешно удалено." />
+    <text name="RoleDeleteWarningMessage" value="Роль {0} будет удалена и отвязана от привязанных пользователей." />
+    <text name="UserDeleteWarningMessage" value="Пользователь {0} будет удален." />
+    <text name="Active" value="Активно" />
+    <text name="EmailConfirm" value="Email подтвержден" />
+    <text name="Yes" value="Да" />
+    <text name="No" value="Нет" />
+    <text name="MySettings" value="Мои настройки" />
+    <text name="Logout" value="Выход" />
+    <text name="Reset" value="Сброс" />
+    <text name="ResetPermissionsTooltip" value="Эта кнопка немедленно сбрасывает настройки особых прав и сохраняет изменения. Пользователь будет иметь права, привязанные к роли." />
+    <text name="ResetSuccessfully" value="Успешно сброшено" />
+    <text name="Tenants" value="Клиенты" />
+    <text name="TenantsHeaderInfo" value="Управление клиентами." />
+    <text name="CreateNewTenant" value="Создать клиента" />
+    <text name="TenancyCodeName" value="Кодовое имя клиента" />
+    <text name="TenantName" value="Имя клиента" />
+    <text name="TenantDeleteWarningMessage" value="Клиент{0} будет удален." />
+    <text name="AdminEmailAddress" value="Email администратора" />
+    <text name="AdminPassword" value="Пароль администратора" />
+    <text name="AdminPasswordRepeat" value="Пароль администратора (повтор)" />
+    <text name="EditTenant" value="Изменить клиента" />
+    <text name="ChangingPermissions" value="Изменение прав" />
+    <text name="EditingUser" value="Изменение пользователя" />
+    <text name="CreatingNewUser" value="Создание нового пользователя" />
+    <text name="Edit" value="Изменить" />
+    <text name="EditingTenant" value="Изменение клиента" />
+    <text name="CreatingNewTenant" value="Создание нового клиента" />
+    <text name="DeletingTenant" value="Удаление клиента" />
+    <text name="EditingRole" value="Изменение роли" />
+    <text name="CreatingNewRole" value="Создание новой роли" />
+    <text name="DeletingRole" value="Удаление роли" />
+    <text name="CreationTime" value="Время создания" />
+    <text name="SearchWithThreeDot" value="Поиск..." />
+    <text name="ResetSpecialPermissions" value="Сброс особых прав" />
+    <text name="SavingWithThreeDot" value="Сохранение..." />
+    <text name="Settings" value="Настройки" />
+    <text name="SaveAll" value="Сохранить все" />
+    <text name="SettingsHeaderInfo" value="Отображение и изменение настроек системы." />
+    <text name="EmailSmtp" value="Email (SMTP)" />
+    <text name="DefaultFromAddress" value="Email адрес отправителя по умолчанию" />
+    <text name="DefaultFromDisplayName" value="Имя отправителя по умолчанию" />
+    <text name="SmtpHost" value="SMTP хост" />
+    <text name="SmtpPort" value="SMTP порт" />
+    <text name="UseDefaultCredentials" value="Использовать учетные данные по умолчанию" />
+    <text name="DomainName" value="Имя домена" />
+    <text name="UseSsl" value="Использовать SSL" />
+    <text name="ThisWebSiteRootAddress" value="Корневой адрес Web сайта" />
+    <text name="ThisWebSiteRootAddress_Hint" value="Будет использован при построении ссылок на этот Web сайт. Параметр необходим для таких задач, как построение ссылок для сброса пароля. Пример: htttp://mydomain.com/" />
+    <text name="General" value="Общие" />
+    <text name="SendPasswordResetLink_Information" value="Ссылка для сброса пароля будет отправлена на ваш Email адрес. Если вы не получите сообщение в течении нескольких минут, пожалуйста, попробуйте снова." />
+    <text name="Send" value="Отправить" />
+    <text name="PasswordReset" value="Сброс пароля" />
+    <text name="InvalidUserNameOrEmailAddress" value="Неверное имя пользователя или Email адрес" />
+    <text name="PasswordResetEmail_Subject" value="сброс пароля" />
+    <text name="PasswordResetEmail_Title" value="сброс пароля." />
+    <text name="PasswordResetEmail_SubTitle" value="Этот Email направлен вам для сброса и пересоздания пароля." />
+    <text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword" value="Пожалуйста, нажмите на ссылку ниже, чтобы сбросить пароль:" />
+    <text name="EmailActivation_Subject" value="активации Email для профиля" />
+    <text name="EmailActivation_Title" value="Добро пожаловать." />
+    <text name="EmailActivation_SubTitle" value="Этот сообщение отправлено для подтверждения вашего Email адреса." />
+    <text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail" value="Пожалуйста, нажмите на ссылку ниже, чтобы подтвердить Email адрес:" />
+    <text name="InvalidEmailAddress" value="Неверный Email адрес" />
+    <text name="InvalidPasswordResetCode" value="Неверный код сброса пароля" />
+    <text name="InvalidPasswordResetCode_Detail" value="Пожалуйста, удостоверьтесь, что вы попали на эту страницу после перехода по ссылке, отправленной на ваш Email адрес. Если это не решает проблему, попытайтесь повторно запросить новую ссылку на смену пароля." />
+    <text name="PleaseEnterYourNewPassword" value="Пожалуйста, введите ваш новый пароль." />
+    <text name="UserEmailIsNotConfirmedAndCanNotLogin" value="Ваш Email адрес не подтвержден. Для активации профиля, пожалуйста, проверьте вашу электронную почту и нажмите на ссылку подтверждения Email адреса. Если вы не получили сообщение, нажмите на 'подтвердить Email', чтобы запросить новое сообщение." />
+    <text name="LoginFailed" value="Ошибка входа!" />
+    <text name="InvalidEmailConfirmationCode" value="Неверный код подтверждения Email адреса" />
+    <text name="InvalidEmailConfirmationCode_Detail" value="Пожалуйста, удостоверьтесь, что вы попали на эту страницу после перехода по ссылке, отправленной на ваш Email адрес. Если это не решает проблему, попытайтесь повторно запросить новый код подтверждения." />
+    <text name="YourEmailIsConfirmedMessage" value="Ваш Email адрес успешно подтвержден." />
+    <text name="ShouldChangePasswordOnNextLogin" value="Необходимо изменить пароль при следующем входе." />
+    <text name="SetRandomPassword" value="Установить произвольный пароль." />
+    <text name="EmailActivation" value="Активация по Email" />
+    <text name="SendEmailActivationLink_Information" value="На ваш Email адрес будет отправлена ссылка для активации. Если вы не получите сообщение через несколько минут, пожалуйста, попробуйте снова." />
+    <text name="SendActivationEmail" value="Отправить сообщение для активации." />
+    <text name="ChangePassword" value="Изменить пароль" />
+    <text name="CurrentPassword" value="Текущий пароль" />
+    <text name="NewPassword" value="Новый пароль" />
+    <text name="NewPasswordRepeat" value="Новый пароль (повтор)" />
+    <text name="YourPasswordHasChangedSuccessfully" value="Ваш пароль успешно изменен." />
+    <text name="SelfUserRegistrationIsDisabledMessage" value="Вы не можете регистрироваться в систему!" />
+    <text name="SelfUserRegistrationIsDisabledMessage_Detail" value="Самостоятельная регистрация отключена для пользователей. Для регистрации, пожалуйста, свяжитесь с системным администратором." />
+    <text name="SuccessfullyRegistered" value="Успешная регистрация" />
+    <text name="ConfirmationMailSentPleaseClickLinkInTheEmail" value="Письмо для подтверждения отправлено на адрес {0}. Пожалуйста, перейдите по указанной в сообщении ссылке для активации Email адреса." />
+    <text name="YourAccountIsWaitingToBeActivatedByAdmin" value="Ваш профиль ожидает активации системным администратором." />
+    <text name="NameSurname" value="Фамилия" />
+    <text name="UserManagement" value="Управление пользователями" />
+    <text name="AllowUsersToRegisterThemselves" value="Позволить пользователям регистрироваться в системе." />
+    <text name="AllowUsersToRegisterThemselves_Hint" value="Если отключить этот параметр, пользователи будут добавляться только администратором на странице управления пользователями." />
+    <text name="NewRegisteredUsersIsActiveByDefault" value="Новые зарегистрированные пользователи активны по умолчанию." />
+    <text name="NewRegisteredUsersIsActiveByDefault_Hint" value="Если отключить этот параметр, то новые пользователи будут неактивны (и не смогут войти) до того момента, пока администратор вручную не активирует профиль." />
+    <text name="Default" value="По умолчанию" />
+    <text name="DefaultRole_Description" value="Привязка к новому пользователю по умолчанию." />
+    <text name="StaticRole_Tooltip" value="Статичные роли не могут быть удалены." />
+    <text name="EmailConfirmationRequiredForLogin" value="Для входа необходимо подтвердить Email адрес." />
+    <text name="{0}UserCannotBeDeleted" value="{0} пользователь не может быть удален." />
+    <text name="TenantNameCanNotBeEmpty" value="Имя клиента не может быть пустым" />
+    <text name="ExportToExcel" value="Экспорт в Excel" />
+    <text name="ChangeProfilePicture" value="Фото для профиля" />
+    <text name="TenantName_Regex_Description" value="Имя клиента должно иметь 2 знака, начинаться с латинской буквы и продолжаться латинской буквой, цифрой, тире или подчеркиванием." />
+    <text name="ProfilePicture_Change_Info" value="Вы можете выбрать файл в формате JPG/JPEG/PNG и размером не более 1MB." />
+    <text name="ProfilePicture_Change_Error" value="Фото для вашего профиля не может быть изменено." />
+    <text name="ProfilePicture_Warn_SizeLimit" value="Картинка должна быть менее 1 MB. Пожалуйста, выберите другой файл." />
+    <text name="ProfilePicture_Warn_FileType" value="Вы можете выбрать только файл в формате JPG/JPEG. Пожалуйста, выберите другой файл." />
+    <text name="Dashboard" value="Аналитика" />
+    <text name="DashboardHeaderInfo" value="статистика и отчеты" />
+    <text name="GoToApplication" value="Переход в систему" />
+    <text name="TenantInformations" value="Информация о клиенте" />
+    <text name="PersonalInformations" value="Персональная информация" />
+    <text name="AccountSettings" value="Настройки профиля" />
+    <text name="Captha_Hint" value="Пожалуйста, введите код безопасности, указанный на картинке ниже:" />
+    <text name="Back" value="Назад" />
+    <text name="Submit" value="Далее" />
+    <text name="SignUp" value="Регистрация" />
+    <text name="CaptchaCanNotBeEmpty" value="Код безопасности не может быть пустым." />
+    <text name="IncorrectCaptchaAnswer" value="Неверный код безопасности." />
+    <text name="FormIsNotValidMessage" value="Неверные данные в форме. Пожалуйста, проверьте и исправьте ошибки." />
+    <text name="CanNotChangeAdminUserName" value="Нельзя изменить имя пользователя для администратора." />
+    <text name="Error" value="Ошибка!" />
+    <text name="OopsYouAreLost" value="О, нет!" />
+    <text name="WeCanNotFindThePage" value="К сожалению, мы не можем найти страницу, которую вы запросили." />
+    <text name="DashboardDemo_Note_Title" value="Добро пожаловать в начальный проект ASP.NET Zero!" />
+    <text name="DashboardDemo_Note_Info">
+      В этом демо вы можете использовать левое меню для теста полнофункциональных страниц.
+      Эта страница аналитики предназначена для демонстрационных целей, текст и данные ничего не значат.
+      Почти все данные жестко закодированы в клиенте, кроме маленьких графиков MEMBER ACTIVITY.
+      Когда вы нажмете на кнопку REFRESH, данные для графика запрашиваются с сервера и сервер генерирует произвольные данные.
+    </text>
+    <text name="WelcomePage_Title" value="Добро пожаловать!" />
+    <text name="WelcomePage_Info" value="Добро пожаловать в систему. Вы можете использовать меню для начала работы в системе. Если вы не видите пунктов меню, возможно у вас нет прав для просмотра страниц. Запросите у системного администратора права." />
+    <text name="RequestedFileDoesNotExists" value="Запрошенный файл не существует!" />
+    <text name="MailSent" value="Письмо отправлено" />
+    <text name="PasswordResetMailSentMessage" value="Ссылка для сброса пароля отправлена на ваш Email адрес. Пожалуйста, проверьте свою почту." />
+    <text name="ActivationMailSentMessage" value="Ссылка для активации Email адреса отправлена. Пожалуйста, проверьте свою почту." />
+    <text name="UseCaptchaOnRegistration" value="Использовать вопрос с картинки безопасности (captcha) при регистрации." />
+    <text name="FormBasedRegistration" value="Регистрация на базе формы" />
+    <text name="LdapSettings" value="Настройки LDAP" />
+    <text name="EnableLdapAuthentication" value="Включить LDAP авторизацию." />
+    <text name="OtherSettings" value="Прочие настройки" />
+    <text name="AuditLogs" value="Аудит логи" />
+    <text name="Success" value="Успешно" />
+    <text name="Time" value="Время" />
+    <text name="Service" value="Служба" />
+    <text name="Action" value="Действие" />
+    <text name="Duration" value="Срок" />
+    <text name="IpAddress" value="IP адрес" />
+    <text name="Client" value="Клиент" />
+    <text name="Browser" value="Браузер" />
+    <text name="Xms" value="{0} мс" />
+    <text name="Close" value="Закрыть" />
+    <text name="Refresh" value="Обновить" />
+    <text name="ErrorState" value="Статус ошибки" />
+    <text name="All" value="Все" />
+    <text name="HasError" value="Имеет ошибку" />
+    <text name="ShowAdvancedFilters" value="Показать дополнительные фильтры" />
+    <text name="HideAdvancedFilters" value="Скрыть дополнительные фильтры" />
+    <text name="AuditLogDetail" value="Детали аудит логов" />
+    <text name="Parameters" value="Параметры" />
+    <text name="DateRange" value="Диапазон дат" />
+    <text name="ActionInformations" value="Информация о действии" />
+    <text name="Today" value="Сегодня" />
+    <text name="Yesterday" value="Вчера" />
+    <text name="Last7Days" value="Последние 7 дней" />
+    <text name="Last30Days" value="Последние 30 дней" />
+    <text name="ThisMonth" value="Этот месяц" />
+    <text name="LastMonth" value="Прошлый месяц" />
+    <text name="TenantSelection" value="Выбор Клиента" />
+    <text name="TenantSelection_Detail" value="Пожалуйста, выберите одного из следующих клиентов." />
+    <text name="LoginWith" value="Вход с:" />
+    <text name="PasswordChangeDontRememberMessage" value="Если вы не можете вспомнить ваш пароль, {0}." />
+    <text name="ClickHere" value="нажмите здесь" />
+    <text name="Apply" value="OK" />
+    <text name="CustomRange" value="Диапазон дат" />
+    <text name="DashboardNoteForMpaVersion">
+      <![CDATA[
+      Посмотреть демо версии Многостраничного Приложения с <strong>ASP.NET MVC</strong> и <strong>jQuery</strong>.
+      ]]>
+    </text>
+    <text name="DashboardNoteForSpaVersion">
+      <![CDATA[
+      Примечание: Также существует версия <strong>Одностраничного Приложения</strong> построенная на базе ASP.NET MVC и <strong>AngularJs</strong>.
+      ]]>
+    </text>
+    <text name="SeeDemo" value="Посмотреть демо" />
+    <text name="Edition" value="Издание" />
+    <text name="Editions" value="Издания" />
+    <text name="EditionsHeaderInfo" value="Управление изданиями и опциями системы" />
+    <text name="CreateNewEdition" value="Создать новое издание" />
+    <text name="EditEdition" value="Изменить издание" />
+    <text name="EditionProperties" value="Свойства издания" />
+    <text name="EditionName" value="Имя издания" />
+    <text name="Features" value="Опции" />
+    <text name="EditionDeleteWarningMessage" value="{0} будет удален и отвязан от всех назначенных клиентов." />
+    <text name="CreatingNewEdition" value="Создание нового издания" />
+    <text name="EditingEdition" value="Изменение издания" />
+    <text name="DeletingEdition" value="Удаление издания" />
+    <text name="ChangingFeatures" value="Изменение опций" />
+    <text name="ResetSpecialFeatures" value="Сброс особых опций" />
+    <text name="ResetFeaturesTooltip" value="Эта кнопка немедленно сбрасывает особые опции настроек клиента и сохраняет изменения. Клиент будет иметь только опции из назначенного издания." />
+    <text name="NotAssigned" value="Не назначено" />
+    <text name="InvalidFeaturesWarning" value="Неверно задано одно или более значение опции!" />
+    <text name="Languages" value="Языки" />
+    <text name="LanguagesHeaderInfo" value="Управление языками пользовательского интерфейса." />
+    <text name="CreateNewLanguage" value="Создать новый язык" />
+    <text name="Code" value="Код" />
+    <text name="CreatingNewLanguage" value="Создание нового языка" />
+    <text name="EditingLanguage" value="Изменение языка" />
+    <text name="DeletingLanguages" value="Удаление языка" />
+    <text name="ChangingTexts" value="Изменение текстов" />
+    <text name="SuccessfullySaved" value="Успешно сохранено." />
+    <text name="Language" value="Язык" />
+    <text name="Flag" value="Флаг" />
+    <text name="SetAsDefaultLanguage" value="Назначить языком по умолчанию" />
+    <text name="InvlalidLanguageCode" value="Неверный код языка." />
+    <text name="EditLanguage" value="Изменить язык" />
+    <text name="ChangeTexts" value="Изменить тексты" />
+    <text name="TargetValue" value="Целевое значение" />
+    <text name="BaseValue" value="Базовое значение" />
+    <text name="Key" value="Ключ" />
+    <text name="SaveAndClose" value="Сохранить, Закрыть" />
+    <text name="SaveAndNext" value="Сохранить, Далее" />
+    <text name="EditText" value="Изменить текст" />
+    <text name="LanguageTexts" value="Тексты языка" />
+    <text name="LanguageTextsHeaderInfo" value="Изменение текстов для языков." />
+    <text name="EmptyOnes" value="Пустые" />
+    <text name="Source" value="Источник" />
+    <text name="BaseLanguage" value="Базовый язык" />
+    <text name="TargetLanguage" value="Целевой язык" />
+    <text name="Previous" value="Ранее" />
+    <text name="LanguageDeleteWarningMessage" value="Вы уверены в удалении языка {0}?" />
+    <text name="CanNotEditOrDeleteDefaultLanguages" value="Нельзя изменять или удалять языки по умолчанию. Вы можете изменить или удалить языки, которые добавили. Однако можно изменять тексты всех языков." />
+    <text name="LookingForMpaVersion" value="Ищите Многостраничную версию системы?" />
+    <text name="LookingForSpaVersion" value="Ищите Одностраничную версию системы?" />
+    <text name="ThisLanguageAlreadyExists" value="Данный язык уже существует!" />
+    <text name="OrganizationUnits" value="Структура отделов" />
+    <text name="OrganizationUnitsHeaderInfo" value="Используйте структуру отделов, чтобы упорядочить пользователей и подразделения" />
+    <text name="OrganizationTree" value="Организационная структура" />
+    <text name="Members" value="Состав" />
+    <text name="SelectAnOrganizationUnitToSeeMembers" value="Для просмотра состава выберите структурный отдел." />
+    <text name="OrganizationUnitDeleteWarningMessage" value="Вы уверены в удалении структурного отдела {0}?" />
+    <text name="AddSubUnit" value="Добавить уровень" />
+    <text name="AddMember" value="Добавить состав" />
+    <text name="SuccessfullyAdded" value="Успешно добавлено" />
+    <text name="RemoveUserFromOuWarningMessage" value="Вы уверены в удалении пользователя {0} из структурного отдела {1}?" />
+    <text name="SuccessfullyRemoved" value="Успешно удалено" />
+    <text name="SelectAnItem" value="Выбор позицииm" />
+    <text name="NewOrganizationUnit" value="Новый структурный отдел" />
+    <text name="SelectAUser" value="Выбрать пользователя" />
+    <text name="Select" value="Выбор" />
+    <text name="UserIsAlreadyInTheOrganizationUnit" value="Этот пользователь уже в структурном отделе!" />
+    <text name="AddRootUnit" value="Добавить отдел" />
+    <text name="AddUser" value="Добавить пользователя" />
+    <text name="NoOrganizationUnitDefinedYet" value="Пока нет определенных структурных отделов." />
+    <text name="OrganizationUnitMoveConfirmMessage" value="Пожалуйста, подтвердите перенос {0} под {1}." />
+    <text name="Root" value="Корень" />
+    <text name="SuccessfullyMoved" value="Успешно перенесено." />
+    <text name="AddedTime" value="Время добавления" />
+    <text name="ManagingMembers" value="Управление составом" />
+    <text name="ManagingOrganizationTree" value="Управление организационной структурой" />
+    <text name="LoginForUsers" value="Вход под пользователями" />
+    <text name="LoginAsThisUser" value="Вход под этим пользователем" />
+    <text name="BackToMyAccount" value="Назад в профиль" />
+    <text name="LoginForTenants" value="Вход под клиентом" />
+    <text name="LoginAsThisTenant" value="Вход под этим клиентом" />
+    <text name="AuditLogImpersonatedOperationInfo" value="Примечание: Эта операция выполнена другим пользователем от имени данного пользователя." />
+    <text name="CustomData" value="Особые данные" />
+    <text name="None" value="Нет" />
+    <text name="YouCanBackToYourAccount" value="Вы можете вернуться назад в свой профиль здесь." />
+    <text name="CascadeImpersonationErrorMessage" value="Невозможно сделать каскадную персонализацию. Вход уже персонализирован!" />
+    <text name="FromTenantToHostImpersonationErrorMessage" value="Невозможно персонализировать системного пользователя из пользователя клиента!" />
+    <text name="DifferentTenantImpersonationErrorMessage" value="Невозможно персонализировать пользователя другого клиента!" />
+    <text name="ImpersonationTokenErrorMessage" value="Недействительный или просроченный персонализированный токен!" />
+    <text name="NotImpersonatedLoginErrorMessage" value="Вход не является персонализированным!" />
+    <text name="YouCannotLinkToSameAccount">Нельзя добавить такой же профиль.</text>
+    <text name="ChangePasswordBeforeLinkToAnAccount">Вы должны изменить свой пароль до добавления этого профиля!</text>
+    <text name="LinkedAccounts">Связанные профили</text>
+    <text name="ManageAccounts">Управление</text>
+    <text name="LinkNewAccount">Добавить новый профиль</text>
+    <text name="SuccessfullyUnlinked">Успешно отвязано</text>
+    <text name="LinkedUserDeleteWarningMessage">Связь с пользователем {0} будет удалена.</text>
+    <text name="SwitchToLinkedAccountTokenErrorMessage" value="Недействительный или просроченный персонализированный токен!" />
+    <text name="WelcomeToTheApplicationNotificationMessage" value="Добро пожаловать в omni! Система сообщений используется для оповещения об определенных событиях. Вы можете выбрать какие типы оповещений вы хотите получать от системы сообщений." />
+    <text name="NewUserRegisteredNotificationDefinition" value="При регистрации нового пользователя в системе." />
+    <text name="NewUserRegisteredNotificationMessage" value="Новый пользователь зарегистрирован в системе. Имя пользователя: {userName}, Email адрес: {emailAddress}." />
+    <text name="SeeAllNotifications" value="Просмотр всех сообщений" />
+    <text name="SetAsRead" value="Отметить как прочитанное" />
+    <text name="SetAllAsRead" value="Отметить все как прочитанные" />
+    <text name="NotificationSettings" value="Настройки сообщений" />
+    <text name="ReceiveNotifications" value="Получать сообщения" />
+    <text name="ReceiveNotifications_Definition" value="Эта опция может полностью включить/выключить получение сообщений." />
+    <text name="NotificationTypes" value="Типы сообщений" />
+    <text name="ReceiveNotifications_DisableInfo" value="Вы полностью выключили получение сообщений. Вы можете включить получение сообщений и выбрать типы, которые хотите получать." />
+    <text name="Notifications" value="Сообщения" />
+    <text name="ThereIsNoNotification" value="Нет сообщений." />
+    <text name="Unread" value="Непрочтенные" />
+    <text name="YouCanNotDeleteOwnAccount" value="Вы не можете удалить собственный профиль!" />
+    <text name="On" value="Вкл." />
+    <text name="Off" value="Откл." />
+    <text name="Maintenance">Обслуживание</text>
+    <text name="Caches">Кэши</text>
+    <text name="CacheSuccessfullyCleared">Кэш успешно очищен.</text>
+    <text name="AllCachesSuccessfullyCleared">Весь кэш успешно очищен.</text>
+    <text name="ClearAll">Очистить все</text>
+    <text name="Clear">Очистить</text>
+    <text name="CachesHeaderInfo">Вы можете очистить все кэши системы на этой странице.</text>
+    <text name="TestEmailSettingsHeader">Настройки тестового Email</text>
+    <text name="SendTestEmail">Отправить тестовый Email</text>
+    <text name="TestEmail_Subject">Тестовый Email</text>
+    <text name="TestEmail_Body">Это тестовое Email сообщение.</text>
+    <text name="TestEmailSentSuccessfully">Тестовое Email сообщение успешно отправлено.</text>
+    <text name="WebSiteLogs">Логи Web сайта</text>
+    <text name="WebSiteLogsHeaderInfo">На этой странице вы можете посмотреть последние логи или выгрузить их в одном ZIP файле.</text>
+    <text name="DownloadAll">Выгрузить все</text>
+    <text name="TenantManagement">Управление клиентами</text>
+    <text name="AllowTenantsToRegisterThemselves" value="Позволить клиентам регистрироваться в системе." />
+    <text name="AllowTenantsToRegisterThemselves_Hint" value="Отключив эту опцию, клиенты будут добавляться только администратором через страницу управления клиентами." />
+    <text name="NewRegisteredTenantsIsActiveByDefault" value="Новые клиенты активны по умолчанию." />
+    <text name="NewRegisteredTenantsIsActiveByDefault_Hint" value="Если отключить эту опцию, новые клиенты будут неактивны (и не смогут входить) до того, как администратор вручную не активирует профиль." />
+    <text name="TenantSignUp">Регистрация клиента</text>
+    <text name="NewTenantRegisteredNotificationDefinition" value="При регистрации нового клиента в системе." />
+    <text name="NewTenantRegisteredNotificationMessage" value="Новый клиент зарегистрирован в системе. Имя клиента: {tenancyName}." />
+    <text name="LoginAttempts">Попытки входа</text>
+    <text name="Failed">Неуспешно</text>
+    <text name="NewTenant">Новый клиент</text>
+    <text name="ResizedProfilePicture_Warn_SizeLimit" value="Сжатая картинка должна быть менее 100KB. Пожалуйста, уменьшите и попытайтесь снова." />
+    <text name="RegisterFormUserNameInvalidMessage">Пожалуйста, не вводите Email адрес для имени пользователя.</text>
+    <text name="UseHostDatabase" value="Использовать общую базу данных" />
+    <text name="DatabaseConnectionString" value="Строка подключения к базе данных" />
+    <text name="TenantDatabaseConnectionStringChangeWarningMessage" value="Внимание: Перед изменением для клиента строки подключения к базе данных, необходимо перенести базу данных в новое место. Изменение строки подключения не переносит базу данных клиента." />
+    <text name="Timezone">Часовой пояс</text>
+    <text name="HasOwnDatabase">Имеет свою базу данных</text>
+    <text name="TimeZoneSettingChangedRefreshPageNotification">Настройки часового пояса изменены. Нажмите кнопку OK для обновления страницы и вступления в силу изменений.</text>
+    <text name="Ok">OK</text>
+    <text name="Permission">Право</text>
+    <text name="Role">Роль</text>
+    <text name="Security">Безопасность</text>
+    <text name="PasswordComplexity">Сложность пароля</text>
+    <text name="MinPasswordLength">Минимальная длина пароля</text>
+    <text name="MaxPasswordLength">Максимальная длина пароля</text>
+    <text name="UseNumbers">Использовать числа в пароле</text>
+    <text name="UseUpperCaseLetters">Использовать верхний регистр в пароле</text>
+    <text name="UseLowerCaseLetters">Использовать нижний регистр в пароле</text>
+    <text name="UsePunctuations">Использовать пунктацию в пароле</text>
+    <text name="UseDefaultSettings">Использовать настройки по умолчанию</text>
+    <text name="PasswordComplexityNotSatisfied">Неудовлетворительная сложность пароля.</text>
+    <text name="PasswordComplexity_MinLength_Hint">Пароль должен содержать минимум {0} знаков</text>
+    <text name="PasswordComplexity_MaxLength_Hint">Пароль должен содержать максимум {0} знаков</text>
+    <text name="PasswordComplexity_UseNumbers_Hint">Пароль должен содержать хотя бы 1 число</text>
+    <text name="PasswordComplexity_UseUpperCaseLetters_Hint">Пароль должен содержать хотя бы 1 букву верхнего регистра</text>
+    <text name="PasswordComplexity_UseLowerCaseLetters_Hint">Пароль должен содержать хотя бы 1 букву нижнего регистра</text>
+    <text name="PasswordComplexity_UsePunctuations_Hint">Пароль должен содержать хотя бы 1 специальный символ</text>
+    <text name="YouAlreadySentAFriendshipRequestToThisUser">Вы же добавили данного пользователя</text>
+    <text name="YouCannotBeFriendWithYourself">Вы не можете добавить себя в друзья.</text>
+    <text name="NewChatMessageEmail_Title">Детали сообщения</text>
+    <text name="NewChatMessageEmail_SubTitle"></text>
+    <text name="NewChatMessageEmail_Subject">У вас новое сообщение в чате</text>
+    <text name="Sender">Отправитель</text>
+    <text name="Message">Сообщение</text>
+    <text name="UserBlocked">Пользователь успешно заблокирован.</text>
+    <text name="UserUnblocked">Блокировка с пользователя успешно снята.</text>
+    <text name="BlockUser">Блокировать пользователя</text>
+    <text name="UnblockUser">Разблокировать</text>
+    <text name="FriendshipRequestAccepted">Запрос на дружбу принят</text>
+    <text name="UserSendYouAFriendshipRequest">{0} добавил вас в друзья</text>
+    <text name="Friends">Друзья</text>
+    <text name="Others">Прочие</text>
+    <text name="BlockedUsers">Блокированные пользователи</text>
+    <text name="YouDontHaveAnyFriend">У вас нет друзей. Введите имя пользователя в поле сверху и нажмите кнопку "Добавить друга".</text>
+    <text name="YouDontHaveAnyBlockedFriend">У вас нет заброкированных пользователей. Для блокировки пользователя, выберите друга и нажмите на "Блокировать пользователя" в действиях.</text>
+    <text name="ChatUserSearch_Hint">
+      <![CDATA[
+      Введите только имя пользоватеня для пользователей внтри клиента,<br>
+      <strong>[tenancyName]\[userName]</strong> для пользователей другого клиента <br><br>
+      Например: <br>
+      .\admin -> для администратора Хоста <br>
+      Test\admin -> для администратора клиента Тест <br>
+      admin -> для вашего администратора
+      ]]>
+    </text>
+    <text name="AddFriend">Добавить друга</text>
+    <text name="TypeAMessageHere">Введите ваше сообщение здесь...</text>
+    <text name="Chat">Чат</text>
+    <text name="ChatFeature">Чат</text>
+    <text name="ChatFeatureIsNotEnabledForSender">Чат не активирован для вас.</text>
+    <text name="ChatFeatureIsNotEnabledForReceiver">Чат не активирован для клиента.</text>
+    <text name="UserIsBlocked">Пользователь заблокирован.</text>
+    <text name="ChatIsNotConnectedWarning">Чат не подключен.</text>
+    <text name="Demo_SampleChatMessage">Привет! Это тестовое сообщение. Пожалуйста, войдите в мою учетную запись из другого бразера, чтобы проверить как работает чат.</text>
+    <text name="TenantToTenantChatFeatureIsNotEnabledForSender">Чат с другими клиентами не активирован для вас.</text>
+    <text name="TenantToTenantChatFeatureIsNotEnabledForReceiver">Чат с другими клиентами не активирован для клиента.</text>
+    <text name="TenantToHostChatFeatureIsNotEnabledForSender">Чат с хостом не активирован для вас.</text>
+    <text name="TenantToHostChatFeatureIsNotEnabledForReceiver">Чат с хостом не активирован для клиента.</text>
+    <text name="TenantToTenantChatFeature">Чат с другими клиентами</text>
+    <text name="TenantToHostChatFeature">Чат с хостом</text>
+    <text name="FilterByPermission">Фильтр на права</text>
+    <text name="FilterByRole">Фильтр на роль</text>
+    <text name="FilterOrAddUser">Фильтр/Добавить пользователя</text>
+    <text name="HangfireDashboard" value="Hangfire dashboard" />
+    <text name="TargetUserNotFoundProbablyDeleted">Заданный пользователь не найден. Возможно, он удален.</text>
+    <text name="UserLockedOutMessage">Учетная запись пользователя была заблокирована. Пожалуйста, повторите попытку позже.</text>
+    <text name="SendSecurityCode">Отправить код безопасности.</text>
+    <text name="SendSecurityCode_Information">Для входа вам необходимо подтверждение. Выберите тип подтверждения. Вам будет отправлен код подтверждения на базе выбранного типа.</text>
+    <text name="SendSecurityCodeErrorMessage">Код безопасности не может быть отправлен!</text>
+    <text name="VerifySecurityCodeNotLoggedInErrorMessage">Для своего подтверждения необхоимо выполнить вход! Возможно, на попытку вашего входа наступил тайм-аутю. Вернитесь на страницу входа и попробуйте заново.</text>
+    <text name="VerificationCode">Код подтверждения</text>
+    <text name="VerifySecurityCode">Подтвердить код безопасности</text>
+    <text name="VerifySecurityCode_Information">Введите код подтверждения, который был отправлен вам.</text>
+    <text name="RememberThisBrowser">Запомнить этот бразер</text>
+    <text name="InvalidSecurityCode">Неверный код безопасности!</text>
+    <text name="PhoneNumber">Номер телефона</text>
+    <text name="Unlock">Разблокировать</text>
+    <text name="UnlockedTheUser">Разблокировал пользователя {0}</text>
+    <text name="UserLockOut">Блокировка пользователя</text>
+    <text name="EnableUserAccountLockingOnFailedLoginAttemts">Включить блокировку учетной записи пользователя при неверных попытках входа</text>
+    <text name="MaxFailedAccessAttemptsBeforeLockout">Максимальное число неверных попыток входа до блокировки учетной записи</text>
+    <text name="DefaultAccountLockoutDurationAsSeconds">Срок блокировки учетной записи (секунд)</text>
+    <text name="TwoFactorLogin">Двухфакторная аутентификация</text>
+    <text name="EnableTwoFactorLogin">Включить двухфакторную аутентификация.</text>
+    <text name="IsEmailVerificationEnabled">Включить проверку по Email.</text>
+    <text name="IsSmsVerificationEnabled">Включить проверку по SMS.</text>
+    <text name="AllowToRememberBrowserForTwoFactorLogin">Разрешить запоминание браузера. Если выбрать эту опцию, пользователи смогут запомнить браузер, чтобы пропустить повторную двухфакторную аутентификацию для того же браузера.</text>
+  </texts>
+</localizationDictionary>

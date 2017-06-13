@@ -1,0 +1,37 @@
+﻿@using Abp.Web.Mvc.Extensions
+@model YoYoCms.AbpProjectTemplate.Web.Models.Account.VerifySecurityCodeViewModel
+@section Scripts
+{
+    @Html.IncludeScript("~/Views/Account/VerifySecurityCode.js")
+}
+@using (Html.BeginForm("VerifySecurityCode", "Account", new { returnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "verify-security-code-form", role = "form" }))
+{
+    <h3>@L("VerifySecurityCode")</h3>
+    <p>@L("VerifySecurityCode_Information")</p>
+
+    @Html.AntiForgeryToken()
+
+    @Html.Hidden("provider", @Model.Provider)
+    @Html.Hidden("rememberMe", @Model.RememberMe)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Code)
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control", required = "required" })
+    </div>
+
+    if (Model.IsRememberBrowserEnabled)
+    {
+        <div class="form-group">
+            <div class="mt-checkbox-list">
+                <label class="mt-checkbox mt-checkbox-outline">
+                    @Html.CheckBoxFor(m => m.RememberBrowser, new { @class = "form-control" }) @L("RememberThisBrowser")
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    }
+
+    <div class="form-actions">
+        <input type="submit" class="btn btn-success uppercase pull-right" value="@L("Submit")" />
+    </div>
+}

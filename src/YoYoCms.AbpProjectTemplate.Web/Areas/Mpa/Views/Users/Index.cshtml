@@ -1,0 +1,109 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using Abp.Application.Services.Dto
+@using YoYoCms.AbpProjectTemplate.Authorization
+@using YoYoCms.AbpProjectTemplate.Web.Navigation
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Users.UsersViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Common.Users;
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Users/index.min.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Common/_PermissionTree.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Users/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Users/_PermissionsModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Users/Index.js")
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Users")</span> <small>@L("UsersHeaderInfo")</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        <button id="ExportUsersToExcelButton" class="btn btn-default"><i class="fa fa-file-excel-o"></i> @L("ExportToExcel")</button>
+        @if (IsGranted(AppPermissions.Pages_Administration_Users_Create))
+        {
+            <button id="CreateNewUserButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewUser")</button>
+        }
+    </div>
+</div>
+
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+        <div class="form">
+            <form class="horizontal-form">
+                <div class="form-body" enter-key="vm.getUsers()">
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-12">
+                            <div class="inputs inputs-full-width">
+                                <div class="portlet-input">
+                                    <form>
+                                        <div class="input-group">
+                                            <input id="UsersTableFilter" class="form-control" placeholder="@L("SearchWithThreeDot")" type="text" value="@Model.FilterText">
+                                            <span class="input-group-btn">
+                                                <button id="GetUsersButton" class="btn default" type="submit"><i class="icon-magnifier"></i></button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="AdvacedAuditFiltersArea" style="display: none">
+                        <div class="row margin-bottom-10">
+                            <div class="@(IsGranted(AppPermissions.Pages_Administration_Roles) ? "col-md-6" : "col-md-12")">
+                                <div class="form-group">
+                                    @Html.DropDownList(
+                                        "PermissionSelectionCombobox", Model.Permissions.Select(i => i.ToSelectListItem()),
+                                        new
+                                        {
+                                            @class = "form-control selectpicker",
+                                            data_live_search = "true",
+                                            data_none_selected_text = L("FilterByPermission"),
+                                            id = "PermissionSelectionCombo"
+                                        })
+                                </div>
+                            </div>
+                            @if (IsGranted(AppPermissions.Pages_Administration_Roles))
+                            {
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        @Html.DropDownList(
+                                        "RoleSelectionCombobox", Model.Roles.Select(i => i.ToSelectListItem()),
+                                        new
+                                        {
+                                            @class = "form-control selectpicker",
+                                            data_live_search = "true",
+                                            data_none_selected_text = L("FilterByRole"),
+                                            id = "RoleSelectionCombo"
+                                        })
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="row margin-bottom-10">
+                            <div class="col-sm-12 text-right">
+                                <button id="RefreshUserListButton" class="btn blue"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-bottom-10">
+                    <div class="col-sm-12">
+                        <span id="ShowAdvancedFiltersSpan" class="clickable-item text-muted"><i class="fa fa-angle-down"></i> @L("ShowAdvancedFilters")</span>
+                        <span id="HideAdvancedFiltersSpan" class="clickable-item text-muted" style="display: none"><i class="fa fa-angle-up"></i> @L("HideAdvancedFilters")</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="UsersTable"></div>
+    </div>
+</div>

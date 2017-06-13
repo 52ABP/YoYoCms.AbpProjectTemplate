@@ -1,0 +1,27 @@
+﻿@using Abp.Extensions
+@using Abp.Json
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.IFeatureEditViewModel
+@helper CreateFeatureTreeItems(string parentName)
+{
+    var features = Model.Features.Where(p => p.ParentName == parentName || (p.ParentName.IsNullOrEmpty() && parentName.IsNullOrEmpty())).ToList();
+    if (!features.Any())
+    {
+        return;
+    }
+
+    <ul>
+        @foreach (var feature in features)
+        {
+            var featureValue = Model.FeatureValues.FirstOrDefault(fv => fv.Name == feature.Name);
+            var value = featureValue == null ? feature.DefaultValue : featureValue.Value;
+            var isSelected = string.Equals(value, "true", StringComparison.InvariantCultureIgnoreCase);
+            <li id="@feature.Name" class="jstree-open" data-jstree='{"selected": @isSelected.ToString().ToLower()}' data-feature='@feature.ToJsonString(true)' data-feature-value='@value.Replace("'","''")'>
+                @feature.DisplayName
+                @CreateFeatureTreeItems(feature.Name)
+            </li>
+        }
+    </ul>
+}
+<div class="feature-tree">
+    @CreateFeatureTreeItems(null)
+</div>

@@ -1,0 +1,131 @@
+﻿@using System.Threading
+@using System.Web.Optimization
+@using Abp.Extensions
+@using Abp.MultiTenancy
+@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Features
+@using YoYoCms.AbpProjectTemplate.Localization
+@using YoYoCms.AbpProjectTemplate.Web.Bundling
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js" data-ng-app="app"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js" data-ng-app="app"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" dir=@(CultureHelper.IsRtl ? "rtl" : "")>
+<!--<![endif]-->
+<head>
+    <title>AbpProjectTemplate</title>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <link rel="shortcut icon" href="~/favicon.ico" />
+
+    <link href="~/Content/fonts-open-sans.css" rel="stylesheet" type="text/css" />
+
+    @Styles.Render("~/Bundles/Mpa/libs/css" + (CultureHelper.IsRtl ? "RTL" : ""))
+    @Styles.Render("~/Bundles/Mpa/metronic/css" + (CultureHelper.IsRtl ? "RTL" : ""))
+    @Styles.Render("~/Bundles/Common/css")
+    @if (AbpSession.MultiTenancySide == MultiTenancySides.Host || IsFeatureEnabled(AppFeatures.ChatFeature))
+    {
+        @Html.IncludeStyle("~/Areas/Mpa/Views/Layout/_ChatBar.min.css")
+    }
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Layout/_Layout.min.css")
+
+    @RenderSection("Styles", false)
+
+    <script type="text/javascript">
+        @* This is used to get the application's root path from javascript.
+        It's useful if you're running application in a virtual directory under IIS. *@
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body class="page-md page-header-fixed page-sidebar-closed-hide-logo">
+
+    <div class="page-header navbar navbar-fixed-top md-shadow-zero-light">
+        @Html.Action("Header", "Layout")
+    </div>
+
+    <div class="clearfix">
+    </div>
+
+    <div class="page-container">
+        <div class="page-sidebar-wrapper">
+            @Html.Action("Sidebar", "Layout", new { currentPageName = ViewBag.CurrentPageName })
+        </div>
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                @RenderBody()
+            </div>
+        </div>
+        @if (AbpSession.MultiTenancySide == MultiTenancySides.Host || IsFeatureEnabled(AppFeatures.ChatFeature))
+        {
+            @Html.Action("ChatBar", "Layout")
+        }
+    </div>
+
+    <div class="page-footer">
+        @Html.Action("Footer", "Layout")
+    </div>
+
+    <!--[if lt IE 9]>
+        <script src="~/libs/respond/respond.min.js"></script>
+        <script src="~/libs/html5shiv/html5shiv.js"></script>
+        <script src="~/libs/excanvas/excanvas.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/Bundles/Mpa/libs/js")
+
+    @Html.IncludeScript(ScriptPaths.JQuery_Validation_Localization)
+    @Html.IncludeScript(ScriptPaths.JQuery_JTable_Localization)
+    @Html.IncludeScript(ScriptPaths.Bootstrap_Select_Localization)
+    @Html.IncludeScript(ScriptPaths.JQuery_Timeago_Localization)
+   
+
+    <script>
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing moment.js
+    </script>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/api/AbpServiceProxies/GetAll"></script>
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+
+    <!-- SignalR scripts -->
+    <script src="~/signalr/hubs"></script>
+    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
+
+    @Scripts.Render("~/Bundles/Mpa/metronic/js")
+    <script type="text/javascript">
+        App.setAssetsPath(abp.appPath + 'metronic/assets/');
+    </script>
+
+    @Scripts.Render("~/Bundles/Common/js")
+    @Scripts.Render("~/Bundles/Mpa/Common/js")
+
+    @Html.IncludeScript("~/Areas/Mpa/Views/Layout/_Header.js")
+    @if (AbpSession.MultiTenancySide == MultiTenancySides.Host || IsFeatureEnabled(AppFeatures.ChatFeature))
+    {
+        @Html.IncludeScript("~/Areas/Mpa/Views/Layout/_ChatBar.js")
+    }
+
+
+    @RenderSection("Scripts", false)
+</body>
+</html>

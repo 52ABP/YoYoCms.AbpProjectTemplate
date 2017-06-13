@@ -1,0 +1,10 @@
+﻿.feature-tree-textbox {
+  max-width: 100px;
+  margin: 1px;
+  margin-left: 5px;
+}
+.feature-tree-textbox.feature-tree-textbox-invalid {
+  background: #f00;
+  color: white;
+}
+/*# sourceMappingURL=featureTree.css.map */

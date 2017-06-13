@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="en">
+  <texts>
+    <text name="HomePage" value="Home page" />
+    <text name="AboutUs" value="About us" />
+    <text name="Administration" value="Administration" />
+    <text name="Roles" value="Roles" />
+    <text name="Users" value="Users" />
+    <text name="InvalidFormMessage" value="Your form is invalid. Please check and correct it." />
+    <text name="InvalidUserNameOrPassword" value="Invalid user name or password" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="There is no tenant defined with name {0}" />
+    <text name="TenantIsNotActive" value="Tenant {0} is not active." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="User {0} is not active and can not log in." />
+    <text name="PleaseEnterLoginInformation" value="Please enter login information" />
+    <text name="TenancyName" value="Tenancy name" />
+    <text name="UserNameOrEmail" value="User name or email" />
+    <text name="Password" value="Password" />
+    <text name="RememberMe" value="Remember me" />
+    <text name="LogIn" value="Log in" />
+    <text name="ForgotPassword" value="Forgot password?" />
+    <text name="DontYouHaveAnAccount" value="Don't you have an account?" />
+    <text name="CreateAnAccount" value="Create account" />
+    <text name="Pages" value="Pages" />
+    <text name="RoleName" value="Role name" />
+    <text name="EditRole" value="Edit role" />
+    <text name="CreateNewRole" value="Create new role" />
+    <text name="RoleProperties" value="Role properties" />
+    <text name="Permissions" value="Permissions" />
+    <text name="Save" value="Save" />
+    <text name="Cancel" value="Cancel" />
+    <text name="RolesHeaderInfo" value="Use roles to group permissions." />
+    <text name="Static" value="Static" />
+    <text name="Actions" value="Actions" />
+    <text name="Delete" value="Delete" />
+    <text name="SavedSuccessfully" value="Saved successfully." />
+    <text name="AreYouSure" value="Are you sure?" />
+    <text name="YesDelete" value="Yes, delete!" />
+    <text name="DeletingUser" value="Deleting user" />
+    <text name="UsersHeaderInfo" value="Manage users and permissions." />
+    <text name="CreateNewUser" value="Create new user" />
+    <text name="UserName" value="User name" />
+    <text name="Name" value="Name" />
+    <text name="Surname" value="Surname" />
+    <text name="EmailAddress" value="Email address" />
+    <text name="LastLoginTime" value="Last login time" />
+    <text name="EditUser" value="Edit user" />
+    <text name="UserInformations" value="User informations" />
+    <text name="PasswordRepeat" value="Password (repeat)" />
+    <text name="SuccessfullyDeleted" value="Successfully deleted." />
+    <text name="RoleDeleteWarningMessage" value="Role {0} will be deleted and unassigned from all assigned users." />
+    <text name="UserDeleteWarningMessage" value="User {0} will be deleted." />
+    <text name="Active" value="Active" />
+    <text name="EmailConfirm" value="Email confirm" />
+    <text name="Yes" value="Yes" />
+    <text name="No" value="No" />
+    <text name="MySettings" value="My settings" />
+    <text name="Logout" value="Logout" />
+    <text name="Reset" value="Reset" />
+    <text name="ResetPermissionsTooltip" value="This button immediately resets user specific permission settings and saves changes. The user will only have permissions from assigned roles." />
+    <text name="ResetSuccessfully" value="Reset successfully" />
+    <text name="Tenants" value="Tenants" />
+    <text name="TenantsHeaderInfo" value="Manage your tenants." />
+    <text name="CreateNewTenant" value="Create new tenant" />
+    <text name="TenancyCodeName" value="Tenancy code name" />
+    <text name="TenantName" value="Tenant name" />
+    <text name="TenantDeleteWarningMessage" value="Tenant {0} will be deleted." />
+    <text name="AdminEmailAddress" value="admin email" />
+    <text name="AdminPassword" value="admin password" />
+    <text name="AdminPasswordRepeat" value="admin password (repeat)" />
+    <text name="EditTenant" value="Edit tenant" />
+    <text name="ChangingPermissions" value="Changing permissions" />
+    <text name="EditingUser" value="Editing user" />
+    <text name="CreatingNewUser" value="Creating new user" />
+    <text name="Edit" value="Edit" />
+    <text name="EditingTenant" value="Editing tenant" />
+    <text name="CreatingNewTenant" value="Creating new tenant" />
+    <text name="DeletingTenant" value="Deleting tenant" />
+    <text name="EditingRole" value="Editing role" />
+    <text name="CreatingNewRole" value="Creating new role" />
+    <text name="DeletingRole" value="Deleting role" />
+    <text name="CreationTime" value="Creation time" />
+    <text name="SearchWithThreeDot" value="Search..." />
+    <text name="ResetSpecialPermissions" value="Reset special permissions" />
+    <text name="SavingWithThreeDot" value="Saving..." />
+    <text name="Settings" value="Settings" />
+    <text name="SaveAll" value="Save all" />
+    <text name="SettingsHeaderInfo" value="Show and change application settings." />
+    <text name="EmailSmtp" value="Email (SMTP)" />
+    <text name="DefaultFromAddress" value="Default from (sender) email address" />
+    <text name="DefaultFromDisplayName" value="Default from (sender) display name" />
+    <text name="SmtpHost" value="SMTP host" />
+    <text name="SmtpPort" value="SMTP port" />
+    <text name="UseDefaultCredentials" value="Use default credentials" />
+    <text name="DomainName" value="Domain name" />
+    <text name="UseSsl" value="Use SSL" />
+    <text name="ThisWebSiteRootAddress" value="Web site root address" />
+    <text name="ThisWebSiteRootAddress_Hint" value="It will be used when building links to this web site. It's needed for some tasks like building password reset links. Ex: http://mydomain.com/" />
+    <text name="General" value="General" />
+    <text name="SendPasswordResetLink_Information" value="A password reset link will be sent to your email to reset your password. If you don't get an email within a few minutes, please re-try." />
+    <text name="Send" value="Send" />
+    <text name="PasswordReset" value="Password reset" />
+    <text name="InvalidUserNameOrEmailAddress" value="Invalid user name or email address" />
+    <text name="PasswordResetEmail_Subject" value="AbpProjectTemplate password reset" />
+    <text name="PasswordResetEmail_Title" value="AbpProjectTemplate password reset." />
+    <text name="PasswordResetEmail_SubTitle" value="This email is sent you to reset and re-create your password." />
+    <text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword" value="Please click the link below to reset your password:" />
+    <text name="EmailActivation_Subject" value="AbpProjectTemplate account email activation" />
+    <text name="EmailActivation_Title" value="Welcome to AbpProjectTemplate." />
+    <text name="EmailActivation_SubTitle" value="This email is sent you to verify your email." />
+    <text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail" value="Please click the link below to verify your email address:" />
+    <text name="InvalidEmailAddress" value="Invalid email address" />
+    <text name="InvalidPasswordResetCode" value="Invalid password reset code" />
+    <text name="InvalidPasswordResetCode_Detail" value="Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new password reset link." />
+    <text name="PleaseEnterYourNewPassword" value="Please enter your new password." />
+    <text name="UserEmailIsNotConfirmedAndCanNotLogin" value="Your email address is not confirmed. Please check your email and click the email confirmation link to activate your account. If you did not receive activation email, click the 'email confirmation' to request a new email." />
+    <text name="LoginFailed" value="Login failed!" />
+    <text name="InvalidEmailConfirmationCode" value="Invalid email confirmation code" />
+    <text name="InvalidEmailConfirmationCode_Detail" value="Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new confirmation code." />
+    <text name="YourEmailIsConfirmedMessage" value="Your email address is successfully confirmed." />
+    <text name="ShouldChangePasswordOnNextLogin" value="Should change password on next login." />
+    <text name="SetRandomPassword" value="Set random password." />
+    <text name="EmailActivation" value="Email activation" />
+    <text name="SendEmailActivationLink_Information" value="A link will be sent to your email to activate your email address. If you don't get an email within a few minutes, please re-try." />
+    <text name="SendActivationEmail" value="Send activation email." />
+    <text name="ChangePassword" value="Change password" />
+    <text name="CurrentPassword" value="Current password" />
+    <text name="NewPassword" value="New password" />
+    <text name="NewPasswordRepeat" value="New password (repeat)" />
+    <text name="YourPasswordHasChangedSuccessfully" value="Your password has changed successfully." />
+    <text name="SelfUserRegistrationIsDisabledMessage" value="You can not register to the system!" />
+    <text name="SelfUserRegistrationIsDisabledMessage_Detail" value="Self user registration is disabled. Please contact to the system administrator to register." />
+    <text name="SuccessfullyRegistered" value="Successfully registered" />
+    <text name="ConfirmationMailSentPleaseClickLinkInTheEmail" value="A confirmation mail sent to {0}. Please click link in the email in order to confirm your mail address." />
+    <text name="YourAccountIsWaitingToBeActivatedByAdmin" value="Your account is waiting to be activated by system admin." />
+    <text name="NameSurname" value="Name surname" />
+    <text name="UserManagement" value="User management" />
+    <text name="AllowUsersToRegisterThemselves" value="Allow users to register to the system." />
+    <text name="AllowUsersToRegisterThemselves_Hint" value="If you disable this, users will only be added by admin using user management page." />
+    <text name="NewRegisteredUsersIsActiveByDefault" value="New registered users are active by default." />
+    <text name="NewRegisteredUsersIsActiveByDefault_Hint" value="If you disable this, new users will not be active (and can not login) until admin manually activate the account." />
+    <text name="Default" value="Default" />
+    <text name="DefaultRole_Description" value="Assign to new users as default." />
+    <text name="StaticRole_Tooltip" value="Static roles can not be deleted." />
+    <text name="EmailConfirmationRequiredForLogin" value="Email confirmation required for login." />
+    <text name="{0}UserCannotBeDeleted" value="{0} user can not be deleted." />
+    <text name="TenantNameCanNotBeEmpty" value="Tenant name can not be empty" />
+    <text name="ExportToExcel" value="Export to excel" />
+    <text name="ChangeProfilePicture" value="Change profile picture" />
+    <text name="TenantName_Regex_Description" value="Tenant name must be at least 2 chars, starts with a letter and continue with letter, number, dash or underscore." />
+    <text name="ProfilePicture_Change_Info" value="You can select a JPG/JPEG/PNG file with a maximum 1MB size." />
+    <text name="ProfilePicture_Change_Error" value="Your profile picture could not be changed." />
+    <text name="ProfilePicture_Warn_SizeLimit" value="Picture size must be smalled than 1MB. Please select another file." />
+    <text name="ProfilePicture_Warn_FileType" value="You can only select JPG/JPEG file. Please select another file." />
+    <text name="Dashboard" value="Dashboard" />
+    <text name="DashboardHeaderInfo" value="statistics and reports" />
+    <text name="GoToApplication" value="Go to application" />
+    <text name="TenantInformations" value="Tenant informations" />
+    <text name="PersonalInformations" value="Personal information" />
+    <text name="AccountSettings" value="Account settings" />
+    <text name="Captha_Hint" value="Please enter the security code shown in the picture below:" />
+    <text name="Back" value="Back" />
+    <text name="Submit" value="Submit" />
+    <text name="SignUp" value="Sign up" />
+    <text name="CaptchaCanNotBeEmpty" value="Security code can not be empty." />
+    <text name="IncorrectCaptchaAnswer" value="Security code is not valid." />
+    <text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />
+    <text name="CanNotChangeAdminUserName" value="Can not change username of the admin." />
+    <text name="Error" value="Error!" />
+    <text name="OopsYouAreLost" value="Oops! You're lost." />
+    <text name="WeCanNotFindThePage" value="We can not find the page you're looking for." />
+    <text name="DashboardDemo_Note_Title" value="Welcome to ASP.NET Zero startup project!" />
+    <text name="DashboardDemo_Note_Info">
+      In this demo, you can use the left menu to test the application.
+      This dashboard page is just for demonstration, but all other pages and functionalities are fully implemented, working and ready for production.
+      You can add/apply your business requirements on this startup project (or remove any functionality you don't need).
+      Thus, you can have a signification time gain to immediately start your own project requirements.
+    </text>
+    <text name="WelcomePage_Title" value="Welcome!" />
+    <text name="WelcomePage_Info" value="Welcome to the application. You can use the menu to start using the application. If you don't see any menu item, probably you don't have permission to see any page. Consider to ask system administration for permissions." />
+    <text name="RequestedFileDoesNotExists" value="Requested file does not exists!" />
+    <text name="MailSent" value="Mail sent" />
+    <text name="PasswordResetMailSentMessage" value="A password reset link sent to your e-mail address. Please check your emails." />
+    <text name="ActivationMailSentMessage" value="An e-mail activation link sent to your e-mail address. Please check your emails." />
+    <text name="UseCaptchaOnRegistration" value="Use security image question (captcha) on registration." />
+    <text name="FormBasedRegistration" value="Form Based Registration" />
+    <text name="LdapSettings" value="LDAP Settings" />
+    <text name="EnableLdapAuthentication" value="Enable LDAP Authentication." />
+    <text name="OtherSettings" value="Other Settings" />
+    <text name="AuditLogs" value="Audit logs" />
+    <text name="Success" value="Success" />
+    <text name="Time" value="Time" />
+    <text name="Service" value="Service" />
+    <text name="Action" value="Action" />
+    <text name="Duration" value="Duration" />
+    <text name="IpAddress" value="IP address" />
+    <text name="Client" value="Client" />
+    <text name="Browser" value="Browser" />
+    <text name="Xms" value="{0} ms" />
+    <text name="Close" value="Close" />
+    <text name="Refresh" value="Refresh" />
+    <text name="ErrorState" value="Error state" />
+    <text name="All" value="All" />
+    <text name="HasError" value="Has error" />
+    <text name="ShowAdvancedFilters" value="Show advanced filters" />
+    <text name="HideAdvancedFilters" value="Hide advanced filters" />
+    <text name="AuditLogDetail" value="Audit log detail" />
+    <text name="Parameters" value="Parameters" />
+    <text name="DateRange" value="Date range" />
+    <text name="ActionInformations" value="Action informations" />
+    <text name="Today" value="Today" />
+    <text name="Yesterday" value="Yesterday" />
+    <text name="Last7Days" value="Last 7 days" />
+    <text name="Last30Days" value="Last 30 days" />
+    <text name="ThisMonth" value="This month" />
+    <text name="LastMonth" value="Last month" />
+    <text name="TenantSelection" value="Tenant Selection" />
+    <text name="TenantSelection_Detail" value="Please select one of the following tenants." />
+    <text name="LoginWith" value="Login with:" />
+    <text name="PasswordChangeDontRememberMessage" value="If you can not remember your password, {0}." />
+    <text name="ClickHere" value="click here" />
+    <text name="Apply" value="Apply" />
+    <text name="CustomRange" value="Custom range" />
+    <text name="DashboardNoteForMpaVersion">
+      <![CDATA[
+      See Demo for Multi-Page Application version with <strong>ASP.NET MVC</strong> and <strong>jQuery</strong>.
+      ]]>
+    </text>
+    <text name="DashboardNoteForSpaVersion">
+      <![CDATA[
+      Notice: There is also a <strong>Single-Page Application</strong> version built using ASP.NET MVC and <strong>AngularJs</strong>.
+      ]]>
+    </text>
+    <text name="SeeDemo" value="See demo" />
+    <text name="Edition" value="Edition" />
+    <text name="Editions" value="Editions" />
+    <text name="EditionsHeaderInfo" value="Manage editions and features of the application" />
+    <text name="CreateNewEdition" value="Create new edition" />
+    <text name="EditEdition" value="Edit edition" />
+    <text name="EditionProperties" value="Edition properties" />
+    <text name="EditionName" value="Edition name" />
+    <text name="Features" value="Features" />
+    <text name="EditionDeleteWarningMessage" value="{0} will be deleted and unassigned from all assigned tenants." />
+    <text name="CreatingNewEdition" value="Creating new edition" />
+    <text name="EditingEdition" value="Editing edition" />
+    <text name="DeletingEdition" value="Deleting edition" />
+    <text name="ChangingFeatures" value="Changing features" />
+    <text name="ResetSpecialFeatures" value="Reset special features" />
+    <text name="ResetFeaturesTooltip" value="This button immediately resets tenant specific feature settings and saves changes. The tenant will only have features from assigned edition." />
+    <text name="NotAssigned" value="Not assigned" />
+    <text name="InvalidFeaturesWarning" value="One or more feature values are not valid!" />
+    <text name="Languages" value="Languages" />
+    <text name="LanguagesHeaderInfo" value="Manage user interface languages." />
+    <text name="CreateNewLanguage" value="Create new language" />
+    <text name="Code" value="Code" />
+    <text name="CreatingNewLanguage" value="Creating new language" />
+    <text name="EditingLanguage" value="Editing language" />
+    <text name="DeletingLanguages" value="Deleting language" />
+    <text name="ChangingTexts" value="Changing texts" />
+    <text name="SuccessfullySaved" value="Successfully saved." />
+    <text name="Language" value="Language" />
+    <text name="Flag" value="Flag" />
+    <text name="SetAsDefaultLanguage" value="Set as default language" />
+    <text name="InvlalidLanguageCode" value="Invalid language code." />
+    <text name="EditLanguage" value="Edit language" />
+    <text name="ChangeTexts" value="Change texts" />
+    <text name="TargetValue" value="Target value" />
+    <text name="BaseValue" value="Base value" />
+    <text name="Key" value="Key" />
+    <text name="SaveAndClose" value="Save &amp; Close" />
+    <text name="SaveAndNext" value="Save &amp; Next" />
+    <text name="EditText" value="Edit text" />
+    <text name="LanguageTexts" value="Language texts" />
+    <text name="LanguageTextsHeaderInfo" value="Edit texts for languages." />
+    <text name="EmptyOnes" value="Empty ones" />
+    <text name="Source" value="Source" />
+    <text name="BaseLanguage" value="Base language" />
+    <text name="TargetLanguage" value="Target language" />
+    <text name="Previous" value="Previous" />
+    <text name="LanguageDeleteWarningMessage" value="Are you sure to delete the language {0}?" />
+    <text name="CanNotEditOrDeleteDefaultLanguages" value="Can not edit or delete default languages. You can only edit or delete the languages you added. But you can change texts of all languages." />
+    <text name="LookingForMpaVersion" value="Looking for Multi-Page Application Version?" />
+    <text name="LookingForSpaVersion" value="Looking for Single-Page Application Version?" />
+    <text name="ThisLanguageAlreadyExists" value="This language already exists!" />
+    <text name="OrganizationUnits" value="Organization units" />
+    <text name="OrganizationUnitsHeaderInfo" value="Use organization units to organize users and entities" />
+    <text name="OrganizationTree" value="Organization tree" />
+    <text name="Members" value="Members" />
+    <text name="SelectAnOrganizationUnitToSeeMembers" value="Select an organization unit to see members." />
+    <text name="OrganizationUnitDeleteWarningMessage" value="Are you sure to delete organization unit {0}?" />
+    <text name="AddSubUnit" value="Add sub unit" />
+    <text name="AddMember" value="Add member" />
+    <text name="SuccessfullyAdded" value="Successfully added" />
+    <text name="RemoveUserFromOuWarningMessage" value="Are you sure to remove user {0} from organization unit {1}?" />
+    <text name="SuccessfullyRemoved" value="Successfully removed" />
+    <text name="SelectAnItem" value="Select an item" />
+    <text name="NewOrganizationUnit" value="New organization unit" />
+    <text name="SelectAUser" value="Select a user" />
+    <text name="Select" value="Select" />
+    <text name="UserIsAlreadyInTheOrganizationUnit" value="This user is already in the organization unit!" />
+    <text name="AddRootUnit" value="Add root unit" />
+    <text name="AddUser" value="Add user" />
+    <text name="NoOrganizationUnitDefinedYet" value="No organization unit defined yet." />
+    <text name="OrganizationUnitMoveConfirmMessage" value="Please confirm to move {0} to under {1}." />
+    <text name="Root" value="Root" />
+    <text name="SuccessfullyMoved" value="Successfully moved." />
+    <text name="AddedTime" value="Addition time" />
+    <text name="ManagingMembers" value="Managing members" />
+    <text name="ManagingOrganizationTree" value="Managing organization tree" />
+    <text name="LoginForUsers" value="Login for users" />
+    <text name="LoginAsThisUser" value="Login as this user" />
+    <text name="BackToMyAccount" value="Back to my account" />
+    <text name="LoginForTenants" value="Login for tenants" />
+    <text name="LoginAsThisTenant" value="Login as this tenant" />
+    <text name="AuditLogImpersonatedOperationInfo" value="Note: This operation is performed by another user on behalf of this user." />
+    <text name="CustomData" value="Custom data" />
+    <text name="None" value="None" />
+    <text name="YouCanBackToYourAccount" value="You can back to your account here." />
+    <text name="CascadeImpersonationErrorMessage" value="Can not make cascade impersonation. This is already an impersonated login!" />
+    <text name="FromTenantToHostImpersonationErrorMessage" value="Can not impersonate a host user from a tenant user!" />
+    <text name="DifferentTenantImpersonationErrorMessage" value="Can not impersonate a user of a different tenant!" />
+    <text name="ImpersonationTokenErrorMessage" value="Impersonation token is invalid or expired!" />
+    <text name="NotImpersonatedLoginErrorMessage" value="This is not an impersonated login!" />
+    <text name="YouCannotLinkToSameAccount">You can not link to same account!</text>
+    <text name="ChangePasswordBeforeLinkToAnAccount">You must change your password before linking this account!</text>
+    <text name="LinkedAccounts">Linked accounts</text>
+    <text name="ManageAccounts">Manage accounts</text>
+    <text name="LinkNewAccount">Link new account</text>
+    <text name="SuccessfullyUnlinked">Successfully unlinked</text>
+    <text name="LinkedUserDeleteWarningMessage">Link to user {0} will be deleted.</text>
+    <text name="SwitchToLinkedAccountTokenErrorMessage" value="Impersonation token is invalid or expired!" />
+    <text name="WelcomeToTheApplicationNotificationMessage" value="Welcome to AbpProjectTemplate! Notification system is used to inform you for intended events. You can select which type of notifications you want to receive from the notification settings." />
+    <text name="NewUserRegisteredNotificationDefinition" value="On a new user registered to the application." />
+    <text name="NewUserRegisteredNotificationMessage" value="A new user registered to the application. User name: {userName}, Email address: {emailAddress}." />
+    <text name="SeeAllNotifications" value="See all notifications" />
+    <text name="SetAsRead" value="set as read" />
+    <text name="SetAllAsRead" value="Set all as read" />
+    <text name="NotificationSettings" value="Notification settings" />
+    <text name="ReceiveNotifications" value="Receive Notifications" />
+    <text name="ReceiveNotifications_Definition" value="This option can be used to completely enable/disable receiving notifications." />
+    <text name="NotificationTypes" value="Notification Types" />
+    <text name="ReceiveNotifications_DisableInfo" value="You completely disabled receiving notifications. You can enabled it and select notification types you want to receive." />
+    <text name="Notifications" value="Notifications" />
+    <text name="ThereIsNoNotification" value="There is no notification." />
+    <text name="Unread" value="Unread" />
+    <text name="YouCanNotDeleteOwnAccount" value="You can not delete own user account!" />
+    <text name="On" value="On" />
+    <text name="Off" value="Off" />
+    <text name="Maintenance">Maintenance</text>
+    <text name="Caches">Caches</text>
+    <text name="CacheSuccessfullyCleared">Cache successfully cleared.</text>
+    <text name="AllCachesSuccessfullyCleared">All caches successfully cleared.</text>
+    <text name="ClearAll">Clear all</text>
+    <text name="Clear">Clear</text>
+    <text name="CachesHeaderInfo">You can clear caches in application on this page.</text>
+    <text name="TestEmailSettingsHeader">Test Email Settings</text>
+    <text name="SendTestEmail">Send Test Email</text>
+    <text name="TestEmail_Subject">AbpProjectTemplate test email</text>
+    <text name="TestEmail_Body">This is a test email.</text>
+    <text name="TestEmailSentSuccessfully">Test e-mail sent successfully.</text>
+    <text name="WebSiteLogs">Website Logs</text>
+    <text name="WebSiteLogsHeaderInfo">You can see latest logs in this page or download all logs in a single zip file.</text>
+    <text name="DownloadAll">Download all</text>
+    <text name="TenantManagement">Tenant management</text>
+    <text name="AllowTenantsToRegisterThemselves" value="Allow tenants to register to the system." />
+    <text name="AllowTenantsToRegisterThemselves_Hint" value="If you disable this, tenants will only be added by admin using tenant management page." />
+    <text name="NewRegisteredTenantsIsActiveByDefault" value="New registered tenants are active by default." />
+    <text name="NewRegisteredTenantsIsActiveByDefault_Hint" value="If you disable this, new tenants will not be active (and can not login) until admin manually activate the account." />
+    <text name="TenantSignUp">Tenant SignUp</text>
+    <text name="NewTenantRegisteredNotificationDefinition" value="On a new tenant registered to the application." />
+    <text name="NewTenantRegisteredNotificationMessage" value="A new tenant registered to the application. Tenancy name: {tenancyName}." />
+    <text name="LoginAttempts">Login attempts</text>
+    <text name="Failed">Failed</text>
+    <text name="NewTenant">New tenant</text>
+    <text name="ResizedProfilePicture_Warn_SizeLimit" value="Resized picture size must be smalled than 100KB. Please resize down and try again." />
+    <text name="RegisterFormUserNameInvalidMessage">Please do not enter an email address for username.</text>
+    <text name="UseHostDatabase" value="Use host database" />
+    <text name="DatabaseConnectionString" value="Database connection string" />
+    <text name="TenantDatabaseConnectionStringChangeWarningMessage" value="Notice: Before changing the database connection string for a tenant, you should move the tenant database to the new location. Changing connection string does not move the tenant database." />
+    <text name="Timezone">Timezone</text>
+    <text name="HasOwnDatabase">HasOwnDatabase</text>
+    <text name="TimeZoneSettingChangedRefreshPageNotification">Timezone setting changed. Click OK button to refresh page and changes to take effect.</text>
+    <text name="Ok">Ok</text>
+    <text name="Permission">Permission</text>
+    <text name="Role">Role</text>
+    <text name="Security">Security</text>
+    <text name="PasswordComplexity">Password complexity</text>
+    <text name="MinPasswordLength">Minimum password length</text>
+    <text name="MaxPasswordLength">Maximum password length</text>
+    <text name="UseNumbers">Use numbers in password</text>
+    <text name="UseUpperCaseLetters">Use upper case letters in password</text>
+    <text name="UseLowerCaseLetters">Use lower case letters in password</text>
+    <text name="UsePunctuations">Use punctuations in password</text>
+    <text name="UseDefaultSettings">Use default settings</text>
+    <text name="PasswordComplexityNotSatisfied">Password complexity is not satisfied.</text>
+    <text name="PasswordComplexity_MinLength_Hint">Password must be minimum {0} characters</text>
+    <text name="PasswordComplexity_MaxLength_Hint">Password must be maximum {0} characters</text>
+    <text name="PasswordComplexity_UseNumbers_Hint">Password must contain at least 1 number</text>
+    <text name="PasswordComplexity_UseUpperCaseLetters_Hint">Password must contain at least 1 upper case letter</text>
+    <text name="PasswordComplexity_UseLowerCaseLetters_Hint">Password must contain at least 1 lower case letter</text>
+    <text name="PasswordComplexity_UsePunctuations_Hint">Password must contain at least 1 special character</text>
+    <text name="YouAlreadySentAFriendshipRequestToThisUser">You already added this user.</text>
+    <text name="YouCannotBeFriendWithYourself">You can not be friend with yourself.</text>
+    <text name="NewChatMessageEmail_Title">Message Details</text>
+    <text name="NewChatMessageEmail_SubTitle"></text>
+    <text name="NewChatMessageEmail_Subject">You have a new chat message</text>
+    <text name="Sender">Sender</text>
+    <text name="Message">Message</text>
+    <text name="UserBlocked">User blocked successfully.</text>
+    <text name="UserUnblocked">Block removed from user successfully.</text>
+    <text name="BlockUser">Block user</text>
+    <text name="UnblockUser">Unblock</text>
+    <text name="FriendshipRequestAccepted">Friendship request accepted</text>
+    <text name="UserSendYouAFriendshipRequest">{0} added you as a friend.</text>
+    <text name="Friends">Friends</text>
+    <text name="Others">Others</text>
+    <text name="BlockedUsers">Blocked Users</text>
+    <text name="YouDontHaveAnyFriend">You don't have any friends. Write a username to above input box and click "Add Friend" button.</text>
+    <text name="YouDontHaveAnyBlockedFriend">You don't have any blocked users. In order to block a friend, select a friend and select block from actions dropdown.</text>
+    <text name="ChatUserSearch_Hint">
+      <![CDATA[
+      Write only username for same tenant users, <br>
+      <strong>[tenancyName]\[userName]</strong> for other tenant's users <br><br>
+      for example: <br>
+      .\admin -> for host admin <br>
+      Test\admin -> for test tenant's admin <br>
+      admin -> for your tenant's admin
+      ]]>
+    </text>
+    <text name="AddFriend">Add friend</text>
+    <text name="TypeAMessageHere">Type a message here...</text>
+    <text name="Chat">Chat</text>
+    <text name="ChatFeature">Chat</text>
+    <text name="ChatFeatureIsNotEnabledForSender">Chat is not enabled for you.</text>
+    <text name="ChatFeatureIsNotEnabledForReceiver">Chat is not enabled for tenant.</text>
+    <text name="UserIsBlocked">User is blocked.</text>
+    <text name="ChatIsNotConnectedWarning">Chat is not connected.</text>
+    <text name="Demo_SampleChatMessage">Hi, This is a test message. Please login with my account in a different browser and checkout how chat feature works.</text>
+    <text name="TenantToTenantChatFeatureIsNotEnabledForSender">Chat with other tenants is not enabled for you.</text>
+    <text name="TenantToTenantChatFeatureIsNotEnabledForReceiver">Chat with other tenants is not enabled for tenant.</text>
+    <text name="TenantToHostChatFeatureIsNotEnabledForSender">Chat with host is not enabled for you.</text>
+    <text name="TenantToHostChatFeatureIsNotEnabledForReceiver">Chat with host is not enabled for tenant.</text>
+    <text name="TenantToTenantChatFeature">Chat with other tenants</text>
+    <text name="TenantToHostChatFeature">Chat with host</text>
+    <text name="FilterByPermission">Filter by permission</text>
+    <text name="FilterByRole">Filter by role</text>
+    <text name="FilterOrAddUser">Filter/Add user</text>
+    <text name="HangfireDashboard" value="Hangfire dashboard" />
+    <text name="TargetUserNotFoundProbablyDeleted">Target user could not be found. It's probably deleted.</text>
+    <text name="UserLockedOutMessage">The user account has been locked out. Please try again later.</text>
+    <text name="SendSecurityCode">Send security code.</text>
+    <text name="SendSecurityCode_Information">You should verify yourself to login. Please select a verification type. A code will be sent based on selected verification type.</text>
+    <text name="SendSecurityCodeErrorMessage">Security code could not be sent!</text>
+    <text name="VerifySecurityCodeNotLoggedInErrorMessage">You should be login first, in order to verify yourself! Probably, your login has been timeout. Please go to the login page and re-try it.</text>
+    <text name="VerificationCode">Verification code</text>
+    <text name="VerifySecurityCode">Verify Security Code</text>
+    <text name="VerifySecurityCode_Information">Please enter the verification code sent to you.</text>
+    <text name="RememberThisBrowser">Remember this browser</text>
+    <text name="InvalidSecurityCode">Invalid security code!</text>
+    <text name="PhoneNumber">Phone number</text>
+    <text name="Unlock">Unlock</text>
+    <text name="UnlockedTheUser">Unlocked the user {0}</text>
+    <text name="UserLockOut">User Lock Out</text>
+    <text name="EnableUserAccountLockingOnFailedLoginAttemts">Enable user account locking on failed login attempts</text>
+    <text name="MaxFailedAccessAttemptsBeforeLockout">Maximum number of failed login attempt count before locking the account</text>
+    <text name="DefaultAccountLockoutDurationAsSeconds">Account locking duration (as seconds)</text>
+    <text name="TwoFactorLogin">Two Factor Login</text>
+    <text name="EnableTwoFactorLogin">Enable two factor user login.</text>
+    <text name="IsEmailVerificationEnabled">Enable email verification.</text>
+    <text name="IsSmsVerificationEnabled">Enable SMS verification.</text>
+    <text name="AllowToRememberBrowserForTwoFactorLogin">Allow to remember browser. If you allows this, users can select to remember browser to skip second time two factor login for the same browser.</text>
+    <text name="IsTwoFactorEnabled">Is two factor authentication enabled ?</text>
+    <text name="IsLockoutEnabled">Is lockout enabled ?</text>
+    <text name="IsLockoutEnabled_Hint">User is locked for a while after a certain amount of failed login attempts.</text>
+  </texts>
+</localizationDictionary>

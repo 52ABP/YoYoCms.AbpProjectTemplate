@@ -1,0 +1,126 @@
+﻿@using System.Web.Optimization
+@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Localization
+@using YoYoCms.AbpProjectTemplate.Web.Bundling
+@{
+    Layout = null;
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" dir=@(CultureHelper.IsRtl ? "rtl" : "")>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>AbpProjectTemplate</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    @* Fill these meta tags upon your project specification *@
+    <meta content="AbpProjectTemplate" name="description" />
+    <meta content="AbpProjectTemplate" name="keywords">
+    <meta content="AbpProjectTemplate" name="author" />
+
+    <link rel="shortcut icon" href="~/favicon.ico" />
+
+    <link href="~/Content/fonts-open-sans.css" rel="stylesheet" type="text/css" />
+
+    @Html.IncludeStyle(StylePaths.FontAwesome)
+    @Html.IncludeStyle(StylePaths.Simple_Line_Icons)
+    @Html.IncludeStyle(CultureHelper.IsRtl ? StylePaths.BootstrapRTL : StylePaths.Bootstrap)
+    @Html.IncludeStyle(StylePaths.JQuery_Uniform)
+    @Html.IncludeStyle(StylePaths.Toastr)
+    @Html.IncludeStyle(StylePaths.SweetAlert)
+    @Html.IncludeStyle(StylePaths.FamFamFamFlags)
+
+    @Html.IncludeStyle("~/metronic/assets/global/css/components-md" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+    @Html.IncludeStyle("~/metronic/assets/global/css/plugins-md" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+    @Html.IncludeStyle("~/metronic/assets/admin/layout/css/layout" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+    @Html.IncludeStyle("~/metronic/assets/admin/layout/css/themes/default" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+
+    @Styles.Render("~/Bundles/Common/css")
+
+    @Html.IncludeStyle("~/Views/Account/_Layout" + (CultureHelper.IsRtl ? "-rtl" : "") + ".css")
+
+    @RenderSection("Styles", false)
+
+    <script type="text/javascript">
+        @* This is used to get the application's root path from javascript.
+        It's useful if you're running application in a virtual directory under IIS. *@
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+
+</head>
+<body class="page-md login">
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+    <div class="logo">
+        <a href="~/">
+            <img src="~/Common/Images/app-logo-on-dark.png" alt="" width="149" height="35" />
+        </a>
+    </div>
+    <div class="content">
+        @RenderBody()
+    </div>
+    @Html.Action("Languages", "Account")
+    <div class="copyright">
+        @Clock.Now.Year © AbpProjectTemplate.
+    </div>
+
+    <!--[if lt IE 9]>
+        <script src="~/libs/respond/respond.min.js"></script>
+        <script src="~/libs/excanvas/excanvas.min.js"></script>
+    <![endif]-->
+    @Html.IncludeScript(ScriptPaths.Json2)
+    @Html.IncludeScript(ScriptPaths.JQuery)
+    @Html.IncludeScript(ScriptPaths.JQuery_Migrate)
+    @Html.IncludeScript(ScriptPaths.Bootstrap)
+    @Html.IncludeScript(ScriptPaths.JQuery_BlockUi)
+    @Html.IncludeScript(ScriptPaths.JQuery_Uniform)
+    @Html.IncludeScript(ScriptPaths.Js_Cookie)
+    @Html.IncludeScript(ScriptPaths.Toastr)
+    @Html.IncludeScript(ScriptPaths.SpinJs)
+    @Html.IncludeScript(ScriptPaths.SpinJs_JQuery)
+    @Html.IncludeScript(ScriptPaths.SweetAlert)
+    @Html.IncludeScript(ScriptPaths.Abp)
+    @Html.IncludeScript(ScriptPaths.Abp_JQuery)
+    @Html.IncludeScript(ScriptPaths.Abp_BlockUi)
+    @Html.IncludeScript(ScriptPaths.Abp_SpinJs)
+    @Html.IncludeScript(ScriptPaths.Abp_Toastr)
+    @Html.IncludeScript(ScriptPaths.Abp_SweetAlert)
+
+    <script type="text/javascript">
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+    </script>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+
+    @Html.IncludeScript(ScriptPaths.JQuery_Validation)
+    @Html.IncludeScript(ScriptPaths.JQuery_Validation_Localization)
+
+    @Html.IncludeScript("~/metronic/assets/global/scripts/app.js")
+    <script type="text/javascript">
+        App.setAssetsPath(abp.appPath + 'metronic/assets/');
+    </script>
+
+    @Scripts.Render("~/Bundles/Common/js")
+    @Html.IncludeScript("~/Common/Scripts/jquery-validation-custom.js")
+
+    @Html.IncludeScript("~/metronic/assets/admin/layout/scripts/layout.js")
+
+    @RenderSection("Scripts", false)
+
+    <script>
+        jQuery(document).ready(function () {
+            if (CurrentPage) {
+                CurrentPage.init();
+            }
+        });
+    </script>
+</body>
+</html>

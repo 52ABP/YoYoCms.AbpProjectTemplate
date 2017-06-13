@@ -1,0 +1,140 @@
+﻿<div>
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <span ng-if="!vm.user.id">@L("AuditLogDetail")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal audit-log-detail-view" role="form">
+            <div class="form-body">
+                <h3 class="form-section">@L("UserInformations")</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("UserName"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.userName}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("IpAddress"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.clientIpAddress}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Client"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.clientName}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Browser"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.browserInfo}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="vm.auditLog.impersonatorUserId">
+                            <label class="control-label col-sm-3"></label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static text-warning">
+                                    @L("AuditLogImpersonatedOperationInfo")
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section">@L("ActionInformations")</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Service"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.serviceName}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Action"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.auditLog.methodName}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Time"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.getExecutionTime()}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Duration"):</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">
+                                    {{vm.getDurationAsMs()}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">@L("Parameters"):</label>
+                            <div class="col-sm-9">
+                                <pre lang="js">{{vm.getFormattedParameters()}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section">@L("CustomData")</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p class="form-control-static" ng-if="!vm.auditLog.customData">
+                                    @L("None")
+                                </p>
+                                <pre ng-if="vm.auditLog.customData">{{vm.auditLog.customData}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="form-section">@L("ErrorState")</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p class="form-control-static" ng-if="!vm.auditLog.exception">
+                                    <i class="fa fa-check-circle font-green"></i> @L("Success")
+                                </p>
+                                <pre ng-if="vm.auditLog.exception">{{vm.auditLog.exception}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="vm.close()">@L("Close")</button>
+    </div>
+</div>

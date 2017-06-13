@@ -1,0 +1,111 @@
+﻿/* General */
+
+.clickable-item {
+    cursor: pointer;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+/* Portlet */
+.portlet.light > .portlet-title .inputs.inputs-full-width {
+    display: block;
+    float: none;
+}
+
+/* Tree */
+
+.tree-item-icon-color {
+    color: #dfba49;
+}
+
+//Fix for font-awesome usage on menu (issue #17)
+.page-sidebar .page-sidebar-menu > li > a > i.fa, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i.fa {
+    margin-left: 1px;
+    margin-right: 4px;
+    top: 3px;
+}
+
+/* Forms */
+
+.form-group.form-md-line-input.no-hint {
+    margin-bottom: 15px;
+}
+
+.form-group.form-md-line-input.has-error .form-control {
+    border-bottom-color: red;
+}
+
+.form-group.form-md-line-input.has-error .help-block-info {
+    display: none;
+}
+
+/* jTable */
+
+.jtable-main-container {
+    overflow-x: auto;
+
+    .jtable {
+        .jtable-column-header {
+            height: 32px;
+        }
+
+        .jtable-data-row {
+            td {
+                height: 32px;
+            }
+        }
+    }
+
+    .jtable-bottom-panel {
+        select {
+            color: black;
+        }
+    }
+}
+
+/* DateRangePicker */
+
+.daterangepicker_input {
+    .input-mini {
+        width: 120px !important;
+    }
+}
+
+/* Portlets */
+.portlet.light > .portlet-title.portlet-title-filter {
+    border: none;
+    margin-bottom: 0;
+}
+
+/* Buttons */
+
+button {
+    i {
+        margin-right: 5px;
+    }
+}
+
+.btn + .btn {
+    margin-left: 5px;
+}
+
+/* External Login */
+.social-icons li .openidconnect, .social-login-icon.openidconnect {
+    background: url(../../Common/Images/open-id-connect.png) no-repeat;
+}
+
+.social-icons li .federation, .social-login-icon.federation {
+    background: url(../../Common/Images/ws-federation.png) no-repeat;
+}
+
+/* fix for issue #185 */
+.margin-bottom-0 {
+    margin-bottom: 0 !important;
+}
+
+/* Make user menu wider */
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-menu {
+    width: 250px;
+}

@@ -1,0 +1,17 @@
+﻿<div>
+    <form name="editUserPermissionsForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span>@L("Permissions") - {{vm.user.userName}}</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <permission-tree edit-data="vm.permissionEditData"></permission-tree>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-disabled="vm.saving" button-busy="vm.resettingPermissions" busy-text="@L("SavingWithThreeDot")" class="btn btn-default pull-left" ng-click="vm.resetPermissions()" uib-popover="@L("ResetPermissionsTooltip")" popover-trigger="'mouseenter'" popover-placement="top"><span>@L("ResetSpecialPermissions")</span></button>
+            <button type="button" ng-disabled="vm.saving || vm.resettingPermissions" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" ng-disabled="vm.resettingPermissions" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

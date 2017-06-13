@@ -1,0 +1,40 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Authorization
+@using YoYoCms.AbpProjectTemplate.Web.Navigation
+@{
+    ViewBag.CurrentPageName = PageNames.App.Host.Editions;
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Common/_FeaturesTree.min.css")
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Editions/Index.min.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Common/_FeaturesTree.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Editions/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Editions/Index.js")
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Editions")</span> <small>@L("EditionsHeaderInfo")</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        @if (IsGranted(AppPermissions.Pages_Editions_Create))
+        {
+            <button id="CreateNewEditionButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewEdition")</button>
+        }
+    </div>
+</div>
+
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+        <div id="EditionsTable"></div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿<div>
+    <form id="loginAttemptsModalForm" role="form" novalidate class="form-validation form-horizontal">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span>@L("LoginAttempts")</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-xs-12" ng-repeat="loginAttempt in vm.loginAttempts">
+                        <div class="alert bg-grey-cararra bg-font-grey-cararra">
+                            <div class="row">
+                                <div class="col-xs-3 text-center">
+                                    <img ng-src="{{loginAttempt.profileImageUrl}}" class="img-circle" width="50" height="50"><br/>
+                                    <span class="label" ng-class="vm.getLoginAttemptClass(loginAttempt)"> {{vm.formatLoginAttemptResult(loginAttempt)}} </span>
+                                </div>
+                                <div class="col-xs-9">
+                                    <div class="row" ng-if="loginAttempt.clientIpAddress">
+                                        <label class="control-label col-sm-3 text-right">@L("IpAddress")</label>
+                                        <div class="col-sm-9">
+                                            <p class="form-control-static">
+                                                {{loginAttempt.clientIpAddress}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-if="loginAttempt.clientName">
+                                        <label class="control-label col-sm-3 text-right">@L("Client")</label>
+                                        <div class="col-sm-9">
+                                            <p class="form-control-static">
+                                                {{loginAttempt.clientName}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-if="loginAttempt.browserInfo">
+                                        <label class="control-label col-sm-3 text-right">@L("Browser")</label>
+                                        <div class="col-sm-9">
+                                            <p class="form-control-static">
+                                                {{loginAttempt.browserInfo}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-if="loginAttempt.creationTime">
+                                        <label class="control-label col-sm-3 text-right">@L("Time")</label>
+                                        <div class="col-sm-9">
+                                            <p class="form-control-static">
+                                                {{vm.getCreationTime(loginAttempt)}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="vm.close()">@L("Close")</button>
+        </div>
+    </form>
+</div>

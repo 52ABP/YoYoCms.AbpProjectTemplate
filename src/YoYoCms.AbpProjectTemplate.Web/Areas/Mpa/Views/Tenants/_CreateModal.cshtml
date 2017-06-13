@@ -1,0 +1,105 @@
+﻿@using Abp.Application.Services.Dto
+@using YoYoCms.AbpProjectTemplate.MultiTenancy
+@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Tenants.CreateTenantViewModel
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewTenant")))
+
+<div class="modal-body">
+
+    <form name="TenantInformationsForm">
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input class="form-control" type="text" name="TenancyName" required maxlength="@Tenant.MaxTenancyNameLength" regex="@Tenant.TenancyNameRegex">
+            <label>@L("TenancyName")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Name" class="form-control" required maxlength="@Tenant.MaxNameLength">
+            <label>@L("Name")</label>
+        </div>
+
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                <input id="CreateTenant_UseHostDb" class="md-check" type="checkbox" name="UseHostDb" value="true" checked="checked">
+                <label for="CreateTenant_UseHostDb">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("UseHostDatabase")
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint" style="display:none">
+            <input type="text" name="ConnectionString" class="form-control" required maxlength="@Tenant.MaxConnectionStringLength">
+            <label>@L("DatabaseConnectionString")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="email" name="AdminEmailAddress" class="form-control" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength">
+            <label>@L("AdminEmailAddress")</label>
+        </div>
+
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                <input id="CreateTenant_SetRandomPassword" class="md-check" type="checkbox" name="SetRandomPassword" value="true" checked="checked" />
+                <label for="CreateTenant_SetRandomPassword">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("SetRandomPassword")
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint" style="display:none">
+            <input id="CreateTenant_AdminPassword" type="password" name="AdminPassword" class="form-control" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPlainPasswordLength" minlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MinPlainPasswordLength">
+            <label>@L("Password")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label" style="display:none">
+            <input type="password" name="AdminPasswordRepeat" class="form-control" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPlainPasswordLength" minlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MinPlainPasswordLength" equalto="#CreateTenant_AdminPassword">
+            <label>@L("PasswordRepeat")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            @Html.DropDownList("EditionId", Model.EditionItems.Select(i => i.ToSelectListItem()), new { @class = "form-control edited" })
+            <label for="EditionId">@L("Edition")</label>
+        </div>
+
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                <input id="CreateTenant_ShouldChangePasswordOnNextLogin" class="md-check" type="checkbox" name="ShouldChangePasswordOnNextLogin" value="true" checked="checked">
+                <label for="CreateTenant_ShouldChangePasswordOnNextLogin">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("ShouldChangePasswordOnNextLogin")
+                </label>
+            </div>
+            <div class="md-checkbox">
+                <input id="CreateTenant_SendActivationEmail" class="md-check" type="checkbox" name="SendActivationEmail" value="true" checked="checked">
+                <label for="CreateTenant_SendActivationEmail">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("SendActivationEmail")
+                </label>
+            </div>
+            <div class="md-checkbox">
+                <input id="CreateTenant_IsActive" class="md-check" type="checkbox" name="IsActive" value="true" checked="checked">
+                <label for="CreateTenant_IsActive">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("Active")
+                </label>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -1,0 +1,46 @@
+﻿@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Notifications.Dto.GetNotificationSettingsOutput
+<div>
+
+    @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("NotificationSettings")))
+    <div class="modal-body">
+        <form name="NotificationSettingsForm" role="form" novalidate class="form-validation">
+            <h4>@L("ReceiveNotifications")</h4>
+            <div>
+                <input type="checkbox"
+                       id="NotificationSettigs_ReceiveNotifications"
+                       class="make-switch"
+                       @Html.Raw(!Model.ReceiveNotifications ? "" : "checked=\"checked\"")
+                       data-size="small"
+                       data-on-text="@L("On")"
+                       data-off-text="@L("Off")" />
+                <span class="help-block">@L("ReceiveNotifications_Definition")</span>
+            </div>
+
+            <h4 class="@string.Format("{0}",Model.Notifications.Count > 0 ? "" : "hidden") notification-types-header">@L("NotificationTypes")</h4>
+            <p class="@string.Format("{0}",Model.Notifications.Count > 0 && !Model.ReceiveNotifications ? "":"hidden") text-danger disable-info"><small>@L("ReceiveNotifications_DisableInfo")</small></p>
+
+            @foreach (var notification in Model.Notifications)
+            {
+                <div class="md-checkbox-list">
+                    <div class="md-checkbox notification">
+                        <input id="@string.Format("Notification_{0}", notification.Name)" class="md-check" type="checkbox" value="true" @(notification.IsSubscribed ? "checked=\"checked\"" : "") @(!Model.ReceiveNotifications ? "disabled" : "") />
+                        <label for="@string.Format("Notification_{0}", notification.Name)">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span>
+                            @notification.DisplayName
+                        </label>
+                        @if (!string.IsNullOrEmpty(notification.Description))
+                        {
+                            <span class="help-block">@notification.Description</span>
+                        }
+                    </div>
+                </div>
+            }
+        </form>
+
+    </div>
+    @Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+</div>

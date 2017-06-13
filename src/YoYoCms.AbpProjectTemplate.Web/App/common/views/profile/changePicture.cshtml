@@ -1,0 +1,21 @@
+﻿@using Abp.Web.Mvc.Extensions
+<div>
+    <form name="mySettingsForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h3 class="modal-title">
+                <span>@L("ChangeProfilePicture")</span>
+            </h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <input type="file" nv-file-select uploader="vm.uploader"/>
+                <span class="help-block m-b-none">@L("ProfilePicture_Change_Info")</span>
+            </div>
+            <img id="ProfilePictureResize" src="" ng-show="vm.uploadedFileName"/>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-disabled="vm.saving" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="mySettingsForm.$invalid"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

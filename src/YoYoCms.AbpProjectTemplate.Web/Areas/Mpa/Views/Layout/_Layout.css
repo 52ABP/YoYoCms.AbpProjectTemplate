@@ -1,0 +1,98 @@
+﻿.page-header.navbar .page-logo .logo-default {
+  margin: 19px 10px 0 10px;
+}
+.page-header.navbar.navbar-fixed-top {
+  z-index: 1000;
+}
+.page-header.navbar.navbar-static-top {
+  z-index: 1000;
+}
+.page-footer-inner {
+  padding-bottom: 10px;
+}
+.md-shadow-zero-light {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.18) !important;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-submenu:hover > a {
+  background-color: #5b6f7c !important;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-submenu > a.open-left:after {
+  content: '\f104' !important;
+  left: 7px !important;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-submenu > ul.dropdown-menu {
+  margin-top: -5px !important;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-submenu > ul.dropdown-menu:after {
+  display: none !important;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-dark .dropdown-submenu > ul.dropdown-menu li.divider {
+  background-color: #607482 !important;
+}
+#UserNotificationDropdown {
+  max-width: 320px;
+  width: 320px;
+}
+#UserNotificationDropdown a.user-notification-item {
+  cursor: default;
+  color: #ccc;
+}
+#UserNotificationDropdown a.user-notification-item:hover {
+  text-decoration: none;
+}
+#UserNotificationDropdown a.user-notification-item.user-notification-item-unread {
+  color: #fff;
+}
+#UserNotificationDropdown a.user-notification-item.user-notification-item-unread .notification-time {
+  color: #ccc;
+}
+#UserNotificationDropdown a.user-notification-item.user-notification-item-clickable {
+  cursor: pointer;
+}
+#UserNotificationDropdown a.user-notification-item .set-as-read-text {
+  color: #00dd00;
+  cursor: pointer;
+}
+#UserNotificationDropdown a.user-notification-item .fa-info {
+  color: #00ffff;
+}
+#UserNotificationDropdown a.user-notification-item .fa-check {
+  color: #0f0;
+}
+#UserNotificationDropdown a.user-notification-item .fa-warning {
+  color: #ffa200;
+}
+#UserNotificationDropdown a.user-notification-item .fa-bolt,
+#UserNotificationDropdown a.user-notification-item .fa-bomb {
+  color: #ff0000;
+}
+#UserNotificationDropdown a {
+  color: #fff;
+}
+#UserNotificationDropdown .notifications-header {
+  /*position: relative;*/
+  text-align: left;
+  min-height: 35px;
+  padding: 8px;
+  margin: 0;
+}
+#UserNotificationDropdown .notifications-header a:hover {
+  text-decoration: underline;
+}
+#UserNotificationDropdown .notifications-footer {
+  min-height: 35px;
+  padding: 8px;
+  margin: 0;
+}
+#UserNotificationDropdown .notification-empty-text {
+  color: #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.jcrop-keymgr {
+  opacity: 0;
+}
+#ProfilePictureResize {
+  width: 200px;
+  height: 200px;
+}

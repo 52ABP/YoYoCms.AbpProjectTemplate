@@ -1,0 +1,54 @@
+﻿@using Abp.Application.Services.Dto
+@using Abp.Extensions
+@using YoYoCms.AbpProjectTemplate.MultiTenancy
+@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Tenants.EditTenantViewModel
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditTenant") + ": " + Model.Tenant.TenancyName))
+
+<div class="modal-body">
+
+    <form name="TenantInformationsForm">
+
+        <input type="hidden" name="Id" value="@Model.Tenant.Id" />
+        <input type="hidden" name="TenancyName" value="@Model.Tenant.TenancyName" />
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="Name" value="@Model.Tenant.Name" class="form-control edited" required maxlength="@Tenant.MaxNameLength">
+            <label>@L("Name")</label>
+        </div>
+
+        @if (!Model.Tenant.ConnectionString.IsNullOrEmpty())
+        {
+            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+                <input type="text" name="ConnectionString" class="form-control edited" value="@Model.Tenant.ConnectionString" required maxlength="@Tenant.MaxConnectionStringLength">
+                <label>@L("DatabaseConnectionString")</label>
+            </div>
+
+            <div>
+                <span class="help-block text-warning">@L("TenantDatabaseConnectionStringChangeWarningMessage")</span>
+            </div>
+        }
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            @Html.DropDownList("EditionId", Model.EditionItems.Select(i => i.ToSelectListItem()), new {@class = "form-control edited"})
+            <label for="EditionId">@L("Edition")</label>
+        </div>
+
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                <input id="EditTenant_IsActive" class="md-check" type="checkbox" name="IsActive" value="true" @Html.Raw(Model.Tenant.IsActive ? "checked=\"checked\"" : "")>
+                <label for="EditTenant_IsActive">
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("Active")
+                </label>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

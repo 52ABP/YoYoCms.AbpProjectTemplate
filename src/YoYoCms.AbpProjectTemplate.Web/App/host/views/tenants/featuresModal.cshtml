@@ -1,0 +1,17 @@
+﻿<div>
+    <form name="editTenantFeaturesForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span>@L("Features") - {{vm.tenant.name}}</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <feature-tree edit-data="vm.featureEditData"></feature-tree>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-disabled="vm.saving" button-busy="vm.resettingFeatures" busy-text="@L("SavingWithThreeDot")" class="btn btn-default pull-left" ng-click="vm.resetFeatures()" uib-popover="@L("ResetFeaturesTooltip")" popover-trigger="'mouseenter'" popover-placement="top"><span>@L("ResetSpecialFeatures")</span></button>
+            <button type="button" ng-disabled="vm.saving || vm.resettingFeatures" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" ng-disabled="vm.resettingFeatures" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

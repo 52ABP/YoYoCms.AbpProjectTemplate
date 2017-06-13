@@ -1,0 +1,17 @@
+﻿@using Abp.Organizations
+@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.OrganizationUnits.EditOrganizationUnitModalViewModel
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Edit") + ": " + Model.DisplayName))
+
+<div class="modal-body">
+    <form name="OrganizationUnitForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input class="form-control edited" type="text" name="DisplayName" value="@Model.DisplayName" required maxlength="@OrganizationUnit.MaxDisplayNameLength">
+            <label>@L("Name")</label>
+        </div>
+    </form>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

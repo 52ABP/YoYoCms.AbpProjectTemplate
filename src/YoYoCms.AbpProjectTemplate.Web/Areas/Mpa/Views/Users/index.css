@@ -1,0 +1,13 @@
+﻿#UsersTable .jtable-main-container .jtable-title {
+  min-width: 1500px;
+}
+#UsersTable .jtable-main-container .jtable {
+  min-width: 1500px;
+}
+#UsersTable .jtable-main-container .jtable-bottom-panel {
+  min-width: 1500px;
+}
+.user-edit-dialog-profile-image {
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=index.css.map */

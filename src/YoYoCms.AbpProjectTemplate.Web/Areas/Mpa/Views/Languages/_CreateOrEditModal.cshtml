@@ -1,0 +1,38 @@
+﻿@using Abp.Application.Services.Dto
+@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Languages.CreateOrEditLanguageModalViewModel
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (L("EditLanguage") + ": " + Model.Language.Name) : L("CreateNewLanguage")))
+
+<div class="modal-body">
+    <form name="LanguageInformationsForm" role="form" novalidate class="form-validation">
+        @if (Model.IsEditMode)
+        {
+            <input type="hidden" name="Id" value="@Model.Language.Id"/>
+        }
+
+        <div class="form-group">
+            <label for="LanguageNameEdit">@L("Language")</label>
+            @Html.DropDownList(
+                "Name",
+                Model.LanguageNames.Select(i => i.ToSelectListItem()),
+                new
+                {
+                    @class = "form-control selectpicker",
+                    data_live_search = "true",
+                    id = "LanguageNameEdit"
+                })
+        </div>
+        <div class="form-group">
+            <label for="LanguageIconEdit">@L("Flag")</label>
+            <select id="LanguageIconEdit" name="Icon" class="form-control bs-select" data-live-search="true">
+                @foreach (var flag in Model.Flags)
+                {
+                    <option data-icon="@flag.Value" value="@flag.Value" @(flag.IsSelected ? "selected=\"selected\"" : "")><i class="@flag.Value"></i>@flag.DisplayText</option>
+                }
+            </select>
+        </div>
+    </form>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

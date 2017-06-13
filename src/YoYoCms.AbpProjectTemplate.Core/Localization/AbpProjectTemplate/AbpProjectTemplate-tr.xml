@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="tr">
+  <texts>
+    <text name="HomePage" value="Ana sayfa" />
+    <text name="AboutUs" value="Hakkımızda" />
+    <text name="Administration" value="Yönetim" />
+    <text name="Roles" value="Roller" />
+    <text name="Users" value="Kullanıcılar" />
+    <text name="InvalidFormMessage" value="Doldurduğunuz form geçerli değildir. Lütfen kontrol edip düzeltin." />
+    <text name="InvalidUserNameOrPassword" value="Kullanıcı adı ya da şifre hatalı." />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="{0} isminde bir müşteri tanımlı değildir." />
+    <text name="TenantIsNotActive" value="{0} isimli müşteri aktif edilmemiştir." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="{0} isimli kullanıcı pasife alınmıştır ve sisteme giremez." />
+    <text name="PleaseEnterLoginInformation" value="Lütfen giriş bilgilerinizi girin" />
+    <text name="TenancyName" value="Müşteri adı" />
+    <text name="UserNameOrEmail" value="Kullanıcı adı ya da e-posta" />
+    <text name="Password" value="Şifre" />
+    <text name="RememberMe" value="Beni hatırla" />
+    <text name="LogIn" value="Giriş" />
+    <text name="ForgotPassword" value="Şifremi unuttum" />
+    <text name="DontYouHaveAnAccount" value="Hesabınız yok mu?" />
+    <text name="CreateAnAccount" value="Hesap oluştur" />
+    <text name="Pages" value="Sayfalar" />
+    <text name="RoleName" value="Rol adı" />
+    <text name="EditRole" value="Rol düzenle" />
+    <text name="CreateNewRole" value="Yeni rol oluştur" />
+    <text name="RoleProperties" value="Rol özellikleri" />
+    <text name="Permissions" value="Yetkiler" />
+    <text name="Save" value="Kaydet" />
+    <text name="Cancel" value="İptal" />
+    <text name="RolesHeaderInfo" value="Yetkileri gruplamak için rolleri kullanın." />
+    <text name="Static" value="Sabit" />
+    <text name="Actions" value="İşlemler" />
+    <text name="Delete" value="Sil" />
+    <text name="SavedSuccessfully" value="Başarıyla kaydedildi." />
+    <text name="AreYouSure" value="Emin misiniz?" />
+    <text name="YesDelete" value="Evet, sil!" />
+    <text name="DeletingUser" value="Kullanıcı silme" />
+    <text name="UsersHeaderInfo" value="Kullanıcıları ve izinleri yönetin." />
+    <text name="CreateNewUser" value="Yeni kullanıcı oluştur" />
+    <text name="UserName" value="Kullanıcı adı" />
+    <text name="Name" value="Ad" />
+    <text name="Surname" value="Soyad" />
+    <text name="EmailAddress" value="E-posta adresi" />
+    <text name="LastLoginTime" value="Son giriş zamanı" />
+    <text name="EditUser" value="Kullanıcı düzenle" />
+    <text name="UserInformations" value="Kullanıcı bilgileri" />
+    <text name="PasswordRepeat" value="Şifre (tekrar)" />
+    <text name="SuccessfullyDeleted" value="Başarıyla silindi." />
+    <text name="RoleDeleteWarningMessage" value="{0} rolü silinecek ve atanmış kullanıcılardan kaldırılacaktır." />
+    <text name="UserDeleteWarningMessage" value="{0} kullanıcısı silinecektir." />
+    <text name="Active" value="Aktif" />
+    <text name="EmailConfirm" value="E-posta doğrulama" />
+    <text name="Yes" value="Evet" />
+    <text name="No" value="Hayır" />
+    <text name="MySettings" value="Ayarlarım" />
+    <text name="Logout" value="Çıkış" />
+    <text name="Reset" value="Sıfırla" />
+    <text name="ResetPermissionsTooltip" value="Bu düğme kullanıcıya özel ayarlanmış yetkilendirmeleri sıfırlar ve kaydeder. Kullanıcı, sadece atandığı rollere ait yetkilere sahip olacaktır." />
+    <text name="ResetSuccessfully" value="Başarıyla sıfırlandı" />
+    <text name="Tenants" value="Müşteriler" />
+    <text name="TenantsHeaderInfo" value="Müşterilerinizi yönetin." />
+    <text name="CreateNewTenant" value="Yeni müşteri oluştur" />
+    <text name="TenancyCodeName" value="Müşteri kod adı" />
+    <text name="TenantName" value="Müşteri kod adı" />
+    <text name="TenantDeleteWarningMessage" value="{0} müşterisi silinecektir." />
+    <text name="AdminEmailAddress" value="admin e-posta" />
+    <text name="AdminPassword" value="admin şifresi" />
+    <text name="AdminPasswordRepeat" value="admin şifresi (tekrar)" />
+    <text name="EditTenant" value="Müşteri düzenle" />
+    <text name="ChangingPermissions" value="Yetkilerini değiştirme" />
+    <text name="EditingUser" value="Kullanıcı düzenleme" />
+    <text name="CreatingNewUser" value="Yeni kullanıcı oluşturma" />
+    <text name="Edit" value="Düzenle" />
+    <text name="EditingTenant" value="Müşteri düzenleme" />
+    <text name="CreatingNewTenant" value="Yeni müşteri oluşturma" />
+    <text name="DeletingTenant" value="Müşteri silme" />
+    <text name="EditingRole" value="Rol düzenleme" />
+    <text name="CreatingNewRole" value="Yeni rol oluşturma" />
+    <text name="DeletingRole" value="Rol silme" />
+    <text name="CreationTime" value="Oluşturulma zamanı" />
+    <text name="SearchWithThreeDot" value="Ara..." />
+    <text name="ResetSpecialPermissions" value="Özel yetkileri sıfırla" />
+    <text name="SavingWithThreeDot" value="Kaydediyor..." />
+    <text name="Settings" value="Ayarlar" />
+    <text name="SaveAll" value="Hepsini kaydet" />
+    <text name="SettingsHeaderInfo" value="Uygulama ayarlarını görün, değiştirin." />
+    <text name="EmailSmtp" value="E-posta (SMTP)" />
+    <text name="DefaultFromAddress" value="Varsayılan gönderici email adresi" />
+    <text name="DefaultFromDisplayName" value="Varsayılan gönderici görünen isim" />
+    <text name="SmtpHost" value="SMTP sunucusu" />
+    <text name="SmtpPort" value="SMTP portu" />
+    <text name="UseDefaultCredentials" value="Varsayılan yetkilendirmeleri kullan" />
+    <text name="DomainName" value="Domain adı" />
+    <text name="UseSsl" value="SSL kullan" />
+    <text name="ThisWebSiteRootAddress" value="Bu web sitesinin kök adresi" />
+    <text name="ThisWebSiteRootAddress_Hint" value="Web sitesine dışarıdan bağlantı verilirken kullanılacaktır. Şifre sıfırlama bağlantısının üretilmesi gibi işlemler için gereklidir. Ör: http://mydomain.com" />
+    <text name="General" value="Genel" />
+    <text name="SendPasswordResetLink_Information" value="Email adresinize bir şifre sıfırlama bağlantısı gönderilecektir. Birkaç dakika içerisinde bir e-posta almazsanız lütfen tekrar deneyin." />
+    <text name="Send" value="Gönder" />
+    <text name="PasswordReset" value="Password reset" />
+    <text name="InvalidUserNameOrEmailAddress" value="Geçersiz kullanıcı adı ya da email adresi" />
+    <text name="PasswordResetEmail_Subject" value="AbpProjectTemplate şifre sıfırlama" />
+    <text name="PasswordResetEmail_Title" value="AbpProjectTemplate şifre sıfırlama." />
+    <text name="PasswordResetEmail_SubTitle" value="Bu email, şifrenizi sıfırlamak ve yeniden oluşturmak için gönderilmiştir." />
+    <text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword" value="Şifrenizi sıfırlamak için aşağıdaki bağlantıya tıklayın:" />
+    <text name="EmailActivation_Subject" value="AbpProjectTemplate email etkinleştirme" />
+    <text name="EmailActivation_Title" value="AbpProjectTemplate hoşgeldiniz." />
+    <text name="EmailActivation_SubTitle" value="Bu email, email adresinizi doğrulamak için gönderilmiştir." />
+    <text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail" value="Lütfen aşağıdaki bağlantıyı tıklayarak email adresinizi doğrulayın:" />
+    <text name="InvalidEmailAddress" value="Geçersiz e-posta adresi" />
+    <text name="InvalidPasswordResetCode" value="Geçersiz şifre sıfırlama kodu!" />
+    <text name="InvalidPasswordResetCode_Detail" value="Lütfen e-posta gönderilen bağlantıyı tıklayarak giriniz. Sorun çözülmezse yeniden şifre sıfırlama bağlantısı isteyebilirsiniz." />
+    <text name="PleaseEnterYourNewPassword" value="Lütfen yeni şifrenizi belirleyin." />
+    <text name="UserEmailIsNotConfirmedAndCanNotLogin" value="E-posta adresiniz doğrulanmadı. Lütfen e-posta adresinizi kontrol edin ve gönderilen bağlantıya tıklayarak hesabınızı etkinleştirin. Eğer bir süre beklemenize rağmen e-posta gelmediyse 'E-posta etkinleştirme'ye tıklayarak yeniden bağlantı isteyin." />
+    <text name="LoginFailed" value="Giriş başarısız!" />
+    <text name="InvalidEmailConfirmationCode" value="Geçersiz e-posta doğrulama kodu!" />
+    <text name="InvalidEmailConfirmationCode_Detail" value="Lütfen e-posta gönderilen bağlantıyı tıklayarak giriniz. Sorun çözülmezse yeniden e-posta doğrulama bağlantısı isteyebilirsiniz." />
+    <text name="YourEmailIsConfirmedMessage" value="E-posta adresiniz başarıyla doğrulandı." />
+    <text name="ShouldChangePasswordOnNextLogin" value="İlk girişte şifre değiştirilmesi zorunlu olsun." />
+    <text name="SetRandomPassword" value="Rastgele şifre belirle." />
+    <text name="EmailActivation" value="E-posta etkinleştirme" />
+    <text name="SendEmailActivationLink_Information" value="E-posta adresinize bir e-posta doğrulama bağlantısı gönderilecektir. Birkaç dakika içerisinde bir e-posta almazsanız lütfen tekrar deneyin." />
+    <text name="SendActivationEmail" value="Hesabı etkinleştirmek için e-posta gönder." />
+    <text name="ChangePassword" value="Şifre değiştir" />
+    <text name="CurrentPassword" value="Mevcut şifreniz" />
+    <text name="NewPassword" value="Yeni şifreniz" />
+    <text name="NewPasswordRepeat" value="Yeni şifreniz (tekrar)" />
+    <text name="YourPasswordHasChangedSuccessfully" value="Şifreniz başarıyla değiştirildi." />
+    <text name="SelfUserRegistrationIsDisabledMessage" value="Sisteme kayıt olamazsınız!" />
+    <text name="SelfUserRegistrationIsDisabledMessage_Detail" value="Kullanıcıların kendi kendine kaydolması kapatılmıştır. Kaydolmak için lütfen sistem yöneticinisine başvurun." />
+    <text name="SuccessfullyRegistered" value="Başarıyla kaydoldunuz" />
+    <text name="ConfirmationMailSentPleaseClickLinkInTheEmail" value="{0} adresine bir doğrulama e-postası gönderildi. Lütfen gönderilen e-postadaki bağlantıya tıklayarak email adresinizi doğrulayın." />
+    <text name="YourAccountIsWaitingToBeActivatedByAdmin" value="Hesabınız yönetici tarafından etkinleştirilmeyi bekliyor." />
+    <text name="NameSurname" value="Ad soyad" />
+    <text name="UserManagement" value="Kullanıcı yönetimi" />
+    <text name="AllowUsersToRegisterThemselves" value="Kullanıcılar sisteme kendiliğinden kaydolabilsin." />
+    <text name="AllowUsersToRegisterThemselves_Hint" value="Eğer bu ayarı kapatırsanız kullanıcılar sadece yönetici tarafından kullanıcı yönetimi sayfasından sisteme eklenebilecektir." />
+    <text name="NewRegisteredUsersIsActiveByDefault" value="Yeni kaydolan kullanıcılar doğrudan aktif olsunlar." />
+    <text name="NewRegisteredUsersIsActiveByDefault_Hint" value="Eğer bu ayarı kapatırsanız yeni kullanıcı hesapları yönetici tarafından etkinleştirilmedikleri sürece sisteme giremeyeceklerdir." />
+    <text name="Default" value="Varsayılan" />
+    <text name="DefaultRole_Description" value="Yeni kullanıcılar için varsayılan olarak atanır." />
+    <text name="StaticRole_Tooltip" value="Sabit roller silinemez." />
+    <text name="EmailConfirmationRequiredForLogin" value="Giriş yapmak için e-posta adı doğrulaması gerekir." />
+    <text name="{0}UserCannotBeDeleted" value="{0} kullanıcısı silinemez." />
+    <text name="TenantNameCanNotBeEmpty" value="Müşteri adı boş bırakılamaz." />
+    <text name="ExportToExcel" value="Excele aktar" />
+    <text name="ChangeProfilePicture" value="Profil resmini değiştir" />
+    <text name="TenantName_Regex_Description" value="Müşteri adı en az 2 karakter olmalı, bir harfle başlamalı ve harf, rakam, tire ya da alt çizgi ile devam etmelidir." />
+    <text name="ProfilePicture_Change_Info" value="1MB altında bir JPG/JPEG/PNG dosyası seçebilirsiniz." />
+    <text name="ProfilePicture_Change_Error" value="Profil resminiz değiştirilemedi." />
+    <text name="ProfilePicture_Warn_SizeLimit" value="Resim boyutu en fazla 1MB olabilir. Lütfen başka bir dosya seçin." />
+    <text name="ProfilePicture_Warn_FileType" value="Sadece JPG/JPEG uzantılı dosya seçebilirsiniz. Lütfen başka bir dosya seçin." />
+    <text name="Dashboard" value="Genel görünüm" />
+    <text name="DashboardHeaderInfo" value="istatistikler ve raporlar" />
+    <text name="GoToApplication" value="Uygulamaya git" />
+    <text name="TenantInformations" value="Müşteri bilgileri" />
+    <text name="PersonalInformations" value="Kişisel bilgiler" />
+    <text name="AccountSettings" value="Hesap ayarları" />
+    <text name="Captha_Hint" value="Lütfen aşağıdaki resimde görünen güvenlik kodunu giriniz:" />
+    <text name="Back" value="Geri" />
+    <text name="Submit" value="Gönder" />
+    <text name="SignUp" value="Üye ol" />
+    <text name="CaptchaCanNotBeEmpty" value="Güvenlik kodu boş bırakılamaz." />
+    <text name="IncorrectCaptchaAnswer" value="Güvenlik kodu geçersiz." />
+    <text name="FormIsNotValidMessage" value="Form geçerli değil. Lütfen kontrol edip hataları düzeltin." />
+    <text name="CanNotChangeAdminUserName" value="admin kullanıcısının kullanıcı adı değiştirilemez." />
+    <text name="Error" value="Hata!" />
+    <text name="OopsYouAreLost" value="Sayfa bulunamadı!" />
+    <text name="WeCanNotFindThePage" value="Gitmek istediğiniz sayfayı bulamadık." />
+    <text name="DashboardDemo_Note_Title" value="ASP.NET Zero başlangıç projesine hoşgeldiniz!" />
+    <text name="DashboardDemo_Note_Info">
+      Sol menüyü kullanarak uygulamayı fonksyonel olarak deneyebilirsiniz.
+      Bu genel görünüm sayfası ise sadece örnektir, ancak geri kalan tüm sayfalar ve özellikler tamamen uygulanmış,
+      çalışır ve üretime hazır durumdadır.
+      Kendi uygulamanızın iş gereksinimlerinizi bu proje üzerine geliştirebilir ve böylece büyük bir zaman kazancı elde edebilirsiniz.
+    </text>
+    <text name="WelcomePage_Title" value="Hoşgeldiniz!" />
+    <text name="WelcomePage_Info" value="Uygulamaya hoşgeldiniz. Menüyü kullanarak uygulamayı kullanmaya başlayabilirsiniz. Eğer herhangi bir menü ögesi göremiyorsanız muhtemelen herhangi bir sayfayı görme yetkiniz bulunmuyor demektir. Bu durumda yetki almak için sistem yöneticisine başvurabilirsiniz." />
+    <text name="RequestedFileDoesNotExists" value="İstenilen dosya sistemde bulunamadı!" />
+    <text name="MailSent" value="E-posta gönderildi" />
+    <text name="PasswordResetMailSentMessage" value="E-posta adresinize bir şifre sıfırlama bağlantısı gönderilmiştir. Lütfen e-posta adresinizi kontrol ediniz." />
+    <text name="ActivationMailSentMessage" value="E-posta adresinize bir doğrulama bağlantısı gönderilmiştir. Lütfen e-posta adresinizi kontrol ediniz." />
+    <text name="UseCaptchaOnRegistration" value="Kullanıcı kaydı sırasında güvenlik resmi doğrulaması (captcha) kullan." />
+    <text name="FormBasedRegistration" value="Form Tabanlı Kayıt" />
+    <text name="LdapSettings" value="LDAP Ayarları" />
+    <text name="EnableLdapAuthentication" value="LDAP ile giriş yapılabilir." />
+    <text name="OtherSettings" value="Diğer Ayarlar" />
+    <text name="AuditLogs" value="Kullanıcı işlem logları" />
+    <text name="Success" value="Başarılı" />
+    <text name="Time" value="Zaman" />
+    <text name="Service" value="Servis" />
+    <text name="Action" value="İşlem" />
+    <text name="Duration" value="Süre" />
+    <text name="IpAddress" value="IP adresi" />
+    <text name="Client" value="İstemci" />
+    <text name="Browser" value="Tarayıcı" />
+    <text name="Xms" value="{0} ms" />
+    <text name="Close" value="Kapat" />
+    <text name="Refresh" value="Yenile" />
+    <text name="ErrorState" value="Hata durumu" />
+    <text name="All" value="Hepsi" />
+    <text name="HasError" value="Hatalı" />
+    <text name="ShowAdvancedFilters" value="Gelişmiş filtreleri göster" />
+    <text name="HideAdvancedFilters" value="Gelişmiş filtreleri gizle" />
+    <text name="AuditLogDetail" value="Kullanıcı işlem log detayı" />
+    <text name="Parameters" value="Parametreler" />
+    <text name="DateRange" value="Tarih aralığı" />
+    <text name="ActionInformations" value="İşlem bilgileri" />
+    <text name="Today" value="Bugün" />
+    <text name="Yesterday" value="Dün" />
+    <text name="Last7Days" value="Son 7 gün" />
+    <text name="Last30Days" value="Son 30 gün" />
+    <text name="ThisMonth" value="Bu ay" />
+    <text name="LastMonth" value="Geçen ay" />
+    <text name="TenantSelection" value="Müşteri Seçimi" />
+    <text name="TenantSelection_Detail" value="Lütfen aşağıdaki müşterilerden birini seçin." />
+    <text name="LoginWith" value="Şununla gir:" />
+    <text name="PasswordChangeDontRememberMessage" value="Şifrenizi hatırlayamıyorsanız {0}." />
+    <text name="ClickHere" value="buraya tıklayın" />
+    <text name="Apply" value="Uygula" />
+    <text name="CustomRange" value="Özel aralık" />
+    <text name="DashboardNoteForMpaVersion">
+      <![CDATA[
+      <strong>ASP.NET MVC</strong> ve <strong>jQuery</strong> ile Multi-Page Application (çok sayfalı) versiyonunu görmek için tıklayın.
+      ]]>
+    </text>
+    <text name="DashboardNoteForSpaVersion">
+      <![CDATA[
+      Dikkat: Ayrıca ASP.NET MVC ve <strong>AngularJs</strong> ile geliştirilmiş bir <strong>Single-Page Application</strong> (tek sayfalı) versiyonu var.
+      ]]>
+    </text>
+    <text name="SeeDemo" value="Demoyu görün" />
+    <text name="Edition" value="Paket" />
+    <text name="Editions" value="Paketler" />
+    <text name="EditionsHeaderInfo" value="Uygulamanın paketlerini yönetin." />
+    <text name="CreateNewEdition" value="Yeni paket oluştur" />
+    <text name="EditEdition" value="Paketi düzenle" />
+    <text name="EditionProperties" value="Paket bilgileri" />
+    <text name="EditionName" value="Paket adı" />
+    <text name="Features" value="Özellikler" />
+    <text name="EditionDeleteWarningMessage" value="{0} silinecek ve atanmış müşteriler için iptal edilecektir." />
+    <text name="CreatingNewEdition" value="Yeni paket oluşturma" />
+    <text name="EditingEdition" value="Paket düzenleme" />
+    <text name="DeletingEdition" value="Paket silme" />
+    <text name="ChangingFeatures" value="Özelliklerini düzenleme" />
+    <text name="ResetSpecialFeatures" value="Özel yetkileri sıfırla" />
+    <text name="ResetFeaturesTooltip" value="Bu düğme müşteriye özel ayarlanmış özellikleri sıfırlar ve kaydeder. Müşteri, sadece atandığı pakete ait özelliklere sahip olacaktır." />
+    <text name="NotAssigned" value="Atanmamış" />
+    <text name="InvalidFeaturesWarning" value="Bazı özelliklerin değeri geçerli değil!" />
+    <text name="Languages" value="Diller" />
+    <text name="LanguagesHeaderInfo" value="Arayüz dillerini yönetin." />
+    <text name="CreateNewLanguage" value="Yeni dil ekle" />
+    <text name="Code" value="Kod" />
+    <text name="CreatingNewLanguage" value="Yeni dil oluştur" />
+    <text name="EditingLanguage" value="Dil düzenleme" />
+    <text name="DeletingLanguages" value="Dil silme" />
+    <text name="ChangingTexts" value="Metinleri düzenleme" />
+    <text name="SuccessfullySaved" value="Başarıyla kaydedildi." />
+    <text name="Language" value="Dil" />
+    <text name="Flag" value="Bayrak" />
+    <text name="SetAsDefaultLanguage" value="Varsayılan dil yap" />
+    <text name="InvlalidLanguageCode" value="Geçersiz dil kodu." />
+    <text name="EditLanguage" value="Dil düzenle" />
+    <text name="ChangeTexts" value="Metinleri düzenle" />
+    <text name="TargetValue" value="Hedef değer" />
+    <text name="BaseValue" value="Başvuru değeri" />
+    <text name="Key" value="Key" />
+    <text name="SaveAndClose" value="Kaydet ve Kapat" />
+    <text name="SaveAndNext" value="Kaydet ve Sonraki" />
+    <text name="EditText" value="Metni düzenle" />
+    <text name="LanguageTexts" value="Dil metinleri" />
+    <text name="LanguageTextsHeaderInfo" value="Diller için metinleri düzenleyin." />
+    <text name="EmptyOnes" value="Boş olanlar" />
+    <text name="Source" value="Kaynak" />
+    <text name="BaseLanguage" value="Başvuru dili" />
+    <text name="TargetLanguage" value="Hedef dil" />
+    <text name="Previous" value="Önceki" />
+    <text name="LanguageDeleteWarningMessage" value="{0} dilini silmek istediğinizden emin misiniz?" />
+    <text name="CanNotEditOrDeleteDefaultLanguages" value="Varsayılan diller düzenlenemez ve silinemezler. Sadece kendi eklediğiniz dilleri düzenleyip silebilirsiniz. Ancak tüm dillerin metinlerini düzenleyebilirsiniz." />
+    <text name="LookingForMpaVersion" value="Multi-Page (Çok Sayfalı) Application Versiyonuna Mı Bakmıştınız?" />
+    <text name="LookingForSpaVersion" value="Single-Page (Tek Sayfalı) Application Versiyonuna Mı Bakmıştınız?" />
+    <text name="ThisLanguageAlreadyExists" value="Bu dil zaten var!" />
+    <text name="OrganizationUnits" value="Organizasyon birimleri" />
+    <text name="OrganizationUnitsHeaderInfo" value="Organizasyon birimleri kullanıcıları ve varlıkları organize etmek için kullanılır" />
+    <text name="OrganizationTree" value="Organizasyon ağacı" />
+    <text name="Members" value="Üyeler" />
+    <text name="SelectAnOrganizationUnitToSeeMembers" value="Üyelerini görebilmek için bir birim seçiniz." />
+    <text name="OrganizationUnitDeleteWarningMessage" value="{0} isimli birimi silmek istediğinizden emin misiniz?" />
+    <text name="AddSubUnit" value="Alt birim ekle" />
+    <text name="AddMember" value="Üye ekle" />
+    <text name="SuccessfullyAdded" value="Başarıyla eklendi" />
+    <text name="RemoveUserFromOuWarningMessage" value="{0} isimli kullanıcıyı {1} biriminden çıkartmak istediğinizden emin misiniz?" />
+    <text name="SuccessfullyRemoved" value="Başarıyla çıkartıldı" />
+    <text name="SelectAnItem" value="Bir eleman seçin" />
+    <text name="NewOrganizationUnit" value="Yeni organizasyon birimi" />
+    <text name="SelectAUser" value="Bir kullanıcı seçin" />
+    <text name="Select" value="Seç" />
+    <text name="UserIsAlreadyInTheOrganizationUnit" value="Bu kullanıcı bu birime zaten eklenmiş durumda!" />
+    <text name="AddRootUnit" value="Kök birim ekle" />
+    <text name="AddUser" value="Kullanıcı ekle" />
+    <text name="NoOrganizationUnitDefinedYet" value="Henüz hiç birim tanımlanmadı." />
+    <text name="OrganizationUnitMoveConfirmMessage" value="{0} birimini {1} altına taşımayı onaylayın." />
+    <text name="Root" value="Kök" />
+    <text name="SuccessfullyMoved" value="Başarıyla taşındı." />
+    <text name="AddedTime" value="Eklenme zamanı" />
+    <text name="ManagingMembers" value="Üyeleri yönetme" />
+    <text name="ManagingOrganizationTree" value="Organizasyon ağacını yönetme" />
+    <text name="LoginForUsers" value="Kullanıcılar adına giriş yap" />
+    <text name="LoginAsThisUser" value="Bu kullanıcı olarak giriş yap" />
+    <text name="BackToMyAccount" value="Kendi hesabına dön" />
+    <text name="LoginForTenants" value="Müşteriler adına giriş yap" />
+    <text name="LoginAsThisTenant" value="Bu müşteri olarak giriş yap" />
+    <text name="AuditLogImpersonatedOperationInfo" value="Not: Bu işlem bu kullanıcı adına başka bir yetkili kullanıcı tarafından yapılmıştır." />
+    <text name="CustomData" value="Özel veri" />
+    <text name="None" value="Yok" />
+    <text name="YouCanBackToYourAccount" value="Buradan kendi hesabınıza dönebilirsiniz." />
+    <text name="CascadeImpersonationErrorMessage" value="İç içe yetkilendirme yapılamaz. Şu anda zaten başkası adına işlem yapıyorsunuz!" />
+    <text name="FromTenantToHostImpersonationErrorMessage" value="Müşteri kullanıcısından üst kullanıcı adına giriş yapılamaz!" />
+    <text name="DifferentTenantImpersonationErrorMessage" value="Farklı bir müşterinin kullanıcısı adına giriş yapılamaz!" />
+    <text name="ImpersonationTokenErrorMessage" value="Yetkilendirme kodu geçersiz ya da süresi dolmuş!" />
+    <text name="NotImpersonatedLoginErrorMessage" value="Şu anda yetkilendirilmiş bir hesapta değilsiniz!" />
+    <text name="YouCannotLinkToSameAccount">Hesabı kendisine bağlayamazsınız!</text>
+    <text name="ChangePasswordBeforeLinkToAnAccount">Bu hesabı başka bir hesaba bağlamadan önce yeni bir şifre belirlemeniz gerkeiyor!</text>
+    <text name="LinkedAccounts">Bağlı hesaplar</text>
+    <text name="ManageAccounts">Hesapları yönet</text>
+    <text name="LinkNewAccount">Yeni hesap bağla</text>
+    <text name="SuccessfullyUnlinked">Bağlantı başarıyla kaldırıldı.</text>
+    <text name="LinkedUserDeleteWarningMessage">{0} kullanıcısına bağlantı silinecektir.</text>
+    <text name="SwitchToLinkedAccountTokenErrorMessage" value="Bağlı hesaba geçme kodu geçersiz ya da süresi dolmuş!" />
+    <text name="WelcomeToTheApplicationNotificationMessage" value="AbpProjectTemplate uygulamasına Hoşgeldiniz! Bilgilendirme sistemi sizi ilgilendiğiniz olaylar hakkında anında bilgilendirmek için geliştirilmiştir. Bildirim ayarları kısmından ne tür bilgilendirme almak istediğinizi ayarlayabilirsiniz." />
+    <text name="NewUserRegisteredNotificationDefinition" value="Yeni bir kullanıcı kaydolduğunda." />
+    <text name="NewUserRegisteredNotificationMessage" value="Yeni bir kullanıcı kaydoldu. Kullanıcı adı: {userName}, e-posta adresi: {emailAddress}." />
+    <text name="SeeAllNotifications" value="Tüm bildirimleri gör" />
+    <text name="SetAsRead" value="okundu olarak işaretle" />
+    <text name="SetAllAsRead" value="Tümünü okundu olarak işaretle" />
+    <text name="NotificationSettings" value="Bildirim ayarları" />
+    <text name="ReceiveNotifications" value="Bildirimleri Al" />
+    <text name="ReceiveNotifications_Definition" value="Bu seçenek bildirim almayı tamamen durdurmak için kullanılabilir." />
+    <text name="NotificationTypes" value="Bildirim Türleri" />
+    <text name="ReceiveNotifications_DisableInfo" value="Bildirim almayı tümüyle kapattınız. Bildirim almayı seçtikten sonra hangi bildirim türlerini almak istediğinizi tek tek belirleyebilirsiniz." />
+    <text name="Notifications" value="Bildirimler" />
+    <text name="ThereIsNoNotification" value="Bildirim yok." />
+    <text name="Unread" value="Okunmamış" />
+    <text name="YouCanNotDeleteOwnAccount" value="Kendi kullanıcı hesabınızı silemezsiniz!" />
+    <text name="On" value="Açık" />
+    <text name="Off" value="Kapalı" />
+    <text name="Maintenance">Bakım</text>
+    <text name="Caches">Önbellekler</text>
+    <text name="CacheSuccessfullyCleared">Önbellek başarıyla temizlendi.</text>
+    <text name="AllCachesSuccessfullyCleared">Tüm önbellekler başarıyla temizlendi.</text>
+    <text name="ClearAll">Hepsini temizle</text>
+    <text name="Clear">Temizle</text>
+    <text name="CachesHeaderInfo">Uygulamadaki önbellekleri bu sayfada temizleyebilirsiniz.</text>
+    <text name="TestEmailSettingsHeader">E-posta Ayarlarını Test Et</text>
+    <text name="SendTestEmail">Test E-postası Gönder</text>
+    <text name="TestEmail_Subject">AbpProjectTemplate test maili</text>
+    <text name="TestEmail_Body">Bu bir test mailidir.</text>
+    <text name="TestEmailSentSuccessfully">Test e-postası başarıyla gönderildi.</text>
+    <text name="WebSiteLogs">Websitesi Logları</text>
+    <text name="WebSiteLogsHeaderInfo">Bu sayfada en güncel logları görebilir veya tüm logları tek bir zip dosyası olarak indirebilirsiniz.</text>
+    <text name="DownloadAll">Hepsini indir</text>
+    <text name="TenantManagement">Müşteri yönetimi</text>
+    <text name="AllowTenantsToRegisterThemselves" value="Müşterilerin sisteme kaydolmasına izin ver." />
+    <text name="AllowTenantsToRegisterThemselves_Hint" value="Eğer bu ayarı kapatırsanız, müşterileri sadece yönetici ekleyebilir." />
+    <text name="NewRegisteredTenantsIsActiveByDefault" value="Yeni kaydolan müşteriler doğrudan aktif olsun." />
+    <text name="NewRegisteredTenantsIsActiveByDefault_Hint" value="Eğer bu ayarı kapatırsanız, yeni müşteriler yönetici tarafından etkinleştirilmedikleri sürece sisteme giremeyeceklerdir." />
+    <text name="TenantSignUp">Müşteri Kaydı</text>
+    <text name="NewTenantRegisteredNotificationDefinition" value="Yeni bir müşteri kaydolduğunda." />
+    <text name="NewTenantRegisteredNotificationMessage" value="Yeni bir müşteri kaydoldu. Müşteri adı: {tenancyName}." />
+    <text name="LoginAttempts">Giriş denemeleri</text>
+    <text name="Failed">Başarısız</text>
+    <text name="NewTenant">Yeni müşteri</text>
+    <text name="ResizedProfilePicture_Warn_SizeLimit" value="Kırpılmış resim boyutu en fazla 100KB olabilir. Lütfen kırpılmış alanı küçültüp tekrar deneyin." />
+    <text name="RegisterFormUserNameInvalidMessage">Lütfen kullanıcı adı alanına e-posta adresi girmeyin.</text>
+    <text name="UseHostDatabase" value="Host veritabanını kullan" />
+    <text name="DatabaseConnectionString" value="Veritabanı bağlantı cümlesi" />
+    <text name="TenantDatabaseConnectionStringChangeWarningMessage" value="Dikkat: Müşteri için veritabanı bağlantı cümlesini değiştirmeden önce veritabanını yeni konumuna taşımanız gerekir. Bağlantı cümlesini değiştirmek veritabanını otomatik olarak taşımayacaktır." />
+    <text name="Timezone">Zaman dilimi</text>
+    <text name="HasOwnDatabase">Kendi veritabanı var</text>
+    <text name="TimeZoneSettingChangedRefreshPageNotification">Zaman dilimi ayarı değişti. Değişiklikerin etkili olması için Tamam butonuna basarak sayfayı yenileyin.</text>
+    <text name="Ok">Tamam</text>
+    <text name="Permission">Yetki</text>
+    <text name="Role">Rol</text>
+    <text name="Security">Güvenlik</text>
+    <text name="PasswordComplexity">Şifre karmaşıklığı</text>
+    <text name="MinPasswordLength">En az şifre uzunluğu</text>
+    <text name="MaxPasswordLength">En çok şifre uzunluğu</text>
+    <text name="UseNumbers">Şifrede rakam kullan</text>
+    <text name="UseUpperCaseLetters">Şifrede büyük harfleri kullan</text>
+    <text name="UseLowerCaseLetters">Şifrede küçük harfleri kullan</text>
+    <text name="UsePunctuations">Şifrede noktalama işaretlerini kullan</text>
+    <text name="UseDefaultSettings">varsayılan ayarları kullan</text>
+    <text name="PasswordComplexityNotSatisfied">Şifre karmaşıklığı yeterli değil.</text>
+    <text name="PasswordComplexity_MinLength_Hint">Şifre en az {0} karakter olmalı</text>
+    <text name="PasswordComplexity_MaxLength_Hint">Şifre en çok {0} karakter olmalı</text>
+    <text name="PasswordComplexity_UseNumbers_Hint">Şifre en az bir rakam içermeli</text>
+    <text name="PasswordComplexity_UseUpperCaseLetters_Hint">Şifre en az 1 büyük harf içermeli</text>
+    <text name="PasswordComplexity_UseLowerCaseLetters_Hint">Şifre en az 1 küçük harf içermeli</text>
+    <text name="PasswordComplexity_UsePunctuations_Hint">Şifre en az bir özel karakter içermeli</text>
+    <text name="YouAlreadyAddedThisUser">Bu kullanıcıyı zaten eklediniz.</text>
+    <text name="YouCannotBeFriendWithYourself">Kendinle arkadaş olamazsın.</text>
+    <text name="NewChatMessageEmail_Title">Mesaj Detayları</text>
+    <text name="NewChatMessageEmail_SubTitle"></text>
+    <text name="NewChatMessageEmail_Subject">Yeni bir sohbet mesajınız var</text>
+    <text name="Sender">Gönderen</text>
+    <text name="Message">Mesaj</text>
+    <text name="UserBlocked">Kullanıcı başarıyla engellendi.</text>
+    <text name="UserUnblocked">Kullanıcının engeli kaldırıldı.</text>
+    <text name="BlockUser">Kullanıcıyı engelle</text>
+    <text name="UnblockUser">Engellemeyi kaldır</text>
+    <text name="FriendshipRequestAccepted">Arkadaşlık isteği kabul edildi</text>
+    <text name="UserSendYouAFriendshipRequest">{0} seni arkadaş olarak ekledi.</text>
+    <text name="Friends">Arkadaşlar</text>
+    <text name="Others">Diğerleri</text>
+    <text name="BlockedUsers">Engellenen Kullanıcılar</text>
+    <text name="YouDontHaveAnyFriend">Hiç arkadaşınız yok. Arkadaş eklemek için üstteki kutucuğa bir kullanıcı adı yazıp "Arkadaş Ekle" butonuna basın.</text>
+    <text name="YouDontHaveAnyBlockedFriend">Hiç engellenmiş kullanıcı yok. Birini engellemek için, o kullanıcıyı seçin ve açılan kısımdaki kullanıcı işlemlerinden engelleme butonuna basın.</text>
+    <text name="ChatUserSearch_Hint">
+      <![CDATA[
+       Kendi müşteriniz için sadece kullanıcı adı, <br>
+      Diğer müşteriler için <strong>[müşteri adı]\[kullanıcı adı]</strong> şeklinde arayın<br><br>
+      Örneğin: <br>
+      .\admin -> host admin için <br>
+      Test\admin -> test admin için <br>
+      admin -> kendi admininiz için
+      ]]>
+    </text>
+    <text name="AddFriend">Arkadaş ekle</text>
+    <text name="TypeAMessageHere">Mesajınızı yazın...</text>
+    <text name="Chat">Sohbet</text>
+    <text name="ChatFeature">Sohbet</text>
+    <text name="ChatFeatureIsNotEnabledForSender">Sohbet özelliği sizin için aktif değil.</text>
+    <text name="ChatFeatureIsNotEnabledForReceiver">Sohbet özelliği karşı taraf için aktif değil.</text>
+    <text name="UserIsBlocked">Kullanıcı engellenmiş.</text>
+    <text name="ChatIsNotConnectedWarning">Sohbet bağlı değil.</text>
+    <text name="Demo_SampleChatMessage">Merhaba, bu bir test mesajıdır. Lütfen benim hesabımla başka bir browserdan giriş yap ve sohbet özelliğini dene.</text>
+    <text name="TenantToTenantChatFeatureIsNotEnabledForSender">Diğer müşterilerle sohbet sizin için aktif değil.</text>
+    <text name="TenantToTenantChatFeatureIsNotEnabledForReceiver">Diğer müşterilerle sohbet karşı taraf için aktif değil.</text>
+    <text name="TenantToHostChatFeatureIsNotEnabledForSender">Üst kullanıcıyla sohbet sizin için aktif değil.</text>
+    <text name="TenantToHostChatFeatureIsNotEnabledForReceiver">Üst kullanıcıyla sohbet karşı taraf için aktif değil.</text>
+    <text name="TenantToTenantChatFeature">Diğer müşterilerle sohbet</text>
+    <text name="TenantToHostChatFeature">Üst kullanıcıyla sohbet</text>
+    <text name="FilterByPermission">Yetkiye göre filtrele</text>
+    <text name="FilterByRole">Role göre filtrele</text>
+    <text name="FilterOrAddUser">Kullanıcı filtrele/ekle</text>
+    <text name="HangfireDashboard" value="Hangfire arayüzü" />
+    <text name="TargetUserNotFoundProbablyDeleted">Hedef kullanıcı bulunamadı. Muhtemelen silinmiş olabilir.</text>
+    <text name="UserLockedOutMessage">Kullanıcı hesabı kilitlenmiş. Lütfen bir süre sonra tekrar deneyin.</text>
+    <text name="SendSecurityCode">Güvenlik Kodu Gönder.</text>
+    <text name="SendSecurityCode_Information">Giriş yapabilmeniz için siz olduğunuzu doğrulamanız gerekmektedir. Lütfen bir doğrulama türü seçin. Seçmiş olduğunuz türe göre size bir doğrulama kodu gönderilecektir.</text>
+    <text name="SendSecurityCodeErrorMessage">Güvenlik kodu gönderilemedi!</text>
+    <text name="VerifySecurityCodeNotLoggedInErrorMessage">Kendinizi doğrulamadan önce giriş yapmalısınız. Muhtemelen zaman aşımı olmuş olabilir. Lütfen giriş sayfasına gidip tekrar deneyin.</text>
+    <text name="VerificationCode">Doğrulama Kodu</text>
+    <text name="VerifySecurityCode">Güvenlik Kodu Doğrulama</text>
+    <text name="VerifySecurityCode_Information">Lütfen size gönderilen doğrulama kodunu girin.</text>
+    <text name="RememberThisBrowser">Bu tarayıcıyı hatırla</text>
+    <text name="InvalidSecurityCode">Geçersiz güvenlik kodu!</text>
+    <text name="PhoneNumber">Telefon numarası</text>
+    <text name="Unlock">Giriş kilidini kaldır</text>
+    <text name="UnlockedTheUser">{0} için giriş kilidi kaldırıldı.</text>
+    <text name="UserLockOut">Kullanıcı Hesap Kilitleme</text>
+    <text name="EnableUserAccountLockingOnFailedLoginAttemts">Hatalı giriş denemelerinde kullanıcının hesabını kilitle</text>
+    <text name="MaxFailedAccessAttemptsBeforeLockout">Hesap kilitlenmeden önce en fazla kaç kez hatalı deneme yapılabilsin</text>
+    <text name="DefaultAccountLockoutDurationAsSeconds">Hesabın kilitli kalma süresi (saniye olarak)</text>
+    <text name="TwoFactorLogin">Çift Doğrulamalı Giriş</text>
+    <text name="EnableTwoFactorLogin">Çift doğrulamalı kullanıcı girişini etkinleştir.</text>
+    <text name="IsEmailVerificationEnabled">Email doğrulamasını etkinleştir.</text>
+    <text name="IsSmsVerificationEnabled">SMS (kısa mesaj) doğrulamasını etkinleştir.</text>
+    <text name="AllowToRememberBrowserForTwoFactorLogin">Tarayıcıyı hatırlamaya izin ver. Eğer buna izin verirseniz, kullanıcılar aynı tarayıcı için ikinci kez çift doğrulamalı giriş yapmamayı seçebilirler.</text>
+  </texts>
+</localizationDictionary>

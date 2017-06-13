@@ -1,0 +1,97 @@
+﻿@model YoYoCms.AbpProjectTemplate.Web.Models.Account.RegisterViewModel
+@using System.Web.Script.Serialization
+@using Abp.Extensions
+@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.MultiTenancy
+@using Recaptcha.Web
+@using Recaptcha.Web.Mvc
+@section Scripts
+{
+    <script>
+        window.passwordComplexitySetting = @(new JavaScriptSerializer().Serialize(Model.PasswordComplexitySetting).Replace("\"", ""));
+    </script>
+    @Html.IncludeScript("~/Views/Account/Register.js")
+}
+<form class="register-form" action="@Url.Action("Register")" method="post">
+
+    <h3>@L("SignUp")</h3>
+
+    @if (@ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <i class="fa fa-warning"></i> @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @Html.AntiForgeryToken()
+
+    @if (ViewBag.IsMultiTenancyEnabled)
+    {
+        if (Model.TenancyName.IsNullOrEmpty())
+        {
+            <p class="hint">
+                @L("TenantInformations")
+            </p>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">@L("TenancyName")</label>
+                <input class="form-control placeholder-no-fix input-ltr" type="text" placeholder="@L("TenancyName")" name="TenancyName" value="@(Model.TenancyName ?? "")" required maxlength="@Tenant.MaxTenancyNameLength" />
+            </div>
+        }
+        else
+        {
+            <input type="hidden" name="TenancyName" value="@Model.TenancyName" />
+        }
+    }
+
+    <input type="hidden" name="IsExternalLogin" value="@Model.IsExternalLogin.ToString()" />
+
+    <p class="hint">
+        @L("PersonalInformations")
+    </p>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("Name")</label>
+        <input class="form-control placeholder-no-fix" type="text" placeholder="@L("Name")" name="Name" required value="@Model.Name" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxNameLength" />
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("Surname")</label>
+        <input class="form-control placeholder-no-fix" type="text" placeholder="@L("Surname")" name="Surname" required value="@Model.Surname" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxSurnameLength" />
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">@L("EmailAddress")</label>
+        <input class="form-control placeholder-no-fix" type="email" placeholder="@L("EmailAddress")" name="EmailAddress" required value="@Model.EmailAddress" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength" />
+    </div>
+
+    @if (!Model.IsExternalLogin)
+    {
+        <p class="hint">
+            @L("AccountSettings")
+        </p>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">@L("UserName")</label>
+            <input class="form-control placeholder-no-fix input-ltr" type="text" autocomplete="off" placeholder="@L("UserName")" name="UserName" value="@Model.UserName" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxUserNameLength" />
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">@L("Password")</label>
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="RegisterPassword" placeholder="@L("Password")" name="Password" required />
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">@L("PasswordRepeat")</label>
+            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="@L("PasswordRepeat")" name="PasswordRepeat" required />
+        </div>
+    }
+
+    @if (ViewBag.UseCaptcha)
+    {
+        <p class="hint">
+            @L("Captha_Hint")
+        </p>
+        <div class="form-group margin-bottom-20">
+            @Html.Recaptcha(theme: RecaptchaTheme.Red)
+        </div>
+    }
+
+    <div class="form-actions">
+        <a href="@Url.Action("Login","Account")"><button type="button" id="register-back-btn" class="btn btn-default">@L("Back")</button></a>
+        <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">@L("Submit")</button>
+    </div>
+</form>

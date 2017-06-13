@@ -1,0 +1,37 @@
+﻿/* Grid & Grid content */
+.ui-grid {
+  min-height: 380px;
+}
+.ui-grid .dropdown.open {
+  position: fixed;
+  z-index: 10;
+}
+/* Material Design form input angular validation colors */
+.form-group.form-md-line-input .form-control.ng-touched.ng-invalid {
+  border-bottom-color: red;
+}
+.form-group.form-md-line-input .form-control.ng-touched.ng-invalid.edited:not([readonly]) ~ label:after {
+  background-color: red;
+}
+.page-footer-inner {
+  padding-bottom: 10px;
+}
+.md-shadow-zero-light {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.18) !important;
+}
+/* Modal fix for Metronic */
+body[ng-controller] div.modal-backdrop {
+  z-index: 10049;
+}
+body[ng-controller] div.modal {
+  z-index: 10050;
+}
+/* even in RTL languages below types are LTR */
+.input-ltr,
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="number"],
+input[type="tel"] {
+  direction: ltr;
+}

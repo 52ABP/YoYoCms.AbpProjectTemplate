@@ -1,0 +1,35 @@
+﻿<div>
+    <form name="languageCreateOrEditForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span ng-if="vm.language.id">@L("EditLanguage"): {{vm.language.name}}</span>
+                <span ng-if="!vm.language.id">@L("CreateNewLanguage")</span>
+            </h4>
+        </div>
+        <div class="modal-body" busy-if="vm.loading">
+            <div class="form-group">
+                <label for="LanguageNameSelectionCombobox">@L("Language")</label>
+                <select id="LanguageNameSelectionCombobox"
+                        class="form-control"
+                        ng-options="languageName.value as languageName.displayText for languageName in vm.languageNames"
+                        ng-model="vm.language.name"
+                        ui-jq="selectpicker"
+                        ui-options='{ iconBase: "famfamfam-flag", tickIcon: "fa fa-check" }'
+                        ng-change="vm.languageChanged()"
+                        data-live-search="true">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="LanguageIconSelectionCombobox">@L("Flag")</label>
+                <select id="LanguageIconSelectionCombobox" class="form-control bs-select" ng-model="vm.language.icon" ui-jq="selectpicker" ui-options='{ iconBase: "famfamfam-flag", tickIcon: "fa fa-check" }' data-live-search="true">
+                    <option ng-repeat="flag in vm.flags" data-icon="{{flag.value}}" value="{{flag.value}}"><i class="{{flag.value}}"></i>{{flag.displayText}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="languageCreateOrEditForm.$invalid"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

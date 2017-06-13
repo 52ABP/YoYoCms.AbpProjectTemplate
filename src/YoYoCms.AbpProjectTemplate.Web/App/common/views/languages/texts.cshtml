@@ -1,0 +1,97 @@
+﻿@using YoYoCms.AbpProjectTemplate.Localization
+<div ng-controller="common.views.languages.texts as vm">
+    <div class="row margin-bottom-5">
+        <div class="col-xs-6">
+            <div class="page-head">
+                <div class="page-title">
+                    <h1>
+                        <span>@L("LanguageTexts")</span> <small>@L("LanguageTextsHeaderInfo")</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light margin-bottom-0">
+        <div class="portlet-title portlet-title-filter">
+            <div class="inputs inputs-full-width">
+                <div class="portlet-input">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label for="TextBaseLanguageSelectionCombobox">@L("BaseLanguage")</label>
+                                    <select id="TextBaseLanguageSelectionCombobox"
+                                            class="form-control bs-select"
+                                            ng-model="vm.baseLanguageName"
+                                            ui-jq="selectpicker"
+                                            ui-options='{ iconBase: "famfamfam-flag", tickIcon: "fa fa-check" }'
+                                            data-live-search="true">
+                                        <option ng-repeat="language in vm.languages"
+                                                data-icon="{{language.icon}}"
+                                                value="{{language.name}}">
+                                            <i class="{{language.icon}}"></i>{{language.displayName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label for="TextTargetLanguageSelectionCombobox">@L("TargetLanguage")</label>
+                                    <select id="TextTargetLanguageSelectionCombobox"
+                                            class="form-control bs-select"
+                                            ng-model="vm.targetLanguageName"
+                                            ui-jq="selectpicker"
+                                            ui-options='{ iconBase: "famfamfam-flag", tickIcon: "fa fa-check" }'
+                                            data-live-search="true">
+                                        <option ng-repeat="language in vm.languages"
+                                                data-icon="{{language.icon}}"
+                                                value="{{language.name}}">
+                                            <i class="{{language.icon}}"></i>{{language.displayName}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label for="TextSourceSelectionCombobox">@L("Source")</label>
+                                    <select id="TextSourceSelectionCombobox"
+                                            class="form-control bs-select"
+                                            ng-model="vm.sourceName"
+                                            ng-options="sourceName for sourceName in vm.sourceNames"
+                                            ui-jq="selectpicker"
+                                            ui-options='{ iconBase: "fa", tickIcon: "fa fa-check" }'
+                                            data-live-search="true"></select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label for="TargetValueFilterSelectionCombobox">@L("TargetValue")</label>
+                                    <select id="TargetValueFilterSelectionCombobox"
+                                            class="form-control bs-select"
+                                            ng-model="vm.targetValueFilter"
+                                            ui-jq="selectpicker"
+                                            ng-change="vm.applyFilters()"
+                                            ui-options='{ iconBase: "fa", tickIcon: "fa fa-check" }'>
+                                        <option value="ALL">@L("All")</option>
+                                        <option value="EMPTY">@L("EmptyOnes")</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input ng-model="vm.filterText" auto-focus class="form-control" placeholder="@L("SearchWithThreeDot")" type="text">
+                            <span class="input-group-btn">
+                                <button ng-click="vm.applyFilters()" class="btn default" type="submit"><i class="icon-refresh"></i> @L("Refresh")</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div busy-if="vm.loading">
+                <div ui-grid="vm.gridOptions" ui-grid-resize-columns ui-grid-pagination dir=@(CultureHelper.IsRtl ? "rtl" : "")></div>
+            </div>
+        </div>
+    </div>
+</div>

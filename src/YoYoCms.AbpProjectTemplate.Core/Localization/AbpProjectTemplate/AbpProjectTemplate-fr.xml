@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="fr">
+  <texts>
+    <text name="HomePage" value="Page d'accueil" />
+    <text name="AboutUs" value="A propos" />
+    <text name="Administration" value="Administration" />
+    <text name="Roles" value="Les rôles" />
+    <text name="Users" value="Utilisateurs" />
+    <text name="InvalidFormMessage" value="Votre formulaire n'est pas valide. Veuillez le vérifier et le corriger." />
+    <text name="InvalidUserNameOrPassword" value="Nom d'utilisateur ou mot de passe non valide" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="Il n'y a pas de tenant défini avec le nom {0}" />
+    <text name="TenantIsNotActive" value="Tenant {0} n'est pas actif." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="L'utilisateur {0} n'est pas actif et ne peut pas se connecter." />
+    <text name="PleaseEnterLoginInformation" value="Veuillez entrer les informations de connexion" />
+    <text name="TenancyName" value="Nom du tenant" />
+    <text name="UserNameOrEmail" value="Nom d'utilisateur ou email" />
+    <text name="Password" value="Mot de passe" />
+    <text name="RememberMe" value="Se souvenir de moi" />
+    <text name="LogIn" value="Se connecter" />
+    <text name="ForgotPassword" value="Mot de passe oublié?" />
+    <text name="DontYouHaveAnAccount" value="Vous n'avez pas de compte?" />
+    <text name="CreateAnAccount" value="Créer un compte" />
+    <text name="Pages" value="Pages" />
+    <text name="RoleName" value="Nom du rôle" />
+    <text name="EditRole" value="Modifier le rôle" />
+    <text name="CreateNewRole" value="Créer un nouveau rôle" />
+    <text name="RoleProperties" value="Propriétés du rôle" />
+    <text name="Permissions" value="Permissions" />
+    <text name="Save" value="Enregistrer" />
+    <text name="Cancel" value="Annuler" />
+    <text name="RolesHeaderInfo" value="Utiliser les rôles pour regrouper les autorisations." />
+    <text name="Static" value="Statique" />
+    <text name="Actions" value="Actions" />
+    <text name="Delete" value="Supprimer" />
+    <text name="SavedSuccessfully" value="Enregistré avec succès." />
+    <text name="AreYouSure" value="Êtes-vous sûr?" />
+    <text name="YesDelete" value="Oui, supprimer!" />
+    <text name="DeletingUser" value="Supprimer l'utilisateur" />
+    <text name="UsersHeaderInfo" value="Gérer les utilisateurs et les autorisations." />
+    <text name="CreateNewUser" value="Créer un nouvel utilisateur" />
+    <text name="UserName" value="Nom d'utilisateur" />
+    <text name="Name" value="Nom" />
+    <text name="Surname" value="Nom de famille" />
+    <text name="EmailAddress" value="Adresse e-mail" />
+    <text name="LastLoginTime" value="date de la dernière connexion" />
+    <text name="EditUser" value="Modifier l'utilisateur" />
+    <text name="UserInformations" value="Informations utilisateur" />
+    <text name="PasswordRepeat" value="Mot de passe (Répéter)" />
+    <text name="SuccessfullyDeleted" value="Supprimé avec succès." />
+    <text name="RoleDeleteWarningMessage" value="Le rôle {0} sera supprimé et non affecté de tous les utilisateurs affectés." />
+    <text name="UserDeleteWarningMessage" value="L'utilisateur {0} sera supprimé." />
+    <text name="Active" value="Active" />
+    <text name="EmailConfirm" value="Confirmation d'email" />
+    <text name="Yes" value="Oui" />
+    <text name="No" value="Non" />
+    <text name="MySettings" value="Mes paramètres" />
+    <text name="Logout" value="Déconnexion" />
+    <text name="Reset" value="Réinitialiser" />
+    <text name="ResetPermissionsTooltip" value="Ce bouton réinitialise immédiatement les paramètres d'autorisation spécifiques à l'utilisateur et enregistre les modifications. L'utilisateur ne disposera que des autorisations des rôles assignés." />
+    <text name="ResetSuccessfully" value="Réinitialiser avec succès" />
+    <text name="Tenants" value="Tenants" />
+    <text name="TenantsHeaderInfo" value="Gérer vos tenants." />
+    <text name="CreateNewTenant" value="Créer un nouveau tenant" />
+    <text name="TenancyCodeName" value="Nom du code Tenant" />
+    <text name="TenantName" value="Nom du tenant" />
+    <text name="TenantDeleteWarningMessage" value="Tenant {0} {0} sera supprimé." />
+    <text name="AdminEmailAddress" value="email admin " />
+    <text name="AdminPassword" value="mot de passe admin " />
+    <text name="AdminPasswordRepeat" value="mot de passe admin (Répéter)" />
+    <text name="EditTenant" value="Editer le tenant" />
+    <text name="ChangingPermissions" value="Changer les permissions" />
+    <text name="EditingUser" value="Editer l'utilisateur" />
+    <text name="CreatingNewUser" value="Créer un nouvel utilisateur" />
+    <text name="Edit" value="Editer" />
+    <text name="EditingTenant" value="Editer le tenant" />
+    <text name="CreatingNewTenant" value="Créer un nouveau tenant" />
+    <text name="DeletingTenant" value="Supprimer un tenant" />
+    <text name="EditingRole" value="Edition Rôle " />
+    <text name="CreatingNewRole" value="Créer un nouveau rôle" />
+    <text name="DeletingRole" value="Supprimer un rôle" />
+    <text name="CreationTime" value="Temps de création" />
+    <text name="SearchWithThreeDot" value="Rechercher..." />
+    <text name="ResetSpecialPermissions" value="Réinitialiser les permissions spéciales" />
+    <text name="SavingWithThreeDot" value="Enregistrer..." />
+    <text name="Settings" value="Paramètres" />
+    <text name="SaveAll" value="Enregistrer tout" />
+    <text name="SettingsHeaderInfo" value="Afficher et modifier les paramètres de l'application." />
+    <text name="EmailSmtp" value="Email (SMTP)" />
+    <text name="DefaultFromAddress" value="Par défaut de l'adresse e-mail du destinataire" />
+    <text name="DefaultFromDisplayName" value="Par défaut du nom d'expéditeur" />
+    <text name="SmtpHost" value="Hôte SMTP" />
+    <text name="SmtpPort" value="Port SMTP" />
+    <text name="UseDefaultCredentials" value="Utiliser les informations d'identification par défaut" />
+    <text name="DomainName" value="Nom de domaine" />
+    <text name="UseSsl" value="Utiliser SSL" />
+    <text name="ThisWebSiteRootAddress" value="Adresse racine du site Web" />
+    <text name="ThisWebSiteRootAddress_Hint" value="Il sera utilisé lors de la construction de liens vers ce site Web. Il est nécessaire pour certaines tâches comme la construction de liens de réinitialisation de mot de passe. Ex: http://mydomain.com/" />
+    <text name="General" value="Général" />
+    <text name="SendPasswordResetLink_Information" value="Un lien de réinitialisation de mot de passe sera envoyé à votre email pour réinitialiser votre mot de passe. Si vous ne recevez pas un email dans quelques minutes, veuillez réessayer." />
+    <text name="Send" value="Envoyer" />
+    <text name="PasswordReset" value="Réinitialisation du mot de passe" />
+    <text name="InvalidUserNameOrEmailAddress" value="Nom d'utilisateur ou adresse e-mail non valide" />
+    <text name="PasswordResetEmail_Subject" value="réinitialisation du mot de passe egestion" />
+    <text name="PasswordResetEmail_Title" value="réinitialisation du mot de passe egestion" />
+    <text name="PasswordResetEmail_SubTitle" value="Cet e-mail vous est envoyé pour réinitialiser et recréer votre mot de passe." />
+    <text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword" value="Veuillez cliquer sur le lien ci-dessous pour réinitialiser votre mot de passe:" />
+    <text name="EmailActivation_Subject" value="egestion d'email de compte egestion" />
+    <text name="EmailActivation_Title" value="Bienvenue dans egestion." />
+    <text name="EmailActivation_SubTitle" value="Cet e-mail vous est envoyé pour vérifier votre email." />
+    <text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail" value="Veuillez cliquer sur le lien ci-dessous pour confirmer votre adresse e-mail:" />
+    <text name="InvalidEmailAddress" value="Adresse e-mail non valide" />
+    <text name="InvalidPasswordResetCode" value="Code de réinitialisation de mot de passe non valide" />
+    <text name="InvalidPasswordResetCode_Detail" value="S'il vous plaît assurez-vous d'avoir saisi cette page en cliquant sur le lien envoyé à votre email. Si cela ne résout pas le problème, vous pouvez réessayer de demander un nouveau mot de passe." />
+    <text name="PleaseEnterYourNewPassword" value="Veuillez entrer votre nouveau mot de passe." />
+    <text name="UserEmailIsNotConfirmedAndCanNotLogin" value="Votre adresse de courriel n'est pas confirmée. Veuillez vérifier votre courriel et cliquez sur le lien de confirmation par courriel pour activer votre compte. email. Si vous n'avez pas reçu de courriel d'activation, cliquez sur le lien «confirmation par courriel» pour demander un nouveau courriel." />
+    <text name="LoginFailed" value="Échec de la connexion!" />
+    <text name="InvalidEmailConfirmationCode" value="Code de confirmation de courriel non valide" />
+    <text name="InvalidEmailConfirmationCode_Detail" value="Veuillez vous assurer d'avoir entré cette page en cliquant sur le lien envoyé à votre email. Si cela ne résout pas le problème, vous pouvez réessayer de demander un nouveau code de confirmation." />
+    <text name="YourEmailIsConfirmedMessage" value="Votre adresse de courriel a été confirmée avec succès." />
+    <text name="ShouldChangePasswordOnNextLogin" value="Doit changer le mot de passe lors de la prochaine connexion." />
+    <text name="SetRandomPassword" value="Définir le mot de passe aléatoire." />
+    <text name="EmailActivation" value="Email activation" />
+    <text name="SendEmailActivationLink_Information" value="Un lien sera envoyé à votre email pour activer votre adresse email. Si vous ne recevez pas un email dans quelques minutes, s'il vous plaît essayer de nouveau." />
+    <text name="SendActivationEmail" value="Envoyer un email d'activation" />
+    <text name="ChangePassword" value="Changer le mot de passe" />
+    <text name="CurrentPassword" value="Mot de passe actuel" />
+    <text name="NewPassword" value="Nouveau mot de passe" />
+    <text name="NewPasswordRepeat" value="Nouveau mot de passe (Répéter)" />
+    <text name="YourPasswordHasChangedSuccessfully" value="Votre mot de passe a été modifié avec succès." />
+    <text name="SelfUserRegistrationIsDisabledMessage" value="Vous ne pouvez pas vous inscrire au système!" />
+    <text name="SelfUserRegistrationIsDisabledMessage_Detail" value="L'enregistrement de l'utilisateur est désactivé. Contactez l'administrateur du système pour vous enregistrer." />
+    <text name="SuccessfullyRegistered" value="Enregistré avec succès" />
+    <text name="ConfirmationMailSentPleaseClickLinkInTheEmail" value="Un mail de confirmation envoyé à {0}. Veuillez cliquer sur le lien dans l'email pour confirmer votre adresse mail." />
+    <text name="YourAccountIsWaitingToBeActivatedByAdmin" value="Votre compte est en attente d'être activé par l'administrateur système." />
+    <text name="NameSurname" value="Nom de famille" />
+    <text name="UserManagement" value="Gestion des utilisateurs" />
+    <text name="AllowUsersToRegisterThemselves" value="Autoriser les utilisateurs à s'inscrire au système." />
+    <text name="AllowUsersToRegisterThemselves_Hint" value="Si vous désactivez ceci, les utilisateurs ne seront ajoutés par admin qu'avec la page de gestion des utilisateurs." />
+    <text name="NewRegisteredUsersIsActiveByDefault" value="Les nouveaux utilisateurs enregistrés sont actifs par défaut." />
+    <text name="NewRegisteredUsersIsActiveByDefault_Hint" value="Si vous désactivez ceci, les nouveaux utilisateurs ne seront pas actifs (et ne peuvent pas se connecter) tant que l'administrateur n'a pas activé manuellement le compte." />
+    <text name="Default" value="Default" />
+    <text name="DefaultRole_Description" value="Affecter à de nouveaux utilisateurs par défaut." />
+    <text name="StaticRole_Tooltip" value="Les rôles statiques ne peuvent pas être supprimés." />
+    <text name="EmailConfirmationRequiredForLogin" value="Confirmation d'email requise pour l'ouverture de session." />
+    <text name="{0}UserCannotBeDeleted" value="{0} utilisateur ne peut pas être supprimé." />
+    <text name="TenantNameCanNotBeEmpty" value="Le nom du tenant ne peut pas être vide" />
+    <text name="ExportToExcel" value="Exporter vers Excel" />
+    <text name="ChangeProfilePicture" value="Modifier l'image du profil" />
+    <text name="TenantName_Regex_Description" value="Le nom du tenant doit contenir au moins 2 caractères, commence par une lettre et continue avec la lettre, le nombre, le tiret ou le trait de soulignement." />
+    <text name="ProfilePicture_Change_Info" value="Vous pouvez sélectionner un fichier JPG / JPEG / PNG avec une taille maximale de 1 Mo." />
+    <text name="ProfilePicture_Change_Error" value="Votre image de profil n'a pas pu être modifiée." />
+    <text name="ProfilePicture_Warn_SizeLimit" value="La taille de l'image doit être inférieure à 1 Mo. Veuillez sélectionner un autre fichier." />
+    <text name="ProfilePicture_Warn_FileType" value="Vous ne pouvez sélectionner que le fichier JPG / JPEG. Sélectionnez un autre fichier." />
+    <text name="Dashboard" value="Tableau de bord" />
+    <text name="DashboardHeaderInfo" value="statistiques et rapports" />
+    <text name="GoToApplication" value="Aller à l'application" />
+    <text name="TenantInformations" value="Informations sur le tenant" />
+    <text name="PersonalInformations" value="Informations personnelles" />
+    <text name="AccountSettings" value="Paramètres du compte" />
+    <text name="Captha_Hint" value="Veuillez saisir le code de sécurité indiqué dans l'image ci-dessous:" />
+    <text name="Back" value="Retour" />
+    <text name="Submit" value="Soumettre" />
+    <text name="SignUp" value="S'inscrire" />
+    <text name="CaptchaCanNotBeEmpty" value="Le code de sécurité ne peut pas être vide." />
+    <text name="IncorrectCaptchaAnswer" value="Le code de sécurité n'est pas valide." />
+    <text name="FormIsNotValidMessage" value="Le formulaire n'est pas valide. Veuillez vérifier et corriger les erreurs." />
+    <text name="CanNotChangeAdminUserName" value="Impossible de modifier le nom d'utilisateur de l'administrateur." />
+    <text name="Error" value="Erreur!" />
+    <text name="OopsYouAreLost" value="Oups, vous êtes perdu." />
+    <text name="WeCanNotFindThePage" value="Nous ne pouvons pas trouver la page que vous recherchez." />
+    <text name="DashboardDemo_Note_Title" value="Bienvenue dans ASP.NET Zero startup project!" />
+    <text name="DashboardDemo_Note_Info">
+      Dans cette démo, vous pouvez utiliser le menu de gauche pour tester l'application.
+      Cette page de tableau de bord est juste pour la démonstration, mais toutes les autres pages et fonctionnalités sont entièrement mises en œuvre, travaillant et prêt pour la production.
+      Vous pouvez ajouter / appliquer les exigences de votre entreprise sur ce projet de démarrage (ou supprimer toute fonctionnalité dont vous n'avez pas besoin).
+      Ainsi, vous pouvez avoir un gain de temps de signification pour commencer immédiatement vos propres exigences de projet.
+    </text>
+    <text name="WelcomePage_Title" value="Bienvenue!" />
+    <text name="WelcomePage_Info" value="Bienvenue dans l'application Vous pouvez utiliser le menu pour commencer à utiliser l'application Si vous ne voyez aucun élément de menu, vous n'avez probablement pas la permission de voir une page. Demandez à l'administration du système des autorisations. " />
+    <text name="RequestedFileDoesNotExists" value="Le fichier demandé n'existe pas" />
+    <text name="MailSent" value="Mail sent" />
+    <text name="PasswordResetMailSentMessage" value="Un lien de réinitialisation de mot de passe a été envoyé à votre adresse e-mail. Veuillez vérifier vos courriels." />
+    <text name="ActivationMailSentMessage" value="An e-mail activation link sent to your e-mail address. Veuillez vérifier vos courriels." />
+    <text name="UseCaptchaOnRegistration" value="Utiliser la question d'image de sécurité (captcha) lors de l'enregistrement." />
+    <text name="FormBasedRegistration" value="Enregistrement basé sur formulaire" />
+    <text name="LdapSettings" value="Paramètres LDAP" />
+    <text name="EnableLdapAuthentication" value="Activer l'authentification LDAP." />
+    <text name="OtherSettings" value="Autres paramètres" />
+    <text name="AuditLogs" value="Journal d'audit" />
+    <text name="Success" value="Succès" />
+    <text name="Time" value="Temps" />
+    <text name="Service" value="Service" />
+    <text name="Action" value="Action" />
+    <text name="Duration" value="Durée" />
+    <text name="IpAddress" value="Adresse IP" />
+    <text name="Client" value="Client" />
+    <text name="Browser" value="Navigateur" />
+    <text name="Xms" value="{0} ms" />
+    <text name="Close" value="Fermer" />
+    <text name="Refresh" value="Actualiser" />
+    <text name="ErrorState" value="Etat d'erreur" />
+    <text name="All" value="Tous" />
+    <text name="HasError" value="A une erreur" />
+    <text name="ShowAdvancedFilters" value="Afficher les filtres avancés" />
+    <text name="HideAdvancedFilters" value="Masquer les filtres avancés" />
+    <text name="AuditLogDetail" value="Détails du journal d'audit" />
+    <text name="Parameters" value="Paramètres" />
+    <text name="DateRange" value="Période" />
+    <text name="ActionInformations" value="Informations sur les actions" />
+    <text name="Today" value="Aujourd'hui" />
+    <text name="Yesterday" value="Hier" />
+    <text name="Last7Days" value="Les 7 derniers jours" />
+    <text name="Last30Days" value="Les 30 derniers jours" />
+    <text name="ThisMonth" value="Ce mois" />
+    <text name="LastMonth" value="Dernier mois" />
+    <text name="TenantSelection" value="Sélection des Tenant" />
+    <text name="TenantSelection_Detail" value="Veuillez sélectionner l'un des tenants suivants." />
+    <text name="LoginWith" value="Connexion avec:" />
+    <text name="PasswordChangeDontRememberMessage" value="Si vous ne vous souvenez pas de votre mot de passe, {0}." />
+    <text name="ClickHere" value="cliquez ici" />
+    <text name="Apply" value="Appliquer" />
+    <text name="CustomRange" value="Plage personnalisée" />
+    <text name="DashboardNoteForMpaVersion">
+      <![CDATA[
+      Reportez-vous à Démonstration pour la version d'application multipage avec <strong> ASP.NET MVC </ strong> et <strong> jQuery </ strong>.
+      ]]>
+    </text>
+    <text name="DashboardNoteForSpaVersion">
+      <![CDATA[
+      Remarque: Il existe également une version <strong> Application mono-page </ strong> construite avec ASP.NET MVC et <strong> AngularJs </ strong>.
+      ]]>
+    </text>
+    <text name="SeeDemo" value="Voir demo" />
+    <text name="Edition" value="Edition" />
+    <text name="Editions" value="Editions" />
+    <text name="EditionsHeaderInfo" value="Gérer les éditions et les fonctionnalités de l'application" />
+    <text name="CreateNewEdition" value="Créer une nouvelle édition" />
+    <text name="EditEdition" value="Modifier l'édition" />
+    <text name="EditionProperties" value="Edition properties" />
+    <text name="EditionName" value="Propriétés de l'édition" />
+    <text name="Features" value="Nom de l'édition" />
+    <text name="EditionDeleteWarningMessage" value="{0} sera supprimé et non affecté de tous les tenants affectés." />
+    <text name="CreatingNewEdition" value="Créer une nouvelle édition" />
+    <text name="EditingEdition" value="Edition d'édition" />
+    <text name="DeletingEdition" value="Supprimer l'édition" />
+    <text name="ChangingFeatures" value="Modification des fonctions" />
+    <text name="ResetSpecialFeatures" value="Réinitialiser les fonctions spéciales" />
+    <text name="ResetFeaturesTooltip" value="Ce bouton réinitialise immédiatement les paramètres des fonctionnalités spécifiques aux tenants et enregistre les modifications. Le tenant ne disposera que des caractéristiques de l'édition assignée." />
+    <text name="NotAssigned" value="Non affecté" />
+    <text name="InvalidFeaturesWarning" value="Une ou plusieurs valeurs d'entités ne sont pas valides!" />
+    <text name="Languages" value="Langues" />
+    <text name="LanguagesHeaderInfo" value="Gérer les langues de l'interface utilisateur" />
+    <text name="CreateNewLanguage" value="Créer une nouvelle langue" />
+    <text name="Code" value="Code" />
+    <text name="CreatingNewLanguage" value="Créer une nouvelle langue" />
+    <text name="EditingLanguage" value="Langue d'édition" />
+    <text name="DeletingLanguages" value="Suppression de la langue" />
+    <text name="Changingtexts" value="Changer de texte" />
+    <text name="SuccessfullySaved" value="Enregistré avec succès." />
+    <text name="Language" value="Langue" />
+    <text name="Flag" value="Flag" />
+    <text name="SetAsDefaultLanguage" value="Définir comme langue par défaut" />
+    <text name="InvlalidLanguageCode" value="Code de langue non valide." />
+    <text name="EditLanguage" value="Modifier la langue" />
+    <text name="Changetexts" value="Modifier les textes" />
+    <text name="TargetValue" value="Valeur cible" />
+    <text name="BaseValue" value="Valeur de base" />
+    <text name="Key" value="Key" />
+    <text name="SaveAndClose" value="Enregistrer &amp; Fermer" />
+    <text name="SaveAndNext" value="Enregistrer &amp; Suivant" />
+    <text name="Edittext" value="Modifier le texte" />
+    <text name="Languagetexts" value="textes de langue" />
+    <text name="LanguagetextsHeaderInfo" value="Modifier les textes pour les langues" />
+    <text name="EmptyOnes" value="Vide" />
+    <text name="Source" value="Source" />
+    <text name="BaseLanguage" value="Langue de base" />
+    <text name="TargetLanguage" value="Langue cible" />
+    <text name="Previous" value="Précédent" />
+    <text name="LanguageDeleteWarningMessage" value="Souhaitez-vous vraiment supprimer la langue {0}?" />
+    <text name="CanNotEditOrDeleteDefaultLanguages" value="Impossible d'éditer ou de supprimer les langues par défaut, mais vous pouvez modifier ou supprimer les langues que vous avez ajoutées. Mais vous pouvez changer les textes de toutes les langues." />
+    <text name="LookingForMpaVersion" value="Vous cherchez une version d'application multi-pages?" />
+    <text name="LookingForSpaVersion" value="Vous cherchez une version d'application simple?" />
+    <text name="ThisLanguageAlreadyExists" value="Ce langage existe déjà!" />
+    <text name="OrganizationUnits" value="Unités d'organisation" />
+    <text name="OrganizationUnitsHeaderInfo" value="Utiliser les unités organisationnelles pour organiser les utilisateurs et les entités" />
+    <text name="OrganizationTree" value="Arbre d'organisation" />
+    <text name="Members" value="Members" />
+    <text name="SelectAnOrganizationUnitToSeeMembers" value="Sélectionnez une unité d'organisation pour voir les membres." />
+    <text name="OrganizationUnitDeleteWarningMessage" value="Êtes-vous sûr de supprimer l'unité organisationnelle {0}?" />
+    <text name="AddSubUnit" value="Ajouter une sous unité" />
+    <text name="AddMember" value="Ajouter un membre" />
+    <text name="SuccessfullyAdded" value="A ajouté avec succès" />
+    <text name="RemoveUserFromOuWarningMessage" value="Êtes-vous sûr de supprimer l'utilisateur {0} de l'unité organisationnelle {1}?" />
+    <text name="SuccessfullyRemoved" value="Supprimé avec succès" />
+    <text name="SelectAnItem" value="Sélectionner un élément" />
+    <text name="NewOrganizationUnit" value="Nouvelle unité d'organisation" />
+    <text name="SelectAUser" value="Sélectionner un utilisateur" />
+    <text name="Select" value="Sélectionner" />
+    <text name="UserIsAlreadyInTheOrganizationUnit" value="Cet utilisateur est déjà dans l'unité d'organisation!" />
+    <text name="AddRootUnit" value="Ajouter une unité racine" />
+    <text name="AddUser" value="Ajouter un utilisateur" />
+    <text name="NoOrganizationUnitDefinedYet" value="Aucune unité d'organisation définie." />
+    <text name="OrganizationUnitMoveConfirmMessage" value="Veuillez confirmer pour déplacer {0} dans {1}." />
+    <text name="Root" value="Root" />
+    <text name="SuccessfullyMoved" value="déplac avec succès." />
+    <text name="AddedTime" value="Temps d'addition" />
+    <text name="ManagingMembers" value="Gérer les membres" />
+    <text name="ManagingOrganizationTree" value="Gestion de l'arborescence de l'organisation" />
+    <text name="LoginForUsers" value="Connexion pour les utilisateurs" />
+    <text name="LoginAsThisUser" value="Connexion en tant que cet utilisateur" />
+    <text name="BackToMyAccount" value="Retour à mon compte" />
+    <text name="LoginForTenants" value="Login pour les tenants" />
+    <text name="LoginAsThisTenant" value="Connexion en tant que ce tenant" />
+    <text name="AuditLogImpersonatedOperationInfo" value="Remarque: Cette opération est effectuée par un autre utilisateur au nom de cet utilisateur." />
+    <text name="CustomData" value="Données personnalisées" />
+    <text name="None" value="None" />
+    <text name="YouCanBackToYourAccount" value="Vous pouvez revenir à votre compte ici." />
+    <text name="CascadeImpersonationErrorMessage" value="Impossible de faire l'impersonation en cascade. Vous êtes déja dans une connexion impésonnée!" />
+    <text name="FromTenantToHostImpersonationErrorMessage" value="Impossible d'impérsonaliser l'identité d'un utilisateur hôte à partir d'un utilisateur tenant!" />
+    <text name="DifferentTenantImpersonationErrorMessage" value="Impossible d'emprunter l'identité d'un utilisateur d'un tenant différent!" />
+    <text name="ImpersonationTokenErrorMessage" value="Le jeton d'impersonation n'est pas valide ou a expiré!" />
+    <text name="NotImpersonatedLoginErrorMessage" value="Ce n'est pas une connexion impérsonalisée!" />
+    <text name="YouCannotLinkToSameAccount">Vous ne pouvez pas lier au même compte!</text>
+    <text name="ChangePasswordBeforeLinkToAnAccount">Vous devez changer votre mot de passe avant de lier ce compte!</text>
+    <text name="LinkedAccounts">Comptes liés</text>
+    <text name="ManageAccounts">Gérer les comptes</text>
+    <text name="LinkNewAccount">Créer un nouveau compte</text>
+    <text name="SuccessfullyUnlinked">Désactivé avec succès</text>
+    <text name="LinkedUserDeleteWarningMessage">Le lien vers l'utilisateur {0} sera supprimé.</text>
+    <text name="SwitchToLinkedAccountTokenErrorMessage" value="Le jeton d'impersonation d'identité n'est pas valide ou a expiré! " />
+    <text name="WelcomeToTheApplicationNotificationMessage" value="Bienvenue dans egestion! Le système de notification est utilisé pour vous informer des événements prévus. Vous pouvez sélectionner le type de notifications que vous souhaitez recevoir des paramètres de notification." />
+    <text name="NewUserRegisteredNotificationDefinition" value="Sur un nouvel utilisateur enregistré à l'application." />
+    <text name="NewUserRegisteredNotificationMessage" value="Un nouvel utilisateur enregistré à l'application. Nom d'utilisateur: {userName}, Adresse e-mail: {emailAddress}." />
+    <text name="SeeAllNotifications" value="Voir toutes les notifications" />
+    <text name="SetAsRead" value="définir comme lu" />
+    <text name="SetAllAsRead" value="Définir tout comme lu" />
+    <text name="NotificationSettings" value="Paramètres de notification" />
+    <text name="ReceiveNotifications" value="Recevoir des notifications" />
+    <text name="ReceiveNotifications_Definition" value="Cette option peut être utilisée pour activer / désactiver complètement la réception des notifications." />
+    <text name="NotificationTypes" value="Types de notification" />
+    <text name="ReceiveNotifications_DisableInfo" value="Vous avez complètement désactivé la réception des notifications. Vous pouvez l'activer et sélectionner les types de notification que vous souhaitez recevoir." />
+    <text name="Notifications" value="Notifications" />
+    <text name="ThereIsNoNotification" value="Il n'y a pas de notification." />
+    <text name="Unread" value="Non lus" />
+    <text name="YouCanNotDeleteOwnAccount" value="Vous ne pouvez pas supprimer votre propre compte d'utilisateur!" />
+    <text name="On" value="On" />
+    <text name="Off" value="Off" />
+    <text name="Maintenance">Maintenance</text>
+    <text name="Caches">Caches</text>
+    <text name="CacheSuccessfullyCleared">Le cache a été effacé avec succès.</text>
+    <text name="AllCachesSuccessfullyCleared">Tous les caches ont été effacés avec succès.</text>
+    <text name="ClearAll">Effacer tout</text>
+    <text name="Clear">Effacer</text>
+    <text name="CachesHeaderInfo">Vous pouvez effacer les caches en application sur cette page.</text>
+    <text name="TestEmailSettingsHeader">Test des paramètres de messagerie</text>
+    <text name="SendTestEmail">Envoyer un e-mail de test</text>
+    <text name="TestEmail_Subject">egestion test email</text>
+    <text name="TestEmail_Body">Ceci est un email de test.</text>
+    <text name="TestEmailSentSuccessfully">E-mail envoyé avec succès.</text>
+    <text name="WebSiteLogs">Logs Website </text>
+    <text name="WebSiteLogsHeaderInfo">Vous pouvez voir les derniers journaux dans cette page ou télécharger tous les journaux dans un fichier zip unique.</text>
+    <text name="DownloadAll">Télécharger tout</text>
+    <text name="TenantManagement"> Gestion des Tenant</text>
+    <text name="AllowTenantsToRegisterThemselves" value="Permettre aux tenants de s'inscrire au système." />
+    <text name="AllowTenantsToRegisterThemselves_Hint" value="Si vous désactivez ceci, les tenants ne seront ajoutés par admin qu'avec la page de gestion des tenants." />
+    <text name="NewRegisteredTenantsIsActiveByDefault" value="Les nouveaux tenants enregistrés sont actifs par défaut." />
+    <text name="NewRegisteredTenantsIsActiveByDefault_Hint" value="Si vous désactivez ceci, les nouveaux tenants ne seront pas actifs (et ne pourront pas se connecter) tant que l'administrateur n'a pas activé manuellement le compte." />
+    <text name="TenantSignUp">Inscription des tenants</text>
+    <text name="NewTenantRegisteredNotificationDefinition" value="Sur un nouveau tenant inscrit à l'application." />
+    <text name="NewTenantRegisteredNotificationMessage" value="Un nouveau tenant inscrit à l'application Nom du tenant: {tenancyName}." />
+    <text name="LoginAttempts">tentatives de connexion </text>
+    <text name="Failed">Échec</text>
+    <text name="NewTenant">Nouveau tenant</text>
+    <text name="ResizedProfilePicture_Warn_SizeLimit" value="La taille de l'image redimensionnée doit être inférieure à 100KB. Veuillez redimensionner et réessayer." />
+    <text name="RegisterFormUserNameInvalidMessage">Veuillez ne pas entrer d'adresse e-mail pour le nom d'utilisateur.</text>
+    <text name="UseHostDatabase" value="Utiliser la base de données hôte" />
+    <text name="DatabaseConnectionString" value="Chaîne de connexion à la base de données" />
+    <text name="TenantDatabaseConnectionStringChangeWarningMessage" value="Remarque: avant de modifier la chaîne de connexion de base de données pour un tenant, vous devez déplacer la base de données du tenant vers le nouvel emplacement. La modification de la chaîne de connexion ne déplace pas la base de données des tenants." />
+    <text name="Timezone">Fuseau horaire</text>
+    <text name="HasOwnDatabase">HasOwnDatabase</text>
+    <text name="TimeZoneSettingChangedRefreshPageNotification">Le réglage du fuseau horaire a été modifié. Cliquez sur le bouton OK pour actualiser la page et les modifications prennent effet.</text>
+    <text name="Ok">Ok</text>
+    <text name="Permission">Permission</text>
+    <text name="Role">Rôle</text>
+    <text name="Security">Sécurité</text>
+    <text name="PasswordComplexity">Complexité du mot de passe</text>
+    <text name="MinPasswordLength">Longueur minimale du mot de passe</text>
+    <text name="MaxPasswordLength">Longueur maximale du mot de passe</text>
+    <text name="UseNumbers">Utiliser les numéros dans le mot de passe </text>
+    <text name="UseUpperCaseLetters">Utiliser des majuscules dans le mot de passe</text>
+    <text name="UseLowerCaseLetters">Utiliser des minuscules dans le mot de passe</text>
+    <text name="UsePunctuations">Utiliser des ponctuations dans le mot de passe</text>
+    <text name="UseDefaultSettings">Utiliser les paramètres par défaut</text>
+    <text name="PasswordComplexityNotSatisfied">La complexité du mot de passe n'est pas satisfaite.</text>
+    <text name="PasswordComplexity_MinLength_Hint">Le mot de passe doit contenir au minimum {0} caractères</text>
+    <text name="PasswordComplexity_MaxLength_Hint">Le mot de passe doit contenir au maximum {0} caractères</text>
+    <text name ="PasswordComplexity_UseNumbers_Hint"> Le mot de passe doit contenir au moins 1 numéro</text>
+    <text name = "PasswordComplexity_UseUpperCaseLetters_Hint"> Le mot de passe doit contenir au moins 1 majuscule </text>
+    <text name = "PasswordComplexity_UseLowerCaseLetters_Hint"> Le mot de passe doit contenir au moins 1 lettre minuscule </text>
+    <text name = "PasswordComplexity_UsePunctuations_Hint"> Le mot de passe doit contenir au moins 1 caractère spécial </text>
+    <text name = "YouAlreadySentAFriendshipRequestToThisUser"> Vous avez déjà ajouté cet utilisateur. </text>
+    <text name = "YouCannotBeFriendWithYourself"> Vous ne pouvez pas être ami avec vous-même. </text>
+    <text name = "NewChatMessageEmail_Title"> Détails des messages </text>
+    <text name = "NewChatMessageEmail_SubTitle"> </text>
+    <text name = "NewChatMessageEmail_Subject"> Vous avez un nouveau message de chat </text>
+    <text name = "Sender"> Expéditeur </text>
+    <text name = "Message"> Message </text>
+    <text name = "UserBlocked"> Utilisateur bloqué avec succès. </text>
+    <text name = "UserUnblocked"> Bloc retiré de l'utilisateur avec succès. </text>
+    <text name = "BlockUser"> Bloquer l'utilisateur </text>
+    <text name = "UnblockUser"> Débloquer </text>
+    <text name = "FriendshipRequestAccepted"> Demande d'amitié acceptée </text>
+    <text name = "UserSendYouAFriendshipRequest"> {0} vous a ajouté en tant qu'ami. </text>
+    <text name = "Friends"> Amis </text>
+    <text name = "Others"> Autres </text>
+    <text name = "BlockedUsers"> Utilisateurs bloqués </text>
+    <text name = "YouDontHaveAnyFriend"> Vous n'avez pas d'amis. Écrivez un nom d'utilisateur à la zone d'entrée ci-dessus et cliquez sur le bouton "Ajouter un ami". </text>
+    <text name = "YouDontHaveAnyBlockedFriend"> Vous n'avez aucun utilisateur bloqué. Pour bloquer un ami, sélectionnez un ami et sélectionnez un bloc dans le menu déroulant Actions. </text>
+    <text name = "ChatUserSearch_Hint">
+      <![CDATA[
+      Ecrire nom d'utilisateur uniquement pour les utilisateurs du même tenant, <br>
+      <Strong> [tenancyName] \ [userName] </ strong> pour les utilisateurs d'autres tenants <br> <br>
+      Par exemple:
+      . \ Admin -> pour l'administrateur d'hôte <br>
+      Test \ admin -> pour l'administrateur du tenant de test <br>
+      Admin -> pour l'administrateur de votre tenant
+      ]]>
+    </text>
+    <text name = "AddFriend"> Ajouter un ami </text>
+    <text name = "TypeAMessageHere"> Entrez un message ici ... </text>
+    <text name = "Chat"> Chat </text>
+    <text name = "ChatFeature"> Chat </text>
+    <text name = "ChatFeatureIsNotEnabledForSender"> Le chat n'est pas activé pour vous. </text>
+    <text name = "ChatFeatureIsNotEnabledForReceiver"> Le chat n'est pas activé pour le tenant. </text>
+    <text name = "UserIsBlocked"> L'utilisateur est bloqué. </text>
+    <text name = "ChatIsNotConnectedWarning"> Le chat n'est pas connecté. </text>
+    <text name = "Demo_SampleChatMessage"> Salut, Ceci est un message de test. Veuillez ouvrir une session avec mon compte dans un autre navigateur et vérifier comment fonctionne le chat. </text>
+    <text name = "TenantToTenantChatFeatureIsNotEnabledForSender"> Le chat avec d'autres tenants n'est pas activé pour vous. </text>
+    <text name = "TenantToTenantChatFeatureIsNotEnabledForReceiver"> Le chat avec d'autres tenants n'est pas activé pour le tenant. </text>
+    <text name = "TenantToHostChatFeatureIsNotEnabledForSender"> Le chat avec l'hôte n'est pas activé pour vous. </text>
+    <text name = "TenantToHostChatFeatureIsNotEnabledForReceiver"> Le chat avec l'hôte n'est pas activé pour le tenant. </text>
+    <text name = "TenantToTenantChatFeature"> Chat avec d'autres tenants </text>
+    <text name = "TenantToHostChatFeature"> Chat avec l'hôte </text>
+    <text name = "FilterByPermission"> Filtrer par autorisation </text>
+    <text name = "FilterByRole"> Filtrer par rôle </text>
+    <text name = "FilterOrAddUser"> Filtre / Ajouter un utilisateur </text>
+    <text name = "HangfireDashboard" value = "Tableau de bord Hangfire" />
+    <text name = "TargetUserNotFoundProbablyDeleted"> L'utilisateur cible n'a pas pu être trouvé. Il est probablement supprimé. </text>
+    <text name = "UserLockedOutMessage"> Le compte d'utilisateur a été verrouillé. Veuillez réessayer plus tard. </text>
+    <text name = "SendSecurityCode"> Envoyer un code de sécurité. </text>
+    <text name = "SendSecurityCode_Information"> Vous devez vous authentifier pour vous connecter. Veuillez sélectionner un type de vérification. Un code sera envoyé en fonction du type de vérification sélectionné. </text>
+    <text name = "SendSecurityCodeErrorMessage"> Le code de sécurité n'a pas pu être envoyé! </text>
+    <text name = "VerifySecurityCodeNotLoggedInErrorMessage"> Vous devez d'abord vous connecter, afin de vous vérifier! Probablement, votre connexion a été dépassée. Veuillez aller à la page de connexion et réessayer. </text>
+    <text name = "VerificationCode"> Code de vérification </text>
+    <text name = "VerifySecurityCode"> Vérifier le code de sécurité </text>
+    <text name = "VerifySecurityCode_Information"> Veuillez saisir le code de validation qui vous a été envoyé. </text>
+    <text name = "RememberThisBrowser"> Rappelez-vous ce navigateur </text>
+    <text name = "InvalidSecurityCode"> Code de sécurité non valide! </text>
+    <text name = "PhoneNumber"> Numéro de téléphone </text>
+    <text name = "Unlock"> Déverrouiller </text>
+    <text name = "UnlockedTheUser"> Débloqué l'utilisateur {0} </text>
+    <text name = "UserLockOut"> Verrouillage utilisateur </text>
+    <text name = "EnableUserAccountLockingOnFailedLoginAttemts"> Activer le verrouillage du compte d'utilisateur lors d'échecs de tentative de connexion </text>
+    <text name = "MaxFailedAccessAttemptsBeforeLockout"> Nombre maximal d'échecs de tentative de connexion avant de verrouiller le compte </text>
+    <text name = "DefaultAccountLockoutDurationAsSeconds"> Durée de verrouillage du compte (en secondes) </text>
+    <text name = "TwoFactorLogin"> Connexion à deux facteurs </text>
+    <text name = "EnableTwoFactorLogin"> Activer la connexion utilisateur à deux facteurs. </text>
+    <text name = "IsEmailVerificationEnabled"> Activer la vérification par e-mail. </text>
+    <text name = "IsSmsVerificationEnabled"> Activer la vérification SMS. </text>
+    <text name = "AllowToRememberBrowserForTwoFactorLogin"> Autoriser à mémoriser le navigateur. Si vous le permettez, les utilisateurs peuvent choisir de se rappeler le navigateur pour sauter la deuxième fois deux facteurs de connexion pour le même navigateur. </text>
+    <text name = "IsTwoFactorEnabled"> L'authentification à deux facteurs est-elle activée? </text>
+    <text name = "IsLockoutEnabled"> Le verrouillage est-il activé? </text>
+    <text name = "IsLockoutEnabled_Hint"> L'utilisateur est verrouillé pendant un certain temps après un certain nombre de tentatives de connexion échouées. </text>
+  </texts>
+</localizationDictionary>

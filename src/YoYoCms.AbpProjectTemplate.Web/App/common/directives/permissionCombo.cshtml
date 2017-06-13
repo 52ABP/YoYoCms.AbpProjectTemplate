@@ -1,0 +1,10 @@
+﻿<select id="PermissionSelectionCombobox"
+        class="form-control"
+        ng-options="permission.name as permission.displayName for permission in permissions"
+        ng-model="selectedPermission"
+        ui-jq="selectpicker"
+        ui-options='{ iconBase: "famfamfam-flag", tickIcon: "fa fa-check" }'
+        data-live-search="true"
+        data-none-selected-text="{{filterByPermissionText}}">
+    <option value=""></option>
+</select>

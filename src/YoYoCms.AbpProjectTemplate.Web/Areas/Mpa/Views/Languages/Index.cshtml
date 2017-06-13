@@ -1,0 +1,45 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Authorization
+@using YoYoCms.AbpProjectTemplate.Web.Navigation
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Languages.LanguagesIndexViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Common.Languages;
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Languages/Index.min.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Languages/_CreateOrEditModal.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Languages/Index.js")
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Languages")</span> <small>@L("LanguagesHeaderInfo")</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 text-right">
+        @if (IsGranted(AppPermissions.Pages_Administration_Languages_Create))
+        {
+            <button id="CreateNewLanguageButton" class="btn btn-primary blue"><i class="fa fa-plus"></i> @L("CreateNewLanguage")</button>
+        }
+    </div>
+</div>
+
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+        <div id="LanguagesTable"></div>
+        @if (Model.IsTenantView)
+        {
+            <p class="margin-top-20">
+                @("* " + L("CanNotEditOrDeleteDefaultLanguages"))
+            </p>
+        }
+    </div>
+</div>

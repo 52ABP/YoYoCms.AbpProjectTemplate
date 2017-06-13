@@ -1,0 +1,99 @@
+﻿@using Abp.Extensions
+@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Web.Navigation
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Maintenance.MaintenanceViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Host.Maintenance;
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Maintenance/Index.min.css")
+}
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Maintenance/Index.js")
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-12">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>@L("Maintenance")</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portlet light margin-bottom-0">
+    <div class="portlet-body">
+
+        <div id="SettingsTabPanel" class="tabbable-line">
+            <ul class="nav nav-tabs ">
+                <li class="active">
+                    <a href="#CachesTab" data-toggle="tab" aria-expanded="true">
+                        @L("Caches")
+                    </a>
+                </li>
+                <li>
+                    <a href="#WebSiteLogsTab" data-toggle="tab" aria-expanded="true">
+                        @L("WebSiteLogs")
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="tab-pane active" id="CachesTab">
+                    <div class="row margin-bottom-10">
+                        <div class="col-xs-6">
+                            <p>@L("CachesHeaderInfo")</p>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <button id="ClearAllCachesButton" class="btn blue"><i class="fa fa-refresh"></i> @L("ClearAll")</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table table-striped table-hover table-bordered">
+                                <tbody>
+                                    @foreach (var cache in Model.Caches)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <span>@cache.Name</span>
+                                                <button class="btn btn-xs blue pull-right btn-clear-cache" data-cache-name="@cache.Name">
+                                                    @L("Clear")
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="WebSiteLogsTab">
+                    <div class="row margin-bottom-10">
+                        <div class="col-xs-6">
+                            <p>@L("WebSiteLogsHeaderInfo")</p>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <button id="DownloadAllLogsbutton" class="btn blue"><i class="fa fa-download"></i> @L("DownloadAll")</button>
+                            <button id="RefreshButton" class="btn blue"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div id="WebSiteLogsContent" class="web-log-view full-height">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

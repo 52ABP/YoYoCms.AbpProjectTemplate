@@ -1,0 +1,25 @@
+﻿@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("LinkNewAccount")))
+
+<div class="modal-body">
+    <form name="LinkAccountModalForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input type="text" name="TenancyName" class="form-control edited" maxlength="@YoYoCms.AbpProjectTemplate.MultiTenancy.Tenant.MaxTenancyNameLength">
+            <label>@L("TenancyName")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <input class="form-control edited" type="text" name="UsernameOrEmailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength">
+            <label>@L("UserName")</label>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="password" name="Password" class="form-control edited" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPasswordLength">
+            <label>@L("Password")</label>
+        </div>
+    </form>
+
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

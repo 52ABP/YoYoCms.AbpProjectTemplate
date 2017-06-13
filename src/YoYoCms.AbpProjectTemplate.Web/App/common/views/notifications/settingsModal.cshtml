@@ -1,0 +1,43 @@
+﻿<div>
+    <form name="exampleForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                @L("NotificationSettings")
+            </h4>
+        </div>
+        <div class="modal-body">
+            <h4>@L("ReceiveNotifications")</h4>
+
+            <div>
+                <input type="checkbox"
+                       bs-switch
+                       ng-model="vm.settings.receiveNotifications"
+                       switch-size="small"
+                       switch-on-text="@L("On")"
+                       switch-off-text="@L("Off")" />
+                <span class="help-block">@L("ReceiveNotifications_Definition")</span>
+            </div>
+
+            <h4 ng-if="vm.settings.notifications.length">@L("NotificationTypes")</h4>
+
+            <p ng-if="vm.settings.notifications.length && !vm.settings.receiveNotifications" class="text-danger"><small>@L("ReceiveNotifications_DisableInfo")</small></p>
+
+            <div class="md-checkbox-list">
+                <div class="md-checkbox" ng-repeat="notification in vm.settings.notifications">
+                    <input id="Notification_{{notification.name}}" class="md-check" type="checkbox" name="ReceiveNotifications" ng-model="notification.isSubscribed" ng-disabled="!vm.settings.receiveNotifications">
+                    <label for="Notification_{{notification.name}}">
+                        <span class="inc"></span>
+                        <span class="check"></span>
+                        <span class="box"></span>
+                        {{notification.displayName}}
+                    </label>
+                    <span ng-if="notification.description" class="help-block">{{notification.description}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button ng-disabled="vm.saving" type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" button-busy="vm.saving" busy-text="@L("SavingWithThreeDot")" class="btn btn-primary blue" ng-click="vm.save()" ng-disabled="exampleForm.$invalid"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+﻿@using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Common.Modals
+@model YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Models.Tenants.TenantFeaturesEditViewModel
+
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Features") + " - " + Model.Tenant.Name))
+
+<div class="modal-body">
+    @Html.Partial("~/Areas/Mpa/Views/Common/_FeaturesTree.cshtml", Model)
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left reset-features-button" data-toggle="tooltip" title="@L("ResetFeaturesTooltip")" data-placement="top"><span>@L("ResetSpecialFeatures")</span></button>
+    <button type="button" class="btn default close-button" data-dismiss="modal">@L("Cancel")</button>
+    <button type="button" class="btn blue save-button"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+</div>
+

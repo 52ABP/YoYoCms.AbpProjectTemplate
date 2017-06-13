@@ -1,0 +1,12 @@
+﻿@model YoYoCms.AbpProjectTemplate.Web.Models.Account.LanguagesViewModel
+@if (Model.AllLanguages.Count > 1)
+{
+    <div class="language-switch-area">
+        @foreach (var languageInfo in Model.AllLanguages)
+        {
+            <a href="~/AbpLocalization/ChangeCulture?cultureName=@(languageInfo.Name)&returnUrl=@Request.Path">
+                <span class="language-icon @(languageInfo == Model.CurrentLanguage ? "language-icon-current" : "")" title="@languageInfo.DisplayName"><i class="@languageInfo.Icon"></i></span>
+            </a>
+        }
+    </div>
+}

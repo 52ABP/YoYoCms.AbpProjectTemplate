@@ -1,0 +1,92 @@
+﻿@using System.Web.Optimization
+@using Abp.Web.Mvc.Extensions
+@using YoYoCms.AbpProjectTemplate.Localization
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" dir=@(CultureHelper.IsRtl ? "rtl" : "")>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>AbpProjectTemplate</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    @* Fill these meta tags upon your project specification *@
+    <meta content="AbpProjectTemplate" name="description">
+    <meta content="AbpProjectTemplate" name="keywords">
+    <meta content="AbpProjectTemplate" name="author">
+
+    @* You can enable and fill these lines according to documentation on http://ogp.me/
+    <meta property="og:site_name" content="-CUSTOMER VALUE-">
+    <meta property="og:title" content="-CUSTOMER VALUE-">
+    <meta property="og:description" content="-CUSTOMER VALUE-">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="-CUSTOMER VALUE-">
+    <meta property="og:url" content="-CUSTOMER VALUE-">*@
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+    <link href="~/Content/fonts-open-sans.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/fonts-ptsans-narrow.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/fonts-sourcesans-pro.css" rel="stylesheet" type="text/css" />
+
+    @Styles.Render("~/Bundles/Frontend/libs/css" + (CultureHelper.IsRtl ? "RTL" : ""))
+    @RenderSection("Styles", false)
+    @Styles.Render("~/Bundles/Frontend/metronic/css" + (CultureHelper.IsRtl ? "RTL" : ""))
+    @Styles.Render("~/Bundles/Common/css")
+
+    @Html.IncludeStyle("~/Views/Layout/layout.css")
+
+    <script type="text/javascript">
+        @* This is used to get the application's root path from javascript.
+        It's useful if you're running application in a virtual directory under IIS. *@
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+
+</head>
+<body class="corporate">
+
+    @Html.Action("Header", "Layout", new { currentPageName = ViewBag.CurrentPageName })
+
+    <div class="main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+
+    @Html.Partial("~/Views/Layout/_Footer.cshtml")
+
+    <!--[if lt IE 9]>
+        <script src="~/libs/respond/respond.min.js"></script>
+    <![endif]-->
+
+    @Scripts.Render("~/Bundles/Frontend/libs/js")
+
+    <script type="text/javascript">
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+    </script>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
+
+    @Scripts.Render("~/Bundles/Frontend/metronic/js")
+
+    @Scripts.Render("~/Bundles/Common/js")
+
+    <script type="text/javascript">
+        $(function () {
+            Layout.init();
+        });
+    </script>
+
+    @RenderSection("Scripts", false)
+
+</body>
+
+</html>
