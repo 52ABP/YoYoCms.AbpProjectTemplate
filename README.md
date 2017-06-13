@@ -1,0 +1,1 @@
+#YoYoCms.AbpProjectTemplate
