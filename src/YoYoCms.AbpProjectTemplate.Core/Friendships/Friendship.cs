@@ -10,8 +10,7 @@ using Abp.Timing;
 
 namespace YoYoCms.AbpProjectTemplate.Friendships
 {
-    [Table("AppFriendships")]
-    public class Friendship : Entity<long>, IHasCreationTime, IMayHaveTenant
+     public class Friendship : Entity<long>, IHasCreationTime, IMayHaveTenant
     {
         public long UserId { get; set; }
 

@@ -4,6 +4,9 @@ using Abp.Zero.EntityFramework;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
 using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Chat;
+using YoYoCms.AbpProjectTemplate.EntityMapper.BinaryObjects;
+using YoYoCms.AbpProjectTemplate.EntityMapper.ChatMessages;
+using YoYoCms.AbpProjectTemplate.EntityMapper.FriendShips;
 using YoYoCms.AbpProjectTemplate.Friendships;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Storage;
@@ -59,6 +62,13 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.ChangeAbpTablePrefix<Tenant,Role,User>("","ABP");
+            modelBuilder.Configurations.Add(new BinaryObjectCfg());
+            modelBuilder.Configurations.Add(new FriendshipCfg());
+
+            modelBuilder.Configurations.Add(new ChatMessageCfg());
+
+
             base.OnModelCreating(modelBuilder);
         }
     }

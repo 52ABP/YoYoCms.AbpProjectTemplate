@@ -5,8 +5,7 @@ using Abp.Domain.Entities;
 
 namespace YoYoCms.AbpProjectTemplate.Storage
 {
-    [Table("AppBinaryObjects")]
-    public class BinaryObject : Entity<Guid>, IMayHaveTenant
+     public class BinaryObject : Entity<Guid>, IMayHaveTenant
     {
         public virtual int? TenantId { get; set; }
 

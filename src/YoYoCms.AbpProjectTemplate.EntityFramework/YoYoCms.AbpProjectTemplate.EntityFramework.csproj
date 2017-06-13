@@ -141,6 +141,9 @@
     <Compile Include="EntityFramework\AbpProjectTemplateDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\AbpProjectTemplateRepositoryBase.cs" />
     <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
+    <Compile Include="EntityMapper\BinaryObjects\BinaryObjectCfg.cs" />
+    <Compile Include="EntityMapper\ChatMessages\ChatMessageCfg.cs" />
+    <Compile Include="EntityMapper\FriendShips\FriendshipCfg.cs" />
     <Compile Include="Migrations\201501041229232_InitialCreate.cs" />
     <Compile Include="Migrations\201501041229232_InitialCreate.Designer.cs">
       <DependentUpon>201501041229232_InitialCreate.cs</DependentUpon>
@@ -148,6 +151,10 @@
     <Compile Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs" />
     <Compile Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.Designer.cs">
       <DependentUpon>201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706131330141_Change_Table_Name.cs" />
+    <Compile Include="Migrations\201706131330141_Change_Table_Name.Designer.cs">
+      <DependentUpon>201706131330141_Change_Table_Name.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AbpProjectTemplateDataModule.cs" />
@@ -170,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.resx">
       <DependentUpon>201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706131330141_Change_Table_Name.resx">
+      <DependentUpon>201706131330141_Change_Table_Name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
