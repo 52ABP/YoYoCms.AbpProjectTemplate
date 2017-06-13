@@ -1,4 +1,4 @@
-﻿/* Adapter for jTable (http://jtable.org) to ASP.NET Boilerplate (http://aspnetboilerplate.com)
+/* Adapter for jTable (http://jtable.org) to ASP.NET Boilerplate (http://aspnetboilerplate.com)
  * by Halil ibrahim Kalkan (http://halilibrahimkalkan.com).
  */
 (function ($) {

@@ -18,7 +18,6 @@ using Castle.MicroKernel.Registration;
 using Hangfire;
 using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Web.App.Startup;//SPA!
-using YoYoCms.AbpProjectTemplate.Web.Areas.Mpa.Startup;//MPA!
 using YoYoCms.AbpProjectTemplate.Web.Bundling;
 using YoYoCms.AbpProjectTemplate.Web.Navigation;
 using YoYoCms.AbpProjectTemplate.Web.Routing;
@@ -49,7 +48,6 @@ namespace YoYoCms.AbpProjectTemplate.Web
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<AppNavigationProvider>();//SPA!
             Configuration.Navigation.Providers.Add<FrontEndNavigationProvider>();
-            Configuration.Navigation.Providers.Add<MpaNavigationProvider>();//MPA!
 
             Configuration.Modules.AbpWebCommon().MultiTenancy.DomainFormat = WebUrlService.WebSiteRootAddress;
 
@@ -86,7 +84,6 @@ namespace YoYoCms.AbpProjectTemplate.Web
             CommonBundleConfig.RegisterBundles(BundleTable.Bundles);
             AppBundleConfig.RegisterBundles(BundleTable.Bundles);//SPA!
             FrontEndBundleConfig.RegisterBundles(BundleTable.Bundles);
-            MpaBundleConfig.RegisterBundles(BundleTable.Bundles);//MPA!
         }
 
         public override void PostInitialize()

@@ -35,29 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Abp, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.1.4.2.0\lib\net452\Abp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Abp, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.1.5.1\lib\net452\Abp.dll</HintPath>
     </Reference>
-    <Reference Include="Abp.AutoMapper, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.AutoMapper.1.4.2.0\lib\net452\Abp.AutoMapper.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Abp.AutoMapper, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.AutoMapper.1.5.1\lib\net452\Abp.AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Abp.EntityFramework, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.EntityFramework.1.4.2.0\lib\net452\Abp.EntityFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Abp.EntityFramework, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.EntityFramework.1.5.1\lib\net452\Abp.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Abp.EntityFramework.Common, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.EntityFramework.Common.1.4.2.0\lib\net452\Abp.EntityFramework.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Abp.EntityFramework.Common, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.EntityFramework.Common.1.5.1\lib\net452\Abp.EntityFramework.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Abp.Zero, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Zero.1.4.2.0\lib\net452\Abp.Zero.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Abp.Zero, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Zero.1.5.1\lib\net452\Abp.Zero.dll</HintPath>
     </Reference>
-    <Reference Include="Abp.Zero.EntityFramework, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Zero.EntityFramework.1.4.2.0\lib\net452\Abp.Zero.EntityFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Zero.EntityFramework.1.5.1\lib\net452\Abp.Zero.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
@@ -86,6 +80,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=10.4.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.10.4.0\lib\net\JetBrains.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -148,237 +145,9 @@
     <Compile Include="Migrations\201501041229232_InitialCreate.Designer.cs">
       <DependentUpon>201501041229232_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201501131916251_Added_IsStatic_To_Role.cs" />
-    <Compile Include="Migrations\201501131916251_Added_IsStatic_To_Role.Designer.cs">
-      <DependentUpon>201501131916251_Added_IsStatic_To_Role.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503011513570_ModuleZero_Upgrade_For_ISuspendable.cs" />
-    <Compile Include="Migrations\201503011513570_ModuleZero_Upgrade_For_ISuspendable.Designer.cs">
-      <DependentUpon>201503011513570_ModuleZero_Upgrade_For_ISuspendable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503070820583_Converted_IsSuspended_To_IsActive.cs" />
-    <Compile Include="Migrations\201503070820583_Converted_IsSuspended_To_IsActive.Designer.cs">
-      <DependentUpon>201503070820583_Converted_IsSuspended_To_IsActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503111946269_Added_Tenant_Property_Annotations.cs" />
-    <Compile Include="Migrations\201503111946269_Added_Tenant_Property_Annotations.Designer.cs">
-      <DependentUpon>201503111946269_Added_Tenant_Property_Annotations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503122019249_Tenant_Changed_To_FullAuditedEntity_From_AuditedEntity.cs" />
-    <Compile Include="Migrations\201503122019249_Tenant_Changed_To_FullAuditedEntity_From_AuditedEntity.Designer.cs">
-      <DependentUpon>201503122019249_Tenant_Changed_To_FullAuditedEntity_From_AuditedEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503220907591_Added_ShouldChangePasswordOnNextLogin_To_AbpUser.cs" />
-    <Compile Include="Migrations\201503220907591_Added_ShouldChangePasswordOnNextLogin_To_AbpUser.Designer.cs">
-      <DependentUpon>201503220907591_Added_ShouldChangePasswordOnNextLogin_To_AbpUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503252020192_Added_AuditLog_To_AbpZero.cs" />
-    <Compile Include="Migrations\201503252020192_Added_AuditLog_To_AbpZero.Designer.cs">
-      <DependentUpon>201503252020192_Added_AuditLog_To_AbpZero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503291617289_Added_Tenancy_Filters_To_Abp_Zero.cs" />
-    <Compile Include="Migrations\201503291617289_Added_Tenancy_Filters_To_Abp_Zero.Designer.cs">
-      <DependentUpon>201503291617289_Added_Tenancy_Filters_To_Abp_Zero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504021549075_User_AndAuditLog_Data_Size_Changes.cs" />
-    <Compile Include="Migrations\201504021549075_User_AndAuditLog_Data_Size_Changes.Designer.cs">
-      <DependentUpon>201504021549075_User_AndAuditLog_Data_Size_Changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504051650417_AbpZero_Role_SoftDelete.cs" />
-    <Compile Include="Migrations\201504051650417_AbpZero_Role_SoftDelete.Designer.cs">
-      <DependentUpon>201504051650417_AbpZero_Role_SoftDelete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504110952594_Added_StoredFile_Entity.cs" />
-    <Compile Include="Migrations\201504110952594_Added_StoredFile_Entity.Designer.cs">
-      <DependentUpon>201504110952594_Added_StoredFile_Entity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201504111928297_Renamed_StoredFile_To_BinaryObject.cs" />
-    <Compile Include="Migrations\201504111928297_Renamed_StoredFile_To_BinaryObject.Designer.cs">
-      <DependentUpon>201504111928297_Renamed_StoredFile_To_BinaryObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505011844158_UserLogin_Property_Restrictions.cs" />
-    <Compile Include="Migrations\201505011844158_UserLogin_Property_Restrictions.Designer.cs">
-      <DependentUpon>201505011844158_UserLogin_Property_Restrictions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505011844467_Create_Indexes_For_Module_Zero_Tables.cs" />
-    <Compile Include="Migrations\201505011844467_Create_Indexes_For_Module_Zero_Tables.Designer.cs">
-      <DependentUpon>201505011844467_Create_Indexes_For_Module_Zero_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505162037045_Renamed_BinaryObject_Table.cs" />
-    <Compile Include="Migrations\201505162037045_Renamed_BinaryObject_Table.Designer.cs">
-      <DependentUpon>201505162037045_Renamed_BinaryObject_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506061210411_Added_AuthenticationSource_To_User.cs" />
-    <Compile Include="Migrations\201506061210411_Added_AuthenticationSource_To_User.Designer.cs">
-      <DependentUpon>201506061210411_Added_AuthenticationSource_To_User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506141245516_AuditLog_Made_MayHaveTenant.cs" />
-    <Compile Include="Migrations\201506141245516_AuditLog_Made_MayHaveTenant.Designer.cs">
-      <DependentUpon>201506141245516_AuditLog_Made_MayHaveTenant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509080740102_ModuleZeroUpgrade_0_6_9.cs" />
-    <Compile Include="Migrations\201509080740102_ModuleZeroUpgrade_0_6_9.Designer.cs">
-      <DependentUpon>201509080740102_ModuleZeroUpgrade_0_6_9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510060756191_Added_Edition_And_Features.cs" />
-    <Compile Include="Migrations\201510060756191_Added_Edition_And_Features.Designer.cs">
-      <DependentUpon>201510060756191_Added_Edition_And_Features.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510270717447_Added_ApplicationLanguage_Entity.cs" />
-    <Compile Include="Migrations\201510270717447_Added_ApplicationLanguage_Entity.Designer.cs">
-      <DependentUpon>201510270717447_Added_ApplicationLanguage_Entity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510302332088_Added_ApplicationLanguageText.cs" />
-    <Compile Include="Migrations\201510302332088_Added_ApplicationLanguageText.Designer.cs">
-      <DependentUpon>201510302332088_Added_ApplicationLanguageText.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511020629559_Removed_IsActive_From_ApplicationLanguage.cs" />
-    <Compile Include="Migrations\201511020629559_Removed_IsActive_From_ApplicationLanguage.Designer.cs">
-      <DependentUpon>201511020629559_Removed_IsActive_From_ApplicationLanguage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511031848424_Renamed_ApplicationLanguageTexts_Table.cs" />
-    <Compile Include="Migrations\201511031848424_Renamed_ApplicationLanguageTexts_Table.Designer.cs">
-      <DependentUpon>201511031848424_Renamed_ApplicationLanguageTexts_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512100805111_Added_OrganizationUnit_Entities.cs" />
-    <Compile Include="Migrations\201512100805111_Added_OrganizationUnit_Entities.Designer.cs">
-      <DependentUpon>201512100805111_Added_OrganizationUnit_Entities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512100815485_Implemented_IMayHaveTenantId_For_UserOrganizationUnit.cs" />
-    <Compile Include="Migrations\201512100815485_Implemented_IMayHaveTenantId_For_UserOrganizationUnit.Designer.cs">
-      <DependentUpon>201512100815485_Implemented_IMayHaveTenantId_For_UserOrganizationUnit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512211835309_Create_Indexes_For_OrganizationUnit_Tables.cs" />
-    <Compile Include="Migrations\201512211835309_Create_Indexes_For_OrganizationUnit_Tables.Designer.cs">
-      <DependentUpon>201512211835309_Create_Indexes_For_OrganizationUnit_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512211844078_Create_Indexes_For_Language_Tables.cs" />
-    <Compile Include="Migrations\201512211844078_Create_Indexes_For_Language_Tables.Designer.cs">
-      <DependentUpon>201512211844078_Create_Indexes_For_Language_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512211848081_Create_Indexes_For_Edition_Tables.cs" />
-    <Compile Include="Migrations\201512211848081_Create_Indexes_For_Edition_Tables.Designer.cs">
-      <DependentUpon>201512211848081_Create_Indexes_For_Edition_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601071533139_Upgraded_To_Module_Zero_0_7_7.cs" />
-    <Compile Include="Migrations\201601071533139_Upgraded_To_Module_Zero_0_7_7.Designer.cs">
-      <DependentUpon>201601071533139_Upgraded_To_Module_Zero_0_7_7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602021344016_Added_BackgroundJobs_And_Notifications.cs" />
-    <Compile Include="Migrations\201602021344016_Added_BackgroundJobs_And_Notifications.Designer.cs">
-      <DependentUpon>201602021344016_Added_BackgroundJobs_And_Notifications.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602040819239_Added_Index_For_UserNotifications.cs" />
-    <Compile Include="Migrations\201602040819239_Added_Index_For_UserNotifications.Designer.cs">
-      <DependentUpon>201602040819239_Added_Index_For_UserNotifications.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602051543169_ABP_Notification_Revisions.cs" />
-    <Compile Include="Migrations\201602051543169_ABP_Notification_Revisions.Designer.cs">
-      <DependentUpon>201602051543169_ABP_Notification_Revisions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602020753064_Added_LinkUserId_To_AbpUser.cs" />
-    <Compile Include="Migrations\201602020753064_Added_LinkUserId_To_AbpUser.Designer.cs">
-      <DependentUpon>201602020753064_Added_LinkUserId_To_AbpUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602091328369_AccountLink_Notifcation_Merge.cs" />
-    <Compile Include="Migrations\201602091328369_AccountLink_Notifcation_Merge.Designer.cs">
-      <DependentUpon>201602091328369_AccountLink_Notifcation_Merge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602091537256_Added_ExcludedUsers_To_NotificationInfo.cs" />
-    <Compile Include="Migrations\201602091537256_Added_ExcludedUsers_To_NotificationInfo.Designer.cs">
-      <DependentUpon>201602091537256_Added_ExcludedUsers_To_NotificationInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602110738151_Removed_MayHaveTenant_Filter_From_NotificationSubscription.cs" />
-    <Compile Include="Migrations\201602110738151_Removed_MayHaveTenant_Filter_From_NotificationSubscription.Designer.cs">
-      <DependentUpon>201602110738151_Removed_MayHaveTenant_Filter_From_NotificationSubscription.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602181340210_Upgrated_To_Abp_And_Module_Zero_0_8_1.cs" />
-    <Compile Include="Migrations\201602181340210_Upgrated_To_Abp_And_Module_Zero_0_8_1.Designer.cs">
-      <DependentUpon>201602181340210_Upgrated_To_Abp_And_Module_Zero_0_8_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603101127455_Upgrated_To_Module_Zero_0_8_3.cs" />
-    <Compile Include="Migrations\201603101127455_Upgrated_To_Module_Zero_0_8_3.Designer.cs">
-      <DependentUpon>201603101127455_Upgrated_To_Module_Zero_0_8_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604061341443_Upgrated_To_Module_Zero_0_8_4.cs" />
-    <Compile Include="Migrations\201604061341443_Upgrated_To_Module_Zero_0_8_4.Designer.cs">
-      <DependentUpon>201604061341443_Upgrated_To_Module_Zero_0_8_4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604110845549_Works_For_DbPerTenant.cs" />
-    <Compile Include="Migrations\201604110845549_Works_For_DbPerTenant.Designer.cs">
-      <DependentUpon>201604110845549_Works_For_DbPerTenant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604191744086_New_TenantId_Columns.cs" />
-    <Compile Include="Migrations\201604191744086_New_TenantId_Columns.Designer.cs">
-      <DependentUpon>201604191744086_New_TenantId_Columns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604201100303_Added_ConnString_To_Tenant_Entity.cs" />
-    <Compile Include="Migrations\201604201100303_Added_ConnString_To_Tenant_Entity.Designer.cs">
-      <DependentUpon>201604201100303_Added_ConnString_To_Tenant_Entity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604221405375_Notification_And_Setting_Changes_For_DbPerTenant.cs" />
-    <Compile Include="Migrations\201604221405375_Notification_And_Setting_Changes_For_DbPerTenant.Designer.cs">
-      <DependentUpon>201604221405375_Notification_And_Setting_Changes_For_DbPerTenant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604290811014_LinkedAccounts_Changes_For_DbPerTenant.cs" />
-    <Compile Include="Migrations\201604290811014_LinkedAccounts_Changes_For_DbPerTenant.Designer.cs">
-      <DependentUpon>201604290811014_LinkedAccounts_Changes_For_DbPerTenant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605011256293_Remove_UserLinkId_From_Users.cs" />
-    <Compile Include="Migrations\201605011256293_Remove_UserLinkId_From_Users.Designer.cs">
-      <DependentUpon>201605011256293_Remove_UserLinkId_From_Users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605030740030_Add_LastLoginTime_To_UserAccounts.cs" />
-    <Compile Include="Migrations\201605030740030_Add_LastLoginTime_To_UserAccounts.Designer.cs">
-      <DependentUpon>201605030740030_Add_LastLoginTime_To_UserAccounts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605031851524_Revised_Notification_Entities.cs" />
-    <Compile Include="Migrations\201605031851524_Revised_Notification_Entities.Designer.cs">
-      <DependentUpon>201605031851524_Revised_Notification_Entities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605051327136_Added_TenantId_To_BinaryObject.cs" />
-    <Compile Include="Migrations\201605051327136_Added_TenantId_To_BinaryObject.Designer.cs">
-      <DependentUpon>201605051327136_Added_TenantId_To_BinaryObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606150821191_Added_Chat_And_Friendship_Entities.cs" />
-    <Compile Include="Migrations\201606150821191_Added_Chat_And_Friendship_Entities.Designer.cs">
-      <DependentUpon>201606150821191_Added_Chat_And_Friendship_Entities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606161233356_Make_FriendShip_And_Chat_TenantId_Nullable.cs" />
-    <Compile Include="Migrations\201606161233356_Make_FriendShip_And_Chat_TenantId_Nullable.Designer.cs">
-      <DependentUpon>201606161233356_Make_FriendShip_And_Chat_TenantId_Nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606220958138_Add_FriendUserName_To_Friendship_Table.cs" />
-    <Compile Include="Migrations\201606220958138_Add_FriendUserName_To_Friendship_Table.Designer.cs">
-      <DependentUpon>201606220958138_Add_FriendUserName_To_Friendship_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606231022491_Add_TenancyName_And_ProfilePictureId_To_AppFriendships_Table.cs" />
-    <Compile Include="Migrations\201606231022491_Add_TenancyName_And_ProfilePictureId_To_AppFriendships_Table.Designer.cs">
-      <DependentUpon>201606231022491_Add_TenancyName_And_ProfilePictureId_To_AppFriendships_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606240745029_Add_MayHaveTenant_Annotation_To_ChatMessage_And_Friendship.cs" />
-    <Compile Include="Migrations\201606240745029_Add_MayHaveTenant_Annotation_To_ChatMessage_And_Friendship.Designer.cs">
-      <DependentUpon>201606240745029_Add_MayHaveTenant_Annotation_To_ChatMessage_And_Friendship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201607211123175_Added_Validation_To_Chat_Entities.cs" />
-    <Compile Include="Migrations\201607211123175_Added_Validation_To_Chat_Entities.Designer.cs">
-      <DependentUpon>201607211123175_Added_Validation_To_Chat_Entities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609020817436_Upgrated_To_Module_Zero_0_11_2.cs" />
-    <Compile Include="Migrations\201609020817436_Upgrated_To_Module_Zero_0_11_2.Designer.cs">
-      <DependentUpon>201609020817436_Upgrated_To_Module_Zero_0_11_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609051152345_Add_Foreign_Keys_To_Abp_Tables.cs" />
-    <Compile Include="Migrations\201609051152345_Add_Foreign_Keys_To_Abp_Tables.Designer.cs">
-      <DependentUpon>201609051152345_Add_Foreign_Keys_To_Abp_Tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609221300383_Module_Zero_v1_Improvements.cs" />
-    <Compile Include="Migrations\201609221300383_Module_Zero_v1_Improvements.Designer.cs">
-      <DependentUpon>201609221300383_Module_Zero_v1_Improvements.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611301416047_Upgrated_To_Abp_And_Module_Zero_1_1.cs" />
-    <Compile Include="Migrations\201611301416047_Upgrated_To_Abp_And_Module_Zero_1_1.Designer.cs">
-      <DependentUpon>201611301416047_Upgrated_To_Abp_And_Module_Zero_1_1.cs</DependentUpon>
+    <Compile Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs" />
+    <Compile Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.Designer.cs">
+      <DependentUpon>201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AbpProjectTemplateDataModule.cs" />
@@ -399,179 +168,8 @@
     <EmbeddedResource Include="Migrations\201501041229232_InitialCreate.resx">
       <DependentUpon>201501041229232_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201501131916251_Added_IsStatic_To_Role.resx">
-      <DependentUpon>201501131916251_Added_IsStatic_To_Role.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503011513570_ModuleZero_Upgrade_For_ISuspendable.resx">
-      <DependentUpon>201503011513570_ModuleZero_Upgrade_For_ISuspendable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503070820583_Converted_IsSuspended_To_IsActive.resx">
-      <DependentUpon>201503070820583_Converted_IsSuspended_To_IsActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503111946269_Added_Tenant_Property_Annotations.resx">
-      <DependentUpon>201503111946269_Added_Tenant_Property_Annotations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503122019249_Tenant_Changed_To_FullAuditedEntity_From_AuditedEntity.resx">
-      <DependentUpon>201503122019249_Tenant_Changed_To_FullAuditedEntity_From_AuditedEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503220907591_Added_ShouldChangePasswordOnNextLogin_To_AbpUser.resx">
-      <DependentUpon>201503220907591_Added_ShouldChangePasswordOnNextLogin_To_AbpUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503252020192_Added_AuditLog_To_AbpZero.resx">
-      <DependentUpon>201503252020192_Added_AuditLog_To_AbpZero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503291617289_Added_Tenancy_Filters_To_Abp_Zero.resx">
-      <DependentUpon>201503291617289_Added_Tenancy_Filters_To_Abp_Zero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504021549075_User_AndAuditLog_Data_Size_Changes.resx">
-      <DependentUpon>201504021549075_User_AndAuditLog_Data_Size_Changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504051650417_AbpZero_Role_SoftDelete.resx">
-      <DependentUpon>201504051650417_AbpZero_Role_SoftDelete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504110952594_Added_StoredFile_Entity.resx">
-      <DependentUpon>201504110952594_Added_StoredFile_Entity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201504111928297_Renamed_StoredFile_To_BinaryObject.resx">
-      <DependentUpon>201504111928297_Renamed_StoredFile_To_BinaryObject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505011844158_UserLogin_Property_Restrictions.resx">
-      <DependentUpon>201505011844158_UserLogin_Property_Restrictions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505011844467_Create_Indexes_For_Module_Zero_Tables.resx">
-      <DependentUpon>201505011844467_Create_Indexes_For_Module_Zero_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505162037045_Renamed_BinaryObject_Table.resx">
-      <DependentUpon>201505162037045_Renamed_BinaryObject_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506061210411_Added_AuthenticationSource_To_User.resx">
-      <DependentUpon>201506061210411_Added_AuthenticationSource_To_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506141245516_AuditLog_Made_MayHaveTenant.resx">
-      <DependentUpon>201506141245516_AuditLog_Made_MayHaveTenant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509080740102_ModuleZeroUpgrade_0_6_9.resx">
-      <DependentUpon>201509080740102_ModuleZeroUpgrade_0_6_9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510060756191_Added_Edition_And_Features.resx">
-      <DependentUpon>201510060756191_Added_Edition_And_Features.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510270717447_Added_ApplicationLanguage_Entity.resx">
-      <DependentUpon>201510270717447_Added_ApplicationLanguage_Entity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510302332088_Added_ApplicationLanguageText.resx">
-      <DependentUpon>201510302332088_Added_ApplicationLanguageText.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511020629559_Removed_IsActive_From_ApplicationLanguage.resx">
-      <DependentUpon>201511020629559_Removed_IsActive_From_ApplicationLanguage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511031848424_Renamed_ApplicationLanguageTexts_Table.resx">
-      <DependentUpon>201511031848424_Renamed_ApplicationLanguageTexts_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512100805111_Added_OrganizationUnit_Entities.resx">
-      <DependentUpon>201512100805111_Added_OrganizationUnit_Entities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512100815485_Implemented_IMayHaveTenantId_For_UserOrganizationUnit.resx">
-      <DependentUpon>201512100815485_Implemented_IMayHaveTenantId_For_UserOrganizationUnit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512211835309_Create_Indexes_For_OrganizationUnit_Tables.resx">
-      <DependentUpon>201512211835309_Create_Indexes_For_OrganizationUnit_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512211844078_Create_Indexes_For_Language_Tables.resx">
-      <DependentUpon>201512211844078_Create_Indexes_For_Language_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512211848081_Create_Indexes_For_Edition_Tables.resx">
-      <DependentUpon>201512211848081_Create_Indexes_For_Edition_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601071533139_Upgraded_To_Module_Zero_0_7_7.resx">
-      <DependentUpon>201601071533139_Upgraded_To_Module_Zero_0_7_7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602021344016_Added_BackgroundJobs_And_Notifications.resx">
-      <DependentUpon>201602021344016_Added_BackgroundJobs_And_Notifications.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602040819239_Added_Index_For_UserNotifications.resx">
-      <DependentUpon>201602040819239_Added_Index_For_UserNotifications.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602051543169_ABP_Notification_Revisions.resx">
-      <DependentUpon>201602051543169_ABP_Notification_Revisions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602020753064_Added_LinkUserId_To_AbpUser.resx">
-      <DependentUpon>201602020753064_Added_LinkUserId_To_AbpUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602091328369_AccountLink_Notifcation_Merge.resx">
-      <DependentUpon>201602091328369_AccountLink_Notifcation_Merge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602091537256_Added_ExcludedUsers_To_NotificationInfo.resx">
-      <DependentUpon>201602091537256_Added_ExcludedUsers_To_NotificationInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602110738151_Removed_MayHaveTenant_Filter_From_NotificationSubscription.resx">
-      <DependentUpon>201602110738151_Removed_MayHaveTenant_Filter_From_NotificationSubscription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602181340210_Upgrated_To_Abp_And_Module_Zero_0_8_1.resx">
-      <DependentUpon>201602181340210_Upgrated_To_Abp_And_Module_Zero_0_8_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603101127455_Upgrated_To_Module_Zero_0_8_3.resx">
-      <DependentUpon>201603101127455_Upgrated_To_Module_Zero_0_8_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604061341443_Upgrated_To_Module_Zero_0_8_4.resx">
-      <DependentUpon>201604061341443_Upgrated_To_Module_Zero_0_8_4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604110845549_Works_For_DbPerTenant.resx">
-      <DependentUpon>201604110845549_Works_For_DbPerTenant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604191744086_New_TenantId_Columns.resx">
-      <DependentUpon>201604191744086_New_TenantId_Columns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604201100303_Added_ConnString_To_Tenant_Entity.resx">
-      <DependentUpon>201604201100303_Added_ConnString_To_Tenant_Entity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604221405375_Notification_And_Setting_Changes_For_DbPerTenant.resx">
-      <DependentUpon>201604221405375_Notification_And_Setting_Changes_For_DbPerTenant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604290811014_LinkedAccounts_Changes_For_DbPerTenant.resx">
-      <DependentUpon>201604290811014_LinkedAccounts_Changes_For_DbPerTenant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605011256293_Remove_UserLinkId_From_Users.resx">
-      <DependentUpon>201605011256293_Remove_UserLinkId_From_Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605030740030_Add_LastLoginTime_To_UserAccounts.resx">
-      <DependentUpon>201605030740030_Add_LastLoginTime_To_UserAccounts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605031851524_Revised_Notification_Entities.resx">
-      <DependentUpon>201605031851524_Revised_Notification_Entities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605051327136_Added_TenantId_To_BinaryObject.resx">
-      <DependentUpon>201605051327136_Added_TenantId_To_BinaryObject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606150821191_Added_Chat_And_Friendship_Entities.resx">
-      <DependentUpon>201606150821191_Added_Chat_And_Friendship_Entities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606161233356_Make_FriendShip_And_Chat_TenantId_Nullable.resx">
-      <DependentUpon>201606161233356_Make_FriendShip_And_Chat_TenantId_Nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606220958138_Add_FriendUserName_To_Friendship_Table.resx">
-      <DependentUpon>201606220958138_Add_FriendUserName_To_Friendship_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606231022491_Add_TenancyName_And_ProfilePictureId_To_AppFriendships_Table.resx">
-      <DependentUpon>201606231022491_Add_TenancyName_And_ProfilePictureId_To_AppFriendships_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606240745029_Add_MayHaveTenant_Annotation_To_ChatMessage_And_Friendship.resx">
-      <DependentUpon>201606240745029_Add_MayHaveTenant_Annotation_To_ChatMessage_And_Friendship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201607211123175_Added_Validation_To_Chat_Entities.resx">
-      <DependentUpon>201607211123175_Added_Validation_To_Chat_Entities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609020817436_Upgrated_To_Module_Zero_0_11_2.resx">
-      <DependentUpon>201609020817436_Upgrated_To_Module_Zero_0_11_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609051152345_Add_Foreign_Keys_To_Abp_Tables.resx">
-      <DependentUpon>201609051152345_Add_Foreign_Keys_To_Abp_Tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609221300383_Module_Zero_v1_Improvements.resx">
-      <DependentUpon>201609221300383_Module_Zero_v1_Improvements.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611301416047_Upgrated_To_Abp_And_Module_Zero_1_1.resx">
-      <DependentUpon>201611301416047_Upgrated_To_Abp_And_Module_Zero_1_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.resx">
+      <DependentUpon>201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

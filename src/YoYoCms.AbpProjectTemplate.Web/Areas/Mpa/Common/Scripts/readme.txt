@@ -1,1 +1,0 @@
-﻿You can add your common javascripts for MPA here.
