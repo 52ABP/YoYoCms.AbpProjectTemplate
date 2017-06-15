@@ -24,13 +24,9 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
     public class AbpProjectTemplateDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         /* Define an IDbSet for each entity of the application */
-
         public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
-
         public virtual IDbSet<Friendship> Friendships { get; set; }
-
         public virtual IDbSet<ChatMessage> ChatMessages { get; set; }
-
 
 
 
@@ -62,11 +58,15 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.ChangeAbpTablePrefix<Tenant,Role,User>("","ABP");
+            #region ABP默认功能图集
+            modelBuilder.ChangeAbpTablePrefix<Tenant, Role, User>("", "ABP");
             modelBuilder.Configurations.Add(new BinaryObjectCfg());
             modelBuilder.Configurations.Add(new FriendshipCfg());
-
             modelBuilder.Configurations.Add(new ChatMessageCfg());
+
+
+            #endregion
+
 
 
             base.OnModelCreating(modelBuilder);
