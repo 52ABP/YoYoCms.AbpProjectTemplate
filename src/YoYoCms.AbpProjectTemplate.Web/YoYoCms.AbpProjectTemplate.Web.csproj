@@ -611,6 +611,7 @@
     <Content Include="Content\fonts-ptsans-narrow.css" />
     <Content Include="Content\fonts-sourcesans-pro.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="landing\favicon.ico" />
     <Content Include="landing\images\blank.svg" />
@@ -1479,7 +1480,6 @@
     <Content Include="libs\jquery-uniform\jquery.uniform.min.js" />
     <Content Include="Content\flags\famfamfam-flags.css" />
     <Content Include="Content\flags\famfamfam-flags.png" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="libs\simple-line-icons\fonts\Simple-Line-Icons.dev.svg" />
     <Content Include="libs\simple-line-icons\fonts\Simple-Line-Icons.svg" />
