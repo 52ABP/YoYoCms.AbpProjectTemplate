@@ -208,23 +208,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-tr.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-ar.xml" />
     <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-zh-CN.xml" />
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-de.xml" />
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-pt-BR.xml" />
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-it.xml" />
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-ru.xml" />
-    <EmbeddedResource Include="Localization\AbpProjectTemplate\AbpProjectTemplate-fr.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Content Include="Localization\AbpProjectTemplate\READ_ME.txt" />
     <EmbeddedResource Include="Emailing\EmailTemplates\default.html" />
   </ItemGroup>
