@@ -519,8 +519,6 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
-    <Content Include="Canvas\Index.html" />
-    <Content Include="Canvas\favicon.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
     <Content Include="Common\Images\open-id-connect.png" />
     <Content Include="Common\Images\ws-federation.png" />
