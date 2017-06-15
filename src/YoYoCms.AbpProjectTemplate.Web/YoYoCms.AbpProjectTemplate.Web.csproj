@@ -519,6 +519,8 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
+    <Content Include="Canvas\Index.html" />
+    <Content Include="Canvas\favicon.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
     <Content Include="Common\Images\open-id-connect.png" />
     <Content Include="Common\Images\ws-federation.png" />
@@ -699,6 +701,13 @@
     <Content Include="landing\images\testimonials\parallax.jpg" />
     <Content Include="landing\images\testimonials\parallax2.jpg" />
     <Content Include="landing\images\world-map.png" />
+    <Content Include="landing\Img\1.jpg" />
+    <Content Include="landing\Img\7.jpg" />
+    <Content Include="landing\Img\9.jpg" />
+    <Content Include="landing\Img\banner1.jpg" />
+    <Content Include="landing\Img\banner2.jpg" />
+    <Content Include="landing\Img\banner3.jpg" />
+    <Content Include="landing\Img\banner4.jpg" />
     <Content Include="landing\Index.css">
       <DependentUpon>Index.scss</DependentUpon>
     </Content>
@@ -707,7 +716,6 @@
     <Content Include="landing\Index.min.css">
       <DependentUpon>Index.css</DependentUpon>
     </Content>
-    <Content Include="landing\pages\HtmlPage1.html" />
     <Content Include="landing\responsive\responsive-rtl.css" />
     <Content Include="landing\responsive\responsive.css" />
     <Content Include="libs\angular-bootstrap-switch\angular-bootstrap-switch.js" />
@@ -3241,6 +3249,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="landing\js\" />
+    <Folder Include="landing\pages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
