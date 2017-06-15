@@ -14,15 +14,17 @@ namespace YoYoCms.AbpProjectTemplate.Migrations.Seed.Host
         {
             _context = context;
         }
-
+        /// <summary>
+        /// 默认信息配置
+        /// </summary>
         public void Create()
         {
             //Emailing
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "admin@mydomain.com");
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "mydomain.com mailer");
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "admin@yoyocms.com");
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "yoyocms.com mailer");
 
             //Languages
-            AddSettingIfNotExists(LocalizationSettingNames.DefaultLanguage, "en");
+            AddSettingIfNotExists(LocalizationSettingNames.DefaultLanguage, "zh-CN");
         }
 
         private void AddSettingIfNotExists(string name, string value, int? tenantId = null)

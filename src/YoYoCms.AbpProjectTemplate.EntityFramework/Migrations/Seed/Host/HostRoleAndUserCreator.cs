@@ -47,7 +47,7 @@ namespace YoYoCms.AbpProjectTemplate.Migrations.Seed.Host
                         UserName = User.AdminUserName,
                         Name = "admin",
                         Surname = "admin",
-                        EmailAddress = "admin@aspnetzero.com",
+                        EmailAddress = "admin@yoyocms.com",
                         IsEmailConfirmed = true,
                         ShouldChangePasswordOnNextLogin = true,
                         IsActive = true,

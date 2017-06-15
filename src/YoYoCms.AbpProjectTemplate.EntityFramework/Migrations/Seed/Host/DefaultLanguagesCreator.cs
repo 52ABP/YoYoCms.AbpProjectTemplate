@@ -10,7 +10,9 @@ namespace YoYoCms.AbpProjectTemplate.Migrations.Seed.Host
         public static List<ApplicationLanguage> InitialLanguages { get; private set; }
 
         private readonly AbpProjectTemplateDbContext _context;
-
+        /// <summary>
+        /// 设定多语言信息
+        /// </summary>
         static DefaultLanguagesCreator()
         {
             InitialLanguages = new List<ApplicationLanguage>

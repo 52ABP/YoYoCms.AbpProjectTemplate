@@ -20,7 +20,9 @@ namespace YoYoCms.AbpProjectTemplate.Migrations.Seed.Host
         {
             CreateEditions();
         }
-
+        /// <summary>
+        /// 创建初始化版本
+        /// </summary>
         private void CreateEditions()
         {
             var defaultEdition = _context.Editions.FirstOrDefault(e => e.Name == EditionManager.DefaultEditionName);
