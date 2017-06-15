@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using Abp.Application.Services;
@@ -24,9 +26,9 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
                 .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "app")
                 .Build();
 
-            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("yoyocmsAuth"));
 
-            ConfigureSwaggerUi(); //Remove this line to disable swagger UI.
+            ConfigureSwaggerUi();  
         }
 
         private void ConfigureSwaggerUi()
@@ -36,8 +38,21 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
                 {
                     c.SingleApiVersion("v1", "YoYoCms.AbpProjectTemplate.WebApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+
+                    var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    var applicationFileName = "bin\\" + typeof(AbpProjectTemplateApplicationModule).Assembly.GetName().Name +
+                                           ".XML";
+                    var applicationFile = Path.Combine(baseDirectory, applicationFileName);
+                    c.IncludeXmlComments(applicationFile);
+                    var webapiFileName = "bin\\" + typeof(AbpProjectTemplateWebApiModule).Assembly.GetName().Name + ".XML";
+                    var webapiFile = Path.Combine(baseDirectory, webapiFileName);
+                    c.IncludeXmlComments(webapiFile);
+
+
+
+
                 })
-                .EnableSwaggerUi(c =>
+                .EnableSwaggerUi("docs/{*assetPath}", c =>
                 {
                     c.InjectJavaScript(Assembly.GetAssembly(typeof(AbpProjectTemplateWebApiModule)), "YoYoCms.AbpProjectTemplate.WebApi.Scripts.Swagger-Custom.js");
                 });
