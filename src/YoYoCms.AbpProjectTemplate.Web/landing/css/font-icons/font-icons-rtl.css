@@ -1,0 +1,38 @@
+
+
+.iconlist {
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 1.75em;
+}
+
+.iconlist ul {
+	margin: 5px 25px 5px 0;
+}
+
+.iconlist li { text-align: right; }
+
+.iconlist > li [class^="icon-"], .iconlist > li [class*=" icon-"] {
+	right: -1.75em;
+	left: auto;
+}
+
+.iconlist.iconlist-large > li [class^="icon-"], .iconlist.iconlist-large > li [class*=" icon-"] {
+	margin-left: 5px;
+	margin-right: 0;
+}
+
+.icon.pull-left {
+  margin-left: .3em;
+  margin-right: 0;
+}
+.icon.pull-right {
+  margin-right: .3em;
+  margin-left: 0;
+}
+
+.icon-stacked-1x,
+.icon-stacked-2x {
+  right: 0;
+  left: auto;
+}

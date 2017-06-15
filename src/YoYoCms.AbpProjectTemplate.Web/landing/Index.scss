@@ -18,7 +18,7 @@
 
 //Æ¤·ô
 
-@import "Sass/dark.scss"
+@import "Sass/dark.scss";
 
 // Core CSS
 @import "sass/typography.scss";
@@ -27,7 +27,7 @@
 
 
 // Content Blocks
-/*@import "sass/topbar.scss";
+@import "sass/topbar.scss";
 @import "sass/header.scss";
 @import "sass/sliders.scss";
 @import "sass/pagetitle.scss";
@@ -35,11 +35,11 @@
 @import "sass/portfolio.scss";
 @import "sass/blog.scss";
 @import "sass/shop.scss";
-@import "sass/events.scss";*/
+@import "sass/events.scss";
 
 
 // Shortcodes
-/*@import "sass/shortcodes.scss"*/;
+@import "sass/shortcodes.scss";
 
 
 // Footer
