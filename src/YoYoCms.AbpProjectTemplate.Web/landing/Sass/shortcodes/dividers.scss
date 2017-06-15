@@ -1,0 +1,188 @@
+
+/*-----------------------------------------------------------------------------------
+
+	Shortcodes: dividers.scss
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+	Divider
+-----------------------------------------------------------------*/
+
+
+.divider {
+	position: relative;
+	overflow: hidden;
+	margin: 35px 0;
+	color: #E5E5E5;
+	width: 100%;
+
+	&.divider-margin {
+		margin: 70px 0;
+	}
+
+	&:after,
+	&.divider-center:before,
+	&.divider-center.divider-short:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		top: 8px;
+		left: 30px;
+		height: 0;
+		border-top: 1px solid #EEE;
+	}
+
+	&.divider-thick:after,
+	&.divider-center.divider-thick:before,
+	&.divider-center.divider-short.divider-thick:before {
+		border-top-width: 3px;
+	}
+
+	&.divider-short:after {
+		width: 30%;
+	}
+
+	&.divider-vshort:after {
+		width: 12%;
+	}
+
+	i {
+		position: relative;
+		width: 18px;
+		height: 18px;
+		line-height: 1;
+		font-size: 18px !important;
+		text-align: center;
+	}
+
+	a {
+		position: relative;
+		display: inline-block;
+		color: inherit;
+		@include transition(all .3s ease);
+
+		&:hover {
+			color: #888;
+		}
+	}
+
+	/* Divider - Icon Align Right
+	-----------------------------------------------------------------*/
+
+	&.divider-right {
+		text-align: right;
+
+		&:after {
+			left: auto;
+			right: 30px;
+		}
+	}
+
+	/* Divider - Icon Align Center
+	-----------------------------------------------------------------*/
+
+	&.divider-center,
+	&.divider-center.divider-short { text-align: center; }
+
+	&.divider-center {
+		&:before {
+			left: -50% !important;
+			right: 0;
+			margin-left: -20px;
+		}
+
+		&:after {
+			left: 50% !important;
+			right: 0;
+			margin-left: 20px;
+		}
+
+		/* Short Divider - Icon Align Center
+		-----------------------------------------------------------------*/
+
+		&.divider-short {
+			&:before {
+				left: auto !important;
+				right: 50%;
+				margin-right: 20px;
+				width: 15%;
+			}
+
+			&:after {
+				left: 50% !important;
+				right: auto !important;
+				margin-left: 20px;
+				width: 15%;
+			}
+		}
+
+		&.divider-vshort {
+			&:before,
+			&:after { width: 6%; }
+		}
+	}
+
+	/* Divider - Rounded Icon
+	-----------------------------------------------------------------*/
+
+	&.divider-rounded { color: #BBB; }
+
+	&.divider-rounded:after,
+	&.divider-rounded.divider-center:before,
+	&.divider-rounded.divider-short:before,
+	&.divider-border:after,
+	&.divider-border.divider-center:before,
+	&.divider-border.divider-short:before {
+		top: 19px;
+		left: 40px;
+	}
+
+	&.divider-rounded,
+	&.divider-border {
+		i {
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			background-color: #F5F5F5;
+			@include border-radius(50%);
+		}
+	}
+
+	&.divider-rounded,
+	&.divider-border {
+		&.divider-right {
+			&:after {
+				left: auto;
+				right: 40px;
+			}
+		}
+	}
+
+
+	/* Divider - Rounded & Border
+	-----------------------------------------------------------------*/
+
+	&.divider-border {
+		color: #E5E5E5;
+
+		i {
+			line-height: 38px;
+			background-color: transparent;
+			border: 1px solid #EEE;
+		}
+	}
+
+
+	/* Divider - Line Only
+	-----------------------------------------------------------------*/
+
+	&.divider-line {
+		&:before,
+		&:after {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+}

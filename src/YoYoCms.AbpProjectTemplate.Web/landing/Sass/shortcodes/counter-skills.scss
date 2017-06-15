@@ -1,0 +1,203 @@
+
+/*-----------------------------------------------------------------------------------
+
+	Shortcodes: counter-skills.scss
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+	Counter
+-----------------------------------------------------------------*/
+
+
+.counter {
+	font-size: 42px;
+	font-weight: 600;
+	font-family: $heading-font;
+
+	&.counter-small {
+		font-size: 28px;
+	}
+
+	&.counter-large {
+		font-size: 56px;
+	}
+
+	&.counter-xlarge {
+		font-size: 64px;
+		font-weight: 400;
+	}
+
+	&.counter-inherit {
+		font-size: inherit;
+		font-weight: inherit;
+	}
+
+	+ h5 {
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 10px;
+	}
+
+	&.counter-lined {
+		+ h5 {
+			&:before {
+				display: block;
+				position: relative;
+				margin: 20px auto 25px auto;
+				content: '';
+				width: 15%;
+				border-top: 2px solid #444;
+				opacity: 0.9;
+			}
+		}
+	}
+
+	&.counter-small {
+		+ h5 {
+			font-size: 13px;
+		}
+	}
+
+	&.counter-large,
+	&.counter-xlarge {
+		+ h5 {
+			font-size: 15px;
+			font-weight: 300;
+		}
+	}
+}
+
+.widget .counter + h5 { opacity: 0.7; }
+
+
+/* ----------------------------------------------------------------
+	Animated Rounded Skills
+-----------------------------------------------------------------*/
+
+
+.rounded-skill {
+	display: inline-block;
+	margin: 0 15px 15px;
+
+	+ h5 {
+		margin-bottom: 0;
+	}
+}
+
+body:not(.device-touch) .rounded-skill {
+	@include transition(opacity .4s ease);
+}
+
+.easyPieChart {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+	color: #333;
+
+	i {
+		font-size: 42px;
+	}
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+
+/* ----------------------------------------------------------------
+	Skills Bar
+-----------------------------------------------------------------*/
+
+
+.skills {
+	margin: 0;
+	list-style: none;
+	padding-top: 25px;
+
+	li {
+		position: relative;
+		margin-top: 38px;
+		height: 4px;
+		background-color: #F5F5F5;
+		box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		@include border-radius(2px);
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.progress {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 100%;
+			background-color: $theme-color;
+			overflow: visible !important;
+			@include border-radius(2px);
+			@include transition(width 1.2s ease-in-out);
+		}
+
+		.progress-percent {
+			position: absolute;
+			top: -28px;
+			right: 0;
+			background-color: #333;
+			color: #F9F9F9;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+			height: 22px;
+			line-height: 22px;
+			padding: 0px 5px;
+			font-size: 11px;
+			@include border-radius(2px);
+
+			.counter {
+				font-weight: 400;
+				font-family: $body-font;
+			}
+
+			&:after,
+			&:before {
+				top: 100%;
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+			}
+
+			&:after {
+				border-top-color: #333;
+				border-width: 4px;
+				left: 50%;
+				margin-left: -4px;
+			}
+
+			&:before {
+				border-top-color: #333;
+				border-width: 5px;
+				left: 50%;
+				margin-left: -5px;
+			}
+		}
+
+		> span {
+			position: absolute;
+			z-index: 1;
+			top: -23px;
+			left: 0;
+			line-height: 20px;
+			font-size: 12px;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: #222;
+		}
+	}
+}

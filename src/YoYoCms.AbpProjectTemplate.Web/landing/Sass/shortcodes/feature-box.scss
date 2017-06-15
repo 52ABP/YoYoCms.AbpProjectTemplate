@@ -1,0 +1,720 @@
+
+/*-----------------------------------------------------------------------------------
+
+	Shortcodes: feature-box.scss
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+	Featured Boxes
+-----------------------------------------------------------------*/
+
+
+.feature-box {
+	position: relative;
+	margin-top: 20px;
+	padding: 0 0 0 80px;
+	&:first-child {
+		margin-top: 0;
+	}
+	.fbox-icon {
+		display: block;
+		position: absolute;
+		width: 64px;
+		height: 64px;
+		top: 0;
+		left: 0;
+		a,
+		i,
+		img {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			color: #FFF;
+		}
+		i,
+		img {
+			@include border-radius(50%);
+			background-color: $theme-color;
+		}
+		i {
+			font-style: normal;
+			font-size: 28px;
+			text-align: center;
+			line-height: 64px;
+		}
+	}
+	h3 {
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 0;
+		color: #333;
+	}
+	p {
+		margin: 8px 0 0 0;
+		color: #999;
+	}
+	.before-heading { font-size: 14px; }
+}
+
+
+/* Feature Box - Icon Large
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-large {
+		padding: 0 0 0 115px;
+		.fbox-icon {
+			width: 96px;
+			height: 96px;
+			i {
+				font-size: 42px;
+				line-height: 96px;
+			}
+
+		}
+	}
+}
+
+
+/* Feature Box - Icon Outline
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-outline {
+		.fbox-icon {
+			border: 1px solid $theme-color;
+			@include border-radius(50%);
+			padding: 3px;
+			i {
+				line-height: 56px;
+			}
+		}
+	}
+}
+
+/* Feature Box - Icon Outline Large
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-outline {
+		&.fbox-large {
+			.fbox-icon {
+				padding: 4px;
+				i {
+					line-height: 86px;
+				}
+			}
+		}
+	}
+}
+
+
+/* Feature Box - Icon Rounded
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-rounded {
+		.fbox-icon {
+			@include border-radius(3px !important);
+			i,
+			img {
+				@include border-radius(3px !important);
+			}
+		}
+	}
+}
+
+/* Feature Box - Icon Rounded & Large
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-rounded {
+		&.fbox-large {
+			.fbox-icon {
+				@include border-radius(4px !important);
+				i,
+				img { @include border-radius(4px !important); }
+			}
+		}
+	}
+}
+
+/* Feature Box - Light Background
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-light {
+		&.fbox-outline {
+			.fbox-icon {
+				border-color: #E5E5E5;
+				i {
+					line-height: 54px;
+				}
+			}
+			i,
+			img {
+				border: 1px solid #E5E5E5;
+				background-color: #F5F5F5;
+				color: #444;
+			}
+			&.fbox-large {
+				.fbox-icon {
+					i { line-height: 84px; }
+				}
+			}
+		}
+		.fbox-icon i { line-height: 62px; }
+	}
+	&.fbox-large {
+		.fbox-icon {
+			i { line-height: 96px; }
+		}
+	}
+}
+
+/* Feature Box - Dark Background
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-dark {
+		&.fbox-outline {
+			.fbox-icon { border-color: #444; }
+		}
+		.fbox-icon {
+			i,
+			img { background-color: #333; }
+		}
+	}
+}
+
+
+/* Feature Box - Border
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-border {
+		.fbox-icon {
+			border: 1px solid  $theme-color;
+			@include border-radius(50%);
+			i,
+			img {
+				border: none;
+				background-color: transparent !important;
+				color: $theme-color;
+			}
+		}
+		.fbox-icon {
+			padding: 0;
+			i { line-height: 62px !important; }
+		}
+		&.fbox-large .fbox-icon i { line-height: 94px !important; }
+	}
+}
+
+
+/* Feature Box - Border - Light
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-border {
+		&.fbox-light {
+			.fbox-icon { border-color: #E5E5E5; }
+			i,
+			img { color: #888; }
+		}
+	}
+}
+
+/* Feature Box - Border - Dark
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-border {
+		&.fbox-dark {
+			.fbox-icon { border-color: #333; }
+			i,
+			img { color: #444; }
+		}
+	}
+}
+
+
+/* Feature Box - Plain
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-plain {
+		.fbox-icon {
+			border: none !important;
+			height: auto !important;
+			i,
+			img {
+				border: none !important;
+				background-color: transparent !important;
+				color: $theme-color;
+				@include border-radius(0);
+			}
+			i {
+				font-size: 48px;
+				line-height: 1 !important;
+			}
+			img { height: 64px; }
+		}
+		&.fbox-image {
+			.fbox-icon { width: auto; }
+			img {
+				width: auto;
+				display: inline-block;
+			}
+		}
+		&.fbox-small {
+			padding-left: 42px;
+			.fbox-icon {
+				width: 28px;
+				i {
+					font-size: 28px;
+				}
+				img {
+					height: 28px;
+				}
+			}
+			h3 {
+				font-size: 15px;
+				line-height: 26px;
+				margin-bottom: 10px;
+			}
+			p {
+				margin-left: -42px;
+			}
+		}
+		&.fbox-large {
+			.fbox-icon {
+				i {font-size: 72px; }
+				img { height: 96px; }
+			}
+		}
+		&.fbox-light {
+			.fbox-icon {
+				i,
+				img { color: #888; }
+			}
+		}
+		&.fbox-dark {
+			.fbox-icon {
+				i,
+				img { color: #444; }
+			}
+		}
+	}
+}
+
+
+/* Feature Box - Center
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-center {
+		padding: 0;
+		text-align: center;
+		&.fbox-small {
+			padding-left: 0 !important;
+		}
+		.fbox-icon {
+			position: relative;
+			width: 96px;
+			height: 96px;
+			margin: 0 auto 30px;
+			i {
+				font-size: 42px;
+				line-height: 96px;
+			}
+		}
+		&.fbox-outline {
+			.fbox-icon {
+				i { line-height: 88px; }
+			}
+		}
+		p {
+			font-size: 14px;
+			margin-top: 15px;
+		}
+	}
+}
+
+
+/* Feature Box - Center & Large Icons
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-center {
+		&.fbox-large {
+			.fbox-icon {
+				width: 128px;
+				height: 128px;
+				i {
+					font-size: 70px;
+					line-height: 128px;
+				}
+			}
+			&.fbox-outline {
+				.fbox-icon {
+					i { line-height: 118px; }
+				}
+			}
+		}
+		&.fbox-light {
+			.fbox-icon i { line-height: 94px; }
+			.fbox-outline {
+				.fbox-icon i { line-height: 86px; }
+				.fbox-large {
+					.fbox-icon {
+						i { line-height: 114px; }
+					}
+				}
+			}
+		}
+		&.fbox-border {
+			.fbox-icon {
+				i { line-height: 94px !important; }
+			}
+		}
+		&.fbox-large {
+			&.fbox-border {
+				.fbox-icon i { line-height: 126px !important; }
+			}
+			.fbox-plain {
+				.fbox-icon {
+					i { font-size: 112px; }
+					img { height: 128px; }
+				}
+			}
+		}
+		&.fbox-plain {
+			.fbox-icon {
+				i { font-size: 84px; }
+				img { height: 96px; }
+			}
+		}
+	}
+}
+
+/* Feature Box - Center & Large Icons
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-center {
+		&.fbox-small {
+			.fbox-icon {
+				width: 64px;
+				height: 64px;
+				i {
+					font-size: 28px;
+					line-height: 64px;
+				}
+			}
+			&.fbox-outline {
+				.fbox-icon {
+					i { line-height: 58px; }
+				}
+			}
+		}
+		.fbox-light {
+			&
+			.fbox-outline {
+				&.fbox-small {
+					.fbox-icon i { line-height: 54px; }
+				}
+			}
+		}
+		&.fbox-small {
+			&.fbox-border {
+				.fbox-icon {
+					i { line-height: 62px !important; }
+				}
+			}
+			.fbox-plain {
+				.fbox-icon {
+					i { font-size: 56px; }
+					img { height: 64px; }
+				}
+			}
+			p {
+				font-size: 14px;
+				margin-top: 10px;
+			}
+		}
+		.fbox-plain {
+			&.fbox-small {
+				p { margin-left: 0; }
+			}
+		}
+	}
+}
+
+
+/* Feature Box - Right
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-right {
+		padding: 0 80px 0 0;
+		text-align: right;
+		&.fbox-large { padding-right: 115px; }
+		.fbox-icon {
+			left: auto;
+			right: 0;
+		}
+		&.fbox-plain {
+			&.fbox-small {
+				padding: 0 42px 0 0;
+				p {
+					margin: 0 -42px 0 0;
+				}
+			}
+		}
+	}
+}
+
+
+/* Feature Box - Subtitle
+-----------------------------------------------------------------*/
+
+.feature-box h3 + .fbox-icon { margin-top: 20px !important; }
+
+.feature-box h3 span.subtitle {
+	display: block;
+	margin-top: 5px;
+	color: #444;
+	font-weight: 300;
+	text-transform: none;
+}
+
+.feature-box.fbox-center:not(.fbox-bg) h3:after {
+	content: '';
+	display: block;
+	margin: 20px auto;
+	width: 30px;
+	border-top: 2px solid #555;
+	@include transition(width .3s ease);
+}
+
+.feature-box.fbox-center:not(.fbox-bg):hover h3:after { width: 50px; }
+
+.feature-box.fbox-center.noborder:not(.fbox-bg) h3:after,
+.feature-box.fbox-center.nobottomborder:not(.fbox-bg) h3:after { display: none; }
+
+.feature-box.fbox-center.fbox-italic p {
+	font-style: italic;
+	font-family:  $body-font;
+}
+
+
+/* Feature Box - Background
+-----------------------------------------------------------------*/
+
+.feature-box {
+	&.fbox-bg {
+		&.fbox-center {
+			margin-top: 68px;
+			padding: 68px 30px 30px;
+			background-color: #FFF;
+			border: 1px solid #E5E5E5;
+			@include border-radius(5px);
+				&:first-child { margin-top: 48px; }
+				&.fbox-large {
+					margin-top: 84px;
+					padding-top: 84px;
+					&:first-child { margin-top: 64px; }
+					.fbox-icon {
+					top: -64px;
+					left: 50%;
+					margin-left: -64px;
+				}
+			}
+			.fbox-icon {
+				position: absolute;
+				top: -48px;
+				left: 50%;
+				margin: 0 0 0 -48px;
+			}
+			&.fbox-plain,
+			&.fbox-border,
+			&.fbox-outline {
+				.fbox-icon { background-color: #FFF; }
+			}
+		}
+	}
+}
+
+
+/* Animated Icon Hovers
+-----------------------------------------------------------------*/
+
+.fbox-effect .fbox-icon i { z-index: 1; }
+
+.fbox-effect .fbox-icon i:after {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	@include border-radius(50%);
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.fbox-rounded.fbox-effect .fbox-icon i:after { @include border-radius(3px); }
+
+.fbox-effect .fbox-icon i {
+	@include transition(background-color 0.3s, color 0.3s);
+}
+
+.fbox-effect .fbox-icon i:after {
+	top: -3px;
+	left: -3px;
+	padding: 3px;
+	box-shadow: 0 0 0 2px #333;
+	@include transition(-webkit-transform 0.3s, opacity 0.3s);
+	@include scale(.8);
+	opacity: 0;
+}
+
+.fbox-effect .fbox-icon i:hover,
+.fbox-effect:hover .fbox-icon i {
+	background-color: #333;
+	color: #FFF;
+}
+
+.fbox-effect.fbox-dark .fbox-icon i:after { box-shadow: 0 0 0 2px $theme-color; }
+
+.fbox-effect.fbox-dark .fbox-icon i:hover,
+.fbox-effect.fbox-dark:hover .fbox-icon i { background-color: $theme-color; }
+
+.fbox-effect .fbox-icon i:hover:after,
+.fbox-effect:hover .fbox-icon i:after {
+	@include scale(1);
+	opacity: 1;
+}
+
+/* Icon Effects - Bordered
+-----------------------------------------------------------------*/
+
+.fbox-border.fbox-effect .fbox-icon i {
+	@include transition(color 0.5s, box-shadow 0.5s, background-color 0.5s);
+}
+
+.fbox-border.fbox-effect .fbox-icon i:after {
+	top: -2px;
+	left: -2px;
+	padding: 2px;
+	z-index: -1;
+	box-shadow: none;
+	background-image: url('images/icons/iconalt.svg');
+	background-position: center center;
+	background-size: 100% 100%;
+	@include transition(-webkit-transform 0.5s, opacity 0.5s, background-color 0.5s);
+}
+
+.fbox-border.fbox-rounded.fbox-effect .fbox-icon i:after { @include border-radius(3px); }
+
+.fbox-border.fbox-effect .fbox-icon i:hover,
+.fbox-border.fbox-effect:hover .fbox-icon i {
+	color: #FFF;
+	box-shadow: 0 0 0 1px #333;
+}
+
+.fbox-border.fbox-effect .fbox-icon i:after {
+	@include scale(1.3);
+	opacity: 0;
+	background-color: #333;
+}
+
+.fbox-border.fbox-effect.fbox-dark .fbox-icon i:hover,
+.fbox-border.fbox-effect.fbox-dark:hover .fbox-icon i { box-shadow: 0 0 0 1px $theme-color; }
+
+.fbox-border.fbox-effect.fbox-dark .fbox-icon i:after { background-color: $theme-color; }
+
+.fbox-border.fbox-effect .fbox-icon i:hover:after,
+.fbox-border.fbox-effect:hover .fbox-icon i:after {
+	@include scale(1);
+	opacity: 1;
+}
+
+
+/* Media Featured Box
+-----------------------------------------------------------------*/
+
+.feature-box.media-box { padding: 0; }
+
+.feature-box.media-box .fbox-media { margin: 0 0 25px; }
+
+.feature-box.media-box .fbox-media,
+.feature-box.media-box .fbox-media a,
+.feature-box.media-box .fbox-media img {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.feature-box.media-box .fbox-media iframe { display: block; }
+
+.feature-box.media-box p { margin-top: 17px; }
+
+.feature-box.media-box.fbox-bg .fbox-media { margin: 0; }
+
+.feature-box.media-box.fbox-bg .fbox-desc {
+	padding: 25px;
+	background-color: #FFF;
+	border: 1px solid #E5E5E5;
+	border-top: 0;
+	@include border-radius(0 0 5px 5px);
+}
+
+.feature-box.media-box.fbox-bg .fbox-media img { @include border-radius(5px 5px 0 0); }
+
+/* ----------------------------------------------------------------
+	Flipbox
+-----------------------------------------------------------------*/
+
+.flipbox { perspective: 1000px; }
+
+.flipbox-inner {
+	transition: 0.5s;
+	transition-timing-function: ease;
+	position: relative;
+	transform-style: preserve-3d;
+}
+
+.flipbox-front,
+.flipbox-back {
+	-webkit-backface-visibility: hidden;
+}
+
+.flipbox-front { z-index: 2; }
+
+.flipbox-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.flipbox:not(.flipbox-vertical) .flipbox-front { transform: rotateY(0deg); }
+.flipbox:not(.flipbox-vertical) .flipbox-back { transform: rotateY(-180deg); }
+
+.flipbox.flipbox-vertical .flipbox-front { transform: rotateX(0deg); }
+.flipbox.flipbox-vertical .flipbox-back { transform: rotateX(-180deg); }
+
+.flipbox:not(.flipbox-vertical):hover .flipbox-inner,
+.flipbox:not(.flipbox-vertical).hover .flipbox-inner { transform: rotateY(180deg); }
+
+.flipbox.flipbox-vertical:hover .flipbox-inner,
+.flipbox.flipbox-vertical.hover .flipbox-inner { transform: rotateX(180deg); }
+

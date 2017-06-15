@@ -50,5 +50,9 @@
   {
     "outputFile": "Common/Styles/core.css",
     "inputFile": "Common/Styles/core.less"
+  },
+  {
+    "outputFile": "landing/Index.css",
+    "inputFile": "landing/Index.scss"
   }
 ]

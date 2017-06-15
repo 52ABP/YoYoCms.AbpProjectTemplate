@@ -1,0 +1,248 @@
+
+/*-----------------------------------------------------------------------------------
+
+	Shortcodes: testimonials.scss
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+	Testimonials
+-----------------------------------------------------------------*/
+
+/* Testimonials - Grid
+-----------------------------------------------------------------*/
+
+.testimonials-grid {
+	li {
+		width: 50%;
+		padding: 25px;
+		.testimonial {
+			padding: 0;
+			background-color: transparent !important;
+			border: 0 !important;
+			box-shadow: none !important;
+		}
+	}
+	&.grid-3 {
+		li {
+			width: 33.33%;
+		}
+	}
+	&.grid-1 li { width: 100%; }
+}
+
+/* Testimonials - Item
+-----------------------------------------------------------------*/
+
+.testimonial {
+	position: relative;
+	padding: 20px;
+	background-color: #FFF;
+	border: 1px solid rgba(0,0,0,0.1);
+	@include border-radius(5px);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.testi-image,
+.testi-image a,
+.testi-image img,
+.testi-image i {
+	display: block;
+	width: 64px;
+	height: 64px;
+}
+
+.testi-image {
+	float: left;
+	margin-right: 15px;
+	i {
+		text-align: center;
+		background-color: #EEE;
+		@include border-radius(50%);
+		line-height: 64px;
+		font-size: 28px;
+		color: #888;
+		text-shadow: 1px 1px 1px #FFF;
+	}
+	img {
+		@include border-radius(50%);
+	}
+}
+.testi-content {
+	position: relative;
+	overflow: hidden;
+	p {
+		margin-bottom: 0;
+		font-family: $secondary-font;
+		font-style: italic;
+		&:before,
+		&:after {
+			content: '"';
+		}
+	}
+}
+.testi-meta {
+	margin-top: 10px;
+	font-size: 13px;
+	font-weight: bold;
+	text-transform: uppercase;
+	&:before {
+		content: '\2013';
+	}
+	span {
+		display: block;
+		font-weight: normal;
+		color: #999;
+		font-size: 12px;
+		text-transform: none;
+		padding-left: 10px;
+	}
+}
+
+/* Twitter - Small Scroller
+-----------------------------------------------------------------*/
+
+.testi-content p:before,
+.testi-content p:after,
+.testi-meta:before {
+	content: '';
+}
+.testimonial {
+	&.twitter-scroll {
+		.testi-content p:before,
+		.testi-content p:after,
+		.testi-meta:before {
+			content: '';
+		}
+		.testi-meta {
+			span {
+				padding-left: 0;
+				a {
+					color: #999;
+					&:hover {
+						color: #222;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Testimonials - Full Width
+-----------------------------------------------------------------*/
+
+.testimonial {
+	&.testimonial-full {
+		padding: 30px;
+	}
+	&.testimonial-full[data-animation="fade"] {
+		padding: 30px;
+		.flexslider {
+			overflow: visible !important;
+		}
+	}
+}
+.testimonial-full {
+	.testi-image,
+	.testi-image a,
+	.testi-image img,
+	.testi-image i {
+		display: block;
+		width: 72px;
+		height: 72px;
+	}
+	.testi-image {
+		float: none;
+		margin: 0 auto 20px;
+		i {
+			line-height: 72px;
+		}
+	}
+	.testi-content {
+		text-align: center;
+		font-size: 18px;
+	}
+	.testi-meta {
+		margin-top: 15px;
+		span {
+			padding-left: 0;
+		}
+	}
+}
+
+/* Testimonial - Section Scroller
+-----------------------------------------------------------------*/
+
+.section {
+	& > .testimonial {
+		padding: 0;
+		background-color: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		max-width: 800px;
+		margin: 0 auto;
+		.testi-content {
+			font-size: 22px;
+		}
+	}
+	& > .testimonial[data-animation="fade"] {
+		padding: 0;
+	}
+	> .testimonial .testi-meta,
+	> .testimonial .testi-meta span {
+		font-size: 14px;
+	}
+}
+
+
+/* Testimonial - Pagination
+-----------------------------------------------------------------*/
+
+.testimonial {
+	.flex-control-nav {
+		top: auto;
+		bottom: 6px;
+		right: 0;
+		li {
+			margin: 0 2px;
+			width: 6px;
+			height: 6px;
+			a {
+				width: 6px !important;
+				height: 6px !important;
+				border: none;
+				background-color: $theme-color;
+				opacity: 0.5;
+				&.flex-active {
+					opacity: 1;
+				}
+			}
+			&:hover {
+				a {
+					opacity: 0.75;
+				}
+			}
+		}
+	}
+}
+
+/* Testimonial - Full Scroller
+-----------------------------------------------------------------*/
+
+.testimonial {
+	&.testimonial-full {
+		.flex-control-nav {
+			position: relative;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			height: 6px;
+			margin-top: 20px;
+			li {
+				display: inline-block;
+				float: none;
+			}
+		}
+	}
+}
