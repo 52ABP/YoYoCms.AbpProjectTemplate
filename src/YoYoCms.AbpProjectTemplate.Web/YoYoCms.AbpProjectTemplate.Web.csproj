@@ -519,6 +519,25 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\host\views\tenants\featuresModal.js" />
+    <Content Include="Assets\.eslintrc.js" />
+    <Content Include="Assets\.gitignore" />
+    <Content Include="Assets\.postcssrc.js" />
+    <Content Include="Assets\build\build.js" />
+    <Content Include="Assets\build\check-versions.js" />
+    <Content Include="Assets\build\dev-client.js" />
+    <Content Include="Assets\build\dev-server.js" />
+    <Content Include="Assets\build\utils.js" />
+    <Content Include="Assets\build\vue-loader.conf.js" />
+    <Content Include="Assets\build\webpack.base.conf.js" />
+    <Content Include="Assets\build\webpack.dev.conf.js" />
+    <Content Include="Assets\build\webpack.prod.conf.js" />
+    <Content Include="Assets\config\dev.env.js" />
+    <Content Include="Assets\config\index.js" />
+    <Content Include="Assets\config\prod.env.js" />
+    <Content Include="Assets\index.html" />
+    <Content Include="Assets\src\assets\logo.png" />
+    <Content Include="Assets\src\main.js" />
+    <Content Include="Assets\src\router\index.js" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
     <Content Include="Common\Images\open-id-connect.png" />
     <Content Include="Common\Images\ws-federation.png" />
@@ -2281,6 +2300,16 @@
     <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.eot" />
     <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.ttf" />
     <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Assets\.babelrc" />
+    <Content Include="Assets\.editorconfig" />
+    <Content Include="Assets\.eslintignore" />
+    <Content Include="Assets\package.json" />
+    <Content Include="Assets\README.md" />
+    <Content Include="Assets\src\App.vue">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\src\components\Hello.vue" />
+    <Content Include="Assets\static\.gitkeep" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
