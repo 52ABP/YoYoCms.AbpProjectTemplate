@@ -28,14 +28,16 @@
         "curly": [0, 'multi'],
         "space-before-function-paren": 0,
         'prefer-promise-reject-errors': 0,
-        'camelcase': 0
+        'camelcase': 0,
+        'eol-last': 0
     },
     globals: {
-        'xm': true,
+        'abp': true,
         'alert': true,
         'fetch': true,
         'xmview': true,
         'localStorage': true,
-        'xmrouter': true
+        'jquery': true,
+        '$': true
     }
 }
