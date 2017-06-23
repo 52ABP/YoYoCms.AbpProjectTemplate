@@ -1,6 +1,3 @@
-/**
- * Created by huanghx on 2017/6/23.
- */
 if (typeof jQuery === "undefined") {
     throw new Error("jQuery plugins need to be before this file");
 }
@@ -314,28 +311,28 @@ $.AdminBSB.dropdownMenu = {
     activate: function () {
         var _this = this;
 
-        $('.dropdown, .dropup, .btn-group').on({
-            "show.bs.dropdown": function () {
-                var dropdown = _this.dropdownEffect(this);
-                _this.dropdownEffectStart(dropdown, dropdown.effectIn);
-            },
-            "shown.bs.dropdown": function () {
-                var dropdown = _this.dropdownEffect(this);
-                if (dropdown.effectIn && dropdown.effectOut) {
-                    _this.dropdownEffectEnd(dropdown, function () { });
-                }
-            },
-            "hide.bs.dropdown": function (e) {
-                var dropdown = _this.dropdownEffect(this);
-                if (dropdown.effectOut) {
-                    e.preventDefault();
-                    _this.dropdownEffectStart(dropdown, dropdown.effectOut);
-                    _this.dropdownEffectEnd(dropdown, function () {
-                        dropdown.dropdown.removeClass('open');
-                    });
-                }
-            }
-        });
+        // $('.dropdown, .dropup, .btn-group').on({
+        //     "show.bs.dropdown": function () {
+        //         var dropdown = _this.dropdownEffect(this);
+        //         _this.dropdownEffectStart(dropdown, dropdown.effectIn);
+        //     },
+        //     "shown.bs.dropdown": function () {
+        //         var dropdown = _this.dropdownEffect(this);
+        //         if (dropdown.effectIn && dropdown.effectOut) {
+        //             _this.dropdownEffectEnd(dropdown, function () { });
+        //         }
+        //     },
+        //     "hide.bs.dropdown": function (e) {
+        //         var dropdown = _this.dropdownEffect(this);
+        //         if (dropdown.effectOut) {
+        //             e.preventDefault();
+        //             _this.dropdownEffectStart(dropdown, dropdown.effectOut);
+        //             _this.dropdownEffectEnd(dropdown, function () {
+        //                 dropdown.dropdown.removeClass('open');
+        //             });
+        //         }
+        //     }
+        // });
 
         //Set Waves
         Waves.attach('.dropdown-menu li a', ['waves-block']);
