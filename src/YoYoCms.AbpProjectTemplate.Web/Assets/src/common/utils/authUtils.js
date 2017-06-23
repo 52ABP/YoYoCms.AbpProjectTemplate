@@ -15,9 +15,11 @@ class AuthUtils {
     // 获取token
     getToken() {
         let tokenStr = localStorage.getItem(TOKENKEY)
+        // 如果获取不到
         if (!tokenStr) return null
         let tokenObj = JSON.parse(tokenStr)
-        if (tokenObj.expireTime >= Date.now()) return null
+        // 如果过期
+        if (tokenObj.expireTime <= Date.now()) return null
 
         return tokenObj.token
     }

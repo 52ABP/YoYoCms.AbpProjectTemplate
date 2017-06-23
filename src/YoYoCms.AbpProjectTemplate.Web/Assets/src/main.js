@@ -1,11 +1,19 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import $ from 'jquery'
-window.$ = $
+// elementui
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/zh-CN'
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI, {locale})
+
+import $ from 'jquery' // jq
+window.$ = window.jquery = window.jQuery = $
+
+// abp的一系列框架封装
 import './vendor/abp/scripts/abp.js'
+import './common/utils/toastrImp'
 import './vendor/abp/scripts/libs/abp.jquery.js'
 import './vendor/abp/scripts/libs/sweetalert/sweetalert.min'
 import './vendor/abp/scripts/libs/abp.sweet-alert'
+import './vendor/abp/scripts/libs/abp.toastr'
 
 import Vue from 'vue'
 import App from './App.vue'

@@ -17,6 +17,10 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
     [DependsOn(typeof(AbpWebApiModule), typeof(AbpProjectTemplateApplicationModule))]
     public class AbpProjectTemplateWebApiModule : AbpModule
     {
+        public override void PreInitialize()
+        {
+            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
+        }
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
@@ -28,7 +32,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("yoyocmsAuth"));
 
-            ConfigureSwaggerUi();  
+            ConfigureSwaggerUi();
         }
 
         private void ConfigureSwaggerUi()

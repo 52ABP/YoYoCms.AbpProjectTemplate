@@ -13,6 +13,15 @@ export default new Router({
                     resolve(require('../views/loginregist/Login.vue'))
                 })
             }
+        },
+        {
+            path: '/',
+            name: 'index',
+            component: resolve => {
+                require.ensure([], () => {
+                    resolve(require('../views/Index.vue'))
+                })
+            }
         }
     ],
     base: '/view/',

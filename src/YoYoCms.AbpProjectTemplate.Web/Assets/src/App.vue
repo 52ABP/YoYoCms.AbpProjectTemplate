@@ -1,4 +1,7 @@
-﻿<template>
+﻿<style rel="styleesheet" lang="scss">
+    @import "common/style";
+</style>
+<template>
     <div id="app">
         <router-view></router-view>
     </div>
@@ -9,7 +12,3 @@
         name: 'app'
     }
 </script>
-
-<style rel="styleesheet" lang="scss">
-    @import "common/style";
-</style>

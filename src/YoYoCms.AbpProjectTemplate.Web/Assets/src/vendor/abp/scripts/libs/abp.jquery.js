@@ -1,4 +1,5 @@
 ﻿var abp = window.abp || {};
+import authUtils from '../../../../common/utils/authUtils'
 (function ($) {
 
     if (!$) {
@@ -12,7 +13,11 @@
     abp.ajax = function (userOptions) {
         userOptions = userOptions || {};
 
-        var options = $.extend({}, abp.ajax.defaultOpts, userOptions);
+        // 加上token
+        let headers = {
+            Authorization: `Bearer ${authUtils.getToken()}`
+        }
+        var options = $.extend({}, abp.ajax.defaultOpts, userOptions, {headers});
         options.success = undefined;
         options.error = undefined;
 
@@ -39,7 +44,7 @@
         defaultOpts: {
             dataType: 'json',
             type: 'POST',
-            contentType: 'application/json'
+            contentType: 'application/json',
         },
 
         defaultError: {
