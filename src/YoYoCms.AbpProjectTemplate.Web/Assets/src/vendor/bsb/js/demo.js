@@ -1,6 +1,3 @@
-/**
- * Created by huanghx on 2017/6/23.
- */
 $(function () {
     skinChanger();
     activateNotificationAndTasksScroll();
