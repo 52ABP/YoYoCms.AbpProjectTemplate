@@ -15,6 +15,10 @@
 
 /* Demo ======================================== */
 @import '_demo.scss';
+
+/* Materialize Css | Taken from www.materializecss.com */
+@import '../css/materialize.scss';
+
 /* Media ======================================= */
 @import '_media.scss';
 
@@ -130,9 +134,7 @@
 @import '_dropdownmenu.scss';
 
 /* Left Sidebar & Overlay ====================== */
-@import 'leftsidebaroverlay.scss';
-
-@import "../css/materialize.scss";
+@import '_leftsidebaroverlay.scss';
 
 /* Bootstrap Notify ============================ */
 @import '_bootstrapnotify.scss';
