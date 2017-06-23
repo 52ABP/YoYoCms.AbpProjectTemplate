@@ -1,4 +1,4 @@
-﻿var abp = abp || {};
+﻿var abp = window.abp || {};
 (function () {
 
     if (!toastr) {
@@ -14,6 +14,8 @@
     var showNotification = function (type, message, title, options) {
         toastr[type](message, title, options);
     };
+
+    abp.notify = abp.notify || {}
 
     abp.notify.success = function (message, title, options) {
         showNotification('success', message, title, options);
