@@ -8,5 +8,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 前端项目首页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ForntProj ()
+        {
+            return File(System.IO.File.Open(Server.MapPath("/Assets/dist/index.html"), System.IO.FileMode.Open), "text/html");
+        }
 	}
 }

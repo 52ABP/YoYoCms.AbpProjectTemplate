@@ -10,6 +10,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Routing
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // 前端项目路由
+            routes.MapRoute(
+                name: "ForntProj",
+                url: "view/{path}",
+                defaults: new { controller = "Home", action = "ForntProj" },
+                namespaces: new[] { "YoYoCms.AbpProjectTemplate.Web.Controllers" }
+            );
+
             //ASP.NET Web API Route Config
             routes.MapHttpRoute(
                 name: "DefaultApi",

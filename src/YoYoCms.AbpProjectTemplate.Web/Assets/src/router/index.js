@@ -3,7 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+import administration from '../router/administration/index'
+
+let router = new Router({
     routes: [
         {
             path: '/login',
@@ -21,9 +23,27 @@ export default new Router({
                 require.ensure([], () => {
                     resolve(require('../views/Index.vue'))
                 })
-            }
-        }
+            },
+            children: [{
+                path: 'tenant.dashboard',
+                name: 'dashboard',
+                component: resolve => {
+                    require.ensure([], () => {
+                        resolve(require('../views/dashboard/Dashboard.vue'))
+                    })
+                }
+            },
+            ]
+        },
+        administration
     ],
     base: '/view/',
     mode: 'history',
 })
+
+router.beforeEach((to, from, next) => {
+    console.log(to, from, next)
+    next()
+})
+
+export default router
