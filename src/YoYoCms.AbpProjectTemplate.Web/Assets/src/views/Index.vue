@@ -277,7 +277,7 @@
             <!-- #END# Left Sidebar -->
         </section>
         <section class="content">
-            askjdhaskjdhkjsa
+            <router-view></router-view>
         </section>
     </article>
 </template>
@@ -301,6 +301,7 @@
             // 获取菜单信息
             await abpScriptService.getScripts()
             this.menus = abp.nav.menus.MainMenu
+            console.log('所有菜单', JSON.stringify(this.menus))
             this.$nextTick(() => {
                 require.ensure([], () => {
                     require('../vendor/bsb/js/demo')
