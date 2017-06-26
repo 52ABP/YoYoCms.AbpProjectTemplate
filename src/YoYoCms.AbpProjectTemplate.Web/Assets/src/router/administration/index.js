@@ -17,7 +17,10 @@ export default {
             require.ensure([], () => {
                 resolve(require('../../views/administration/organizationUnits.vue'))
             })
-        }
+        },
+        meta: {
+            navName: 'organizationunits'
+        },
     }, {
         path: 'roles',
         name: namePre + `Roles`,

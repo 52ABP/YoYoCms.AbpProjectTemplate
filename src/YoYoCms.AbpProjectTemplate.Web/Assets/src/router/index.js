@@ -18,7 +18,7 @@ let router = new Router({
                 })
             },
             meta: {
-                notAuth: true // 不需要权限验证
+                notAuth: true, // 不需要权限验证
             }
         },
         {
@@ -36,7 +36,7 @@ let router = new Router({
                     require.ensure([], () => {
                         resolve(require('../views/dashboard/Dashboard.vue'))
                     })
-                }
+                },
             },
                 administration
             ]
@@ -62,10 +62,11 @@ router.beforeEach((to, from, next) => {
 
     let menu = []
     to.matched.forEach((item) => {
+        item.meta.displayName = item.meta.displayName
         menu.push({name: item.name})
     })
     store.dispatch('setIndexMenuActive', {menu})
-    // console.log(store.state)
+
     next()
 })
 
