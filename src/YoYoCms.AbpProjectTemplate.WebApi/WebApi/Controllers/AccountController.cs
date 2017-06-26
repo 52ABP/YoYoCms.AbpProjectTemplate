@@ -15,11 +15,10 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
 {
     public class AccountController : AbpProjectTemplateApiControllerBase
     {
-        public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
+        private readonly AbpLoginResultTypeHelper _abpLoginResultTypeHelper;
 
         private readonly IAuthenticationManager _authenticationManager;
         private readonly LogInManager _logInManager;
-        private readonly AbpLoginResultTypeHelper _abpLoginResultTypeHelper;
 
         static AccountController()
         {
@@ -35,8 +34,10 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             _authenticationManager = authenticationManager;
         }
 
+        public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; }
+
         /// <summary>
-        /// 授权验证，申请token信息
+        ///     授权验证，申请token信息
         /// </summary>
         /// <param name="loginModel"></param>
         /// <returns></returns>
@@ -47,7 +48,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
                 loginModel.TenancyName
-                );
+            );
 
             var ticket = new AuthenticationTicket(loginResult.Identity, new AuthenticationProperties());
 
@@ -58,7 +59,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             ticket.Properties.ExpiresUtc = expiresUtc;
 
             var timeSpan = expiresUtc - DateTime.UtcNow;
-      var expireInSeconds=   Convert.ToInt32(timeSpan.TotalSeconds)   ;
+            var expireInSeconds = Convert.ToInt32(timeSpan.TotalSeconds);
 
             var result = new AuthenticateResultModel
             {
@@ -74,9 +75,6 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
         [HttpGet]
         public AjaxResponse Logout()
         {
-
-             
-
             //var refreshTokenProperties = new AuthenticationProperties(context.Ticket.Properties.Dictionary)
             //{
             //    IssuedUtc = context.Ticket.Properties.IssuedUtc,
@@ -91,19 +89,18 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             //context.SetToken(guid);
             _authenticationManager.SignOut();
             return new AjaxResponse();
-          
         }
 
 
-
         /// <summary>
-        /// 获取登陆信息返回的结果
+        ///     获取登陆信息返回的结果
         /// </summary>
         /// <param name="usernameOrEmailAddress"></param>
         /// <param name="password"></param>
         /// <param name="tenancyName"></param>
         /// <returns></returns>
-        private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
+        private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress,
+            string password, string tenancyName)
         {
             var loginResult = await _logInManager.LoginAsync(usernameOrEmailAddress, password, tenancyName);
 
@@ -112,7 +109,8 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
                 case AbpLoginResultType.Success:
                     return loginResult;
                 default:
-                    throw _abpLoginResultTypeHelper.CreateExceptionForFailedLoginAttempt(loginResult.Result, usernameOrEmailAddress, tenancyName);
+                    throw _abpLoginResultTypeHelper.CreateExceptionForFailedLoginAttempt(loginResult.Result,
+                        usernameOrEmailAddress, tenancyName);
             }
         }
     }
