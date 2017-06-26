@@ -108,7 +108,7 @@
 
                     this.loading = true
                     let ret = await abp.ajax({
-                        url: `/api/account?returnUrl=application`,
+                        url: `/api/account/Authenticate?returnUrl=application`,
                         method: 'post',
                         data: JSON.stringify(this.fetchParam)
                     }).catch(() => {

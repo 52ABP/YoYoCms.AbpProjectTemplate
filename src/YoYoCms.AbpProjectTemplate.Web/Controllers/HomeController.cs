@@ -1,10 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Helpers;
+using System.Web.Mvc;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
     public class HomeController : AbpProjectTemplateControllerBase
     {
-        public ActionResult Index()
+         public ActionResult Index()
         {
             return View();
         }
