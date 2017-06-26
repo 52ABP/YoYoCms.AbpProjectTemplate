@@ -11,11 +11,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         }
 
         /// <summary>
-        /// 前端项目首页
+        /// 管理端Vue项目首页
         /// </summary>
         /// <returns></returns>
         public ActionResult ForntProj ()
-        {
+        { 
             return File(System.IO.File.Open(Server.MapPath("/Assets/dist/index.html"), System.IO.FileMode.Open), "text/html");
         }
 	}
