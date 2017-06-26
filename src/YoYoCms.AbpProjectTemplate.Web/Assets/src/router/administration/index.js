@@ -1,9 +1,9 @@
 /**
  * Created by huanghx on 2017/6/25.
  */
-const namePre = 'administration'
+// const namePre = 'administration'
 export default {
-    path: 'administration',
+    path: '/administration',
     name: 'administration',
     component: resolve => {
         require.ensure([], () => {
@@ -12,7 +12,7 @@ export default {
     },
     children: [{
         path: 'organizationunits',
-        name: namePre + 'organizationUnits',
+        name: 'organizationUnits',
         component: resolve => {
             require.ensure([], () => {
                 resolve(require('../../views/administration/organizationUnits.vue'))
@@ -20,7 +20,7 @@ export default {
         }
     }, {
         path: 'roles',
-        name: namePre + 'roles',
+        name: `roles`,
         component: resolve => {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Roles.vue'))
