@@ -3,7 +3,7 @@
  */
 const namePre = 'administration'
 export default {
-    path: 'Administration',
+    path: 'administration',
     name: 'administration',
     component: resolve => {
         require.ensure([], () => {

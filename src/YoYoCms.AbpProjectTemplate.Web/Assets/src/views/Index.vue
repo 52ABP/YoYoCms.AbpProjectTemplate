@@ -9,7 +9,7 @@
 </style>
 
 <template>
-    <article class="theme-red index-container">
+    <article class="theme-red index-container" v-loading="loading">
         <!-- Overlay For Sidebars -->
         <div class="overlay"></div>
         <!-- #END# Overlay For Sidebars -->
@@ -290,7 +290,8 @@
     export default {
         data() {
             return {
-                menus: []
+                menus: [],
+                loading: false
             }
         },
         created() {
@@ -301,7 +302,6 @@
             // 获取菜单信息
             await abpScriptService.getScripts()
             this.menus = abp.nav.menus.MainMenu
-            console.log('所有菜单', JSON.stringify(this.menus))
             this.$nextTick(() => {
                 require.ensure([], () => {
                     require('../vendor/bsb/js/demo')
@@ -309,6 +309,7 @@
                 require.ensure([], () => {
                     require('../vendor/bsb/js/admin')
                 })
+                this.loading = false
             })
         },
         methods: {
