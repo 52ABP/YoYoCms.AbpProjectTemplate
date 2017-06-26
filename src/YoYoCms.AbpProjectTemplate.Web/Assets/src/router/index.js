@@ -30,16 +30,16 @@ let router = new Router({
             },
             children: [{
                 path: '',
-                name: 'dashboard',
+                name: 'tenant.dashboard',
                 component: resolve => {
                     require.ensure([], () => {
                         resolve(require('../views/dashboard/Dashboard.vue'))
                     })
                 }
             },
+                administration
             ]
         },
-        administration
     ],
     base: '/view/',
     mode: 'history',

@@ -82,7 +82,7 @@
         },
         methods: {
             jumpUrl () {
-                this.menu.url && this.$router.push({path: this.menu.url})
+                this.menu.url && this.$router.push({name: this.menu.url})
             }
         },
         components: {
