@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "vue_Bsb_Template",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "huanghx <249803023@qq.com>",
@@ -72,5 +72,7 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": "index.js",
+  "license": "MIT"
 }

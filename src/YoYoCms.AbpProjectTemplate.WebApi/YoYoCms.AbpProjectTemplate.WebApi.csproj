@@ -178,6 +178,7 @@
     <Compile Include="WebApi\AbpProjectTemplateWebApiModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\Controllers\AccountController.cs" />
+    <Compile Include="WebApi\Models\AuthenticateResultModel.cs" />
     <Compile Include="WebApi\Models\LoginModel.cs" />
   </ItemGroup>
   <ItemGroup>
