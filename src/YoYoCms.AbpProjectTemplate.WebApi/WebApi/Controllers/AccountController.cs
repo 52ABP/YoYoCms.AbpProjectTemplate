@@ -16,6 +16,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
     public class AccountController : AbpProjectTemplateApiControllerBase
     {
         public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
+
         private readonly IAuthenticationManager _authenticationManager;
         private readonly LogInManager _logInManager;
         private readonly AbpLoginResultTypeHelper _abpLoginResultTypeHelper;
@@ -51,17 +52,43 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             var ticket = new AuthenticationTicket(loginResult.Identity, new AuthenticationProperties());
 
             var currentUtc = new SystemClock().UtcNow;
-            ticket.Properties.IssuedUtc = currentUtc;
-            ticket.Properties.ExpiresUtc = currentUtc.Add(TimeSpan.FromMinutes(30));
+            var expiresUtc = currentUtc.Add(TimeSpan.FromMinutes(30));
 
-            return new AjaxResponse(OAuthBearerOptions.AccessTokenFormat.Protect(ticket));
+            ticket.Properties.IssuedUtc = currentUtc;
+            ticket.Properties.ExpiresUtc = expiresUtc;
+
+            var timeSpan = expiresUtc - DateTime.UtcNow;
+      var expireInSeconds=   Convert.ToInt32(timeSpan.TotalSeconds)   ;
+
+            var result = new AuthenticateResultModel
+            {
+                AccessToken = OAuthBearerOptions.AccessTokenFormat.Protect(ticket),
+                ExpireInSeconds = expireInSeconds
+            };
+
+
+            return new AjaxResponse(result);
         }
 
 
         [HttpGet]
         public AjaxResponse Logout()
         {
-         
+
+             
+
+            //var refreshTokenProperties = new AuthenticationProperties(context.Ticket.Properties.Dictionary)
+            //{
+            //    IssuedUtc = context.Ticket.Properties.IssuedUtc,
+            //    ExpiresUtc = DateTime.UtcNow.AddYears(1)
+            //};
+            //var refreshTokenTicket = new AuthenticationTicket(context.Ticket.Identity, refreshTokenProperties);
+
+            ////_refreshTokens.TryAdd(guid, context.Ticket);
+            //_refreshTokens.TryAdd(guid, refreshTokenTicket);
+
+            //// consider storing only the hash of the handle
+            //context.SetToken(guid);
             _authenticationManager.SignOut();
             return new AjaxResponse();
           
