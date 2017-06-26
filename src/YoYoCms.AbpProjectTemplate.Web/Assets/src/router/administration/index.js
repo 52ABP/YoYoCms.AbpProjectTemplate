@@ -1,10 +1,10 @@
 /**
  * Created by huanghx on 2017/6/25.
  */
-// const namePre = 'administration'
+const namePre = 'Administration.'
 export default {
     path: '/administration',
-    name: 'administration',
+    name: 'Administration',
     component: resolve => {
         require.ensure([], () => {
             resolve(require('../../views/administration/Index.vue'))
@@ -12,7 +12,7 @@ export default {
     },
     children: [{
         path: 'organizationunits',
-        name: 'organizationUnits',
+        name: namePre + 'OrganizationUnits',
         component: resolve => {
             require.ensure([], () => {
                 resolve(require('../../views/administration/organizationUnits.vue'))
@@ -20,10 +20,18 @@ export default {
         }
     }, {
         path: 'roles',
-        name: `roles`,
+        name: namePre + `Roles`,
         component: resolve => {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Roles.vue'))
+            })
+        }
+    }, {
+        path: 'users',
+        name: namePre + `Users`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/Users.vue'))
             })
         }
     }]

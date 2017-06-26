@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
-import config from '../utils/config'
+import config from '../common/config'
 import actions from './actions'
 import auth from './modules/auth'
 import index from './modules/index'
@@ -13,8 +13,8 @@ const store = new Vuex.Store({
         auth,
         index
     },
-    strict: config.debug,
-    plugins: config.debug ? [createLogger()] : []
+    strict: config.isDebug,
+    plugins: config.isDebug ? [createLogger()] : []
 })
 
 export default store

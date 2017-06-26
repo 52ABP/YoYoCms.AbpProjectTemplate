@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import authUtils from '../common/utils/authUtils'
+import store from '../store'
 
 Vue.use(Router)
 
@@ -28,9 +29,9 @@ let router = new Router({
                     resolve(require('../views/Index.vue'))
                 })
             },
-            children: [{
+            children: [{ // 工作台
                 path: '',
-                name: 'tenant.dashboard',
+                name: 'Dashboard.Tenant',
                 component: resolve => {
                     require.ensure([], () => {
                         resolve(require('../views/dashboard/Dashboard.vue'))
@@ -58,6 +59,13 @@ router.beforeEach((to, from, next) => {
         next({name: 'login'})
         return
     }
+
+    let menu = []
+    to.matched.forEach((item) => {
+        menu.push({name: item.name})
+    })
+    store.dispatch('setIndexMenuActive', {menu})
+    // console.log(store.state)
     next()
 })
 
