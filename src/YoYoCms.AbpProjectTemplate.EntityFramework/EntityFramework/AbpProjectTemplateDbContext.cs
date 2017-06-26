@@ -58,7 +58,7 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            #region ABP默认功能图集
+            #region 修改ABP默认的架构设置功能
             modelBuilder.ChangeAbpTablePrefix<Tenant, Role, User>("", "ABP");
             modelBuilder.Configurations.Add(new BinaryObjectCfg());
             modelBuilder.Configurations.Add(new FriendshipCfg());
