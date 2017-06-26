@@ -291,7 +291,7 @@
         data() {
             return {
                 menus: [],
-                loading: false
+                loading: false,
             }
         },
         created() {

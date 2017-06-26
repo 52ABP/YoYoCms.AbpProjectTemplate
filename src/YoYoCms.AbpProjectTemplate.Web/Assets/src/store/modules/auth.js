@@ -1,6 +1,6 @@
-import {
-    INDEX_SETWEBPATH
-} from '../mutations'
+// import {
+//     INDEX_SETWEBPATH
+// } from '../mutations'
 
 const Auth = {
     state: {
@@ -8,9 +8,9 @@ const Auth = {
     },
 
     mutations: {
-        [INDEX_SETWEBPATH] (state, user) {
-            state.user = user
-        }
+        // [INDEX_SETWEBPATH] (state, user) {
+        //     state.user = user
+        // }
     }
 }
 

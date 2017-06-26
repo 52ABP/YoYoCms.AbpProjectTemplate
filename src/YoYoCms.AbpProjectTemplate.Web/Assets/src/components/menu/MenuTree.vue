@@ -48,13 +48,34 @@
 <!--</li>-->
 <!--</ul>-->
 <style rel="styleesheet" lang="scss">
-    .menutree-link{
-        cursor: pointer;
+    .menutree-item {
+        &.active > .menutree-link:before {
+            content: '\E315' !important;
+        }
+        .menutree-link {
+            cursor: pointer;
+            /*line-height: 29px;*/
+
+            &:before {
+                top: 3px !important;
+                content: none !important;
+                font-family: 'Material Icons';
+                position: relative;
+                font-size: 21px;
+                height: 20px;
+                right: 0;
+            }
+
+            > span {
+                padding-top: 4px;
+            }
+        }
     }
+
 </style>
 
 <template>
-    <li v-if="menu">
+    <li v-if="menu" :class="{active: isActive}" class="menutree-item">
         <a class="menutree-link" @click="jumpUrl" :class="{'menu-toggle': menu.items && menu.items.length > 0}">
             <i class="material-icons">home</i>
             <span>{{menu.displayName}}</span>
@@ -73,16 +94,33 @@
             menu: Object
         },
         data() {
-            return {}
+            return {
+                isActive: false
+            }
+        },
+        watch: {
+            '$store.state.index.navMenueActive' (val) {
+                this.setIsActive(val)
+                console.log(val, this.menu.name)
+            }
         },
         created() {
-            console.log(this.menu)
+            this.setIsActive(this.$store.state.index.navMenueActive)
         },
         activated() {
         },
         methods: {
             jumpUrl () {
-                this.menu.url && this.$router.push({name: this.menu.url})
+                this.menu.url && this.$router.push({name: this.menu.name})
+            },
+            setIsActive (activeMenu) {
+                this.isActive = false
+//                debugger
+                activeMenu.forEach((item) => {
+                    if (item.name === this.menu.name) {
+                        this.isActive = true
+                    }
+                })
             }
         },
         components: {

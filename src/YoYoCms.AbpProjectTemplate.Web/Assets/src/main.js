@@ -14,10 +14,10 @@ import './vendor/abp/scripts/libs/abp.jquery.js'
 import './vendor/abp/scripts/libs/sweetalert/sweetalert.min'
 import './vendor/abp/scripts/libs/abp.sweet-alert'
 import './vendor/abp/scripts/libs/abp.toastr'
-
 import './vendor/bsb/plugin/node-waves/waves'
 
 import Vue from 'vue'
+import './store'
 import App from './App.vue'
 import router from './router'
 import config from './common/config'
