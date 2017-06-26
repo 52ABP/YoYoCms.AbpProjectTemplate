@@ -258,7 +258,6 @@
                 <div class="menu">
                     <ul class="list">
                         <li class="header">狂拽炫酷吊炸天的超强功能后台管理系统</li>
-                        <li class="active">站位</li>
                         <MenuTree v-for="(item,index) in menus.items" :menu="item" :key="index"></MenuTree>
                     </ul>
                 </div>
@@ -276,7 +275,9 @@
             </aside>
             <!-- #END# Left Sidebar -->
         </section>
+        <!--内容部分-->
         <section class="content">
+            <Nav></Nav>
             <router-view></router-view>
         </section>
     </article>
@@ -287,6 +288,7 @@
     import abpScriptService from '../services/abpScriptService'
 
     import MenuTree from '../components/menu/MenuTree.vue'
+    import Nav from './components/Nav.vue'
     export default {
         data() {
             return {
@@ -295,6 +297,7 @@
             }
         },
         created() {
+            this.loading = true
         },
         activated() {
         },
@@ -302,6 +305,8 @@
             // 获取菜单信息
             await abpScriptService.getScripts()
             this.menus = abp.nav.menus.MainMenu
+            // 刷新当前激活菜单的信息
+            this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
             this.$nextTick(() => {
                 require.ensure([], () => {
                     require('../vendor/bsb/js/demo')
@@ -313,11 +318,7 @@
             })
         },
         methods: {
-            async testGet() {
-                let ret = await abp.services.app.role.getRoles({permission: ''})
-                console.log(ret)
-            }
         },
-        components: {MenuTree}
+        components: {MenuTree, Nav}
     }
 </script>
