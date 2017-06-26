@@ -33,7 +33,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
                 ).AddItem(new MenuItemDefinition(
                     PageNames.App.Tenant.Dashboard,
                     L("Dashboard"),
-                    url: "dashboard",
+                    url: "tenant.dashboard",
                     icon: "icon-home",
                     requiredPermissionName: AppPermissions.Pages_Tenant_Dashboard
                     )
@@ -44,42 +44,42 @@ namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Common.OrganizationUnits,
                         L("OrganizationUnits"),
-                        url: "administration/organizationUnits",
+                        url: "organizationUnits",
                         icon: "icon-layers",
                         requiredPermissionName: AppPermissions.Pages_Administration_OrganizationUnits
                         )
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Common.Roles,
                         L("Roles"),
-                        url: "administration/roles",
+                        url: "roles",
                         icon: "icon-briefcase",
                         requiredPermissionName: AppPermissions.Pages_Administration_Roles
                         )
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Common.Users,
                         L("Users"),
-                        url: "administration/users",
+                        url: "users",
                         icon: "icon-users",
                         requiredPermissionName: AppPermissions.Pages_Administration_Users
                         )
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Common.Languages,
                         L("Languages"),
-                        url: "administration/languages",
+                        url: "languages",
                         icon: "icon-flag",
                         requiredPermissionName: AppPermissions.Pages_Administration_Languages
                         )
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Common.AuditLogs,
                         L("AuditLogs"),
-                        url: "administration/auditLogs",
+                        url: "auditLogs",
                         icon: "icon-lock",
                         requiredPermissionName: AppPermissions.Pages_Administration_AuditLogs
                         )
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Host.Maintenance,
                         L("Maintenance"),
-                        url: "administration/host.maintenance",
+                        url: "host.maintenance",
                         icon: "icon-wrench",
                         requiredPermissionName: AppPermissions.Pages_Administration_Host_Maintenance
                         )
@@ -87,14 +87,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
                     .AddItem(new MenuItemDefinition(
                         PageNames.App.Host.Settings,
                         L("Settings"),
-                        url: "administration/host.settings",
+                        url: "host.settings",
                         icon: "icon-settings",
                         requiredPermissionName: AppPermissions.Pages_Administration_Host_Settings
                         )
                     ).AddItem(new MenuItemDefinition(
                         PageNames.App.Tenant.Settings,
                         L("Settings"),
-                        url: "administration/tenant.settings",
+                        url: "tenant.settings",
                         icon: "icon-settings",
                         requiredPermissionName: AppPermissions.Pages_Administration_Tenant_Settings
                         )
