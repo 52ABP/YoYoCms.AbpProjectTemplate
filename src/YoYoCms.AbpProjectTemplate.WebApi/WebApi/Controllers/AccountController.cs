@@ -16,7 +16,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
     public class AccountController : AbpProjectTemplateApiControllerBase
     {
         public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
-
+        private readonly IAuthenticationManager _authenticationManager;
         private readonly LogInManager _logInManager;
         private readonly AbpLoginResultTypeHelper _abpLoginResultTypeHelper;
 
@@ -27,12 +27,18 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
 
         public AccountController(
             AbpLoginResultTypeHelper abpLoginResultTypeHelper,
-            LogInManager logInManager)
+            LogInManager logInManager, IAuthenticationManager authenticationManager)
         {
             _abpLoginResultTypeHelper = abpLoginResultTypeHelper;
             _logInManager = logInManager;
+            _authenticationManager = authenticationManager;
         }
 
+        /// <summary>
+        /// 授权验证，申请token信息
+        /// </summary>
+        /// <param name="loginModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<AjaxResponse> Authenticate(LoginModel loginModel)
         {
@@ -51,6 +57,25 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             return new AjaxResponse(OAuthBearerOptions.AccessTokenFormat.Protect(ticket));
         }
 
+
+        [HttpGet]
+        public AjaxResponse Logout()
+        {
+         
+            _authenticationManager.SignOut();
+            return new AjaxResponse();
+          
+        }
+
+
+
+        /// <summary>
+        /// 获取登陆信息返回的结果
+        /// </summary>
+        /// <param name="usernameOrEmailAddress"></param>
+        /// <param name="password"></param>
+        /// <param name="tenancyName"></param>
+        /// <returns></returns>
         private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
         {
             var loginResult = await _logInManager.LoginAsync(usernameOrEmailAddress, password, tenancyName);
