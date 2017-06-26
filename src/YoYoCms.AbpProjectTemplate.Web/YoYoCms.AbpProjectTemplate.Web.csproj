@@ -3099,6 +3099,7 @@
     <Compile Include="Chat\SignalR\SignalRChatCommunicator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FileController.cs" />
@@ -3120,7 +3121,6 @@
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\SendEmailActivationLinkViewModel.cs" />
     <Compile Include="Models\Account\EmailConfirmationViewModel.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AbpProjectTemplateControllerBase.cs" />
     <Compile Include="Models\Account\ResetPasswordFormViewModel.cs" />
     <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
