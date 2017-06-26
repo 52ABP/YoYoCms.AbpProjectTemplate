@@ -101,7 +101,6 @@
         watch: {
             '$store.state.index.navMenueActive' (val) {
                 this.setIsActive(val)
-                console.log(val, this.menu.name)
             }
         },
         created() {
@@ -115,7 +114,6 @@
             },
             setIsActive (activeMenu) {
                 this.isActive = false
-//                debugger
                 activeMenu.forEach((item) => {
                     if (item.name === this.menu.name) {
                         this.isActive = true
