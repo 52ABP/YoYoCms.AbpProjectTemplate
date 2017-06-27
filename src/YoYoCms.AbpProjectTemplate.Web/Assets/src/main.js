@@ -4,9 +4,6 @@ import locale from 'element-ui/lib/locale/lang/zh-CN'
 import 'element-ui/lib/theme-default/index.css'
 Vue.use(ElementUI, {locale})
 
-import $ from 'jquery' // jq
-window.$ = window.jquery = window.jQuery = $
-
 // abp的一系列框架封装
 import './vendor/abp/scripts/abp.js'
 import './common/utils/toastrImp'
@@ -15,6 +12,10 @@ import './vendor/abp/scripts/libs/sweetalert/sweetalert.min'
 import './vendor/abp/scripts/libs/abp.sweet-alert'
 import './vendor/abp/scripts/libs/abp.toastr'
 import './vendor/bsb/plugin/node-waves/waves'
+
+// jstree
+// import jstree from './vendor/jtree/jstree'
+// import './vendor/jtree/themes/default/style.css'
 
 import Vue from 'vue'
 import './store'
