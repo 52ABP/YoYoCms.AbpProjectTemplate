@@ -126,6 +126,8 @@
     <Compile Include="AbpProjectTemplateCoreModule.cs" />
     <Compile Include="AbpProjectTemplateDomainServiceBase.cs" />
     <Compile Include="AbpProjectTemplateServiceBase.cs" />
+    <Compile Include="AppExtensions\AbpSessions\AbpSessionExtensions.cs" />
+    <Compile Include="AppExtensions\AbpSessions\IAbpSessionExtensions.cs" />
     <Compile Include="AppFolders.cs" />
     <Compile Include="AppVersionHelper.cs" />
     <Compile Include="Authorization\AppAuthorizationProvider.cs" />

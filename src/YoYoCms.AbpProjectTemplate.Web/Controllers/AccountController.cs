@@ -42,6 +42,7 @@ using YoYoCms.AbpProjectTemplate.Web.MultiTenancy;
 using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
 using Newtonsoft.Json;
+using StackExchange.Redis;
 using YoYoCms.AbpProjectTemplate.Security;
 using YoYoCms.AbpProjectTemplate.Web.Auth;
 
@@ -124,6 +125,13 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 });
         }
 
+        /// <summary>
+        /// 登陆逻辑验证
+        /// </summary>
+        /// <param name="loginModel"></param>
+        /// <param name="returnUrl"></param>
+        /// <param name="returnUrlHash"></param>
+        /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
         public virtual async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "", string returnUrlHash = "")
@@ -157,6 +165,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     });
                 }
 
+            var listClaims=   AddIdentityInfo(loginResult.Identity, loginResult.User);
+
+                loginResult.Identity.AddClaims(listClaims);
+
                 var signInResult = await _signInManager.SignInOrTwoFactor(loginResult, loginModel.RememberMe);
                 if (signInResult == SignInStatus.RequiresVerification)
                 {
@@ -185,7 +197,13 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             _authenticationManager.SignOutAll();
             return RedirectToAction("Login");
         }
-
+        /// <summary>
+        /// 注册到系统中
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="identity"></param>
+        /// <param name="rememberMe"></param>
+        /// <returns></returns>
         private async Task SignInAsync(User user, ClaimsIdentity identity = null, bool rememberMe = false)
         {
             if (identity == null)
@@ -199,7 +217,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
         {
             var loginResult = await _logInManager.LoginAsync(usernameOrEmailAddress, password, tenancyName);
-
+         
             switch (loginResult.Result)
             {
                 case AbpLoginResultType.Success:
@@ -319,6 +337,34 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 }
             }
         }
+
+        #endregion
+
+
+        #region LoginResult.Identity扩展加载
+
+        /// <summary>
+        /// Identity身份信息拓展
+        /// </summary>
+        /// <param name="identity"></param>
+        /// <returns></returns>
+        private List<Claim> AddIdentityInfo(ClaimsIdentity identity,User user)
+        {
+
+            var list = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, user.EmailAddress),
+                new Claim(AbpProjectTemplateConsts.ClaimTypes.UserName, user.UserName)
+            };
+
+            return list;
+
+        }
+
+
+
+
+
 
         #endregion
 
