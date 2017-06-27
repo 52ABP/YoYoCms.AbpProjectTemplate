@@ -14,18 +14,15 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
 {
     public class AbpProjectTemplateAuthorizationServerProvider : OAuthAuthorizationServerProvider, ITransientDependency
     {
-        /// <summary>
-        /// The _user manager
-        /// </summary>
-        private readonly UserManager _userManager;
+        
 
         private readonly AbpLoginResultTypeHelper _abpLoginResultTypeHelper;
 
          private readonly LogInManager _logInManager;
 
-        public AbpProjectTemplateAuthorizationServerProvider(UserManager userManager, AbpLoginResultTypeHelper abpLoginResultTypeHelper, LogInManager logInManager)
+        public AbpProjectTemplateAuthorizationServerProvider(AbpLoginResultTypeHelper abpLoginResultTypeHelper, LogInManager logInManager)
         {
-            _userManager = userManager;
+        
             _abpLoginResultTypeHelper = abpLoginResultTypeHelper;
             _logInManager = logInManager;
         }
@@ -57,8 +54,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
             var result = await GetLoginResultAsync(context.UserName, context.Password, tenancyName);
             if (result.Result == AbpLoginResultType.Success)
             {
-                //var claimsIdentity = result.Identity;                
-                var claimsIdentity = new ClaimsIdentity(result.Identity);
+                 var claimsIdentity = new ClaimsIdentity(result.Identity);
                 claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
                 var ticket = new AuthenticationTicket(claimsIdentity, new AuthenticationProperties());
                 context.Validated(ticket);

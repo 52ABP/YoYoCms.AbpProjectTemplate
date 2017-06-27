@@ -5,6 +5,7 @@ using Abp.IdentityFramework;
 using Abp.MultiTenancy;
 using Abp.Runtime.Session;
 using Microsoft.AspNet.Identity;
+using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
 using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 
@@ -19,6 +20,8 @@ namespace YoYoCms.AbpProjectTemplate
         public TenantManager TenantManager { get; set; }
 
         public UserManager UserManager { get; set; }
+
+        public new IAbpSessionExtensions AbpSession { get; set; }
 
         protected AbpProjectTemplateAppServiceBase()
         {
