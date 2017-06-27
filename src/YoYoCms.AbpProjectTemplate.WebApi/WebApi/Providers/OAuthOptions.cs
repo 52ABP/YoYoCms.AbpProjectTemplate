@@ -35,6 +35,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
                     AllowInsecureHttp = true
                 };
             }
+            //todo:考虑在最外面包一层数据，感觉问题不大。。下午研究研究，看看可以实验下不。
             return _serverOptions;
         }
     }
