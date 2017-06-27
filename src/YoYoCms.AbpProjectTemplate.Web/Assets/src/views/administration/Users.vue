@@ -21,6 +21,9 @@
 
 <template>
     <article class="administration-users-container">
+        <section class="right-top-btnContainer">
+            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">添加用户</el-button>
+        </section>
         <article class="search">
             <section>
                 <i>搜索</i>
@@ -45,11 +48,12 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id">
-                                <a href="javascript:void(0);">权限</a></li>
-                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row"><a href="javascript:void(0);">修改</a></li>
-                            <li><a href="javascript:void(0);">Something else here</a></li>
+                                <a>权限</a></li>
+                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
+                                <a>修改</a>
+                            </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);">Separated link</a></li>
+                            <li @click="del(scope.$index,scope.row)"><a>删除</a></li>
                         </ul>
                     </div>
                 </template>
@@ -118,7 +122,7 @@
                        @size-change="handleSizeChange"
                        @current-change="handleCurrentChange"
                        :current-page="fetchParam.page"
-                       :page-size="fetchParam.page_size"
+                       :page-size="fetchParam.maxResultCount"
                        :page-sizes="[15, 30, 60, 100]"
                        layout="sizes,total, prev, pager, next"
                        :total="total">
@@ -130,7 +134,8 @@
                              :title="dialogPermissionTree.title"></PermissionCheckTree>
 
 
-        <DialogEditUser :visiable.sync="dialogEdit.isShow" :user="dialogEdit.user"></DialogEditUser>
+        <DialogEditUser :onSaved="fetchData" :visiable.sync="dialogEdit.isShow"
+                        :user="dialogEdit.user"></DialogEditUser>
     </article>
 </template>
 
@@ -153,7 +158,8 @@
                     role: void 0,
                     sorting: void 0,
                     maxResultCount: 15,
-                    skipCount: 0
+                    skipCount: 0,
+                    page: 1,
                 },
                 dialogPermissionTree: { // 权限列表弹出框
                     isShow: false,
@@ -173,11 +179,11 @@
         },
         methods: {
             handleCurrentChange (val) {
-                this.fetchParam.page = val
+                this.fetchParam.skipCount = Math.abs((val - 1)) * this.fetchParam.maxResultCount
                 this.fetchData()
             },
             handleSizeChange (val) {
-                this.fetchParam.page_size = val
+                this.fetchParam.maxResultCount = val
                 this.fetchData()
             },
             async fetchData () {
@@ -197,6 +203,20 @@
                 })
                 abp.notify.success('操作成功!', '恭喜')
             },
+            async del(index, user) {
+                abp.message.confirm(`用户 ${user.name} 将被删除, 是否确认?`, async (ret) => {
+                    if (!ret) return
+                    this.loadingData = true
+                    try {
+                        await userService.deleteUser({id: user.id})
+                        abp.notify.success('删除成功', '恭喜')
+                        this.data.splice(index, 1)
+                    } catch (e) {
+                        abp.notify.error(e.message, '请求失败')
+                    }
+                    this.loadingData = false
+                })
+            }
         },
         components: {PermissionCheckTree, DialogEditUser}
     }

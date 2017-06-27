@@ -29,7 +29,7 @@
             <el-tab-pane label="用户管理" name="first">
                 <el-form :model="currUser" :rules="rules" ref="form" label-width="170px" class="demo-ruleForm">
                     <el-form-item label="用户名" prop="userName">
-                        <el-input v-model="currUser.userName" placeholder="用户名" :disabled="true"></el-input>
+                        <el-input v-model="currUser.userName" placeholder="用户名" :disabled="!!currUser.id"></el-input>
                     </el-form-item>
                     <el-form-item label="名字" prop="name">
                         <el-input v-model="currUser.name" placeholder="名字"></el-input>
@@ -89,16 +89,16 @@
     export default {
         props: {
             visiable: Boolean,
-            user: Object
+            user: Object,
+            onSaved: Function, // 保存成功后回调
         },
         data() {
             // 验证密码核对
             let validRepass = (rule, value, callback) => {
-                if (value !== this.currUser.password) {
+                if (value != this.currUser.password)
                     callback(new Error('两次输入密码不一致!'))
-                } else {
+                else
                     callback()
-                }
             }
             return {
                 loading: false,
@@ -110,8 +110,10 @@
                     name: [{required: true, message: '请输入名字', trigger: 'change'}],
                     surname: [{required: true, message: '请输入姓氏', trigger: 'change'}],
                     emailAddress: [{required: true, message: '请输入邮箱', trigger: 'change'}],
-                    repassword: [{validator: validRepass, trigger: 'change'}],
+                    repassword: [{validator: this.validRepass, trigger: 'change'}],
+                    userName: [{required: true, message: '请输入用户名', trigger: 'change'}],
                 },
+                validRepass,
                 fetchParam: {
                     sendActivationEmail: false,
                     setRandomPassword: false, // 使用随机密码
@@ -127,10 +129,22 @@
             'visiable' (val) {
                 if (val != this.dialogVisible) this.dialogVisible = val
             },
+            'fetchParam.setRandomPassword' (val) {
+                if (!val) {
+                    this.rules['repassword'] = [{validator: this.validRepass, trigger: 'change'}]
+                } else {
+                    delete this.rules['repassword']
+                }
+            }
         },
         methods: {
             // 确认按钮点击 提交数据
             async confirmClick() {
+                await new Promise((resolve, reject) => {
+                    this.$refs.form.validate((valid) => {
+                        valid ? resolve(true) : reject('表单验证失败' + valid)
+                    })
+                })
                 this.loading = true
                 let assignedRoleNames = []
                 this.roles.forEach((item) => {
@@ -147,6 +161,9 @@
                     abp.notify.success('修改成功!', '恭喜')
 
                     this.$emit('update:user', this.currUser)
+
+                    // 如果是添加操作
+                    if (!this.user.id) this.onSaved && this.onSaved()
                 } catch (e) {
                     this.loading = false
                 }
@@ -155,7 +172,14 @@
             async handleOpen () {
                 this.activeName = 'first'
                 this.loading = true
-                this.title = '修改用户: ' + this.user.name
+                this.title = `修改用户: ${this.user.name}`
+                this.rules['repassword'] = [{validator: this.validRepass, trigger: 'change'}]
+                this.fetchParam.setRandomPassword = this.fetchParam.sendActivationEmail = false
+                if (!this.user.id) {
+                    this.title = '添加用户'
+                    this.fetchParam.setRandomPassword = this.fetchParam.sendActivationEmail = true
+                    delete this.rules['repassword']
+                }
 
                 // 获取用户信息
                 let retUser = await userService.getUserForEdit({id: this.user.id})
