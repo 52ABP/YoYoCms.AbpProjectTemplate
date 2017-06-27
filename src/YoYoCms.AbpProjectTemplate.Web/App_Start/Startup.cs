@@ -19,6 +19,7 @@ using YoYoCms.AbpProjectTemplate.Web;
 using YoYoCms.AbpProjectTemplate.Web.Auth;
 using YoYoCms.AbpProjectTemplate.WebApi.Controllers;
 using Owin;
+using YoYoCms.AbpProjectTemplate.WebApi.Providers;
 
 [assembly: OwinStartup(typeof(Startup))]
 
@@ -33,6 +34,10 @@ namespace YoYoCms.AbpProjectTemplate.Web
             app.RegisterDataProtectionProvider();
 
             app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
+
+
+
+            app.UseOAuthAuthorizationServer(OAuthOptions.CreateServerOptions());
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
