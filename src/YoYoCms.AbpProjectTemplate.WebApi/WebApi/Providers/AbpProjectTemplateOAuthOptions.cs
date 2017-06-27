@@ -8,7 +8,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
     /// <summary>
     /// Class OAuthOptions.
     /// </summary>
-    public class OAuthOptions
+    public class AbpProjectTemplateOAuthOptions
     {
         /// <summary>
         /// Gets or sets the server options.
@@ -24,8 +24,8 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
         {
             if (_serverOptions == null)
             {
-                var provider = IocManager.Instance.Resolve<SimpleAuthorizationServerProvider>();
-                var refreshTokenProvider = IocManager.Instance.Resolve<SimpleRefreshTokenProvider>();
+                var provider = IocManager.Instance.Resolve<AbpProjectTemplateAuthorizationServerProvider>();
+                var refreshTokenProvider = IocManager.Instance.Resolve<AbpProjectTemplateRefreshTokenProvider>();
                 _serverOptions = new OAuthAuthorizationServerOptions
                 {
                     TokenEndpointPath = new PathString("/oauth/token"),
