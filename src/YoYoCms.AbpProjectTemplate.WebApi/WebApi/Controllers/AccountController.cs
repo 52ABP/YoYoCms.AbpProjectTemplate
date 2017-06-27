@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Abp.Authorization.Users;
+using Abp.Runtime.Session;
 using Abp.Web.Models;
+using Abp.WebApi.Client;
 using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
@@ -55,13 +58,22 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             var currentUtc = new SystemClock().UtcNow;
             var expiresUtc = currentUtc.Add(TimeSpan.FromMinutes(30));
 
+
+          
+
+
+
+
+
             ticket.Properties.IssuedUtc = currentUtc;
             ticket.Properties.ExpiresUtc = expiresUtc;
 
             var timeSpan = expiresUtc - DateTime.UtcNow;
             var expireInSeconds = Convert.ToInt32(timeSpan.TotalSeconds);
+          
 
-            var result = new AuthenticateResultModel
+            
+           var result = new AuthenticateResultModel
             {
                 AccessToken = OAuthBearerOptions.AccessTokenFormat.Protect(ticket),
                 ExpireInSeconds = expireInSeconds
@@ -75,6 +87,11 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
         [HttpGet]
         public AjaxResponse Logout()
         {
+       
+             
+       //AbpWebApiClient
+
+
             //var refreshTokenProperties = new AuthenticationProperties(context.Ticket.Properties.Dictionary)
             //{
             //    IssuedUtc = context.Ticket.Properties.IssuedUtc,
@@ -91,7 +108,29 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
             return new AjaxResponse();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        public   void GrantRefreshToken(OAuthGrantRefreshTokenContext context)
+        {
+            var originalClient = context.OwinContext.Get<string>("as:client_id");
+            var currentClient = context.ClientId;
 
+            // enforce client binding of refresh token
+            if (originalClient != currentClient)
+            {
+                context.Rejected();
+                return;
+            }
+
+            // chance to change authentication ticket for refresh token requests
+            var newId = new ClaimsIdentity(context.Ticket.Identity);
+            newId.AddClaim(new Claim("newClaim", "refreshToken"));
+
+            var newTicket = new AuthenticationTicket(newId, context.Ticket.Properties);
+            context.Validated(newTicket);
+        }
         /// <summary>
         ///     获取登陆信息返回的结果
         /// </summary>

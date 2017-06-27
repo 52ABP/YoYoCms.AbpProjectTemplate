@@ -180,6 +180,9 @@
     <Compile Include="WebApi\Controllers\AccountController.cs" />
     <Compile Include="WebApi\Models\AuthenticateResultModel.cs" />
     <Compile Include="WebApi\Models\LoginModel.cs" />
+    <Compile Include="WebApi\Providers\OAuthOptions.cs" />
+    <Compile Include="WebApi\Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="WebApi\Providers\SimpleRefreshTokenProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

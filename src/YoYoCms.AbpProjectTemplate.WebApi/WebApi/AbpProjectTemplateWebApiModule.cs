@@ -30,8 +30,8 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
                 .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "app")
                 .Build();
 
-            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("yoyocmsAuth"));
-
+            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+ 
             ConfigureSwaggerUi();
         }
 
