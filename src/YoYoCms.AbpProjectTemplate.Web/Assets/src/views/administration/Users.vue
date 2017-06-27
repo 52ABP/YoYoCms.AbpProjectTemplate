@@ -46,7 +46,7 @@
                         <ul class="dropdown-menu">
                             <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id">
                                 <a href="javascript:void(0);">权限</a></li>
-                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row"><a href="javascript:void(0);">修改</a></li>
                             <li><a href="javascript:void(0);">Something else here</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);">Separated link</a></li>
@@ -124,9 +124,13 @@
                        :total="total">
         </el-pagination>
 
+        <!--权限树弹出框-->
         <PermissionCheckTree v-model="dialogPermissionTree.isShow" :userid="dialogPermissionTree.userid"
                              :onConfirmCb="permissionConfirm"
                              :title="dialogPermissionTree.title"></PermissionCheckTree>
+
+
+        <DialogEditUser :visiable.sync="dialogEdit.isShow" :user="dialogEdit.user"></DialogEditUser>
     </article>
 </template>
 
@@ -134,6 +138,7 @@
     import userService from '../../services/userService'
 
     import PermissionCheckTree from '../../components/tree/PermissionCheck.vue'
+    import DialogEditUser from './components/DialogEditUser.vue'
     export default {
         data() {
             return {
@@ -150,11 +155,15 @@
                     maxResultCount: 15,
                     skipCount: 0
                 },
-                dialogPermissionTree: {
+                dialogPermissionTree: { // 权限列表弹出框
                     isShow: false,
                     title: '',
                     userid: void 0,
-                }
+                },
+                dialogEdit: { // 修改用户信息的弹出框
+                    isShow: false,
+                    user: void 0,
+                },
             }
         },
         created() {
@@ -187,8 +196,8 @@
                     grantedPermissionNames: permissions
                 })
                 abp.notify.success('操作成功!', '恭喜')
-            }
+            },
         },
-        components: {PermissionCheckTree}
+        components: {PermissionCheckTree, DialogEditUser}
     }
 </script>
