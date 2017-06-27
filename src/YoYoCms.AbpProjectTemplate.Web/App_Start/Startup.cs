@@ -37,7 +37,7 @@ namespace YoYoCms.AbpProjectTemplate.Web
 
 
 
-            app.UseOAuthAuthorizationServer(OAuthOptions.CreateServerOptions());
+            app.UseOAuthAuthorizationServer(AbpProjectTemplateOAuthOptions.CreateServerOptions());
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {

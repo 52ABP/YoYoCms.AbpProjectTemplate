@@ -7,7 +7,7 @@ using Microsoft.Owin.Security.Infrastructure;
 
 namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
 {
-    public class SimpleRefreshTokenProvider : IAuthenticationTokenProvider, ITransientDependency
+    public class AbpProjectTemplateRefreshTokenProvider : IAuthenticationTokenProvider, ITransientDependency
     {
         private static ConcurrentDictionary<string, AuthenticationTicket> _refreshTokens = new ConcurrentDictionary<string, AuthenticationTicket>();
 

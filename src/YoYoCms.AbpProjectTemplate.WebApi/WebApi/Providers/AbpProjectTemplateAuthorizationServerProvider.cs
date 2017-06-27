@@ -12,7 +12,7 @@ using YoYoCms.AbpProjectTemplate.MultiTenancy;
 
 namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
 {
-    public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider, ITransientDependency
+    public class AbpProjectTemplateAuthorizationServerProvider : OAuthAuthorizationServerProvider, ITransientDependency
     {
         /// <summary>
         /// The _user manager
@@ -23,7 +23,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
 
          private readonly LogInManager _logInManager;
 
-        public SimpleAuthorizationServerProvider(UserManager userManager, AbpLoginResultTypeHelper abpLoginResultTypeHelper, LogInManager logInManager)
+        public AbpProjectTemplateAuthorizationServerProvider(UserManager userManager, AbpLoginResultTypeHelper abpLoginResultTypeHelper, LogInManager logInManager)
         {
             _userManager = userManager;
             _abpLoginResultTypeHelper = abpLoginResultTypeHelper;
