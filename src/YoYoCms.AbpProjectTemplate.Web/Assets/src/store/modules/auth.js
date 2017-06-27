@@ -1,16 +1,17 @@
-// import {
-//     INDEX_SETWEBPATH
-// } from '../mutations'
+import authUtils from '../../common/utils/authUtils'
+import {
+    AUTH_SETUSER
+} from '../mutations'
 
 const Auth = {
     state: {
-        user: {}
+        user: authUtils.getUserInfo()
     },
 
     mutations: {
-        // [INDEX_SETWEBPATH] (state, user) {
-        //     state.user = user
-        // }
+        [AUTH_SETUSER] (state, user) {
+            state.user = user
+        }
     }
 }
 

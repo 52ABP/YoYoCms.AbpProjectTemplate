@@ -49,22 +49,14 @@
 <!--</ul>-->
 <style rel="styleesheet" lang="scss">
     .menutree-item {
-        &.active > .menutree-link:before {
-            content: '\E315' !important;
+        &.menutree-item-leaf {
+            .menutree-link:before {
+                content: none !important;
+            }
         }
+
         .menutree-link {
             cursor: pointer;
-            /*line-height: 29px;*/
-
-            &:before {
-                top: 3px !important;
-                content: none !important;
-                font-family: 'Material Icons';
-                position: relative;
-                font-size: 21px;
-                height: 20px;
-                right: 0;
-            }
 
             > span {
                 padding-top: 4px;
@@ -75,13 +67,13 @@
 </style>
 
 <template>
-    <li v-if="menu" :class="{active: isActive}" class="menutree-item">
-        <a class="menutree-link" @click="jumpUrl" :class="{'menu-toggle': menu.items && menu.items.length > 0}">
-            <i class="material-icons">home</i>
+    <li v-if="menu" :class="{active: isActive, 'menutree-item-leaf': isLeaf}" class="menutree-item">
+        <a class="menutree-link" @click="jumpUrl" :class="{'menu-toggle': !isLeaf}">
+            <i class="material-icons" v-if="deep == 0">{{icons[deep]}}</i>
             <span>{{menu.displayName}}</span>
         </a>
         <ul class="ml-menu" v-if="menu.items && menu.items.length > 0">
-            <MenuTree v-for="(item,index) in menu.items" :menu="item" :key="index"></MenuTree>
+            <MenuTree v-for="(item,index) in menu.items" :menu="item" :deep="deep+1" :key="index"></MenuTree>
         </ul>
     </li>
 </template>
@@ -91,11 +83,17 @@
     export default {
         name: 'MenuTree',
         props: {
-            menu: Object
+            menu: Object,
+            deep: {
+                type: Number,
+                default: 0
+            }, // 当前的层级 从0开始
         },
         data() {
             return {
-                isActive: false
+                isActive: false, // 当前菜单是否激活
+                isLeaf: !this.menu.items || this.menu.items.length < 1, // 是否是叶子节点
+                icons: ['home'],
             }
         },
         watch: {
@@ -112,6 +110,7 @@
             jumpUrl () {
                 this.menu.url && this.$router.push({name: this.menu.name})
             },
+            // 设置当前菜单是否激活
             setIsActive (activeMenu) {
                 this.isActive = false
                 activeMenu.forEach((item) => {

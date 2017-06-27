@@ -1,7 +1,12 @@
 <style rel="styleesheet" lang="scss">
     .index-container {
+        position: absolute;
+        min-height: 100%;
+        width: 100%;
+        background-color: #e9e9e9;
+        overflow-x: hidden;
         .navbar {
-            position: absolute;
+            position: fixed;
             border-radius: 0 !important;
             max-height: 73px;
         }
@@ -9,7 +14,7 @@
 </style>
 
 <template>
-    <article class="theme-red index-container" v-loading="loading">
+    <article class="theme-red index-container">
         <!-- Overlay For Sidebars -->
         <div class="overlay"></div>
         <!-- #END# Overlay For Sidebars -->
@@ -240,15 +245,16 @@
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            彗星666
+                            {{user.name}}
                         </div>
-                        <div class="email">qq249803023@gmail.com</div>
+                        <div class="email">{{user.emailAddress}}</div>
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
                                 <li><a href="javascript:void(0);"><i class="material-icons">person</i>个人中心</a></li>
                                 <li role="seperator" class="divider"></li>
-                                <li><a href="javascript:void(0);"><i class="material-icons">input</i>退出登录</a></li>
+                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>退出登录</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -285,19 +291,29 @@
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
+    import authUtils from '../common/utils/authUtils'
     import abpScriptService from '../services/abpScriptService'
+    import sessionService from '../services/sessionService'
 
     import MenuTree from '../components/menu/MenuTree.vue'
     import Nav from './components/Nav.vue'
+
     export default {
         data() {
             return {
                 menus: [],
-                loading: false,
+                user: this.$store.state.auth.user
             }
         },
-        created() {
-            this.loading = true
+        async created() {
+            // 如果用户信息没获取到
+            if (!this.user) {
+                let ret = await sessionService.getCurrentLoginInformations()
+                let user = ret.user
+                this.$store.dispatch('setAuthUser', {user})
+                authUtils.setUserInfo(user)
+                this.user = user
+            }
         },
         activated() {
         },
@@ -318,6 +334,11 @@
             })
         },
         methods: {
+            // 登出
+            logout () {
+                authUtils.setToken('')
+                this.$router.push({name: 'login'})
+            }
         },
         components: {MenuTree, Nav}
     }

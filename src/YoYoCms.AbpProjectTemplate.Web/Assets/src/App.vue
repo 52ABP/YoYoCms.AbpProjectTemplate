@@ -9,8 +9,9 @@
 
 <script>
     import store from './store'
+    import './filters/timeFilter'
     export default {
         name: 'app',
-        store
+        store,
     }
 </script>

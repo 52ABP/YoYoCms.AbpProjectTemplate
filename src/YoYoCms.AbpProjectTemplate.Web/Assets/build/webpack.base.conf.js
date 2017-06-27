@@ -66,10 +66,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            'jQuery': 'jquery',
-            'jquery': 'jquery'
-        }),
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     'jQuery': 'jquery',
+        //     'jquery': 'jquery'
+        // }),
     ]
 }
