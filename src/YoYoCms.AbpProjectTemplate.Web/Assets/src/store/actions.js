@@ -10,6 +10,11 @@ const actions = {
         }
         store.commit(types.INDEX_SETACTIVEMENU, {menu})
     },
+
+    // 设置用户信息
+    setAuthUser (store, {user}) {
+        store.commit(types.AUTH_SETUSER, {user})
+    }
 }
 
 // 从abp.nav中 获取菜单显示的名字
