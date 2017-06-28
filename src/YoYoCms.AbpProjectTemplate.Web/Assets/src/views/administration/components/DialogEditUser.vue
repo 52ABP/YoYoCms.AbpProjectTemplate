@@ -5,13 +5,6 @@
             top: 15px !important;
         }
 
-        .el-form-item {
-            margin-bottom: 10px;
-            &.is-error {
-                margin-bottom: 22px;
-            }
-        }
-
         .el-badge__content.is-fixed {
             top: 7px;
         }

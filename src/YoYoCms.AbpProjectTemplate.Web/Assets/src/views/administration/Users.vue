@@ -35,6 +35,9 @@
                 <i>权限</i>
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
+            <section>
+                <el-button type="primary" icon="search" @click="fetchData">搜索</el-button>
+            </section>
         </article>
 
         <el-table class="data-table" v-loading="loadingData"
@@ -52,7 +55,7 @@
                             操作 <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id">
+                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= '设置用户权限: '+scope.row.name">
                                 <a>权限</a></li>
                             <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
                                 <a>修改</a>
@@ -135,9 +138,9 @@
         </el-pagination>
 
         <!--权限树弹出框-->
-        <PermissionCheckTree v-model="dialogPermissionTree.isShow" :userid="dialogPermissionTree.userid"
-                             :onConfirmCb="permissionConfirm"
-                             :title="dialogPermissionTree.title"></PermissionCheckTree>
+        <DialogUserPermission v-model="dialogPermissionTree.isShow" :userid="dialogPermissionTree.userid"
+                              :onConfirmCb="permissionConfirm"
+                              :title="dialogPermissionTree.title"></DialogUserPermission>
 
         <!--修改用户的弹出框-->
         <DialogEditUser :onSaved="dialogUserSave" :visiable.sync="dialogEdit.isShow"
@@ -148,7 +151,7 @@
 <script>
     import userService from '../../services/userService'
 
-    import PermissionCheckTree from '../../components/tree/PermissionCheck.vue'
+    import DialogUserPermission from '../../components/dialog/UserPermissionTree.vue'
     import DialogEditUser from './components/DialogEditUser.vue'
     import SelPermissionTree from '../../components/select/PermissionTree.vue'
     export default {
@@ -229,11 +232,10 @@
                 this.fetchData()
             },
             // 导出到excel
-            async exportExcel () {
-                let ret = await userService.exportExcel()
-                console.log(ret, 'user.vue')
+            exportExcel () {
+                userService.exportExcel()
             }
         },
-        components: {PermissionCheckTree, DialogEditUser, SelPermissionTree}
+        components: {DialogUserPermission, DialogEditUser, SelPermissionTree}
     }
 </script>

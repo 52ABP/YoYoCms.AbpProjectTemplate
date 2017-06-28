@@ -5,3 +5,10 @@
 @import "../vendor/bsb/plugin/node-waves/waves.scss";
 
 @import "../mixins/common";
+
+.el-form-item {
+    margin-bottom: 10px;
+    &.is-error {
+        margin-bottom: 22px;
+    }
+}
