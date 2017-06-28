@@ -22,6 +22,7 @@
 <template>
     <article class="administration-users-container">
         <section class="right-top-btnContainer">
+            <el-button icon="upload2" @click="exportExcel">导出到excel</el-button>
             <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">添加用户</el-button>
         </section>
         <article class="search">
@@ -223,8 +224,14 @@
                     this.loadingData = false
                 })
             },
+            // 新增修改 保存成功后回调
             dialogUserSave (type) {
                 this.fetchData()
+            },
+            // 导出到excel
+            async exportExcel () {
+                let ret = await userService.exportExcel()
+                console.log(ret, 'user.vue')
             }
         },
         components: {PermissionCheckTree, DialogEditUser, SelPermissionTree}
