@@ -120,16 +120,9 @@
                     authUtils.setToken(ret)
                     abp.notify.success('登录成功!', '恭喜')
 
-                    this.$router.push({name: 'index'})
+                    this.$router.push({name: 'Dashboard.Tenant'})
                 })
             },
-            async testGetData () {
-                // 再请求一个借口
-                let retRole = await abp.services.app.role.getRoles({permission: ''}).catch((...e) => {
-                    console.log(e)
-                })
-                console.log(retRole)
-            }
         },
         components: {}
     }

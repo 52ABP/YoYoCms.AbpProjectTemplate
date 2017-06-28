@@ -30,6 +30,10 @@
                 <el-input placeholder="输入任意搜索条件进行搜索" v-model="fetchParam.filter"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
+            <section>
+                <i>权限</i>
+                <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
+            </section>
         </article>
 
         <el-table class="data-table" v-loading="loadingData"
@@ -77,7 +81,8 @@
                     width="180"
                     label="角色">
                 <template scope="scope">
-                    <i v-for="item in scope.row.roles">{{item.roleName}}</i>
+                    <i v-for="(item,index) in scope.row.roles">{{item.roleName}}<i
+                            v-if="index+1 < scope.row.roles.length">, </i></i>
                 </template>
             </el-table-column>
             <el-table-column
@@ -133,9 +138,9 @@
                              :onConfirmCb="permissionConfirm"
                              :title="dialogPermissionTree.title"></PermissionCheckTree>
 
-
-        <DialogEditUser :onSaved="fetchData" :visiable.sync="dialogEdit.isShow"
-                        :user="dialogEdit.user"></DialogEditUser>
+        <!--修改用户的弹出框-->
+        <DialogEditUser :onSaved="dialogUserSave" :visiable.sync="dialogEdit.isShow"
+                        :user.sync="dialogEdit.user"></DialogEditUser>
     </article>
 </template>
 
@@ -144,6 +149,7 @@
 
     import PermissionCheckTree from '../../components/tree/PermissionCheck.vue'
     import DialogEditUser from './components/DialogEditUser.vue'
+    import SelPermissionTree from '../../components/select/PermissionTree.vue'
     export default {
         data() {
             return {
@@ -188,7 +194,7 @@
             },
             async fetchData () {
                 this.loadingData = true
-                let ret = await userService.getUsers(this.fetchParam).catch(() => {
+                let ret = await userService.getUsers(Object.assign({}, this.fetchParam, {permission: this.fetchParam.permission ? this.fetchParam.permission.id : null})).catch(() => {
                     this.loadingData = false
                 })
                 this.loadingData = false
@@ -199,7 +205,7 @@
             async permissionConfirm (permissions) {
                 await userService.updateUserPermissions({
                     id: this.dialogPermissionTree.userid,
-                    grantedPermissionNames: permissions
+                    grantedPermissionNames: permissions || []
                 })
                 abp.notify.success('操作成功!', '恭喜')
             },
@@ -216,8 +222,11 @@
                     }
                     this.loadingData = false
                 })
+            },
+            dialogUserSave (type) {
+                this.fetchData()
             }
         },
-        components: {PermissionCheckTree, DialogEditUser}
+        components: {PermissionCheckTree, DialogEditUser, SelPermissionTree}
     }
 </script>

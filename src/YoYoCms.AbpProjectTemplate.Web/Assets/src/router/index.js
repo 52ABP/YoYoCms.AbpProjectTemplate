@@ -9,6 +9,7 @@ import administration from '../router/administration/index'
 
 let router = new Router({
     routes: [
+        {path: '/', redirect: '/dashboard'},
         {
             path: '/login',
             name: 'login',
@@ -30,7 +31,7 @@ let router = new Router({
                 })
             },
             children: [{ // 工作台
-                path: '',
+                path: '/dashboard',
                 name: 'Dashboard.Tenant',
                 component: resolve => {
                     require.ensure([], () => {
@@ -61,6 +62,7 @@ router.beforeEach((to, from, next) => {
     }
 
     let menu = []
+    console.log(to.matched)
     to.matched.forEach((item) => {
         item.meta.displayName = item.meta.displayName
         menu.push({name: item.name})

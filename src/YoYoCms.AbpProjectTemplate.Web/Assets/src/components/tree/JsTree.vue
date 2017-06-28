@@ -12,22 +12,32 @@
     export default {
         props: {
             treeData: Array,
-            plugins: Array
+            plugins: Array,
+            context: Object,
+            onItemClick: Function,
         },
         data() {
-            return {
-            }
+            return {}
         },
         created() {
         },
         activated() {
+            this.$emit('update:context', this)
         },
         methods: {
             // 初始化
             init () {
                 this.$nextTick(() => {
                     $(this.$refs.container).jstree('destroy')
-                    $(this.$refs.container).jstree({
+                    $(this.$refs.container).on('changed.jstree', (e, data) => {
+                        let i
+                        let j
+                        let ret = []
+                        for (i = 0, j = data.selected.length; i < j; i++) {
+                            ret.push(data.instance.get_node(data.selected[i]))
+                        }
+                        this.onItemClick && this.onItemClick(ret[0])
+                    }).jstree({
                         'core': {
                             data: this.treeData
                         },
@@ -54,7 +64,7 @@
                             three_state: false,
                             cascade: ''
                         },
-                        plugins: this.plugins
+                        plugins: this.plugins || []
                     })
                 })
             },
