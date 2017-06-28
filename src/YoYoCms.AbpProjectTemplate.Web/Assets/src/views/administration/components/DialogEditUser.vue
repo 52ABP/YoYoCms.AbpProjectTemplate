@@ -146,9 +146,13 @@
                     })
                 })
                 this.loading = true
+                this.currUser.roles = []
                 let assignedRoleNames = []
                 this.roles.forEach((item) => {
-                    if (item.check) assignedRoleNames.push(item.name)
+                    if (item.isAssigned) {
+                        assignedRoleNames.push(item.roleName)
+                        this.currUser.roles.push({roleName: item.roleName})
+                    }
                 })
                 try {
                     await userService.createOrUpdateUser({
@@ -162,8 +166,8 @@
 
                     this.$emit('update:user', this.currUser)
 
-                    // 如果是添加操作
-                    if (!this.user.id) this.onSaved && this.onSaved()
+                    // 保存完毕回调
+                    this.onSaved && this.onSaved(this.user.id ? 'edit' : 'add')
                 } catch (e) {
                     this.loading = false
                 }

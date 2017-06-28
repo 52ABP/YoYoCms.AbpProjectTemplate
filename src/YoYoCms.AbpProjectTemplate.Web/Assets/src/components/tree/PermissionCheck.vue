@@ -89,7 +89,7 @@
                 if (!this.onConfirmCb) this.dialogVisible = false
 
                 this.loading = true
-                this.onConfirmCb(this.$refs.dialog.$children[2].get_selected).then(() => {
+                this.onConfirmCb(this.$refs.dialog.$children[2].get_selected()).then(() => {
                     this.dialogVisible = false
                     this.loading = false
                 })
