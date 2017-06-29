@@ -38,8 +38,8 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
         private void ConfigureSwaggerUi()
         {
             Configuration.Modules.AbpWebApi().HttpConfiguration
-                .EnableSwagger(c =>
-                {
+                 .EnableSwagger("docs/{apiVersion}/apis", c =>
+                 {
                     c.SingleApiVersion("v1", "YoYoCms.AbpProjectTemplate.WebApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
