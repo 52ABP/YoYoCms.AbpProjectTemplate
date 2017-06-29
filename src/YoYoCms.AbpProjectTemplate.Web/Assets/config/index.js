@@ -36,6 +36,9 @@ module.exports = {
             },
             '/AbpScripts/': {
                 target: 'http://localhost:16240/'
+            },
+            '/Account/': {
+                target: 'http://localhost:16240/'
             }
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"

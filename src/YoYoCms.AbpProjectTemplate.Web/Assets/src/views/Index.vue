@@ -316,8 +316,6 @@
             }
         },
         activated() {
-            this.$nextTick(async () => {
-            })
         },
         async mounted () {
             // 获取菜单信息
