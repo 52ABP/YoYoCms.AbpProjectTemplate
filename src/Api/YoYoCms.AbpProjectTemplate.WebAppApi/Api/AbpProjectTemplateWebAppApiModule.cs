@@ -9,13 +9,13 @@ using Abp.Modules;
 using Abp.WebApi;
 using Swashbuckle.Application;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
 {
     /// <summary>
     /// Web API layer of the application.
     /// </summary>
     [DependsOn(typeof(AbpWebApiModule), typeof(AbpProjectTemplateApplicationModule))]
-    public class AbpProjectTemplateWebApiModule : AbpModule
+    public class AbpProjectTemplateWebAppApiModule : AbpModule
     {
         public override void PreInitialize()
         {
@@ -48,7 +48,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
                                            ".XML";
                     var applicationFile = Path.Combine(baseDirectory, applicationFileName);
                     c.IncludeXmlComments(applicationFile);
-                    var webapiFileName = "bin\\" + typeof(AbpProjectTemplateWebApiModule).Assembly.GetName().Name + ".XML";
+                    var webapiFileName = "bin\\" + typeof(AbpProjectTemplateWebAppApiModule).Assembly.GetName().Name + ".XML";
                     var webapiFile = Path.Combine(baseDirectory, webapiFileName);
                     c.IncludeXmlComments(webapiFile);
 
@@ -58,7 +58,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
                 })
                 .EnableSwaggerUi("docs/{*assetPath}", c =>
                 {
-                    c.InjectJavaScript(Assembly.GetAssembly(typeof(AbpProjectTemplateWebApiModule)), "YoYoCms.AbpProjectTemplate.WebApi.Scripts.Swagger-Custom.js");
+                    c.InjectJavaScript(Assembly.GetAssembly(typeof(AbpProjectTemplateWebAppApiModule)), "YoYoCms.AbpProjectTemplate.WebApi.Scripts.Swagger-Custom.js");
                 });
         }
     }

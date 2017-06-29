@@ -5,7 +5,7 @@ using Abp.Dependency;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Infrastructure;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api.Providers
 {
     public class AbpProjectTemplateRefreshTokenProvider : IAuthenticationTokenProvider, ITransientDependency
     {

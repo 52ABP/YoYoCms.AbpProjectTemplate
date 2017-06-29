@@ -3,18 +3,16 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Abp.Authorization.Users;
-using Abp.Runtime.Session;
 using Abp.Web.Models;
-using Abp.WebApi.Client;
 using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
-using YoYoCms.AbpProjectTemplate.WebApi.Models;
+using YoYoCms.AbpProjectTemplate.WebAppApi.Api.Models;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api.Controllers
 {
     public class AccountController : AbpProjectTemplateApiControllerBase
     {

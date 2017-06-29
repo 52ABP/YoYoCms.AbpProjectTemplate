@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -10,16 +7,12 @@ using System.Web.Routing;
 using Abp;
 using Abp.Application.Services;
 using Abp.Configuration.Startup;
-using Abp.IO;
 using Abp.Modules;
 using Abp.Web.Mvc;
-using Abp.WebApi;
 using Abp.Zero.Configuration;
 using Castle.MicroKernel.Registration;
 using Microsoft.Owin.Security;
-using Swashbuckle.Application;
-using YoYoCms.AbpProjectTemplate.Web;
-using YoYoCms.AbpProjectTemplate.WebApi;
+using YoYoCms.AbpProjectTemplate.WebAppApi.Api;
 
 namespace YoYoCms.AbpProjectTemplate.WebApp
 {
@@ -28,7 +21,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApp
         typeof(AbpWebMvcModule),
         typeof(AbpZeroOwinModule),
         typeof(AbpProjectTemplateDataModule),
-           typeof(AbpProjectTemplateWebApiModule),
+           typeof(AbpProjectTemplateWebAppApiModule),
 
         typeof(AbpProjectTemplateApplicationModule)
 
@@ -81,30 +74,9 @@ namespace YoYoCms.AbpProjectTemplate.WebApp
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
 
 
-          //  ConfigureSwaggerUi();
+  
         }
-        private void ConfigureSwaggerUi()
-        {
-            Configuration.Modules.AbpWebApi().HttpConfiguration
-     .EnableSwagger("docs/{apiVersion}/apis", c =>
-                 {
-                     c.SingleApiVersion("v1", "YoYoCms.AbpProjectTemplate.WebApi");
-                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-
-                     var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                     var applicationFileName = "bin\\" + typeof(AbpProjectTemplateApplicationModule).Assembly.GetName().Name +
-                                                ".XML";
-                     var applicationFile = Path.Combine(baseDirectory, applicationFileName);
-                     c.IncludeXmlComments(applicationFile);
-
-
-
-                 })
-                .EnableSwaggerUi("docs/{*assetPath}", c =>
-                {
-                    c.InjectJavaScript(Assembly.GetAssembly(typeof(AbpProjectTemplateWebAppModule)), "YoYoCms.AbpProjectTemplate.WebApp.Scripts.Swagger-Custom.js");
-                });
-        }
+ 
     }
 }
 

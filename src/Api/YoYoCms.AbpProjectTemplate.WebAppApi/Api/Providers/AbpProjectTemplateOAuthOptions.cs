@@ -3,7 +3,7 @@ using Abp.Dependency;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api.Providers
 {
     /// <summary>
     /// Class OAuthOptions.

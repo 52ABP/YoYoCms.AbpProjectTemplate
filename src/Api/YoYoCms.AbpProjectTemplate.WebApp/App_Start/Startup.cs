@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Configuration;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Abp.Extensions;
 using Abp.Owin;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
 using Owin;
-using YoYoCms.AbpProjectTemplate.Web;
-using YoYoCms.AbpProjectTemplate.WebApi.Controllers;
 using YoYoCms.AbpProjectTemplate.WebApp;
-using YoYoCms.AbpProjectTemplate.WebApp.Controllers;
+using YoYoCms.AbpProjectTemplate.WebAppApi.Api.Controllers;
 
 [assembly: OwinStartup(typeof(Startup))]
 
