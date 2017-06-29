@@ -10,7 +10,7 @@ export default {
             resolve(require('../../views/administration/Index.vue'))
         })
     },
-    children: [{
+    children: [{ // 组织结构
         path: 'organizationunits',
         name: namePre + 'OrganizationUnits',
         component: resolve => {
@@ -21,7 +21,7 @@ export default {
         meta: {
             navName: 'organizationunits'
         },
-    }, {
+    }, { // 角色信息
         path: 'roles',
         name: namePre + `Roles`,
         component: resolve => {
@@ -29,12 +29,20 @@ export default {
                 resolve(require('../../views/administration/Roles.vue'))
             })
         }
-    }, {
+    }, { // 用户信息
         path: 'users',
         name: namePre + `Users`,
         component: resolve => {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Users.vue'))
+            })
+        }
+    }, { // 审计日至
+        path: 'audit-logs',
+        name: namePre + `AuditLogs`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/AuditLogs.vue'))
             })
         }
     }]
