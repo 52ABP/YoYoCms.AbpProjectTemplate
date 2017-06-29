@@ -1,9 +1,7 @@
 @import "../vendor/abp/scripts/libs/sweetalert/sweetalert.scss";
-
 @import "../vendor/bsb/scss/style";
 @import "../vendor/bsb/css/themes/all-themes";
 @import "../vendor/bsb/plugin/node-waves/waves.scss";
-
 @import "../mixins/common";
 
 .el-form-item {
@@ -11,4 +9,8 @@
     &.is-error {
         margin-bottom: 22px;
     }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
 }

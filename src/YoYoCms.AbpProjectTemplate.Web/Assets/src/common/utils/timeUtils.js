@@ -4,14 +4,14 @@ import * as typeUtils from './typeUtils'
  * 获取当前时区与utc时间的间隔
  * @returns {number} 返回单位:秒
  */
-export function getTimezonOffset () {
+export function getTimezonOffset() {
     return new Date().getTimezoneOffset() * 60
 }
 
 /**
  * 获取当前的时间戳 单位:秒
  */
-export function getUTCTimetamp () {
+export function getUTCTimetamp() {
     return parseInt(Date.now() / 1000) + getTimezonOffset()
 }
 
@@ -21,7 +21,7 @@ export function getUTCTimetamp () {
  * @param isUTC 是否是UTC时间
  * @param withoutDate 是否不包含日期 只有时间
  */
-export function time2String (time, withoutDate = false, isUTC) {
+export function time2String(time, withoutDate = false, isUTC) {
     //  如果time是日期类型
     if (typeUtils.isDate(time)) {
         // 转换为时间戳格式 并将单位转为秒
@@ -50,7 +50,7 @@ export function time2String (time, withoutDate = false, isUTC) {
  * @param time 时间戳
  * @param isUTC 是否是UTC时间(true表示北京时间减去8小时) 默认:true
  */
-export function getTimespanDesc (time, isUTC = true) {
+export function getTimespanDesc(time, isUTC = true) {
     // 当前的时间戳
     let currTimetamp = isUTC ? getUTCTimetamp() : Date.now()
     let timespan = currTimetamp / 1000 - time // 单位:秒
@@ -87,7 +87,7 @@ export function getTimespanDesc (time, isUTC = true) {
 }
 
 // 在字符串前面填充0
-export function fillZero (orignStr, maxLength = 2) {
+export function fillZero(orignStr, maxLength = 2) {
     orignStr = orignStr + '' // 将非字符串转为字符串
     let zeroCount = maxLength - orignStr.length
     let zeroStr = ''
@@ -99,7 +99,7 @@ export function fillZero (orignStr, maxLength = 2) {
 }
 
 // 日期格式化 格式 例如：2017-02-22
-export function getNowDate (isHour = 0, tamp = Date.now() / 1000) {
+export function getNowDate(isHour = 0, tamp = Date.now() / 1000) {
     let newDate = new Date(tamp * 1000)
     if (isHour) {
         return fillZero(newDate.getHours()) + ':' + fillZero(newDate.getMinutes())
@@ -109,7 +109,7 @@ export function getNowDate (isHour = 0, tamp = Date.now() / 1000) {
 }
 
 // 获取星期几
-export function getWeek (tamp) {
+export function getWeek(tamp) {
     let day = new Date(tamp).getDay()
     let weekDays = ['日', '一', '二', '三', '四', '五', '六']
     return weekDays[day]
@@ -119,10 +119,10 @@ export function getWeek (tamp) {
  * 日期转字符串
  * @param date
  * @param split 日期分割方式 默认 -
- * @param hashour 是否需要转时分秒
+ * @param hasHour 是否需要转时分秒
  * @param hasDay 是否有日
  */
-export function date2Str (date, split = '-', {hashour = false, hasDay = true} = {}) {
+export function date2Str(date, split = '-', {hasHour = false, hasDay = true} = {}) {
     if (!typeUtils.isDate(date)) {
         return date
     }
@@ -132,13 +132,31 @@ export function date2Str (date, split = '-', {hashour = false, hasDay = true} = 
         ret.push(fillZero(date.getDate(), 2))
     }
 
-    ret = ret.join(split)
+    let hours = ''
+
+    // 如果有时分秒
+    if (hasHour) {
+        hours = `${fillZero(date.getHours())}:${fillZero(date.getMinutes())}:${fillZero(date.getSeconds())}`
+    }
+
+    ret = ret.join(split) + ' ' + hours
     return ret
+}
+
+/**
+ * 重置日期的时分秒
+ * @param date
+ * @param type 时间的开始或结束 (start|end)
+ */
+export function resetDateTime(date, type = 'start') {
+    // 2017-06-28T23:59:59.999Z
+    let hms = type === 'end' ? 'T23:59:59.999Z' : 'T00:00:00.000Z'
+    return date2Str(date) + hms
 }
 
 // 比较两个日期的大小(不比较具体的时间)
 // 传入的参数必须是 Date 类型
-export function compareDate (date1, date2) {
+export function compareDate(date1, date2) {
     let years = [date1.getFullYear(), date2.getFullYear()]
     let months = [date1.getMonth(), date2.getMonth()]
     let dates = [date1.getDate(), date2.getDate()]
@@ -157,11 +175,11 @@ export function compareDate (date1, date2) {
 }
 
 // 判断是否是闰年
-export function leapYear (year) {
+export function leapYear(year) {
     return !(year % (year % 100 ? 4 : 400))
 }
 
 // 将日期加一天
-export function addDay (date, addCount) {
+export function addDay(date, addCount) {
     return new Date(date.setDate(date.getDate() + addCount))
 }
