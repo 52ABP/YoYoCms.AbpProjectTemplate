@@ -1,7 +1,7 @@
 ﻿using Abp.WebApi.Controllers;
 using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
 {
     public abstract class AbpProjectTemplateApiControllerBase : AbpApiController
     {

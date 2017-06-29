@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Build.Framework;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi.Models
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api.Models
 {
     public class LoginModel
     {

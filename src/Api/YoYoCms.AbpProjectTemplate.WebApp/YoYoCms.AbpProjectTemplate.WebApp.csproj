@@ -345,6 +345,10 @@
       <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
       <Name>YoYoCms.AbpProjectTemplate.WebApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\YoYoCms.AbpProjectTemplate.WebAppApi\YoYoCms.AbpProjectTemplate.WebAppApi.csproj">
+      <Project>{9717f22a-0d52-4fc2-9f86-0e7b7f4642c7}</Project>
+      <Name>YoYoCms.AbpProjectTemplate.WebAppApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

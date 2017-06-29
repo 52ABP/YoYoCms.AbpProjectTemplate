@@ -1,4 +1,4 @@
-﻿namespace YoYoCms.AbpProjectTemplate.WebApi.Models
+﻿namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api.Models
 {
 
     /// <summary>

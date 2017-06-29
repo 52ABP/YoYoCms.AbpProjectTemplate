@@ -1,16 +1,14 @@
-﻿using System;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Abp.Authorization.Users;
 using Abp.Dependency;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using YoYoCms.AbpProjectTemplate.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Roles;
 using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 
-namespace YoYoCms.AbpProjectTemplate.WebApi.Providers
+namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api.Providers
 {
     public class AbpProjectTemplateAuthorizationServerProvider : OAuthAuthorizationServerProvider, ITransientDependency
     {
