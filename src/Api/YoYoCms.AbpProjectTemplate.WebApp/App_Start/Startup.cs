@@ -25,17 +25,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApp
             app.RegisterDataProtectionProvider();
 
             app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
-
-
-
-        //    app.UseOAuthAuthorizationServer(AbpProjectTemplateOAuthOptions.CreateServerOptions());
-
-            //app.UseCookieAuthentication(new CookieAuthenticationOptions
-            //{
-            //    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-            //    LoginPath = new PathString("/Account/Login")
-            //});
-
+ 
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             //You can remove these lines if you don't like to use two factor auth (while it has no problem if you don't remove)
@@ -50,12 +40,6 @@ namespace YoYoCms.AbpProjectTemplate.WebApp
             //});
         }
  
-        private static bool IsTrue(string appSettingName)
-        {
-            return string.Equals(
-                ConfigurationManager.AppSettings[appSettingName],
-                "true",
-                StringComparison.InvariantCultureIgnoreCase);
-        }
+  
     }
 }
