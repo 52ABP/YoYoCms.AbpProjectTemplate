@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{05F773EC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.Migrator", "Tools\YoYoCms.AbpProjectTemplate.Migrator\YoYoCms.AbpProjectTemplate.Migrator.csproj", "{B156DA32-D231-43B8-AE22-61C0C6B9F517}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.WebApp", "Api\YoYoCms.AbpProjectTemplate.WebApp\YoYoCms.AbpProjectTemplate.WebApp.csproj", "{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
