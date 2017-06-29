@@ -48,14 +48,42 @@
         <section class="right-top-btnContainer">
             <el-button icon="upload2" @click="exportExcel">导出到excel</el-button>
         </section>
+
         <article class="search">
             <section>
                 <i>用户名</i>
-                <el-input placeholder="用户名" v-model="fetchParam.userName"
+                <el-input size="small" placeholder="用户名" v-model="fetchParam.userName"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>
-                <el-button type="primary" icon="search" @click="fetchData">搜索</el-button>
+                <i>日期</i>
+                <DateRange size="small" :onChange="fetchData" :start.sync="fetchParam.startDate"
+                           :end.sync="fetchParam.endDate"></DateRange>
+            </section>
+            <section>
+                <i>服务</i>
+                <el-input size="small" placeholder="服务" v-model="fetchParam.serviceName"
+                          @keyup.enter.native="fetchData"></el-input>
+            </section>
+            <section>
+                <i>服务</i>
+                <el-input size="small" placeholder="操作" v-model="fetchParam.methodName"
+                          @keyup.enter.native="fetchData"></el-input>
+            </section>
+            <section>
+                <i>错误状态</i>
+                <el-select size="small" v-model="fetchParam.hasException" placeholder="请选择" @change="fetchData" :clearable="true">
+                    <el-option label="成功" :value="false"></el-option>
+                    <el-option label="失败" :value="true"></el-option>
+                </el-select>
+            </section>
+            <section>
+                <i>浏览器</i>
+                <el-input size="small" placeholder="操作" v-model="fetchParam.browserInfo"
+                          @keyup.enter.native="fetchData"></el-input>
+            </section>
+            <section>
+                <el-button size="small" type="primary" icon="search" @click="fetchData">搜索</el-button>
             </section>
         </article>
 
@@ -63,7 +91,14 @@
                   :data="data"
                   :fit="true"
                   border>
-            <!--<el-table-column type="selection"></el-table-column>-->
+            <el-table-column width="50">
+                <template scope="scope">
+                    <i class="material-icons font-bold col-cyan" style="font-size: 14px"
+                       v-if="!scope.row.exception">check_circle</i>
+                    <i class="material-icons font-bold col-cyan" style="font-size: 14px"
+                       v-else>error</i>
+                </template>
+            </el-table-column>
             <el-table-column width="180" label="时间">
                 <template scope="scope">
                     <i>{{scope.row.executionTime | date2str(true)}}</i>
@@ -89,6 +124,17 @@
             </el-table-column>
         </el-table>
 
+        <el-pagination class="pagin"
+                       @size-change="handleSizeChange"
+                       @current-change="handleCurrentChange"
+                       :current-page="fetchParam.page"
+                       :page-size="fetchParam.maxResultCount"
+                       :page-sizes="[10, 30, 60, 100]"
+                       layout="sizes,total, prev, pager, next"
+                       :total="total">
+        </el-pagination>
+
+        <!--详情信息的弹出框-->
         <el-dialog class="dialog-detail"
                    title="审计日志详情"
                    :visible.sync="dialogDetail.isShow"
@@ -121,7 +167,9 @@
                 <h2>错误状态</h2>
                 <article>
                     <section>
-                        <i class="material-icons font-bold col-cyan" v-if="!dialogDetail.model.exception">done</i> <span>{{dialogDetail.model.exception || '成功'}}</span>
+                        <i class="material-icons font-bold col-cyan" v-if="!dialogDetail.model.exception "
+                           style="font-size: 14px;vertical-align: middle">check_circle</i>
+                        <span>{{dialogDetail.model.exception || '成功'}}</span>
                     </section>
                 </article>
             </article>
@@ -129,22 +177,14 @@
                 <el-button @click="dialogDetail.isShow = false">关 闭</el-button>
               </span>
         </el-dialog>
-
-        <el-pagination class="pagin"
-                       @size-change="handleSizeChange"
-                       @current-change="handleCurrentChange"
-                       :current-page="fetchParam.page"
-                       :page-size="fetchParam.maxResultCount"
-                       :page-sizes="[10, 30, 60, 100]"
-                       layout="sizes,total, prev, pager, next"
-                       :total="total">
-        </el-pagination>
     </article>
 </template>
 
 <script>
     import auditLogService from '../../services/auditLogService'
-    import * as timeUtils from '../../common/utils/timeUtils'
+
+    import DateRange from '../../components/date/DateRange.vue'
+
     export default {
         data() {
             return {
@@ -158,7 +198,7 @@
                     serviceName: '',
                     methodName: '',
                     browserInfo: '',
-                    hasException: '',
+                    hasException: void 0,
                     sorting: '',
                     maxResultCount: 10,
                     skipCount: 0,
@@ -171,6 +211,8 @@
             }
         },
         created() {
+            this.fetchParam.startDate.setHours(0, 0, 0, 0)
+            this.fetchParam.endDate.setHours(23, 59, 59, 999)
         },
         activated() {
             this.fetchData()
@@ -187,10 +229,7 @@
             async fetchData () {
                 try {
                     this.loadingData = true
-                    let ret = await auditLogService.getAuditLogs(Object.assign({}, this.fetchParam, {
-                        startDate: timeUtils.resetDateTime(this.fetchParam.startDate, 'start'),
-                        endDate: timeUtils.resetDateTime(this.fetchParam.startDate, 'end')
-                    }))
+                    let ret = await auditLogService.getAuditLogs(this.fetchParam)
 
                     this.data = ret.items
                     this.total = ret.totalCount
@@ -199,8 +238,9 @@
                 }
             },
             exportExcel() {
+                auditLogService.exportExcel(this.fetchParam)
             }
         },
-        components: {}
+        components: {DateRange}
     }
 </script>

@@ -13,8 +13,8 @@
         props: {
             treeData: Array,
             plugins: Array,
-            context: Object,
-            onItemClick: Function,
+            context: Object, // 组件的上下文
+            onItemClick: Function, // 每一项点击后回调
         },
         data() {
             return {}
