@@ -21,6 +21,23 @@ class ApiHelper {
             })
         })
     }
+
+    post(url, param, setting) {
+        return new Promise((resolve, reject) => {
+            let ajaxParams = Object.assign({}, {
+                url: url,
+                data: param,
+                method: 'POST',
+                success(ret) {
+                    resolve(ret)
+                },
+                error (err) {
+                    reject(err)
+                }
+            }, setting)
+            $.ajax(ajaxParams)
+        })
+    }
 }
 
 export default new ApiHelper()

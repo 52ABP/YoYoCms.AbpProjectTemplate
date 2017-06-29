@@ -77,7 +77,8 @@
 
 <script>
     //    import config from '../../common/config'
-    import authUtils from '../../common/utils/authUtils'
+    import userService from '../../services/userService'
+    //    import authUtils from '../../common/utils/authUtils'
     export default {
         data() {
             return {
@@ -85,7 +86,7 @@
                 fetchParam: {
                     usernameOrEmailAddress: '',
                     password: '',
-                    tenancyName: 'default'
+                    tenancyName: 'default',
                 },
                 rules: {
                     usernameOrEmailAddress: [
@@ -102,25 +103,16 @@
         activated() {
         },
         methods: {
-            async login () {
-                this.$refs.form.validate(async (valid) => {
+            login () {
+                this.$refs.form.validate((valid) => {
                     if (!valid) return
-
                     this.loading = true
-                    let ret = await abp.ajax({
-                        url: `/api/account/Authenticate?returnUrl=application`,
-                        method: 'post',
-                        data: JSON.stringify(this.fetchParam)
-                    }).catch(() => {
-                        this.loading = false
-                    })
 
-                    this.loading = false
-                    if (!ret) return
-                    authUtils.setToken(ret)
-                    abp.notify.success('登录成功!', '恭喜')
-
+                    userService.login(this.fetchParam)
+//                        authUtils.setToken(ret)
                     this.$router.push({name: 'Dashboard.Tenant'})
+                    abp.notify.success('登录成功!', '恭喜')
+                    this.loading = false
                 })
             },
         },
