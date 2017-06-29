@@ -28,9 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{05F773EC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.Migrator", "Tools\YoYoCms.AbpProjectTemplate.Migrator\YoYoCms.AbpProjectTemplate.Migrator.csproj", "{B156DA32-D231-43B8-AE22-61C0C6B9F517}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apis", "Apis", "{D4282665-2883-48F6-B063-0945C1373CA3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.App", "YoYoCms.AbpProjectTemplate.App\YoYoCms.AbpProjectTemplate.App.csproj", "{292403F4-B6CD-4C91-A673-CF509DD140DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.App", "YoYoCms.AbpProjectTemplate.App\YoYoCms.AbpProjectTemplate.App.csproj", "{4F5A6485-A95D-4855-A301-BB1285163765}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,10 +64,10 @@ Global
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517}.Release|Any CPU.Build.0 = Release|Any CPU
-		{292403F4-B6CD-4C91-A673-CF509DD140DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{292403F4-B6CD-4C91-A673-CF509DD140DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{292403F4-B6CD-4C91-A673-CF509DD140DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{292403F4-B6CD-4C91-A673-CF509DD140DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5A6485-A95D-4855-A301-BB1285163765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5A6485-A95D-4855-A301-BB1285163765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5A6485-A95D-4855-A301-BB1285163765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5A6485-A95D-4855-A301-BB1285163765}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +75,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7F0AE638-2772-445B-B198-6CF9D7E2C8AC} = {67BE60D5-7E45-4079-B46D-B037BD5A236D}
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517} = {05F773EC-8A60-4889-BB58-7B4E742D1CD5}
-		{292403F4-B6CD-4C91-A673-CF509DD140DD} = {D4282665-2883-48F6-B063-0945C1373CA3}
 	EndGlobalSection
 EndGlobal
