@@ -46,27 +46,6 @@
                   border>
             <!--<el-table-column type="selection"></el-table-column>-->
             <el-table-column
-                    width="100"
-                    label="操作">
-                <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            操作 <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= '设置用户权限: '+scope.row.name">
-                                <a>权限</a></li>
-                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
-                                <a>修改</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li @click="del(scope.$index,scope.row)"><a>删除</a></li>
-                        </ul>
-                    </div>
-                </template>
-            </el-table-column>
-            <el-table-column
                     min-width="120"
                     prop="userName"
                     label="用户名">
@@ -123,6 +102,27 @@
                     label="创建时间">
                 <template scope="scope">
                     <i>{{scope.row.creationTime | date2str}}</i>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    width="100"
+                    label="操作">
+                <template scope="scope">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            操作 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= '设置用户权限: '+scope.row.name">
+                                <a>权限</a></li>
+                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
+                                <a>修改</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li @click="del(scope.$index,scope.row)"><a>删除</a></li>
+                        </ul>
+                    </div>
                 </template>
             </el-table-column>
         </el-table>

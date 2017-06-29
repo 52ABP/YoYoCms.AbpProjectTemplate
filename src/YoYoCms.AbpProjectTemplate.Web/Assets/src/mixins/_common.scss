@@ -22,6 +22,13 @@
     .bottom-manage {
         margin-top: 15px;
     }
+
+    .el-table {
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+    }
 }
 
 //右上角按钮的容器样式
@@ -41,6 +48,7 @@
         }
     }
 }
+
 
 i, em {
     font-style: normal;
