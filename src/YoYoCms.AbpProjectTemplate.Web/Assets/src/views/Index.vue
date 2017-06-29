@@ -294,6 +294,7 @@
     import authUtils from '../common/utils/authUtils'
     import abpScriptService from '../services/abpScriptService'
     import sessionService from '../services/sessionService'
+    import userService from '../services/userService'
 
     import MenuTree from '../components/menu/MenuTree.vue'
     import Nav from './components/Nav.vue'
@@ -336,7 +337,8 @@
         methods: {
             // 登出
             logout () {
-                authUtils.setToken('')
+                userService.logout()
+//                authUtils.setToken('')
                 this.$router.push({name: 'login'})
             }
         },

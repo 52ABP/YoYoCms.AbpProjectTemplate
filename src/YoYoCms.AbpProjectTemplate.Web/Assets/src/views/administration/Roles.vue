@@ -39,23 +39,6 @@
                   :fit="true"
                   border>
             <el-table-column
-                    width="100"
-                    label="操作">
-                <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            操作 <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
-                                <a>修改</a>
-                            </li>
-                        </ul>
-                    </div>
-                </template>
-            </el-table-column>
-            <el-table-column
                     min-width="120"
                     label="角色名称">
                 <template scope="scope">
@@ -75,6 +58,23 @@
                     label="创建时间">
                 <template scope="scope">
                     <i>{{scope.row.creationTime | date2str}}</i>
+                </template>
+            </el-table-column>
+            <el-table-column
+                    width="100"
+                    label="操作">
+                <template scope="scope">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            操作 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
+                                <a>修改</a>
+                            </li>
+                        </ul>
+                    </div>
                 </template>
             </el-table-column>
         </el-table>
