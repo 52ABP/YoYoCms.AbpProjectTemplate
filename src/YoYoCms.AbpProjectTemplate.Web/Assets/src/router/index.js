@@ -39,6 +39,7 @@ let router = new Router({
                     })
                 },
             },
+                //  =================================管理=====================================
                 administration
             ]
         },
@@ -62,7 +63,6 @@ router.beforeEach((to, from, next) => {
     }
 
     let menu = []
-    console.log(to.matched)
     to.matched.forEach((item) => {
         item.meta.displayName = item.meta.displayName
         menu.push({name: item.name})
