@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{471E98ED-CC57-424E-96B6-807EDAACED9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.WebAppApi", "Api\YoYoCms.AbpProjectTemplate.WebAppApi\YoYoCms.AbpProjectTemplate.WebAppApi.csproj", "{9717F22A-0D52-4FC2-9F86-0E7B7F4642C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9717F22A-0D52-4FC2-9F86-0E7B7F4642C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9717F22A-0D52-4FC2-9F86-0E7B7F4642C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9717F22A-0D52-4FC2-9F86-0E7B7F4642C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9717F22A-0D52-4FC2-9F86-0E7B7F4642C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +84,6 @@ Global
 		{7F0AE638-2772-445B-B198-6CF9D7E2C8AC} = {67BE60D5-7E45-4079-B46D-B037BD5A236D}
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517} = {05F773EC-8A60-4889-BB58-7B4E742D1CD5}
 		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503} = {471E98ED-CC57-424E-96B6-807EDAACED9A}
+		{9717F22A-0D52-4FC2-9F86-0E7B7F4642C7} = {471E98ED-CC57-424E-96B6-807EDAACED9A}
 	EndGlobalSection
 EndGlobal
