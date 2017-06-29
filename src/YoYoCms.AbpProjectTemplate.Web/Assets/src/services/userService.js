@@ -11,16 +11,14 @@ userService.exportExcel = async function () {
 }
 
 userService.login = async function (params) {
-    // {
-    //     url: `/Account/Login?returnUrl=/Application`,
-    //         methods: 'post',
-    //     data: this.fetchParam,
-    //     contentType: 'application/x-www-form-urlencoded'
-    // }
     params.returnUrlHash = '#!/h'
     let ret = await apiHelper.post('/Account/Login?returnUrl=none', params, {
         contentType: 'application/x-www-form-urlencoded'
     })
     return ret
+}
+
+userService.logout = function () {
+    apiHelper.get('/Account/Logout')
 }
 export default userService

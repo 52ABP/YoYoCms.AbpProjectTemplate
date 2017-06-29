@@ -13,19 +13,16 @@ import './vendor/abp/scripts/libs/abp.sweet-alert'
 import './vendor/abp/scripts/libs/abp.toastr'
 import './vendor/bsb/plugin/node-waves/waves'
 
-// jstree
-// import jstree from './vendor/jtree/jstree'
-// import './vendor/jtree/themes/default/style.css'
-
 import Vue from 'vue'
 import './store'
 import App from './App.vue'
 import router from './router'
 import config from './common/config'
 import loadFile from './common/utils/loadFile'
+// import VueI18n from 'vue-i18n'
+// Vue.use(VueI18n)
 // window.abp.appPath = config.apiHost
-console.log(config.apiHost, process.env)
-Vue.config.productionTip = true
+Vue.config.productionTip = config.isDebug
 
 // 加载apb的ajax库
 loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(() => {
@@ -34,7 +31,8 @@ loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(() => {
         el: '#app',
         router,
         template: '<App/>',
-        components: {App}
+        components: {App},
+        // i18n
     })
 }).catch(() => {
     abp.message.error('加载失败,请刷新后重试')
