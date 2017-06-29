@@ -19,6 +19,7 @@ using Castle.MicroKernel.Registration;
 using Microsoft.Owin.Security;
 using Swashbuckle.Application;
 using YoYoCms.AbpProjectTemplate.Web;
+using YoYoCms.AbpProjectTemplate.WebApi;
 
 namespace YoYoCms.AbpProjectTemplate.WebApp
 {
@@ -27,8 +28,10 @@ namespace YoYoCms.AbpProjectTemplate.WebApp
         typeof(AbpWebMvcModule),
         typeof(AbpZeroOwinModule),
         typeof(AbpProjectTemplateDataModule),
-        typeof(AbpProjectTemplateApplicationModule),
-        typeof(AbpWebApiModule)
+           typeof(AbpProjectTemplateWebApiModule),
+
+        typeof(AbpProjectTemplateApplicationModule)
+
     )]
     public class AbpProjectTemplateWebAppModule : AbpModule
     {
@@ -78,7 +81,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApp
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
 
 
-            ConfigureSwaggerUi();
+          //  ConfigureSwaggerUi();
         }
         private void ConfigureSwaggerUi()
         {
