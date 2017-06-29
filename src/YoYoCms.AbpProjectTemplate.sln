@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoYoCms.AbpProjectTemplate.WebApp", "Api\YoYoCms.AbpProjectTemplate.WebApp\YoYoCms.AbpProjectTemplate.WebApp.csproj", "{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{471E98ED-CC57-424E-96B6-807EDAACED9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,5 +77,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7F0AE638-2772-445B-B198-6CF9D7E2C8AC} = {67BE60D5-7E45-4079-B46D-B037BD5A236D}
 		{B156DA32-D231-43B8-AE22-61C0C6B9F517} = {05F773EC-8A60-4889-BB58-7B4E742D1CD5}
+		{C6BFFABF-607E-43C4-9FA1-45F3AF6FB503} = {471E98ED-CC57-424E-96B6-807EDAACED9A}
 	EndGlobalSection
 EndGlobal

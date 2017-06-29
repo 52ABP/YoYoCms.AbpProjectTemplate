@@ -246,7 +246,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AbpProjectTemplateControllerBase.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -341,6 +340,10 @@
     <ProjectReference Include="..\..\YoYoCms.AbpProjectTemplate.EntityFramework\YoYoCms.AbpProjectTemplate.EntityFramework.csproj">
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>YoYoCms.AbpProjectTemplate.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\YoYoCms.AbpProjectTemplate.WebApi\YoYoCms.AbpProjectTemplate.WebApi.csproj">
+      <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
+      <Name>YoYoCms.AbpProjectTemplate.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
