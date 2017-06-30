@@ -27,7 +27,7 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
 
             //Automatically creates Web API controllers for all application services of the application
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "app")
+                .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "yoyocms")
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
