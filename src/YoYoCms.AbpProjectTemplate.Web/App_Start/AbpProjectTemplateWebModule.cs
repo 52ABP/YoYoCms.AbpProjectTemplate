@@ -36,7 +36,7 @@ namespace YoYoCms.AbpProjectTemplate.Web
         typeof(AbpProjectTemplateApplicationModule),
         typeof(AbpProjectTemplateWebApiModule),
         typeof(AbpWebSignalRModule),
-        typeof(AbpRedisCacheModule), //AbpRedisCacheModule dependency can be removed if not using Redis cache
+      //  typeof(AbpRedisCacheModule), //AbpRedisCacheModule dependency can be removed if not using Redis cache
         typeof(AbpHangfireModule))] //AbpHangfireModule dependency can be removed if not using Hangfire
     public class AbpProjectTemplateWebModule : AbpModule
     {

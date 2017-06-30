@@ -12,20 +12,17 @@ using Swashbuckle.Application;
 namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
 {
     /// <summary>
-    /// Web API layer of the application.
+    /// 在系统中进行WebApi的配置
     /// </summary>
     [DependsOn(typeof(AbpWebApiModule), typeof(AbpProjectTemplateApplicationModule))]
     public class AbpProjectTemplateWebAppApiModule : AbpModule
     {
-        public override void PreInitialize()
-        {
-            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
-        }
+       
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
-            //Automatically creates Web API controllers for all application services of the application
+           
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "yoyocms")
                 .Build();
