@@ -1,4 +1,4 @@
-<!--首页修改用户信息的弹出框-->
+<!--首页修改个人信息的弹出框-->
 <style rel="styleesheet" lang="scss">
 </style>
 
@@ -8,6 +8,9 @@
             :visible.sync="dialogVisible"
             size="tiny">
         <el-form :model="user" :rules="rules" ref="form" label-width="100px">
+            <el-form-item label="用户名" prop="userName">
+                <el-input v-model="user.userName" placeholder="用户名" :disabled="true"></el-input>
+            </el-form-item>
             <el-form-item label="名字" prop="name">
                 <el-input v-model="user.name"></el-input>
             </el-form-item>
@@ -20,9 +23,6 @@
             <el-form-item label="手机号" prop="phoneNumber">
                 <el-input v-model="user.phoneNumber" placeholder="手机号"></el-input>
             </el-form-item>
-            <el-form-item label="用户名" prop="userName">
-                <el-input v-model="user.userName" placeholder="用户名" :readonly="true"></el-input>
-            </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">取 消</el-button>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import userService from '../../services/userService'
+    import profileService from '../../services/profileService'
     import clone from 'clone'
     export default {
         props: {
@@ -43,7 +43,11 @@
             return {
                 user: {},
                 dialogVisible: false,
-                rules: {},
+                rules: {
+                    name: [{required: true, message: '请输入名字', trigger: 'change'}],
+                    surname: [{required: true, message: '请输入姓氏', trigger: 'change'}],
+                    emailAddress: [{required: true, message: '请输入邮箱', trigger: 'change'}]
+                },
             }
         },
         watch: {
@@ -51,9 +55,7 @@
                 if (val != this.dialogVisible) this.dialogVisible = val
             },
             'dialogVisible' (val) {
-                if (val) {
-                    this.user = clone(this.$store.state.auth.user)
-                }
+                if (val) this.user = clone(this.$store.state.auth.user)
                 this.$emit('update:visible', val)
             },
         },
@@ -66,11 +68,11 @@
                 this.$refs.form.validate(async (valid) => {
                     if (!valid) return
                     try {
-                        await userService.updateCurrentUserProfile(this.user)
+                        await profileService.updateCurrentUserProfile(this.user)
 
                         this.$store.dispatch('setAuthUser', {user: this.user})
-                    } finally {
                         this.dialogVisible = false
+                    } finally {
                     }
                 })
             }

@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.factory('appUserNotificationHelper', [
-            '$uibModal', '$location', 'abp.services.app.notification',
+            '$uibModal', '$location', 'abp.services.yoyocms.notification',
             function ($uibModal, $location, notificationService) {
 
                 /* Message Extracting based on Notification Data Type ********/

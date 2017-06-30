@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('host.views.editions.createOrEditModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.edition', 'editionId',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.edition', 'editionId',
         function ($scope, $uibModalInstance, editionService, editionId) {
             var vm = this;
 

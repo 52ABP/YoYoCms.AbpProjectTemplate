@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('host.views.maintenance.index', [
-        '$scope', '$window', 'abp.services.app.caching', 'abp.services.app.webLog',
+        '$scope', '$window', 'abp.services.yoyocms.caching', 'abp.services.yoyocms.webLog',
         function ($scope, $window, cachingService, webLogService) {
             var vm = this;
 

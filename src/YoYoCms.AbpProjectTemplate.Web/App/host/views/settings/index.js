@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('host.views.settings.index', [
-        '$scope', 'appSession', 'abp.services.app.hostSettings', 'abp.services.app.commonLookup',
+        '$scope', 'appSession', 'abp.services.yoyocms.hostSettings', 'abp.services.yoyocms.commonLookup',
         function ($scope, appSession, hostSettingsService, commonLookupService) {
             var vm = this;
             var usingDefaultTimeZone = false;
