@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Abp.Application.Services;
-using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
 using Abp.MultiTenancy;
 using Abp.Runtime.Session;
@@ -24,18 +23,15 @@ namespace YoYoCms.AbpProjectTemplate
 
         public new IAbpSessionExtensions AbpSession { get; set; }
 
-        private IRepository<User,long> _useRepository;
-
-        protected AbpProjectTemplateAppServiceBase(IRepository<User, long> useRepository)
+        protected AbpProjectTemplateAppServiceBase()
         {
-            _useRepository = useRepository;
             LocalizationSourceName = AbpProjectTemplateConsts.LocalizationSourceName;
         }
 
         protected virtual async Task<User> GetCurrentUserAsync()
         {
-            var user = await _useRepository.GetAsync(AbpSession.GetUserId());
-                if (user == null)
+            var user = await UserManager.FindByIdAsync(AbpSession.GetUserId());
+            if (user == null)
             {
                 throw new ApplicationException("There is no current user!");
             }
@@ -45,7 +41,7 @@ namespace YoYoCms.AbpProjectTemplate
 
         protected virtual User GetCurrentUser()
         {
-            var user = _useRepository.Get(AbpSession.GetUserId());
+            var user = UserManager.FindById(AbpSession.GetUserId());
             if (user == null)
             {
                 throw new ApplicationException("There is no current user!");
