@@ -58,7 +58,7 @@ namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
                 })
                 .EnableSwaggerUi("docs/{*assetPath}", c =>
                 {
-                    c.InjectJavaScript(Assembly.GetAssembly(typeof(AbpProjectTemplateWebAppApiModule)), "YoYoCms.AbpProjectTemplate.WebApi.Scripts.Swagger-Custom.js");
+                    c.InjectJavaScript(Assembly.GetAssembly(typeof(AbpProjectTemplateWebAppApiModule)), "YoYoCms.AbpProjectTemplate.WebAppApi.Api.Scripts.Swagger-Custom.js");
                 });
         }
     }
