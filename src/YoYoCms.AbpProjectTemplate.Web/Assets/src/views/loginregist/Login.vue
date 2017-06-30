@@ -107,12 +107,13 @@
                 this.$refs.form.validate((valid) => {
                     if (!valid) return
                     this.loading = true
-
                     userService.login(this.fetchParam)
+                    setTimeout(() => {
 //                        authUtils.setToken(ret)
-                    this.$router.push({name: 'Dashboard.Tenant'})
-                    abp.notify.success('登录成功!', '恭喜')
-                    this.loading = false
+                        this.$router.push({name: 'Dashboard.Tenant'})
+                        abp.notify.success('登录成功!', '恭喜')
+                        this.loading = false
+                    }, 5e2)
                 })
             },
         },
