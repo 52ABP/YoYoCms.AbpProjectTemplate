@@ -4,5 +4,5 @@
 //
 
 import serviceHelper from './serviceHelper'
-let sessionService = serviceHelper.requireService('session')
-export default sessionService
+let profile = serviceHelper.requireService('profile')
+export default profile

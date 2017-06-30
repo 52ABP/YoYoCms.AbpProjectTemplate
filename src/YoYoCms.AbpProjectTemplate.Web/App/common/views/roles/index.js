@@ -1,7 +1,7 @@
 ﻿(function () {
 
     appModule.controller('common.views.roles.index', [
-        '$scope', '$uibModal', '$templateCache', 'abp.services.app.role', 'uiGridConstants',
+        '$scope', '$uibModal', '$templateCache', 'abp.services.yoyocms.role', 'uiGridConstants',
         function ($scope, $uibModal, $templateCache, roleService, uiGridConstants) {
             var vm = this;
 

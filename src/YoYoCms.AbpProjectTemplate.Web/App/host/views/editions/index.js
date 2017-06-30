@@ -1,7 +1,7 @@
 ﻿(function () {
 
     appModule.controller('host.views.editions.index', [
-        '$scope', '$uibModal', 'uiGridConstants', 'abp.services.app.edition',
+        '$scope', '$uibModal', 'uiGridConstants', 'abp.services.yoyocms.edition',
         function ($scope, $uibModal, uiGridConstants, editionService) {
             var vm = this;
 

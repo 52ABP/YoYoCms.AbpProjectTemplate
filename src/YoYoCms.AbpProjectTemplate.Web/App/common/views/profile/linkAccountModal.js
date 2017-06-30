@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.profile.linkAccountModal', [
-        '$scope', 'appSession', '$uibModalInstance', 'uiGridConstants', '$uibModal', 'abp.services.app.userLink',
+        '$scope', 'appSession', '$uibModalInstance', 'uiGridConstants', '$uibModal', 'abp.services.yoyocms.userLink',
         function ($scope, appSession, $uibModalInstance, uiGridConstants, $uibModal, userLinkService) {
             var vm = this;
 

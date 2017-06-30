@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.layout.chatbar', [
-        '$rootScope', '$scope', '$uibModal', '$timeout', '$interval', 'appSession', 'lookupModal', 'abp.services.app.commonLookup', 'abp.services.app.chat', 'abp.services.app.friendship',
+        '$rootScope', '$scope', '$uibModal', '$timeout', '$interval', 'appSession', 'lookupModal', 'abp.services.yoyocms.commonLookup', 'abp.services.yoyocms.chat', 'abp.services.yoyocms.friendship',
         function ($rootScope, $scope, $uibModal, $timeout, $interval, appSession, lookupModal, commonLookup, chatService, friendshipService) {
             var vm = this;
 

@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.profile.mySettingsModal', [
-        '$scope', 'appSession', '$uibModalInstance', 'abp.services.app.profile',
+        '$scope', 'appSession', '$uibModalInstance', 'abp.services.yoyocms.profile',
         function ($scope, appSession, $uibModalInstance, profileService) {
             var vm = this;
 

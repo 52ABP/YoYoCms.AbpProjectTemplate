@@ -1,27 +1,22 @@
-<!--首页修改个人信息的弹出框-->
+<!--修改密码弹出框-->
 <style rel="styleesheet" lang="scss">
 </style>
 
 <template>
     <el-dialog
-            title="我的信息"
+            title="修改密码"
             :visible.sync="dialogVisible"
             size="tiny">
-        <el-form :model="user" :rules="rules" ref="form" label-width="100px">
-            <el-form-item label="用户名" prop="userName">
-                <el-input v-model="user.userName" placeholder="用户名" :disabled="true"></el-input>
+        <el-form :model="fetchParam" :rules="rules" ref="form" label-width="120px">
+            <el-form-item label="当前密码" prop="currentPassword">
+                <el-input type="password" :autofocus="true" v-model="fetchParam.currentPassword"
+                          placeholder="当前密码"></el-input>
             </el-form-item>
-            <el-form-item label="名字" prop="name">
-                <el-input v-model="user.name"></el-input>
+            <el-form-item label="新密码" prop="newPassword">
+                <el-input type="password" v-model="fetchParam.newPassword" placeholder="新密码"></el-input>
             </el-form-item>
-            <el-form-item label="姓氏" prop="surname">
-                <el-input v-model="user.surname"></el-input>
-            </el-form-item>
-            <el-form-item label="邮箱地址" prop="emailAddress">
-                <el-input v-model="user.emailAddress"></el-input>
-            </el-form-item>
-            <el-form-item label="手机号" prop="phoneNumber">
-                <el-input v-model="user.phoneNumber" placeholder="手机号"></el-input>
+            <el-form-item label="新密码(核对)" prop="newPasswordRepeat">
+                <el-input type="password" v-model="fetchParam.newPasswordRepeat" placeholder="重复密码"></el-input>
             </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
@@ -34,20 +29,32 @@
 
 <script>
     import profileService from '../../services/profileService'
-    import clone from 'clone'
     export default {
         props: {
             visible: Boolean,
         },
         data() {
+            let validRepass = (rule, value, callback) => {
+                debugger
+                if (value !== this.fetchParam.newPassword)
+                    callback(new Error('两次密码输入不一致!'))
+                else
+                    callback()
+            }
             return {
-                user: {},
+                fetchParam: {
+                    currentPassword: void 0,
+                    newPassword: void 0,
+                    newPasswordRepeat: void 0,
+                },
                 dialogVisible: false,
                 rules: {
-                    name: [{required: true, message: '请输入名字', trigger: 'change'}],
-                    surname: [{required: true, message: '请输入姓氏', trigger: 'change'}],
-                    emailAddress: [{required: true, message: '请输入邮箱', trigger: 'change'}]
+                    currentPassword: [{required: true, message: '请输入当前密码', trigger: 'change'}],
+                    newPassword: [{required: true, message: '请输入新密码', trigger: 'change'}],
+                    newPasswordRepeat: [{validator: this.validRepass, trigger: 'change'},
+                        {required: true, message: '请再次输入密码', trigger: 'change'}]
                 },
+                validRepass
             }
         },
         watch: {
@@ -55,8 +62,11 @@
                 if (val != this.dialogVisible) this.dialogVisible = val
             },
             'dialogVisible' (val) {
-                if (val) this.user = clone(this.$store.state.auth.user)
                 this.$emit('update:visible', val)
+                // 重置
+                if (!val) {
+                    this.$refs.form.resetFields()
+                }
             },
         },
         created() {
@@ -68,11 +78,10 @@
                 this.$refs.form.validate(async (valid) => {
                     if (!valid) return
                     try {
-                        await profileService.updateCurrentUserProfile(this.user)
-
-                        this.$store.dispatch('setAuthUser', {user: this.user})
-                    } finally {
+                        await profileService.changePassword(this.fetchParam)
                         this.dialogVisible = false
+                        abp.notify.success('修改成功', '恭喜')
+                    } finally {
                     }
                 })
             }

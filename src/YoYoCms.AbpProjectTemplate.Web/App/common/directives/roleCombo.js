@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('roleCombo', ['$timeout', 'abp.services.app.role',
+    appModule.directive('roleCombo', ['$timeout', 'abp.services.yoyocms.role',
         function ($timeout, roleService) {
             return {
                 restrict: 'E',

@@ -24,6 +24,9 @@
     }
 
     .el-table {
+        * {
+            overflow: visible !important;
+        }
         .dropdown-menu {
             right: 0;
             left: auto;

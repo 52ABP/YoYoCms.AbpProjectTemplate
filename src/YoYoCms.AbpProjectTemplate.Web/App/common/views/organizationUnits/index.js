@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.organizationUnits.index', [
-        '$scope', '$uibModal', '$q', 'uiGridConstants', 'abp.services.app.organizationUnit', 'abp.services.app.commonLookup', 'lookupModal',
+        '$scope', '$uibModal', '$q', 'uiGridConstants', 'abp.services.yoyocms.organizationUnit', 'abp.services.yoyocms.commonLookup', 'lookupModal',
         function ($scope, $uibModal, $q, uiGridConstants, organizationUnitService, commonLookupService, lookupModal) {
             var vm = this;
 

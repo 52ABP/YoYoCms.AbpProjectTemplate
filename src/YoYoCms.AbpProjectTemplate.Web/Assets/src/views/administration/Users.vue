@@ -8,14 +8,6 @@
         .search {
             @extend %top-search-container;
         }
-
-        .el-table {
-            overflow: visible !important;
-
-            * {
-                overflow: visible !important;
-            }
-        }
     }
 </style>
 

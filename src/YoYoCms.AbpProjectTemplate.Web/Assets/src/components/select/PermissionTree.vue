@@ -36,7 +36,7 @@
             return {
                 treeData: [],
                 loading: false,
-                userid: this.$store.state.auth.user.id,
+                userid: void 0,
                 showList: false, // 显示权限列表
                 jsTreeVm: {}, // jstree的上下文
                 currVal: this.value || {}
@@ -57,7 +57,7 @@
                 this.onChange && this.onChange(val)
             }
         },
-        async created() {
+        async activated() {
         },
         deactivated () {
             window.removeEventListener('click', this.hideList)
@@ -69,6 +69,7 @@
         },
         methods: {
             async init () {
+                this.userid = this.$store.state.auth.user.id
                 // 如果有数据 则不要重复加载
                 if (this.treeData.length > 0) return
 
