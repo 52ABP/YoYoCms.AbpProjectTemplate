@@ -42,6 +42,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             _friendshipManager = friendshipManager;
         }
 
+        /// <summary>
+        /// 获取当前用户的头像信息
+        /// </summary>
+        /// <returns></returns>
         [DisableAuditing]
         public async Task<FileResult> GetProfilePicture()
         {
@@ -54,6 +58,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             return await GetProfilePictureById(user.ProfilePictureId.Value);
         }
 
+        /// <summary>
+        /// 根据id获取头像信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [DisableAuditing]
         public async Task<FileResult> GetProfilePictureById(string id = "")
         {
