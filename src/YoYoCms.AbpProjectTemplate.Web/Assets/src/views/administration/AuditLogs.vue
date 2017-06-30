@@ -79,7 +79,7 @@
             </section>
             <section>
                 <i>浏览器</i>
-                <el-input size="small" placeholder="操作" v-model="fetchParam.browserInfo"
+                <el-input size="small" placeholder="浏览器" v-model="fetchParam.browserInfo"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>

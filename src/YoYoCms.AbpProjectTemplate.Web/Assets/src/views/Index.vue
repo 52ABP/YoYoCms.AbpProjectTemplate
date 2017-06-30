@@ -251,7 +251,8 @@
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="javascript:void(0);"><i class="material-icons">person</i>个人中心</a></li>
+                                <li><a @click="dialogMe.isShow= true"><i class="material-icons">person</i>个人中心</a>
+                                </li>
                                 <li role="seperator" class="divider"></li>
                                 <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>退出登录</a>
                                 </li>
@@ -286,6 +287,8 @@
             <Nav></Nav>
             <router-view></router-view>
         </section>
+
+        <DialogEditMe :visible.sync="dialogMe.isShow"></DialogEditMe>
     </article>
 </template>
 
@@ -297,14 +300,18 @@
     import sessionService from '../services/sessionService'
     import userService from '../services/userService'
 
-    import MenuTree from '../components/menu/MenuTree.vue'
-    import Nav from './components/Nav.vue'
+    import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
+    import Nav from './components/Nav.vue' // 内容上部的导航栏
+    import DialogEditMe from './components/DialogEditMe.vue' // 修改个人信息
 
     export default {
         data() {
             return {
                 menus: [],
-                user: this.$store.state.auth.user
+                user: this.$store.state.auth.user,
+                dialogMe: { // 修改个人信息
+                    isShow: false
+                }
             }
         },
         async created() {
@@ -323,7 +330,6 @@
             // 获取菜单信息
             await abpScriptService.getScripts()
             this.menus = abp.nav.menus.MainMenu
-            console.log(this.menus)
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
             this.$nextTick(async () => {
@@ -345,6 +351,6 @@
                 abp.notify.success('已成功退出登录', '提示')
             }
         },
-        components: {MenuTree, Nav}
+        components: {MenuTree, Nav, DialogEditMe}
     }
 </script>
