@@ -111,12 +111,13 @@
         },
         methods: {
             async fetchData () {
-                this.loadingData = true
-                let ret = await rolesService.getRoles(Object.assign({}, this.fetchParam, {permission: this.fetchParam.permission ? this.fetchParam.permission.id : null})).catch(() => {
+                try {
+                    this.loadingData = true
+                    let ret = await rolesService.getRoles(Object.assign({}, this.fetchParam, {permission: this.fetchParam.permission ? this.fetchParam.permission.id : null}))
+                    this.data = ret.items
+                } finally {
                     this.loadingData = false
-                })
-                this.loadingData = false
-                this.data = ret.items
+                }
             },
             permissionConfirm () {
             }
