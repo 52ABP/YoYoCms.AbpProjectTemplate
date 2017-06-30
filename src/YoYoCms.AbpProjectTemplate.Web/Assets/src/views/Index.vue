@@ -292,6 +292,7 @@
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
     import authUtils from '../common/utils/authUtils'
+    import loadFile from '../common/utils/loadFile'
     import abpScriptService from '../services/abpScriptService'
     import sessionService from '../services/sessionService'
     import userService from '../services/userService'
@@ -322,15 +323,15 @@
             // 获取菜单信息
             await abpScriptService.getScripts()
             this.menus = abp.nav.menus.MainMenu
+            console.log(this.menus)
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
-            this.$nextTick(() => {
-                require.ensure([], () => {
-                    require('../vendor/bsb/js/demo')
-                })
-                require.ensure([], () => {
-                    require('../vendor/bsb/js/admin')
-                })
+            this.$nextTick(async () => {
+//                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
+                await loadFile.loadJs(require('../vendor/bsb/js/demo'))
+                await loadFile.loadJs(require('../vendor/bsb/js/admin'))
+                window.initDemoJs()
+                window.initAdminJs()
                 this.loading = false
             })
         },
@@ -338,8 +339,10 @@
             // 登出
             logout () {
                 userService.logout()
+                abp.nav = null
 //                authUtils.setToken('')
                 this.$router.push({name: 'login'})
+                abp.notify.success('已成功退出登录', '提示')
             }
         },
         components: {MenuTree, Nav}

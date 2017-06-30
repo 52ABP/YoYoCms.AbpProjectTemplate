@@ -19,9 +19,10 @@ const Auth = {
             state.navMenueActive = menu
 
             if (menu && menu.length > 1) {
-                state.navShow = menu.filter((item) => {
+                let navShow = menu.filter((item) => {
                     return !!item.displayName
                 })
+                state.navShow = navShow || []
             }
         },
     },
