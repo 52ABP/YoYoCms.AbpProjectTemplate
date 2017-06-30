@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.languages.createOrEditModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.language', 'languageId',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.language', 'languageId',
         function ($scope, $uibModalInstance, languageService, languageId) {
             var vm = this;
 

@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.users.permissionsModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.user', 'user',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.user', 'user',
         function ($scope, $uibModalInstance, userService, user) {
             var vm = this;
             

@@ -1,7 +1,7 @@
 ﻿(function () {
 
     appModule.controller('common.views.auditLogs.index', [
-        '$scope', '$uibModal', 'uiGridConstants', 'abp.services.app.auditLog',
+        '$scope', '$uibModal', 'uiGridConstants', 'abp.services.yoyocms.auditLog',
         function ($scope, $uibModal, uiGridConstants, auditLogService) {
             var vm = this;
 

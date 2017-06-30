@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('timezoneCombo', ['abp.services.app.timing',
+    appModule.directive('timezoneCombo', ['abp.services.yoyocms.timing',
         function (timingService) {
             return {
                 restrict: 'E',

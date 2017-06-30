@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('host.views.tenants.editModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.tenant', 'abp.services.app.commonLookup', 'tenantId',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.tenant', 'abp.services.yoyocms.commonLookup', 'tenantId',
         function ($scope, $uibModalInstance, tenantService, commonLookupService, tenantId) {
             var vm = this;
 

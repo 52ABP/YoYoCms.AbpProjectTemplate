@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.layout.header', [
-        '$rootScope', '$scope', '$uibModal', 'appSession', 'appUserNotificationHelper', 'abp.services.app.notification', 'abp.services.app.userLink',
+        '$rootScope', '$scope', '$uibModal', 'appSession', 'appUserNotificationHelper', 'abp.services.yoyocms.notification', 'abp.services.yoyocms.userLink',
         function ($rootScope, $scope, $uibModal, appSession, appUserNotificationHelper, notificationService, userLinkService) {
             var vm = this;
 

@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('tenant.views.settings.index', [
-        '$scope', 'abp.services.app.tenantSettings',
+        '$scope', 'abp.services.yoyocms.tenantSettings',
         function ($scope, tenantSettingsService) {
             var vm = this;
 
