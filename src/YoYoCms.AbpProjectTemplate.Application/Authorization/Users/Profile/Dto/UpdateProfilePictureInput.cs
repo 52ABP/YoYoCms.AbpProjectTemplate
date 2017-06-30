@@ -16,5 +16,7 @@ namespace YoYoCms.AbpProjectTemplate.Authorization.Users.Profile.Dto
         public int Width { get; set; }
 
         public int Height { get; set; }
+
+        public string ImgData { get; set; }
     }
 }

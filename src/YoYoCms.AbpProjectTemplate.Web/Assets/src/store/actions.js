@@ -13,8 +13,9 @@ const actions = {
 
     // 设置用户信息
     setAuthUser (store, {user}) {
+        user.portrait = user.portrait || `/Profile/GetProfilePicture?v=${Date.now()}`
         store.commit(types.AUTH_SETUSER, {user})
-    }
+    },
 }
 
 // 从abp.nav中 获取菜单显示的名字
