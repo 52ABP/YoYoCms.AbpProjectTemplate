@@ -30,7 +30,7 @@
 
 <script>
     import Cropper from 'cropperjs'
-    import '../../../../node_modules/cropperjs/dist/cropper.min.css'
+    import '../../../node_modules/cropperjs/dist/cropper.min.css'
 
     export default{
         props: {
@@ -74,7 +74,7 @@
             this.finalRatio = this.aspectRatio || 16 / 9
         },
         methods: {
-            // 选择图片
+            // 选择图片 向外部暴露的接口
             chooseImg () {
                 this.$refs.file.click()
             },
@@ -106,7 +106,7 @@
             confirmCropper () {
                 this.showCropper = false
                 let retBase64 = this.cropper.getCroppedCanvas().toDataURL(`image/${this.imageType}`, this.compress)
-                this.confirmFn && this.confirmFn(retBase64, this.ext)
+                this.confirmFn && this.confirmFn(retBase64, this.ext, retBase64.split(';')[1].substr(7))
                 this.imgData = null
             },
             startCropper () {

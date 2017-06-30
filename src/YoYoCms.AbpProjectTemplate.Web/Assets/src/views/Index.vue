@@ -10,6 +10,17 @@
             border-radius: 0 !important;
             max-height: 73px;
         }
+
+        #leftsidebar {
+            .dropdown-menu > li > a {
+                height: 46px;
+                line-height: 46px !important;
+                .material-icons {
+                    vertical-align: middle;
+                    float: none;
+                }
+            }
+        }
     }
 </style>
 
@@ -241,7 +252,7 @@
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="image">
-                        <img src="../assets/user.png" width="48" height="48" alt="User"/>
+                        <img :src="user.portrait" width="48" height="48" alt="User"/>
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -251,10 +262,13 @@
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
-                                <li><a @click="dialogMe.isShow= true"><i class="material-icons">person</i>个人中心</a>
+                                <li><a @click="dialogMe.isShow= true"><i class="material-icons">person</i>个人中心</a></li>
+                                <li><a @click="dialogPwd.isShow= true"><i class="material-icons">vpn_key</i>修改密码</a>
+                                </li>
+                                <li><a @click="dialogPortrait.isShow= true"><i class="material-icons">image</i>修改头像</a>
                                 </li>
                                 <li role="seperator" class="divider"></li>
-                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>退出登录</a>
+                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>注销</a>
                                 </li>
                             </ul>
                         </div>
@@ -288,13 +302,18 @@
             <router-view></router-view>
         </section>
 
-        <DialogEditMe :visible.sync="dialogMe.isShow"></DialogEditMe>
+        <!--个人信息弹窗-->
+        <DialogProfile :visible.sync="dialogMe.isShow"></DialogProfile>
+        <!--修改密码弹窗-->
+        <DialogEditPwd :visible.sync="dialogPwd.isShow"></DialogEditPwd>
+        <!--修改头像弹出框-->
+        <DialogPortrait :visible.sync="dialogPortrait.isShow"></DialogPortrait>
     </article>
 </template>
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-    import authUtils from '../common/utils/authUtils'
+    //    import authUtils from '../common/utils/authUtils'
     import loadFile from '../common/utils/loadFile'
     import abpScriptService from '../services/abpScriptService'
     import sessionService from '../services/sessionService'
@@ -302,8 +321,9 @@
 
     import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
     import Nav from './components/Nav.vue' // 内容上部的导航栏
-    import DialogEditMe from './components/DialogEditMe.vue' // 修改个人信息
-
+    import DialogProfile from './components/DialogProfile.vue' // 修改个人信息 弹出框
+    import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
+    import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
     export default {
         data() {
             return {
@@ -311,16 +331,23 @@
                 user: this.$store.state.auth.user,
                 dialogMe: { // 修改个人信息
                     isShow: false
-                }
+                },
+                dialogPwd: {isShow: false},
+                dialogPortrait: {isShow: false}
+            }
+        },
+        watch: {
+            '$store.state.auth.user' (val) {
+                this.user = val
             }
         },
         async created() {
             // 如果用户信息没获取到
-            if (!this.user) {
+            if (!this.user.id) {
                 let ret = await sessionService.getCurrentLoginInformations()
                 let user = ret.user
                 this.$store.dispatch('setAuthUser', {user})
-                authUtils.setUserInfo(user)
+//                authUtils.setUserInfo(user)
                 this.user = user
             }
         },
@@ -351,6 +378,6 @@
                 abp.notify.success('已成功退出登录', '提示')
             }
         },
-        components: {MenuTree, Nav, DialogEditMe}
+        components: {MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait}
     }
 </script>

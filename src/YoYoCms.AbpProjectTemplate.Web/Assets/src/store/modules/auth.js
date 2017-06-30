@@ -5,11 +5,11 @@ import {
 
 const Auth = {
     state: {
-        user: authUtils.getUserInfo()
+        user: authUtils.getUserInfo() || {}
     },
 
     mutations: {
-        [AUTH_SETUSER] (state, user) {
+        [AUTH_SETUSER] (state, {user}) {
             state.user = user
         }
     }
