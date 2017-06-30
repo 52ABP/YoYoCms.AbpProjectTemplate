@@ -2,5 +2,6 @@
  * Created by huanghx on 2017/6/26.
  */
 //
-let roleService = abp.services.app.role
+import serviceHelper from './serviceHelper'
+let roleService = serviceHelper.requireService('role')
 export default roleService

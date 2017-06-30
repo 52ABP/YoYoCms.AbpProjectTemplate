@@ -3,5 +3,6 @@
  */
 //
 
-let sessionService = abp.services.app.session
+import serviceHelper from './serviceHelper'
+let sessionService = serviceHelper.requireService('session')
 export default sessionService

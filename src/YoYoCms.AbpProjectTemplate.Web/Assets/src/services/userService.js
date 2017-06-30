@@ -4,7 +4,8 @@
 //
 import fileService from './fileService'
 import apiHelper from './apiHelper'
-let userService = abp.services.app.user
+import serviceHelper from './serviceHelper'
+let userService = serviceHelper.requireService('user')
 userService.exportExcel = async function () {
     let ret = await userService.getUsersToExcel()
     fileService.downloadTempFile(ret)
