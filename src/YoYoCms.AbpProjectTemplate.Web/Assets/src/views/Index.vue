@@ -268,7 +268,7 @@
                                 <li><a @click="dialogPortrait.isShow= true"><i class="material-icons">image</i>修改头像</a>
                                 </li>
                                 <li role="seperator" class="divider"></li>
-                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>退出登录</a>
+                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>注销</a>
                                 </li>
                             </ul>
                         </div>

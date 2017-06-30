@@ -37,7 +37,15 @@ export default {
                 resolve(require('../../views/administration/Users.vue'))
             })
         }
-    }, { // 审计日至
+    }, { // 语言列表
+        path: 'languages',
+        name: namePre + `Languages`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/Language.vue'))
+            })
+        }
+    }, { // 审计日志
         path: 'audit-logs',
         name: namePre + `AuditLogs`,
         component: resolve => {

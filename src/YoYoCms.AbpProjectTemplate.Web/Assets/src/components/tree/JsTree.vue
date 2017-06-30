@@ -11,10 +11,11 @@
 <script>
     export default {
         props: {
-            treeData: Array,
+            treeData: Array, // 参考jstree https://www.jstree.com/api/#/?f=$.jstree.defaults.core.data
             plugins: Array,
             context: Object, // 组件的上下文
             onItemClick: Function, // 每一项点击后回调
+            onDragStop: Function, // 拖动结束后回调 参数 (subId, parentId)
         },
         data() {
             return {}
@@ -39,7 +40,12 @@
                         this.onItemClick && this.onItemClick(ret[0])
                     }).jstree({
                         'core': {
-                            data: this.treeData
+                            data: this.treeData,
+                            check_callback: true,
+                        },
+                        'dnd': {
+//                            use_html5: true
+                            inside_pos: 2
                         },
                         'types': {
                             '#': {
@@ -66,6 +72,15 @@
                         },
                         plugins: this.plugins || []
                     })
+
+                    $(document).on('dnd_stop.vakata', (e, data) => {
+//                        debugger
+                        this.onDragStop && this.onDragStop(data.data.nodes[0], $(this.$refs.container).jstree('get_parent', data.data.nodes[0]))
+                    })
+
+//                    $(document).on('dnd_start.vakata', (e, data) => {
+//                        console.log(data.data.nodes, e, arguments)
+//                    })
                 })
             },
             // 获取选中的数组
