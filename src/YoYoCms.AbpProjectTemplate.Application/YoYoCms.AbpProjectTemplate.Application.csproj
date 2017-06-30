@@ -143,6 +143,7 @@
     <Compile Include="AbpProjectTemplateApplicationModule.cs" />
     <Compile Include="AbpProjectTemplateAppServiceBase.cs" />
     <Compile Include="AppConsts.cs" />
+    <Compile Include="AppExtensions\Attribute\WebAppApiAttribute.cs" />
     <Compile Include="Auditing\INamespaceStripper.cs" />
     <Compile Include="Auditing\NamespaceStripper.cs" />
     <Compile Include="Auditing\AuditLogAndUser.cs" />

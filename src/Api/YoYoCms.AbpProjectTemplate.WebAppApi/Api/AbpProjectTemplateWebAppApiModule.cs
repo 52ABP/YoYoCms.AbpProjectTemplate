@@ -8,6 +8,7 @@ using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Swashbuckle.Application;
+using YoYoCms.AbpProjectTemplate.AppExtensions.Attribute;
 
 namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
 {
@@ -24,7 +25,14 @@ namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
 
            
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "yoyocms")
+                .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "yoyocms").ForMethods(
+                    a =>
+                    {
+                        if (!a.Method.IsDefined(typeof(WebAppApiAttribute)))
+                        {
+                            a.DontCreate = true;
+                        }
+                    })
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
