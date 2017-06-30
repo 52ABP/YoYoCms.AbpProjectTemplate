@@ -45,7 +45,8 @@ namespace YoYoCms.AbpProjectTemplate.WebAppApi.Api
             Configuration.Modules.AbpWebApi().HttpConfiguration
                  .EnableSwagger("docs/{apiVersion}/apis", c =>
                  {
-                    c.SingleApiVersion("v1", "YoYoCms.AbpProjectTemplate.WebApi");
+                     //webapp的API方法
+                    c.SingleApiVersion("v1", "YoYoCms.AbpProjectTemplate.WebAppApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
                     var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
