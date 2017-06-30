@@ -9,10 +9,13 @@ namespace YoYoCms.AbpProjectTemplate.Authorization.Users.Profile
         Task<CurrentUserProfileEditDto> GetCurrentUserProfileForEdit();
 
         Task UpdateCurrentUserProfile(CurrentUserProfileEditDto input);
-        
+
         Task ChangePassword(ChangePasswordInput input);
 
         Task UpdateProfilePicture(UpdateProfilePictureInput input);
+
+        // 上传头像
+        Task UploadPortrait(UpdateProfilePictureInput imgData);
 
         Task<GetPasswordComplexitySettingOutput> GetPasswordComplexitySetting();
     }

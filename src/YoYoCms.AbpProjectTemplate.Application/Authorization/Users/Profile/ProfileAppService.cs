@@ -1,6 +1,8 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Configuration;
@@ -15,6 +17,7 @@ using YoYoCms.AbpProjectTemplate.Security;
 using YoYoCms.AbpProjectTemplate.Storage;
 using YoYoCms.AbpProjectTemplate.Timing;
 using Newtonsoft.Json;
+using YoYoCms.AbpProjectTemplate.IO;
 
 namespace YoYoCms.AbpProjectTemplate.Authorization.Users.Profile
 {
@@ -124,6 +127,36 @@ namespace YoYoCms.AbpProjectTemplate.Authorization.Users.Profile
 
             FileHelper.DeleteIfExists(tempProfilePicturePath);
         }
+
+        #region 上传头像 public async Task UploadPortrait(string imgData)
+        /// <summary>
+        /// 上传头像
+        /// </summary>
+        /// <param name="imgData">base64的数据</param>
+        /// <returns></returns>]
+        [HttpPost]
+        public async Task UploadPortrait(UpdateProfilePictureInput input)
+        {
+            var byteArray = Convert.FromBase64String(input.ImgData);
+
+            if (byteArray.LongLength > 102400) //100 KB
+            {
+                throw new UserFriendlyException(L("ResizedProfilePicture_Warn_SizeLimit"));
+            }
+
+            var user = await UserManager.GetUserByIdAsync(AbpSession.GetUserId());
+
+            if (user.ProfilePictureId.HasValue)
+            {
+                await _binaryObjectManager.DeleteAsync(user.ProfilePictureId.Value);
+            }
+
+            var storedFile = new BinaryObject(AbpSession.TenantId, byteArray);
+            await _binaryObjectManager.SaveAsync(storedFile);
+
+            user.ProfilePictureId = storedFile.Id;
+        }
+        #endregion
 
         public async Task<GetPasswordComplexitySettingOutput> GetPasswordComplexitySetting()
         {
