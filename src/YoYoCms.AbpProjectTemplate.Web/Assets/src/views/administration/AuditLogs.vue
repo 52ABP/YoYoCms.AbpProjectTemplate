@@ -119,7 +119,7 @@
                     width="80"
                     label="操作">
                 <template scope="scope">
-                    <el-button icon="view" @click="dialogDetail.isShow=true;dialogDetail.model=scope.row"></el-button>
+                    <el-button size="small" icon="view" @click="dialogDetail.isShow=true;dialogDetail.model=scope.row"></el-button>
                 </template>
             </el-table-column>
         </el-table>
