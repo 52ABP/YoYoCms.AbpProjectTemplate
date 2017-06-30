@@ -38,6 +38,7 @@
         'xmview': true,
         'localStorage': true,
         'jquery': true,
-        '$': true
+        '$': true,
+        'Exception': true
     }
 }
