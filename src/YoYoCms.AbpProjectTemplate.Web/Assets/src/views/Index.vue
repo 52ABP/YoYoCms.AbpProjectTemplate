@@ -1,27 +1,27 @@
 <style rel="styleesheet" lang="scss">
-    .index-container {
-        position: absolute;
-        min-height: 100%;
-        width: 100%;
-        background-color: #e9e9e9;
-        overflow-x: hidden;
-        .navbar {
-            position: fixed;
-            border-radius: 0 !important;
-            max-height: 73px;
-        }
+.index-container {
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    background-color: #e9e9e9;
+    overflow-x: hidden;
+    .navbar {
+        position: fixed;
+        border-radius: 0 !important;
+        max-height: 73px;
+    }
 
-        #leftsidebar {
-            .dropdown-menu > li > a {
-                height: 46px;
-                line-height: 46px !important;
-                .material-icons {
-                    vertical-align: middle;
-                    float: none;
-                }
+    #leftsidebar {
+        .dropdown-menu>li>a {
+            height: 46px;
+            line-height: 46px !important;
+            .material-icons {
+                vertical-align: middle;
+                float: none;
             }
         }
     }
+}
 </style>
 
 <template>
@@ -34,8 +34,7 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse"
-                       data-target="#navbar-collapse" aria-expanded="false"></a>
+                    <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                     <a href="javascript:void(0);" class="bars"></a>
                     <a class="navbar-brand" href="../../index.html">YoYoCms - MATERIAL 设计的后台管理系统</a>
                 </div>
@@ -84,7 +83,8 @@
                                                     <i class="material-icons">delete_forever</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>Nancy Doe</b> deleted account</h4>
+                                                    <h4>
+                                                        <b>Nancy Doe</b> deleted account</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 3 hours ago
                                                     </p>
@@ -97,7 +97,8 @@
                                                     <i class="material-icons">mode_edit</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>Nancy</b> changed name</h4>
+                                                    <h4>
+                                                        <b>Nancy</b> changed name</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 2 hours ago
                                                     </p>
@@ -110,7 +111,8 @@
                                                     <i class="material-icons">comment</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>John</b> commented your post</h4>
+                                                    <h4>
+                                                        <b>John</b> commented your post</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 4 hours ago
                                                     </p>
@@ -123,7 +125,8 @@
                                                     <i class="material-icons">cached</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>John</b> updated status</h4>
+                                                    <h4>
+                                                        <b>John</b> updated status</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 3 hours ago
                                                     </p>
@@ -168,9 +171,7 @@
                                                     <small>32%</small>
                                                 </h4>
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-pink" role="progressbar"
-                                                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 32%">
+                                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
                                                     </div>
                                                 </div>
                                             </a>
@@ -182,9 +183,7 @@
                                                     <small>45%</small>
                                                 </h4>
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-cyan" role="progressbar"
-                                                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 45%">
+                                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                                                     </div>
                                                 </div>
                                             </a>
@@ -196,9 +195,7 @@
                                                     <small>54%</small>
                                                 </h4>
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-teal" role="progressbar"
-                                                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 54%">
+                                                    <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
                                                     </div>
                                                 </div>
                                             </a>
@@ -210,9 +207,7 @@
                                                     <small>65%</small>
                                                 </h4>
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-orange" role="progressbar"
-                                                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 65%">
+                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
                                                     </div>
                                                 </div>
                                             </a>
@@ -224,9 +219,7 @@
                                                     <small>92%</small>
                                                 </h4>
                                                 <div class="progress">
-                                                    <div class="progress-bar bg-purple" role="progressbar"
-                                                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-                                                         style="width: 92%">
+                                                    <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
                                                     </div>
                                                 </div>
                                             </a>
@@ -239,8 +232,11 @@
                             </ul>
                         </li>
                         <!-- #END# Tasks -->
-                        <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i
-                                class="material-icons">more_vert</i></a></li>
+                        <li class="pull-right">
+                            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -252,7 +248,7 @@
                 <!-- User Info -->
                 <div class="user-info">
                     <div class="image">
-                        <img :src="user.portrait" width="48" height="48" alt="User"/>
+                        <img :src="user.portrait" width="48" height="48" alt="User" />
                     </div>
                     <div class="info-container">
                         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -262,13 +258,22 @@
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
-                                <li><a @click="dialogMe.isShow= true"><i class="material-icons">person</i>个人中心</a></li>
-                                <li><a @click="dialogPwd.isShow= true"><i class="material-icons">vpn_key</i>修改密码</a>
+                                <li>
+                                    <a @click="dialogMe.isShow= true">
+                                        <i class="material-icons">person</i>个人中心</a>
                                 </li>
-                                <li><a @click="dialogPortrait.isShow= true"><i class="material-icons">image</i>修改头像</a>
+                                <li>
+                                    <a @click="dialogPwd.isShow= true">
+                                        <i class="material-icons">vpn_key</i>修改密码</a>
+                                </li>
+                                <li>
+                                    <a @click="dialogPortrait.isShow= true">
+                                        <i class="material-icons">image</i>修改头像</a>
                                 </li>
                                 <li role="seperator" class="divider"></li>
-                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>注销</a>
+                                <li @click="logout">
+                                    <a href="javascript:void(0);">
+                                        <i class="material-icons">input</i>注销</a>
                                 </li>
                             </ul>
                         </div>
@@ -286,7 +291,8 @@
                 <!-- Footer -->
                 <div class="legal">
                     <div class="copyright">
-                        &copy; 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                        &copy; 2017
+                        <a href="javascript:void(0);">AdminBSB - Material Design</a>.
                     </div>
                     <div class="version">
                         <b>Version: </b> 1.0.4
@@ -301,7 +307,7 @@
             <Nav></Nav>
             <router-view></router-view>
         </section>
-
+    
         <!--个人信息弹窗-->
         <DialogProfile :visible.sync="dialogMe.isShow"></DialogProfile>
         <!--修改密码弹窗-->
@@ -312,72 +318,72 @@
 </template>
 
 <script>
-    import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-    //    import authUtils from '../common/utils/authUtils'
-    import loadFile from '../common/utils/loadFile'
-    import abpScriptService from '../services/abpScriptService'
-    import sessionService from '../services/sessionService'
-    import userService from '../services/userService'
+import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
+//    import authUtils from '../common/utils/authUtils'
+import loadFile from '../common/utils/loadFile'
+import abpScriptService from '../services/abpScriptService'
+import sessionService from '../services/sessionService'
+import userService from '../services/userService'
 
-    import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
-    import Nav from './components/Nav.vue' // 内容上部的导航栏
-    import DialogProfile from './components/DialogProfile.vue' // 修改个人信息 弹出框
-    import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
-    import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
-    export default {
-        data() {
-            return {
-                menus: [],
-                user: this.$store.state.auth.user,
-                dialogMe: { // 修改个人信息
-                    isShow: false
-                },
-                dialogPwd: {isShow: false},
-                dialogPortrait: {isShow: false}
-            }
-        },
-        watch: {
-            '$store.state.auth.user' (val) {
-                this.user = val
-            }
-        },
-        async created() {
-            // 如果用户信息没获取到
-            if (!this.user.id) {
-                let ret = await sessionService.getCurrentLoginInformations()
-                let user = ret.user
-                this.$store.dispatch('setAuthUser', {user})
-//                authUtils.setUserInfo(user)
-                this.user = user
-            }
-        },
-        activated() {
-        },
-        async mounted () {
-            // 获取菜单信息
-            await abpScriptService.getScripts()
-            this.menus = abp.nav.menus.MainMenu
-            // 刷新当前激活菜单的信息
-            this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
-            this.$nextTick(async () => {
-//                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
-                await loadFile.loadJs(require('../vendor/bsb/js/demo'))
-                await loadFile.loadJs(require('../vendor/bsb/js/admin'))
-                window.initDemoJs()
-                window.initAdminJs()
-                this.loading = false
-            })
-        },
-        methods: {
-            // 登出
-            logout () {
-                userService.logout()
-                abp.nav = null
-//                authUtils.setToken('')
-                this.$router.push({name: 'login'})
-                abp.notify.success('已成功退出登录', '提示')
-            }
-        },
-        components: {MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait}
-    }
+import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
+import Nav from './components/Nav.vue' // 内容上部的导航栏
+import DialogProfile from './components/DialogProfile.vue' // 修改个人信息 弹出框
+import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
+import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
+export default {
+    data() {
+        return {
+            menus: [],
+            user: this.$store.state.auth.user,
+            dialogMe: { // 修改个人信息
+                isShow: false
+            },
+            dialogPwd: { isShow: false },
+            dialogPortrait: { isShow: false }
+        }
+    },
+    watch: {
+        '$store.state.auth.user'(val) {
+            this.user = val
+        }
+    },
+    async created() {
+        // 如果用户信息没获取到
+        if (!this.user.id) {
+            let ret = await sessionService.getCurrentLoginInformations()
+            let user = ret.user
+            this.$store.dispatch('setAuthUser', { user })
+            //                authUtils.setUserInfo(user)
+            this.user = user
+        }
+    },
+    activated() {
+    },
+    async mounted() {
+        // 获取菜单信息
+        await abpScriptService.getScripts()
+        this.menus = abp.nav.menus.MainMenu
+        // 刷新当前激活菜单的信息
+        this.$store.dispatch('setIndexMenuActive', { menu: this.$store.state.index.navMenueActive })
+        this.$nextTick(async () => {
+            //                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
+            await loadFile.loadJs(require('../vendor/bsb/js/demo'))
+            await loadFile.loadJs(require('../vendor/bsb/js/admin'))
+            window.initDemoJs()
+            window.initAdminJs()
+            this.loading = false
+        })
+    },
+    methods: {
+        // 登出
+        logout() {
+            userService.logout()
+            abp.nav = null
+            //                authUtils.setToken('')
+            this.$router.push({ name: 'login' })
+            abp.notify.success('已成功退出登录', '提示')
+        }
+    },
+    components: { MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait }
+}
 </script>

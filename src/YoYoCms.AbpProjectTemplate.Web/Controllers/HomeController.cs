@@ -18,6 +18,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         [DisableAuditing]
         public ActionResult Vue()
         { 
+           // return Redirect("~/Assets/dist/index.html");
             return File(System.IO.File.Open(Server.MapPath("/Assets/dist/index.html"), System.IO.FileMode.Open), "text/html");
         }
         
