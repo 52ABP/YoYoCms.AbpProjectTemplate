@@ -1,4 +1,4 @@
-import Vue from 'vue'
+﻿import Vue from 'vue'
 import Router from 'vue-router'
 // import authUtils from '../common/utils/authUtils'
 import store from '../store'
@@ -9,14 +9,15 @@ import administration from '../router/administration/index'
 
 let router = new Router({
     routes: [
-        {path: '/', redirect: '/dashboard'},
+        { path: '/', redirect: '/login' },
         {
             path: '/login',
             name: 'login',
             component: resolve => {
-                require.ensure([], () => {
-                    resolve(require('../views/loginregist/Login.vue'))
-                })
+                require.ensure([],
+                    () => {
+                        resolve(require('../views/loginregist/Login.vue'))
+                    })
             },
             meta: {
                 notAuth: true, // 不需要权限验证
@@ -26,19 +27,22 @@ let router = new Router({
             path: '/',
             name: 'index',
             component: resolve => {
-                require.ensure([], () => {
-                    resolve(require('../views/Index.vue'))
-                })
-            },
-            children: [{ // 工作台
-                path: '/dashboard',
-                name: 'Dashboard.Tenant',
-                component: resolve => {
-                    require.ensure([], () => {
-                        resolve(require('../views/dashboard/Dashboard.vue'))
+                require.ensure([],
+                    () => {
+                        resolve(require('../views/Index.vue'))
                     })
-                },
             },
+            children: [
+                { // 工作台
+                    path: '/dashboard',
+                    name: 'Dashboard.Tenant',
+                    component: resolve => {
+                        require.ensure([],
+                            () => {
+                                resolve(require('../views/dashboard/Dashboard.vue'))
+                            })
+                    },
+                },
                 //  =================================管理=====================================
                 administration
             ]
@@ -65,9 +69,9 @@ router.beforeEach((to, from, next) => {
     let menu = []
     to.matched.forEach((item) => {
         item.meta.displayName = item.meta.displayName
-        menu.push({name: item.name})
+        menu.push({ name: item.name })
     })
-    store.dispatch('setIndexMenuActive', {menu})
+    store.dispatch('setIndexMenuActive', { menu })
 
     next()
 })
