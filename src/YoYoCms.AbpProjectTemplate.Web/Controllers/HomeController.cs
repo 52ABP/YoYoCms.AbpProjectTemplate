@@ -16,7 +16,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [DisableAuditing]
-        public ActionResult Vue()
+        public ActionResult ForntProj()
         { 
            // return Redirect("~/Assets/dist/index.html");
             return File(System.IO.File.Open(Server.MapPath("/Assets/dist/index.html"), System.IO.FileMode.Open), "text/html");
