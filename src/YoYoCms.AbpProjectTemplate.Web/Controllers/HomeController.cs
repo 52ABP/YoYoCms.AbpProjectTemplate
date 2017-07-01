@@ -1,5 +1,6 @@
 ﻿using System.Web.Helpers;
 using System.Web.Mvc;
+using Abp.Auditing;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
@@ -14,9 +15,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// 管理端Vue项目首页
         /// </summary>
         /// <returns></returns>
-        public ActionResult ForntProj ()
+        [DisableAuditing]
+        public ActionResult Vue()
         { 
             return File(System.IO.File.Open(Server.MapPath("/Assets/dist/index.html"), System.IO.FileMode.Open), "text/html");
         }
-	}
+        
+    }
 }
