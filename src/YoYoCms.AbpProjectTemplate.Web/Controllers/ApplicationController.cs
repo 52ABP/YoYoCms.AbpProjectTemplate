@@ -15,5 +15,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
             return View("~/App/common/views/layout/layout.cshtml"); //Layout of the angular application.
         }
+ 
+      
     }
 }
