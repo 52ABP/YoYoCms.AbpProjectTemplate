@@ -5,37 +5,14 @@ import store from '../store'
 
 Vue.use(Router)
 
+import loginRegister from '../router/loginregister'
 import administration from '../router/administration/index'
 
 let router = new Router({
     routes: [
         {path: '/', redirect: '/login'},
-        {
-            path: '/login',
-            name: 'login',
-            component: resolve => {
-                require.ensure([],
-                    () => {
-                        resolve(require('../views/loginregist/Login.vue'))
-                    })
-            },
-            meta: {
-                notAuth: true, // 不需要权限验证
-            }
-        },
-        {
-            path: '/resetpassword',
-            name: 'resetpassword',
-            component: resolve => {
-                require.ensure([],
-                    () => {
-                        resolve(require('../views/loginregist/ResetPassword.vue'))
-                    })
-            },
-            meta: {
-                notAuth: true, // 不需要权限验证
-            }
-        },
+        //  =================================登录注册=====================================
+        ...loginRegister,
         {
             path: '/',
             name: 'index',
