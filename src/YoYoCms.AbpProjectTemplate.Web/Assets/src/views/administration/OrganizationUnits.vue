@@ -83,7 +83,8 @@
         <el-card class="col-lg-6 right-list">
             <div class="right-header">
                 [成员]: {{selectedOrgan.displayName}}
-                <el-button icon="plus" size="small" @click="dialogAddOrgan.isShow=true">添加用户</el-button>
+                <el-button :disabled="!selectedOrgan.id" icon="plus" size="small" @click="dialogUser.isShow=true">添加用户
+                </el-button>
             </div>
             <el-table class="data-table" v-loading="userList.loading"
                       :data="userList.data"
@@ -108,7 +109,8 @@
                         width="80"
                         label="操作">
                     <template scope="scope">
-                        <i style="cursor:pointer;" class="material-icons" title="删除">delete_forever</i>
+                        <i style="cursor:pointer;" class="material-icons" title="删除"
+                           @click="delUser(scope.$index,scope.row)">delete_forever</i>
                     </template>
                 </el-table-column>
             </el-table>
@@ -122,6 +124,8 @@
                            layout="sizes,total, prev, pager, next"
                            :total="userList.total">
             </el-pagination>
+            <DialogUserlist :selectedUserCb="selectedUser" :visible.sync="dialogUser.isShow"
+                            :getUserFn="getUsers"></DialogUserlist>
         </el-card>
     </article>
 </template>
@@ -129,9 +133,12 @@
 <script>
     import JsTree from '../../components/tree/JsTree.vue'
     import organizationUnitService from '../../services/organizationUnitService'
+    import commonService from '../../services/commonLookupService'
+    import DialogUserlist from '../../components/dialog/UserList.vue'
     export default {
         data() {
             return {
+                orignTreeData: [],
                 treeData: [],
                 loading: false,
                 // 添加组织机构
@@ -148,6 +155,10 @@
                     data: [],
                     loading: false,
                     fetchParam: resetUserListFetchParam()
+                },
+                // 用户列表弹出框
+                dialogUser: {
+                    isShow: false
                 }
             }
         },
@@ -159,15 +170,18 @@
         methods: {
             async fetchData () {
                 this.loading = true
-                let treeData = (await organizationUnitService.getOrganizationUnits()).items
-                treeData.map((item) => {
+                this.orignTreeData = (await organizationUnitService.getOrganizationUnits()).items
+                this.initTree()
+                this.loading = false
+            },
+            initTree() {
+                this.orignTreeData.map((item) => {
                     item.text = `${item.displayName} (${item.memberCount})`
                     item.parent = item.parentId || '#'
                     item.state = {opened: true}
                 })
-                this.treeData = treeData
+                this.treeData = this.orignTreeData
                 this.$refs.jstree.init()
-                this.loading = false
             },
             //
             dragStop (id, newParentId) {
@@ -261,8 +275,43 @@
                 this.userList.fetchParam.maxResultCount = val
                 this.fetchData4Users()
             },
+            // 获取用户列表的方法
+            getUsers(params) {
+                return commonService.findUsers(params)
+            },
+            // 选中用户的回调
+            async selectedUser (user) {
+                for (let i = 0; i < this.userList.data.length; i++) {
+                    let item = this.userList.data[i]
+                    if (item.id == user.value) {
+                        abp.notify.error('该用户已添加', '提示')
+                        return
+                    }
+                }
+                await organizationUnitService.addUserToOrganizationUnit({
+                    userId: user.value,
+                    organizationUnitId: this.selectedOrgan.id
+                })
+                this.dialogUser.isShow = false
+                this.fetchData4Users()
+                abp.notify.success('添加成功!', '恭喜')
+                this.fetchData()
+            },
+            // 删除用户
+            delUser (index, item) {
+                abp.message.confirm(`是否确认删除用户 【${item.userName}】`, async (ret) => {
+                    if (!ret) return
+                    await organizationUnitService.removeUserFromOrganizationUnit({
+                        userId: item.id,
+                        organizationUnitId: this.selectedOrgan.id
+                    })
+                    abp.notify.success('删除成功', '恭喜')
+                    this.userList.data.splice(index, 1)
+                    this.fetchData()
+                })
+            }
         },
-        components: {JsTree}
+        components: {JsTree, DialogUserlist}
     }
 
     function resetUserListFetchParam() {

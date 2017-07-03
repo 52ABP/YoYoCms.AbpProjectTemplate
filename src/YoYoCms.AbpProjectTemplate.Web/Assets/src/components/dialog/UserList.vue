@@ -1,52 +1,74 @@
 <!--用户列表弹窗-->
 <style rel="styleesheet" lang="scss">
+    .dialog-userlist--container {
+        .el-dialog {
+            padding-bottom: 15px;
+        }
+    }
 </style>
 
 <template>
-    <article class="dialog-permission-tree--container" v-loading="loading">
-        <el-dialog ref="dialog"
-                   @open="handleOpen"
-                   :title="title"
-                   :visible.sync="dialogVisible"
-                   size="tiny">
+    <el-dialog ref="dialog" class="dialog-userlist--container"
+               @open="handleOpen"
+               title="选择用户"
+               :visible.sync="dialogVisible"
+               size="tiny">
+        <el-table class="data-table" v-loading="loading"
+                  :data="data"
+                  :fit="true"
+                  border>
+            <!--<el-table-column type="selection"></el-table-column>-->
+            <el-table-column
+                    min-width="120"
+                    prop="name"
+                    label="用户名">
+            </el-table-column>
+            <el-table-column
+                    width="100"
+                    label="操作">
+                <template scope="scope">
+                    <el-button size="mini" @click="selectUser(scope.row)">
+                        <i style="vertical-align: middle;font-size: 12px" class="material-icons" title="选择">done</i>
+                        选择
+                    </el-button>
+                </template>
+            </el-table-column>
+        </el-table>
 
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="confirmClick">确 定</el-button>
-          </span>
-        </el-dialog>
-    </article>
+        <el-pagination class="pagin"
+                       @size-change="handleSizeChange"
+                       @current-change="handleCurrentChange"
+                       :current-page="fetchParam.page"
+                       :page-size="fetchParam.maxResultCount"
+                       :page-sizes="[15, 30, 60, 100]"
+                       layout="sizes,total, prev, pager, next"
+                       :total="total">
+        </el-pagination>
+    </el-dialog>
 </template>
 
 <script>
-    import userService from '../../services/userService'
     export default {
         props: {
-            title: String,
-            value: Boolean,
-            userid: Number,
-            onConfirmCb: Function, // 确定按钮的回调 参数为 选中的权限id集合
+            visible: Boolean,
+            selectedUserCb: Function, // 确定按钮的回调 参数为 选中的权限id集合
+            getUserFn: Function, // 获取用户的方法 返回Promise
         },
         data() {
             return {
-                dialogVisible: this.value,
+                total: 0,
                 loading: false,
-                defaultProps: {
-                    children: 'children',
-                    label: 'label'
-                },
-//                user: this.$store.state.auth.user,
-                orignPermission: void 0,
-                treeData: [],
-                plugins: ['checkbox', 'types'], // jstree的plugins参数
+                fetchParam: getFetchParam(),
+                data: [],
+                dialogVisible: false
             }
         },
         watch: {
-            'value' (val) {
+            'visible' (val) {
                 if (val != this.dialogVisible) this.dialogVisible = val
             },
             'dialogVisible' (val) {
-                this.$emit('input', val)
+                this.$emit('update:visible', val)
             }
         },
         async activated() {
@@ -54,25 +76,38 @@
         async mounted () {
         },
         methods: {
+            handleCurrentChange (val) {
+                this.fetchParam.skipCount = Math.abs((val - 1)) * this.fetchParam.maxResultCount
+                this.fetchData()
+            },
+            handleSizeChange (val) {
+                this.fetchParam.maxResultCount = val
+                this.fetchData()
+            },
             fetchData () {
-            },
-            async handleOpen () {
-                this.loading = true
-                this.orignPermission = await userService.getUserPermissionsForEdit({id: this.userid})
-                this.loading = false
-            },
-            // 确定按钮点击回调
-            confirmClick () {
-                if (!this.onConfirmCb) this.dialogVisible = false
-
-                this.loading = true
-                this.onConfirmCb(this.$refs.dialog.$children[2].get_selected()).then(() => {
-                    this.dialogVisible = false
-                    this.loading = false
+                this.getUserFn(this.fetchParam).then((ret) => {
+                    this.total = ret.totalCount
+                    this.data = ret.items
                 })
+            },
+            handleOpen () {
+                this.fetchParam = getFetchParam()
+                this.fetchData()
+            },
+            selectUser (user) {
+                this.selectedUserCb(user)
             }
         },
         components: {}
+    }
+
+    function getFetchParam() {
+        return {
+            filter: void 0,
+            maxResultCount: 15,
+            skipCount: 0,
+            page: 1,
+        }
     }
 </script>
 
