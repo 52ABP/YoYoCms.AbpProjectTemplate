@@ -28,9 +28,15 @@ userService.resetPwd = function (params) {
 }
 
 // 注册
-userService.register = function (params) {
+userService.register = function (data) {
     // IsExternalLogin=False&Name=asda&Surname=asdasd&EmailAddress=asd%40asd.asd&UserName=123asd&Password=asdasd123&PasswordRepeat=asdasd123
-    return apiHelper.post('/Account/Register', params)
+    // abp.ajax()
+    return abp.ajax({
+        url: '/Account/Register?type=ajax',
+        data,
+        method: 'post',
+        contentType: 'application/x-www-form-urlencoded'
+    })
 }
 
 userService.logout = function () {
