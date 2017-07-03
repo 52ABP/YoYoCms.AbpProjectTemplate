@@ -51,7 +51,7 @@
                         </el-form>
                         <div class="row">
                             <div class="col-xs-8 p-t-5">
-                                <input type="checkbox" name="rememberme" id="rememberme"
+                                <input type="checkbox" id="rememberme" v-model="fetchParam.rememberMe"
                                        class="filled-in chk-col-pink">
                                 <label for="rememberme">记住我</label>
                             </div>
@@ -62,10 +62,10 @@
                         </div>
                         <div class="row m-t-15 m-b--20">
                             <div class="col-xs-6">
-                                <a href="sign-up.html">立即注册!</a>
+                                <a @click="$router.push({name:'register'})" style="cursor:pointer;">立即注册!</a>
                             </div>
                             <div class="col-xs-6 align-right">
-                                <a href="forgot-password.html">忘记密码?</a>
+                                <a @click="$router.push({name: 'forgetpwd'})" style="cursor: pointer">忘记密码?</a>
                             </div>
                         </div>
                     </div>
@@ -87,6 +87,7 @@
                     usernameOrEmailAddress: '',
                     password: '',
                     tenancyName: 'default',
+                    rememberMe: false
                 },
                 rules: {
                     usernameOrEmailAddress: [
