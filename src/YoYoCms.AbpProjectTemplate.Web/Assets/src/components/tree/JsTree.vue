@@ -16,6 +16,7 @@
             context: Object, // 组件的上下文
             onItemClick: Function, // 每一项点击后回调
             onDragStop: Function, // 拖动结束后回调 参数 (subId, parentId)
+            contextMenu: Object | Function, // 上下文菜单
         },
         data() {
             return {}
@@ -31,13 +32,18 @@
                 this.$nextTick(() => {
                     $(this.$refs.container).jstree('destroy')
                     $(this.$refs.container).on('changed.jstree', (e, data) => {
-                        let i
-                        let j
-                        let ret = []
-                        for (i = 0, j = data.selected.length; i < j; i++) {
-                            ret.push(data.instance.get_node(data.selected[i]))
+                        let ret
+                        ret = data.instance.get_node(data.selected[0])
+
+                        for (let key in this.treeData) {
+                            let item = this.treeData[key]
+                            if (ret.id == item.id) {
+                                ret.displayName = item.displayName
+                                break
+                            }
                         }
-                        this.onItemClick && this.onItemClick(ret[0])
+
+                        this.onItemClick && this.onItemClick(ret)
                     }).jstree({
                         'core': {
                             data: this.treeData,
@@ -70,6 +76,7 @@
                             three_state: false,
                             cascade: ''
                         },
+                        'contextmenu': {items: this.contextMenu},
                         plugins: this.plugins || []
                     })
 
