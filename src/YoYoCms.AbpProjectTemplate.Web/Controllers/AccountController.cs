@@ -161,11 +161,18 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                                 TenantId = SimpleStringCipher.Instance.Encrypt(tenantId == null ? null : tenantId.ToString()),
                                 UserId = SimpleStringCipher.Instance.Encrypt(loginResult.User.Id.ToString()),
                                 ResetCode = loginResult.User.PasswordResetCode
-                            })
+                            }),
+                        Result = new
+                        {
+                            TenantId = SimpleStringCipher.Instance.Encrypt(tenantId == null ? null : tenantId.ToString()),
+                            UserId = SimpleStringCipher.Instance.Encrypt(loginResult.User.Id.ToString()),
+                            ResetCode = loginResult.User.PasswordResetCode,
+                            ResetPassword = true
+                        }
                     });
                 }
 
-            var listClaims=   AddIdentityInfo(loginResult.Identity, loginResult.User);
+                var listClaims = AddIdentityInfo(loginResult.Identity, loginResult.User);
 
                 loginResult.Identity.AddClaims(listClaims);
 
@@ -217,7 +224,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
         {
             var loginResult = await _logInManager.LoginAsync(usernameOrEmailAddress, password, tenancyName);
-         
+
             switch (loginResult.Result)
             {
                 case AbpLoginResultType.Success:
@@ -295,7 +302,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
             var tenantId = await _signInManager.GetVerifiedTenantIdAsync();
 
-            var isRememberBrowserEnabled = tenantId == null 
+            var isRememberBrowserEnabled = tenantId == null
                 ? await SettingManager.GetSettingValueForApplicationAsync<bool>(AbpZeroSettingNames.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled)
                 : await SettingManager.GetSettingValueForTenantAsync<bool>(AbpZeroSettingNames.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled, tenantId.Value);
 
@@ -348,7 +355,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// </summary>
         /// <param name="identity"></param>
         /// <returns></returns>
-        private List<Claim> AddIdentityInfo(ClaimsIdentity identity,User user)
+        private List<Claim> AddIdentityInfo(ClaimsIdentity identity, User user)
         {
 
             var list = new List<Claim>

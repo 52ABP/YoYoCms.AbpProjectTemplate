@@ -16,7 +16,15 @@ userService.login = async function (params) {
     let ret = await apiHelper.post('/Account/Login?returnUrl=none', params, {
         contentType: 'application/x-www-form-urlencoded'
     })
+
     return ret
+}
+
+// 重置密码
+userService.resetPwd = function (params) {
+    return apiHelper.post('/Account/ResetPassword', params, {
+        contentType: 'application/x-www-form-urlencoded'
+    })
 }
 
 userService.logout = function () {
