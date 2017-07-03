@@ -29,7 +29,7 @@
                                 </span>
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="username" placeholder="用户名或邮箱地址"
-                                               v-model="fetchParam.usernameOrEmailAddress"
+                                               v-model="fetchParam.usernameOrEmailAddress" ref="txtUsername"
                                                required
                                                autofocus>
                                     </div>
@@ -98,22 +98,34 @@
                 }
             }
         },
-        created() {
-        },
-        activated() {
+        mounted() {
+            this.$refs.txtUsername.focus()
         },
         methods: {
             login () {
-                this.$refs.form.validate((valid) => {
+                this.$refs.form.validate(async (valid) => {
                     if (!valid) return
                     this.loading = true
-                    userService.login(this.fetchParam)
-                    setTimeout(() => {
+                    try {
+                        let ret = await userService.login(this.fetchParam)
+
+                        // 如果需要重新设置密码
+                        if (ret.result && ret.result.resetPassword) {
+                            abp.notify.success('请重新设置密码!', '登录成功')
+                            delete ret.result.resetPassword
+                            this.$router.push({name: 'resetpassword', query: ret.result})
+                            return
+                        }
+                        setTimeout(() => {
 //                        authUtils.setToken(ret)
-                        this.$router.push({name: 'Dashboard.Tenant'})
-                        abp.notify.success('登录成功!', '恭喜')
+                            this.$router.push({name: 'Dashboard.Tenant'})
+                            abp.notify.success('登录成功!', '恭喜')
+                            this.loading = false
+                        }, 5e2)
+                    } catch (e) {
+                        abp.notify.error('请确认账号密码是否正确!', '登录失败')
                         this.loading = false
-                    }, 5e2)
+                    }
                 })
             },
         },

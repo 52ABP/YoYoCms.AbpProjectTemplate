@@ -9,7 +9,7 @@ import administration from '../router/administration/index'
 
 let router = new Router({
     routes: [
-        { path: '/', redirect: '/login' },
+        {path: '/', redirect: '/login'},
         {
             path: '/login',
             name: 'login',
@@ -17,6 +17,19 @@ let router = new Router({
                 require.ensure([],
                     () => {
                         resolve(require('../views/loginregist/Login.vue'))
+                    })
+            },
+            meta: {
+                notAuth: true, // 不需要权限验证
+            }
+        },
+        {
+            path: '/resetpassword',
+            name: 'resetpassword',
+            component: resolve => {
+                require.ensure([],
+                    () => {
+                        resolve(require('../views/loginregist/ResetPassword.vue'))
                     })
             },
             meta: {
@@ -69,9 +82,9 @@ router.beforeEach((to, from, next) => {
     let menu = []
     to.matched.forEach((item) => {
         item.meta.displayName = item.meta.displayName
-        menu.push({ name: item.name })
+        menu.push({name: item.name})
     })
-    store.dispatch('setIndexMenuActive', { menu })
+    store.dispatch('setIndexMenuActive', {menu})
 
     next()
 })
