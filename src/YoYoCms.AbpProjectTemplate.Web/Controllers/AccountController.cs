@@ -396,9 +396,15 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             return View("Register", model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="type">default-默认提交 ajax</param>
+        /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
-        public virtual async Task<ActionResult> Register(RegisterViewModel model)
+        public virtual async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
         {
             try
             {
@@ -531,6 +537,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     Logger.Warn("New registered user could not be login. This should not be normally. login result: " + loginResult.Result);
                 }
 
+                // 如果是ajax请求
+                if (type == "ajax")
+                    return Json(new AjaxResponse(new RegisterResultViewModel()
+                    {
+                        IsActive = user.IsActive,
+                        IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin
+                    }));
+
                 return View("RegisterResult", new RegisterResultViewModel
                 {
                     TenancyName = tenant.TenancyName,
@@ -543,6 +557,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             }
             catch (UserFriendlyException ex)
             {
+                // 如果是ajax请求
+                if (type == "ajax")
+                    return Json(new AjaxResponse() { Success = false, Error = new ErrorInfo(ex.Message) });
+
                 ViewBag.IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled;
                 ViewBag.UseCaptcha = !model.IsExternalLogin && UseCaptchaOnRegistration();
                 ViewBag.ErrorMessage = ex.Message;
