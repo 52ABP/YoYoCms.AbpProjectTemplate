@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.MultiTenancy;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.MultiTenancy.Dto
 {

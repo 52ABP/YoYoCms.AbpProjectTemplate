@@ -10,13 +10,13 @@ using Abp.Zero;
 using Abp.Zero.Configuration;
 using Abp.Zero.Ldap;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Configuration;
 using YoYoCms.AbpProjectTemplate.Debugging;
 using YoYoCms.AbpProjectTemplate.Features;
 
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Notifications;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate
 {

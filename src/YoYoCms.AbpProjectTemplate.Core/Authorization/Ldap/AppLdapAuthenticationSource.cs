@@ -1,7 +1,7 @@
 ﻿using Abp.Zero.Ldap.Authentication;
 using Abp.Zero.Ldap.Configuration;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Authorization.Ldap
 {

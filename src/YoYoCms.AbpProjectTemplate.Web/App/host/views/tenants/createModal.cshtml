@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <input type="email" name="AdminEmailAddress" class="form-control" ng-model="vm.tenant.adminEmailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength">
+                <input type="email" name="AdminEmailAddress" class="form-control" ng-model="vm.tenant.adminEmailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxEmailAddressLength">
                 <label>@L("AdminEmailAddress")</label>
             </div>
 
@@ -56,12 +56,12 @@
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint" ng-if="!vm.setRandomPassword">
-                <input type="password" name="Password" class="form-control" ng-model="vm.tenant.adminPassword" ng-required="!vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPlainPasswordLength">
+                <input type="password" name="Password" class="form-control" ng-model="vm.tenant.adminPassword" ng-required="!vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPlainPasswordLength">
                 <label>@L("AdminPassword")</label>
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint" ng-if="!vm.setRandomPassword">
-                <input type="password" name="AdminPasswordRepeat" class="form-control" ng-model="vm.tenant.adminPasswordRepeat" ng-required="!vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPlainPasswordLength" ui-validate=" '$value==vm.tenant.adminPassword' " ui-validate-watch=" 'vm.tenant.adminPassword' ">
+                <input type="password" name="AdminPasswordRepeat" class="form-control" ng-model="vm.tenant.adminPasswordRepeat" ng-required="!vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPlainPasswordLength" ui-validate=" '$value==vm.tenant.adminPassword' " ui-validate-watch=" 'vm.tenant.adminPassword' ">
                 <label>@L("AdminPasswordRepeat")</label>
             </div>
 

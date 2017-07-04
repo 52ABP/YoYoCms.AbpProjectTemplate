@@ -31,7 +31,6 @@ using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.Authorization.Impersonation;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Configuration;
 using YoYoCms.AbpProjectTemplate.Debugging;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
@@ -43,6 +42,7 @@ using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
 using Newtonsoft.Json;
 using YoYoCms.AbpProjectTemplate.Security;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 using YoYoCms.AbpProjectTemplate.Web.Auth;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
@@ -479,7 +479,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     };
 
                     model.UserName = model.EmailAddress;
-                    model.Password = Authorization.Users.User.CreateRandomPassword();
+                    model.Password = UserManagement.Users.User.CreateRandomPassword();
 
                     if (string.Equals(externalLoginInfo.Email, model.EmailAddress, StringComparison.InvariantCultureIgnoreCase))
                     {

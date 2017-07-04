@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.MultiTenancy;
 using Abp.Zero.Configuration;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.MultiTenancy.Dto;
 using YoYoCms.AbpProjectTemplate.Notifications;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.MultiTenancy
 {

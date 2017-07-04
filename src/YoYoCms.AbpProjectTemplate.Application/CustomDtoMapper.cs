@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Authorization.Users.Dto;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users.Dto;
 
 namespace YoYoCms.AbpProjectTemplate
 {

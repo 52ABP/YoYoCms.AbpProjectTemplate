@@ -9,13 +9,13 @@ using Abp.IdentityFramework;
 using Abp.MultiTenancy;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Editions;
 using YoYoCms.AbpProjectTemplate.MultiTenancy.Demo;
 using Abp.Extensions;
 using Abp.Notifications;
 using Abp.Runtime.Security;
 using YoYoCms.AbpProjectTemplate.Notifications;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.MultiTenancy
 {

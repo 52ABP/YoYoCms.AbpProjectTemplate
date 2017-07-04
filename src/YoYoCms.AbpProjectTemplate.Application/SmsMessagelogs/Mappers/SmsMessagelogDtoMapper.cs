@@ -7,10 +7,10 @@
 // <Author-作者>角落的白板笔</Author-作者>
 // Copyright © YoYoCms@中国.2017-07-03T17:31:51. All Rights Reserved.
 //<生成时间>2017-07-03T17:31:51</生成时间>
-using AutoMapper;
-using YoYoCms.AbpProjectTemplate.smsmessage.Dtos;
 
-namespace YoYoCms.AbpProjectTemplate.smsmessage.Mappers
+using AutoMapper;
+
+namespace YoYoCms.AbpProjectTemplate.SmsMessagelogs.Mappers
 {
 	/// <summary>
     /// SmsMessagelogDto映射配置

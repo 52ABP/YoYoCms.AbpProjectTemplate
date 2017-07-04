@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Authorization.Users.Dto;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.WebApp.Controllers
 {

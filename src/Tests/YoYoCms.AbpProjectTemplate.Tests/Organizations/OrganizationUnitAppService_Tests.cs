@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization.Users;
 using Abp.Organizations;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Organizations;
 using YoYoCms.AbpProjectTemplate.Organizations.Dto;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Organizations
 {
