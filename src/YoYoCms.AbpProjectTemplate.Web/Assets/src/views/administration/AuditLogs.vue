@@ -18,6 +18,10 @@
                 font-size: 24px;
             }
 
+            .error-status{
+                word-break: break-all;
+            }
+
             section {
                 font-size: 14px;
                 margin: 15px 0 0 60px;
@@ -165,7 +169,7 @@
                 </article>
 
                 <h2>错误状态</h2>
-                <article>
+                <article class="error-status">
                     <section>
                         <i class="material-icons font-bold col-cyan" v-if="!dialogDetail.model.exception "
                            style="font-size: 14px;vertical-align: middle">check_circle</i>

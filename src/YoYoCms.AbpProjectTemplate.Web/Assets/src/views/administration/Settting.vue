@@ -52,7 +52,7 @@
                     </el-form-item>
                     <el-form-item label="注册用户默认激活" prop="isNewRegisteredUserActiveByDefault">
                         <el-checkbox v-model="userManagement.isNewRegisteredUserActiveByDefault"></el-checkbox>
-                        <i class="tip">如果此项被禁用，新用户需要通过邮件激活后才能登录.</i>
+                        <i class="tip">如果此项被启用，新用户需要通过邮件激活后才能登录.</i>
                     </el-form-item>
                     <el-form-item label="用户注册时使用图片验证码(captcha)." prop="useCaptchaOnRegistration">
                         <el-checkbox v-model="userManagement.useCaptchaOnRegistration"></el-checkbox>
