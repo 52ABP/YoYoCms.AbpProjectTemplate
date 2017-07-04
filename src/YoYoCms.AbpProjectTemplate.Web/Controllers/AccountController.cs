@@ -504,14 +504,25 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 }
 
                 CheckErrors(await _userManager.CreateAsync(user));
-                await _unitOfWorkManager.Current.SaveChangesAsync();
+                try
+                {
+                    await _unitOfWorkManager.Current.SaveChangesAsync();
 
+             
+                    //email可空
                 if (!user.IsEmailConfirmed)
                 {
                     user.SetNewEmailConfirmationCode();
                     await _userEmailer.SendEmailActivationLinkAsync(user);
                 }
 
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
                 //Notifications
                 await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
                 await _appNotifier.WelcomeToTheApplicationAsync(user);
