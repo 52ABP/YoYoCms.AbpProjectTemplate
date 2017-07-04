@@ -30,8 +30,9 @@ $bgColor: #ededed;
     }
 
     .el-table {
+        overflow: visible;
         * {
-            overflow: visible !important;
+            overflow: visible
         }
         .dropdown-menu {
             right: 0;
