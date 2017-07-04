@@ -1,5 +1,4 @@
 ﻿using Abp.IdentityFramework;
-using Abp.UI;
 using Abp.Web.Mvc.Controllers;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;

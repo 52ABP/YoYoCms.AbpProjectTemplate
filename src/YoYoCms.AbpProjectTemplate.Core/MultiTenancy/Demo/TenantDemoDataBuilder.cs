@@ -6,13 +6,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp;
 using Abp.Dependency;
-using Abp.Domain.Repositories;
 using Abp.Organizations;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
 using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Chat;
-using YoYoCms.AbpProjectTemplate.Friendships;
 using YoYoCms.AbpProjectTemplate.Storage;
 
 namespace YoYoCms.AbpProjectTemplate.MultiTenancy.Demo
@@ -37,26 +34,20 @@ namespace YoYoCms.AbpProjectTemplate.MultiTenancy.Demo
         private readonly RandomUserGenerator _randomUserGenerator;
         private readonly IBinaryObjectManager _binaryObjectManager;
         private readonly IAppFolders _appFolders;
-        private readonly IFriendshipManager _friendshipManager;
-        private readonly IRepository<ChatMessage, long> _chatMessageRepository;
 
         public TenantDemoDataBuilder(
             OrganizationUnitManager organizationUnitManager,
             UserManager userManager,
             RandomUserGenerator randomUserGenerator,
             IBinaryObjectManager binaryObjectManager,
-            IAppFolders appFolders,
-            IFriendshipManager friendshipManager,
-            IChatMessageManager chatMessageManager, 
-            IRepository<ChatMessage, long> chatMessageRepository)
+            IAppFolders appFolders
+         )
         {
             _organizationUnitManager = organizationUnitManager;
             _userManager = userManager;
             _randomUserGenerator = randomUserGenerator;
             _binaryObjectManager = binaryObjectManager;
             _appFolders = appFolders;
-            _friendshipManager = friendshipManager;
-            _chatMessageRepository = chatMessageRepository;
         }
 
         public async Task BuildForAsync(Tenant tenant)
@@ -131,52 +122,9 @@ namespace YoYoCms.AbpProjectTemplate.MultiTenancy.Demo
             var admin = _userManager.FindByName(User.AdminUserName);
             await SetRandomProfilePictureAsync(admin);
 
-            //Create Friendships
-            var friends = RandomHelper.GenerateRandomizedList(users).Take(3).ToList();
-            foreach (var friend in friends)
-            {
-                _friendshipManager.CreateFriendship(
-                    new Friendship(
-                        admin.ToUserIdentifier(),
-                        friend.ToUserIdentifier(),
-                        tenant.TenancyName,
-                        friend.UserName,
-                        friend.ProfilePictureId,
-                        FriendshipState.Accepted)
-                );
+         
 
-                _friendshipManager.CreateFriendship(
-                    new Friendship(
-                        friend.ToUserIdentifier(),
-                        admin.ToUserIdentifier(),
-                        tenant.TenancyName,
-                        admin.UserName,
-                        admin.ProfilePictureId,
-                        FriendshipState.Accepted)
-                );
-            }
-
-            //Create chat message
-            var friendWithMessage = RandomHelper.GenerateRandomizedList(friends).First();
-            _chatMessageRepository.InsertAndGetId(
-                new ChatMessage(
-                    friendWithMessage.ToUserIdentifier(),
-                    admin.ToUserIdentifier(), 
-                    ChatSide.Sender, 
-                    L("Demo_SampleChatMessage"), 
-                    ChatMessageReadState.Read
-                )
-            );
-
-            _chatMessageRepository.InsertAndGetId(
-                new ChatMessage(
-                    admin.ToUserIdentifier(),
-                    friendWithMessage.ToUserIdentifier(),
-                    ChatSide.Receiver,
-                    L("Demo_SampleChatMessage"),
-                    ChatMessageReadState.Unread
-                )
-            );
+           
 
         }
 

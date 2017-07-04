@@ -280,5 +280,37 @@
     <text name="LookingForMpaVersion" value="查找多页面应用版本号" />
     <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
+
+
+ 
+    <text name="MustBe_Required" value="不能为空" />
+
+
+ 
+    <!-- 短信日志记录表管理 -->
+    <text name="SmsMessagelog" value="短信日志记录表" />
+    <text name="SmsMessagelogHeaderInfo" value="短信日志记录表管理列表" />
+    <text name="CreateSmsMessagelog" value="新增短信日志记录表" />
+    <text name="EditSmsMessagelog" value="编辑短信日志记录表" />
+    <text name="DeleteSmsMessagelog" value="删除短信日志记录表" />
+
+
+
+
+    <text name="SmsMessagelogDeleteWarningMessage" value="短信日志记录表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="PhoneNumber" value="发送电话" />
+    <text name="Content" value="发送内容" />
+    <text name="SmsCode" value="短信代码(验证码)" />
+    <text name="InvalidTime" value="失效时间" />
+    <text name="Sucess" value="是否发送成功" />
+    <text name="Result" value="短信提供商返回内容" />
+    <text name="IsChecked" value="是否已检测过" />
+    <text name="IsNotification" value="是否为通知短信" />
+    <text name="LastModificationTime" value="最后编辑时间" />
+ 
+ 
+
+
   </texts>
 </localizationDictionary>

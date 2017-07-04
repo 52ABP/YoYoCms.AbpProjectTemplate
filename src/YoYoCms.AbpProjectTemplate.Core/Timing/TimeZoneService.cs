@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Abp.Configuration;
 using Abp.Dependency;
 using Abp.Timing;
-using Abp.Extensions;
 
 namespace YoYoCms.AbpProjectTemplate.Timing
 {

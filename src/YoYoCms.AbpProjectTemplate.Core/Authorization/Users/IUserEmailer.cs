@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using YoYoCms.AbpProjectTemplate.Chat;
 
 namespace YoYoCms.AbpProjectTemplate.Authorization.Users
 {
@@ -20,13 +19,5 @@ namespace YoYoCms.AbpProjectTemplate.Authorization.Users
         /// <param name="user">User</param>
         Task SendPasswordResetLinkAsync(User user);
 
-        /// <summary>
-        /// Sends an email for unread chat message to user's email.
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="senderUsername"></param>
-        /// <param name="senderTenancyName"></param>
-        /// <param name="chatMessage"></param>
-        void TryToSendChatMessageMail(User user, string senderUsername, string senderTenancyName, ChatMessage chatMessage);
     }
 }

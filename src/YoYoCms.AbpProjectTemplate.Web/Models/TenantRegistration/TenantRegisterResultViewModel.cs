@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace YoYoCms.AbpProjectTemplate.Web.Models.TenantRegistration
+﻿namespace YoYoCms.AbpProjectTemplate.Web.Models.TenantRegistration
 {
     public class TenantRegisterResultViewModel
     {

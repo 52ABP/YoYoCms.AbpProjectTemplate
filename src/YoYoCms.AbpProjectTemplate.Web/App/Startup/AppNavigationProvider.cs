@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Navigation;
 using Abp.Localization;
 using YoYoCms.AbpProjectTemplate.Authorization;
+using YoYoCms.AbpProjectTemplate.SmsMessagelogs.Authorization;
 using YoYoCms.AbpProjectTemplate.Web.Navigation;
 
 namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
@@ -15,6 +16,13 @@ namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
     {
         public override void SetNavigation(INavigationProviderContext context)
         {
+            var smsMessagelog = new MenuItemDefinition(
+                 SmsMessagelogAppPermissions.SmsMessagelog,
+                 L("SmsMessagelog"),
+                 url: "smsMessagelogs",
+                 icon: "icon-grid",
+                  requiredPermissionName: SmsMessagelogAppPermissions.SmsMessagelog
+                 );
             context.Manager.MainMenu
                 .AddItem(new MenuItemDefinition(
                     PageNames.App.Host.Tenants,
@@ -62,7 +70,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
                         icon: "icon-users",
                         requiredPermissionName: AppPermissions.Pages_Administration_Users
                         )
-                    ).AddItem(new MenuItemDefinition(
+                    ).AddItem(smsMessagelog).AddItem(new MenuItemDefinition(
                         PageNames.App.Common.Languages,
                         L("Languages"),
                         url: "languages",

@@ -35,7 +35,7 @@ namespace YoYoCms.AbpProjectTemplate
             {
                 throw new ApplicationException("There is no current user!");
             }
-
+        // Logger.IsDebugEnabled
             return user;
         }
 

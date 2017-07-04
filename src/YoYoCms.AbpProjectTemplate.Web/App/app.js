@@ -75,7 +75,12 @@ appModule.config([
                 templateUrl: '~/App/common/views/roles/index.cshtml'
             });
         }
-
+        if (abp.auth.hasPermission('Pages.SmsMessagelog')) {
+            $stateProvider.state('smsMessagelogs', {
+                url: '/smsMessagelogs?filterText',
+                templateUrl: '~/App/common/views/smsmessage/index.cshtml',
+            });
+        }
         if (abp.auth.hasPermission('Pages.Administration.Users')) {
             $stateProvider.state('users', {
                 url: '/users?filterText',
