@@ -72,7 +72,7 @@
                     <li>
                         @if (Model.LoginInformations != null)
                         {
-                            <a href="@Url.Action("Vue", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
+                            <a href="@Url.Action("dashboard","view")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
                         }
                         else
                         {
