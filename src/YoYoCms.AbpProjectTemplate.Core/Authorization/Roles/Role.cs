@@ -1,5 +1,5 @@
 ﻿using Abp.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Authorization.Roles
 {

@@ -18,10 +18,10 @@ using Abp.Extensions;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Editions;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Notifications;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 using YoYoCms.AbpProjectTemplate.Web.Auth;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
@@ -125,7 +125,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
                 CurrentUnitOfWork.SetTenantId(tenant.Id);
 
-                var user = await _userManager.FindByNameAsync(Authorization.Users.User.AdminUserName);
+                var user = await _userManager.FindByNameAsync(UserManagement.Users.User.AdminUserName);
 
                 //Directly login if possible
                 if (tenant.IsActive && user.IsActive && (user.IsEmailConfirmed || !isEmailConfirmationRequiredForLogin))
@@ -145,7 +145,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 {
                     TenancyName = model.TenancyName,
                     Name = model.Name,
-                    UserName = Authorization.Users.User.AdminUserName,
+                    UserName = UserManagement.Users.User.AdminUserName,
                     EmailAddress = model.AdminEmailAddress,
                     IsActive = isNewRegisteredTenantActiveByDefault,
                     IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin

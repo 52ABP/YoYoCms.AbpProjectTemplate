@@ -5,8 +5,8 @@ using Abp.Authorization.Users;
 using Abp.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.EntityFramework;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Migrations.Seed.Tenants
 {

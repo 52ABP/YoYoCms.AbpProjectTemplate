@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.EntityMapper.BinaryObjects;
 
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
@@ -10,6 +9,7 @@ using YoYoCms.AbpProjectTemplate.smsmessage;
 using YoYoCms.AbpProjectTemplate.smsmessage.EntityMapper.smsmessage;
 using YoYoCms.AbpProjectTemplate.SmsMessagelogs;
 using YoYoCms.AbpProjectTemplate.Storage;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.EntityFramework
 {

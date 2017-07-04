@@ -8,15 +8,15 @@
 // <Author-作者>角落的白板笔</Author-作者>
 // Copyright © YoYoCms@中国.2017-07-03T17:31:49. All Rights Reserved.
 //<生成时间>2017-07-03T17:31:49</生成时间>
-using System;
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using YoYoCms.AbpProjectTemplate.Dto;
-using YoYoCms.AbpProjectTemplate.smsmessage.Dtos;
+using YoYoCms.AbpProjectTemplate.SmsMessagelogs.Dtos;
 
-namespace YoYoCms.AbpProjectTemplate.smsmessage
+namespace YoYoCms.AbpProjectTemplate.SmsMessagelogs
 {
 	/// <summary>
     /// 短信日志记录表服务接口

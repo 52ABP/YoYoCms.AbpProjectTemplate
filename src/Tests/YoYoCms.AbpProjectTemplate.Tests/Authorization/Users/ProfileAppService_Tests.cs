@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
-using YoYoCms.AbpProjectTemplate.Authorization.Users.Profile;
-using YoYoCms.AbpProjectTemplate.Authorization.Users.Profile.Dto;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users.Profile;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users.Profile.Dto;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Authorization.Users
 {

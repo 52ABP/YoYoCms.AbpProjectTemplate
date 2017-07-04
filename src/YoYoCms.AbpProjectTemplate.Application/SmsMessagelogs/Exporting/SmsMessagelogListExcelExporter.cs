@@ -9,28 +9,15 @@
 // <Author-作者>角落的白板笔</Author-作者>
 // Copyright © YoYoCms@中国.2017-07-03T17:31:58. All Rights Reserved.
 //<生成时间>2017-07-03T17:31:58</生成时间>
-	using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Linq;
-    using System.Linq.Dynamic;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Abp;
-    using Abp.Application.Services.Dto;
-    using Abp.Authorization;
-    using Abp.AutoMapper;
-    using Abp.Configuration;
-    using Abp.Domain.Repositories;
-    using Abp.Extensions;
-    using Abp.Linq.Extensions;
-	using Abp.Runtime.Session;
-	using Abp.Timing.Timezone;
-	using YoYoCms.AbpProjectTemplate.DataExporting.Excel.EpPlus;
-	using YoYoCms.AbpProjectTemplate.Dto;
-	using YoYoCms.AbpProjectTemplate.smsmessage.Dtos;
- 
-    namespace YoYoCms.AbpProjectTemplate.smsmessage
+
+using System.Collections.Generic;
+using Abp.Runtime.Session;
+using Abp.Timing.Timezone;
+using YoYoCms.AbpProjectTemplate.DataExporting.Excel.EpPlus;
+using YoYoCms.AbpProjectTemplate.Dto;
+using YoYoCms.AbpProjectTemplate.SmsMessagelogs.Dtos;
+
+namespace YoYoCms.AbpProjectTemplate.SmsMessagelogs.Exporting
 {
     /// <summary>
     /// 短信日志记录表的导出EXCEL功能的实现

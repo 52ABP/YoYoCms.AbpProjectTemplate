@@ -1,5 +1,5 @@
 ﻿using Abp.Auditing;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Auditing
 {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Abp.Auditing;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Security;
 using Abp.Extensions;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 using YoYoCms.AbpProjectTemplate.Validation;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Models.Account

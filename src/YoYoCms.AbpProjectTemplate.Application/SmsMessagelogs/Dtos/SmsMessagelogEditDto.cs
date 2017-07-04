@@ -7,16 +7,13 @@
 // <Author-作者>角落的白板笔</Author-作者>
 // Copyright © YoYoCms@中国.2017-07-03T17:31:44. All Rights Reserved.
 //<生成时间>2017-07-03T17:31:44</生成时间>
+
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Abp.AutoMapper;
-using Abp.Runtime.Validation;
-using Abp.Extensions;
-using YoYoCms.AbpProjectTemplate.smsmessage;
-using YoYoCms.AbpProjectTemplate.SmsMessagelogs;
 
-namespace YoYoCms.AbpProjectTemplate.smsmessage.Dtos
+namespace YoYoCms.AbpProjectTemplate.SmsMessagelogs.Dtos
 {
     /// <summary>
     /// 短信日志记录表编辑用Dto

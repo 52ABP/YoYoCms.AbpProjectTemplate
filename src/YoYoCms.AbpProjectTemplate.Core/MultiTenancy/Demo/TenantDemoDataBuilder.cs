@@ -9,8 +9,8 @@ using Abp.Dependency;
 using Abp.Organizations;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Storage;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.MultiTenancy.Demo
 {

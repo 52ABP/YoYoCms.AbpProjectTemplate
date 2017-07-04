@@ -14,10 +14,10 @@ using Abp.Runtime.Session;
 using Abp.UI;
 using Abp.Web.Models;
 using Abp.Web.Mvc.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.IO;
 using YoYoCms.AbpProjectTemplate.Net.MimeTypes;
 using YoYoCms.AbpProjectTemplate.Storage;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {

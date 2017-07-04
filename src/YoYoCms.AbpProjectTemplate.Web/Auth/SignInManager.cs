@@ -3,8 +3,8 @@ using Abp.Configuration;
 using Abp.Domain.Uow;
 using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Auth
 {

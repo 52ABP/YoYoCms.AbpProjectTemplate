@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Abp.UI;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Authorization.Users.Dto;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users.Dto;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Authorization.Users
 {

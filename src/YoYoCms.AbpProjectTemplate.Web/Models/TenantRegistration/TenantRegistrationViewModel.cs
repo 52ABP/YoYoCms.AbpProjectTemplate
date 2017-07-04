@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Models.TenantRegistration
 {
