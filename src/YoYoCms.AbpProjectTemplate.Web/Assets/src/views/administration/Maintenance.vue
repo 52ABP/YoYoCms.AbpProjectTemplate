@@ -2,7 +2,7 @@
     @import "../../mixins/topSearch";
     @import "../../mixins/common";
 
-    .maintenance-roles-container {
+    .administration-maintenance-container {
         @extend %content-container;
 
         /*position: absolute;*/
@@ -43,7 +43,7 @@
 </style>
 
 <template>
-    <article class="maintenance-roles-container" v-loading="loading">
+    <article class="administration-maintenance-container" v-loading="loading">
         <el-tabs v-model="activeName" @tab-click="handleTabClick">
             <el-tab-pane label="缓存" name="first" class="first-cache">
                 <h2 class="row">
