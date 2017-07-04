@@ -535,9 +535,6 @@
     <Content Include="Assets\config\index.js" />
     <Content Include="Assets\config\prod.env.js" />
     <Content Include="Assets\index.html" />
-    <Content Include="Assets\src\assets\logo.png" />
-    <Content Include="Assets\src\main.js" />
-    <Content Include="Assets\src\router\index.js" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
     <Content Include="Common\Images\open-id-connect.png" />
     <Content Include="Common\Images\ws-federation.png" />
@@ -2305,11 +2302,11 @@
     <Content Include="Assets\.eslintignore" />
     <Content Include="Assets\package.json" />
     <Content Include="Assets\README.md" />
-    <Content Include="Assets\src\App.vue">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Assets\src\components\Hello.vue" />
     <Content Include="Assets\static\.gitkeep" />
+    <Content Include="App\common\views\smsmessage\createOrEditModalJs.js" />
+    <Content Include="App\common\views\smsmessage\IndexJs.js" />
+    <Content Include="App\common\views\smsmessage\____SmsMessagelogReadme.js" />
+    <None Include="Properties\PublishProfiles\169服务器.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -3074,6 +3071,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="App\common\views\smsmessage\index.cshtml" />
+    <Content Include="App\common\views\smsmessage\createOrEditModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
@@ -3093,10 +3092,6 @@
     <Compile Include="Auth\AuthenticationManagerExtensions.cs" />
     <Compile Include="Auth\SignInManager.cs" />
     <Compile Include="Auth\TwitterEmailRetriever.cs" />
-    <Compile Include="Chat\SignalR\ChatHub.cs" />
-    <Compile Include="Chat\SignalR\SendChatMessageInput.cs" />
-    <Compile Include="Chat\SignalR\SendFriendshipRequestInput.cs" />
-    <Compile Include="Chat\SignalR\SignalRChatCommunicator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

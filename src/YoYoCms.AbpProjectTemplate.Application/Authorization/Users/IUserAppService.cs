@@ -11,7 +11,7 @@ namespace YoYoCms.AbpProjectTemplate.Authorization.Users
         Task<PagedResultDto<UserListDto>> GetUsers(GetUsersInput input);
 
         Task<FileDto> GetUsersToExcel();
-
+        
         Task<GetUserForEditOutput> GetUserForEdit(NullableIdDto<long> input);
 
         Task<GetUserPermissionsForEditOutput> GetUserPermissionsForEdit(EntityDto<long> input);

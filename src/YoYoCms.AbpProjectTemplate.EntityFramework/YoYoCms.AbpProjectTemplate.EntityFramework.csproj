@@ -142,19 +142,18 @@
     <Compile Include="EntityFramework\Repositories\AbpProjectTemplateRepositoryBase.cs" />
     <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
     <Compile Include="EntityMapper\BinaryObjects\BinaryObjectCfg.cs" />
-    <Compile Include="EntityMapper\ChatMessages\ChatMessageCfg.cs" />
-    <Compile Include="EntityMapper\FriendShips\FriendshipCfg.cs" />
-    <Compile Include="Migrations\201501041229232_InitialCreate.cs" />
-    <Compile Include="Migrations\201501041229232_InitialCreate.Designer.cs">
-      <DependentUpon>201501041229232_InitialCreate.cs</DependentUpon>
+    <Compile Include="EntityMapper\SmsMessagelogs\SmsMessagelogCfg.cs" />
+    <Compile Include="Migrations\201707040517045_InitialCreate.cs" />
+    <Compile Include="Migrations\201707040517045_InitialCreate.Designer.cs">
+      <DependentUpon>201707040517045_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs" />
-    <Compile Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.Designer.cs">
-      <DependentUpon>201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
+    <Compile Include="Migrations\201707040518007_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs" />
+    <Compile Include="Migrations\201707040518007_Upgrated_To_Abp_And_Module_Zero_1_5_2.Designer.cs">
+      <DependentUpon>201707040518007_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706131330141_Change_Table_Name.cs" />
-    <Compile Include="Migrations\201706131330141_Change_Table_Name.Designer.cs">
-      <DependentUpon>201706131330141_Change_Table_Name.cs</DependentUpon>
+    <Compile Include="Migrations\201707040519364_Add_BinaryObjects.cs" />
+    <Compile Include="Migrations\201707040519364_Add_BinaryObjects.Designer.cs">
+      <DependentUpon>201707040519364_Add_BinaryObjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AbpProjectTemplateDataModule.cs" />
@@ -172,23 +171,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201501041229232_InitialCreate.resx">
-      <DependentUpon>201501041229232_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.resx">
-      <DependentUpon>201706131309341_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706131330141_Change_Table_Name.resx">
-      <DependentUpon>201706131330141_Change_Table_Name.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\YoYoCms.AbpProjectTemplate.Core\YoYoCms.AbpProjectTemplate.Core.csproj">
       <Project>{17298EA0-AF73-4F30-B6F1-2066100D7D74}</Project>
       <Name>YoYoCms.AbpProjectTemplate.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707040517045_InitialCreate.resx">
+      <DependentUpon>201707040517045_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040518007_Upgrated_To_Abp_And_Module_Zero_1_5_2.resx">
+      <DependentUpon>201707040518007_Upgrated_To_Abp_And_Module_Zero_1_5_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040519364_Add_BinaryObjects.resx">
+      <DependentUpon>201707040519364_Add_BinaryObjects.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

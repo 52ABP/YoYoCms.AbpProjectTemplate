@@ -42,7 +42,6 @@ using YoYoCms.AbpProjectTemplate.Web.MultiTenancy;
 using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
 using Newtonsoft.Json;
-using StackExchange.Redis;
 using YoYoCms.AbpProjectTemplate.Security;
 using YoYoCms.AbpProjectTemplate.Web.Auth;
 
@@ -218,6 +217,8 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             }
 
+
+
             _authenticationManager.SignOutAllAndSignIn(identity, rememberMe);
         }
 
@@ -361,7 +362,8 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             var list = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.EmailAddress),
-                new Claim(AbpProjectTemplateConsts.ClaimTypes.UserName, user.UserName)
+                new Claim(AbpProjectTemplateConsts.ClaimTypes.UserName, user.UserName),
+                new Claim("ceshi", "001")
             };
 
             return list;

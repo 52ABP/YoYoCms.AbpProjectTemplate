@@ -1,5 +1,4 @@
 ﻿using Abp.Dependency;
-using Abp.Runtime.Session;
 using Abp.Web.Mvc.Views;
 using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
 
