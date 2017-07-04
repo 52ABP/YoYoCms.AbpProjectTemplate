@@ -24,14 +24,14 @@
 
             section {
                 font-size: 14px;
-                margin: 15px 0 0 60px;
+                margin: 15px 0 0 0;
 
                 > * {
                     display: inline-block;
                     vertical-align: top;
                 }
                 em {
-                    width: 5em;
+                    width: 10em;
                     text-align: right;
                     font-weight: bold;
                     margin-right: 20px;
@@ -50,45 +50,45 @@
 <template>
     <article class="administration-auditlog-container">
         <section class="right-top-btnContainer">
-            <el-button icon="upload2" @click="exportExcel">导出到excel</el-button>
+            <el-button icon="upload2" @click="exportExcel">{{L('ExportToExcel')}}</el-button>
         </section>
 
         <article class="search">
             <section>
-                <i>用户名</i>
-                <el-input size="small" placeholder="用户名" v-model="fetchParam.userName"
+                <i>{{L('UserName')}}</i>
+                <el-input size="small" :placeholder="L('UserName')" v-model="fetchParam.userName"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>
-                <i>日期</i>
+                <i>{{L('DateRange')}}</i>
                 <DateRange size="small" :onChange="fetchData" :start.sync="fetchParam.startDate"
                            :end.sync="fetchParam.endDate"></DateRange>
             </section>
             <section>
-                <i>服务</i>
-                <el-input size="small" placeholder="服务" v-model="fetchParam.serviceName"
+                <i>{{L('Service')}}</i>
+                <el-input size="small" :placeholder="L('Service')" v-model="fetchParam.serviceName"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>
-                <i>服务</i>
-                <el-input size="small" placeholder="操作" v-model="fetchParam.methodName"
+                <i>{{L('Action')}}</i>
+                <el-input size="small" :placeholder="L('Action')" v-model="fetchParam.methodName"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>
-                <i>错误状态</i>
-                <el-select size="small" v-model="fetchParam.hasException" placeholder="请选择" @change="fetchData" :clearable="true">
-                    <el-option label="成功" :value="false"></el-option>
-                    <el-option label="失败" :value="true"></el-option>
+                <i>{{L('ErrorState')}}</i>
+                <el-select size="small" v-model="fetchParam.hasException" :placeholder="L('All')" @change="fetchData" :clearable="true">
+                    <el-option :label="L('Success')" :value="false"></el-option>
+                    <el-option :label="L('HasError')" :value="true"></el-option>
                 </el-select>
             </section>
             <section>
-                <i>浏览器</i>
-                <el-input size="small" placeholder="浏览器" v-model="fetchParam.browserInfo"
+                <i>{{L('Browser')}}</i>
+                <el-input size="small" :placeholder="L('Browser')" v-model="fetchParam.browserInfo"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
-            <section>
-                <el-button size="small" type="primary" icon="search" @click="fetchData">搜索</el-button>
-            </section>
+            <!--<section>-->
+                <!--<el-button size="small" type="primary" icon="search" @click="fetchData">搜索</el-button>-->
+            <!--</section>-->
         </article>
 
         <el-table class="data-table" v-loading="loadingData"
@@ -103,25 +103,25 @@
                        v-else>error</i>
                 </template>
             </el-table-column>
-            <el-table-column width="180" label="时间">
+            <el-table-column width="180" :label="L('Time')">
                 <template scope="scope">
                     <i>{{scope.row.executionTime | date2str(true)}}</i>
                 </template>
             </el-table-column>
-            <el-table-column width="100" prop="userName" label="用户名"></el-table-column>
-            <el-table-column min-width="130" prop="serviceName" label="服务"></el-table-column>
-            <el-table-column min-width="130" prop="methodName" label="操作"></el-table-column>
-            <el-table-column width="100" label="持续时间">
+            <el-table-column width="110" prop="userName" :label="L('UserName')"></el-table-column>
+            <el-table-column min-width="130" prop="serviceName" :label="L('Service')"></el-table-column>
+            <el-table-column min-width="130" prop="methodName" :label="L('Action')"></el-table-column>
+            <el-table-column width="100" :label="L('Duration')">
                 <template scope="scope">
                     <i>{{scope.row.executionDuration}} ms</i>
                 </template>
             </el-table-column>
-            <el-table-column prop="clientIpAddress" width="135" label="ip地址"></el-table-column>
-            <el-table-column prop="clientName" width="160" label="客户端"></el-table-column>
-            <el-table-column prop="browserInfo" width="150" label="浏览器"></el-table-column>
+            <el-table-column prop="clientIpAddress" width="135" :label="L('IpAddress')"></el-table-column>
+            <el-table-column prop="clientName" width="160" :label="L('Client')"></el-table-column>
+            <el-table-column prop="browserInfo" width="150" :label="L('Browser')"></el-table-column>
             <el-table-column
-                    width="80"
-                    label="操作">
+                    width="100"
+                    :label="L('Action')">
                 <template scope="scope">
                     <el-button size="small" icon="view" @click="dialogDetail.isShow=true;dialogDetail.model=scope.row"></el-button>
                 </template>
@@ -140,40 +140,40 @@
 
         <!--详情信息的弹出框-->
         <el-dialog class="dialog-detail"
-                   title="审计日志详情"
+                   :title="L('AuditLogDetail')"
                    :visible.sync="dialogDetail.isShow"
                    size="tiny">
             <article>
-                <h2>用户信息</h2>
+                <h2>{{L('UserInformations')}}</h2>
                 <article>
-                    <section><em>用户名:</em> {{dialogDetail.model.userName}}</section>
-                    <section><em>IP地址:</em> {{dialogDetail.model.clientIpAddress}}</section>
-                    <section><em>客户端:</em> {{dialogDetail.model.clientName}}</section>
-                    <section><em>浏览器:</em> {{dialogDetail.model.browserInfo}}</section>
+                    <section><em>{{L('UserName')}}:</em> {{dialogDetail.model.userName}}</section>
+                    <section><em>{{L('IpAddress')}}:</em> {{dialogDetail.model.clientIpAddress}}</section>
+                    <section><em>{{L('Client')}}:</em> {{dialogDetail.model.clientName}}</section>
+                    <section><em>{{L('Browser')}}:</em> {{dialogDetail.model.browserInfo}}</section>
                 </article>
 
-                <h2>操作信息</h2>
+                <h2>{{L('ActionInformations')}}</h2>
                 <article>
-                    <section><em>服务:</em> {{dialogDetail.model.serviceName}}</section>
-                    <section><em>操作:</em> {{dialogDetail.model.methodName}}</section>
-                    <section><em>时间:</em> {{dialogDetail.model.executionTime | date2str(true)}}</section>
-                    <section><em>持续时间:</em> {{dialogDetail.model.executionDuration}} ms</section>
-                    <section><em>参数:</em>
+                    <section><em>{{L('Service')}}:</em> {{dialogDetail.model.serviceName}}</section>
+                    <section><em>{{L('Action')}}:</em> {{dialogDetail.model.methodName}}</section>
+                    <section><em>{{L('Time')}}:</em> {{dialogDetail.model.executionTime | date2str(true)}}</section>
+                    <section><em>{{L('Duration')}}:</em> {{dialogDetail.model.executionDuration}} ms</section>
+                    <section><em>{{L('Parameters')}}:</em>
                         <pre lang="js">{{dialogDetail.model.parameters ? JSON.stringify(JSON.parse(dialogDetail.model.parameters), null, '\t') : ''}}</pre>
                     </section>
                 </article>
 
-                <h2>[Custom data]</h2>
+                <h2>{{L('CustomData')}}</h2>
                 <article>
                     <section>{{dialogDetail.model.customData || '[NONE]'}}</section>
                 </article>
 
-                <h2>错误状态</h2>
+                <h2>{{L('ErrorState')}}</h2>
                 <article class="error-status">
                     <section>
                         <i class="material-icons font-bold col-cyan" v-if="!dialogDetail.model.exception "
                            style="font-size: 14px;vertical-align: middle">check_circle</i>
-                        <span>{{dialogDetail.model.exception || '成功'}}</span>
+                        <span>{{dialogDetail.model.exception || L('Success')}}</span>
                     </section>
                 </article>
             </article>

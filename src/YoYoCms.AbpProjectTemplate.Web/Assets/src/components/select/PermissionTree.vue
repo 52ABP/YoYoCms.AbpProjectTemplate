@@ -14,7 +14,7 @@
 
 <template>
     <article class="permissiontree--container" ref="container">
-        <el-input placeholder="选择权限" @focus="!showList && (showList=true)" ref="input" v-bind:value="currVal.text"
+        <el-input :placeholder="L('Permissions')" @focus="!showList && (showList=true)" ref="input" v-bind:value="currVal.text"
                   :icon="currVal.id ? 'circle-close' : ''"
                   :on-icon-click="() => { currVal = {} }"
                   :readonly="true"></el-input>

@@ -22,11 +22,11 @@
 <template>
     <article class="administration-roles-container">
         <section class="right-top-btnContainer">
-            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.role={}">添加角色</el-button>
+            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.role={}">{{L('CreateNewRole')}}</el-button>
         </section>
         <article class="search">
             <section>
-                <i>权限</i>
+                <i>{{L('Permissions')}}</i>
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
             <section>
@@ -40,38 +40,38 @@
                   border>
             <el-table-column
                     min-width="120"
-                    label="角色名称">
+                    :label="L('RoleName')">
                 <template scope="scope">
                     <i>{{scope.row.displayName}}</i>
-                    <el-tooltip content="不能删除系统角色" placement="top" v-if="scope.row.isStatic">
-                        <el-tag type="success">系统</el-tag>
+                    <el-tooltip :content="L('StaticRole_Tooltip')" placement="top" v-if="scope.row.isStatic">
+                        <el-tag type="success">{{L('Static')}}</el-tag>
                     </el-tooltip>
 
-                    <el-tooltip content="新用户将默认拥有此角色" placement="top" v-if="scope.row.isDefault">
-                        <el-tag type="gray">默认</el-tag>
+                    <el-tooltip :content="L('DefaultRole_Description')" placement="top" v-if="scope.row.isDefault">
+                        <el-tag type="gray">{{L('Default')}}</el-tag>
                     </el-tooltip>
                 </template>
             </el-table-column>
             <el-table-column
                     width="190"
                     prop="lastLoginTime"
-                    label="创建时间">
+                    :label="L('CreationTime')">
                 <template scope="scope">
                     <i>{{scope.row.creationTime | date2str}}</i>
                 </template>
             </el-table-column>
             <el-table-column
                     width="100"
-                    label="操作">
+                    :label="L('Action')">
                 <template scope="scope">
                     <div class="btn-group">
                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                            操作 <span class="caret"></span>
+                            {{L('Action')}} <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
-                                <a>修改</a>
+                                <a>{{L('Edit')}}</a>
                             </li>
                         </ul>
                     </div>
