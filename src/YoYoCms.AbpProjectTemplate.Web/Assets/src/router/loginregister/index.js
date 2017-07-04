@@ -54,4 +54,17 @@ export default [
             notAuth: true, // 不需要权限验证
         }
     },
+    { // 发送激活邮件
+        path: '/sendactiveemail',
+        name: 'SendActiveEmail',
+        component: resolve => {
+            require.ensure([],
+                () => {
+                    resolve(require('../../views/loginregist/SendActiveEmail.vue'))
+                })
+        },
+        meta: {
+            notAuth: true, // 不需要权限验证
+        }
+    },
 ]
