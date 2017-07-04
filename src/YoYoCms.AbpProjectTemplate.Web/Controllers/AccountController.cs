@@ -43,7 +43,7 @@ using Recaptcha.Web.Mvc;
 using Newtonsoft.Json;
 using YoYoCms.AbpProjectTemplate.Security;
 using YoYoCms.AbpProjectTemplate.UserManagement.Users;
-using YoYoCms.AbpProjectTemplate.Web.Auth;
+using YoYoCms.AbpProjectTemplate.Web.Authorization;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {

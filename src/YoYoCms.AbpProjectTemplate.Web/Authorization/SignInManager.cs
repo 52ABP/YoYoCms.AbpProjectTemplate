@@ -6,7 +6,7 @@ using YoYoCms.AbpProjectTemplate.Authorization.Roles;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
-namespace YoYoCms.AbpProjectTemplate.Web.Auth
+namespace YoYoCms.AbpProjectTemplate.Web.Authorization
 {
     public class SignInManager : AbpSignInManager<Tenant, Role, User>
     {
