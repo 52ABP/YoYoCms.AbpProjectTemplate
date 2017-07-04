@@ -305,7 +305,7 @@
                         userId: item.id,
                         organizationUnitId: this.selectedOrgan.id
                     })
-                    abp.notify.success('删除成功', '恭喜')
+                    abp.notify.success('删除成功', lang.L('Success'))
                     this.userList.data.splice(index, 1)
                     this.fetchData()
                 })
