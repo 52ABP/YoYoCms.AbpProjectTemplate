@@ -381,8 +381,9 @@
         activated() {
         },
         async mounted() {
-            // 获取菜单信息
+            // 获取菜单,语言包等信息
             await abpScriptService.getScripts()
+
             this.menus = abp.nav.menus.MainMenu
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})

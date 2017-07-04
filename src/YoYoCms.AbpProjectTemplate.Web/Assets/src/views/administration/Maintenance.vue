@@ -45,13 +45,13 @@
 <template>
     <article class="administration-maintenance-container" v-loading="loading">
         <el-tabs v-model="activeName" @tab-click="handleTabClick">
-            <el-tab-pane label="缓存" name="first" class="first-cache">
+            <el-tab-pane :label="L('Caches')" name="first" class="first-cache">
                 <h2 class="row">
-                    <em class="col-xs-6">[缓存头信息]</em>
+                    <em class="col-xs-6">[{{L('CachesHeaderInfo')}}]</em>
                     <div class="clearall--btn col-xs-6">
                         <el-button size="tiny" type="primary" @click="clearCache(null, true)">
                             <i class="material-icons material-icons-small">refresh</i>
-                            清除所有
+                            {{L('ClearAll')}}
                         </el-button>
                     </div>
                 </h2>
@@ -59,30 +59,30 @@
                 <el-table
                         :fit="true"
                         stripe
+                        :show-header="false"
                         v-loading="loading"
                         :data="caches.data">
-                    <el-table-column
-                            prop="name"
-                            label="缓存头" min-width="200">
+                    <el-table-column prop="name" min-width="200">
                     </el-table-column>
-                    <el-table-column label="操作" width="105">
+                    <el-table-column width="105">
                         <template scope="scope">
-                            <el-button type="danger" size="small" @click="clearCache(scope.row)">清除</el-button>
+                            <el-button type="danger" size="small" @click="clearCache(scope.row)">{{L('Clear')}}
+                            </el-button>
                         </template>
                     </el-table-column>
                 </el-table>
             </el-tab-pane>
-            <el-tab-pane label="站点日志" name="second" class="second-log">
+            <el-tab-pane :label="L('WebSiteLogs')" name="second" class="second-log">
                 <h2 class="row">
-                    <em class="col-xs-6">[站点日志头信息]</em>
+                    <em class="col-xs-6">[{{L('WebSiteLogsHeaderInfo')}}]</em>
                     <div class="clearall--btn col-xs-6">
                         <el-button size="tiny" type="primary" @click="exportWeblog">
                             <i class="material-icons material-icons-small">file_download </i>
-                            下载所有
+                            {{L('DownloadAll')}}
                         </el-button>
                         <el-button size="tiny" type="primary" @click="getWeblog">
                             <i class="material-icons material-icons-small">refresh</i>
-                            刷新
+                            {{L('Refresh')}}
                         </el-button>
                     </div>
                 </h2>
@@ -142,7 +142,7 @@
                     this.loading = true
                     if (isAll) await cachingService.clearAllCaches()
                     else await cachingService.clearCache({id: item.name})
-                    abp.notify.success('清除成功', '恭喜')
+                    abp.notify.success(lang.L('CacheSuccessfullyCleared'), lang.L('Success'))
                 } finally {
                     this.loading = false
                 }
