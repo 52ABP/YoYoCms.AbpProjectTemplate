@@ -6,16 +6,12 @@
 // <Author-作者>角落的白板笔</Author-作者>
 // Copyright © YoYoCms@中国.2017-07-03T17:31:56. All Rights Reserved.
 //<生成时间>2017-07-03T17:31:56</生成时间>
-using System;
-using System.Data.Entity;
+
 using System.Data.Entity.ModelConfiguration;
-using Abp.Application.Services.Dto;
-using Abp.Extensions;
 using YoYoCms.AbpProjectTemplate.EntityFramework;
-using YoYoCms.AbpProjectTemplate.smsmessage;
 using YoYoCms.AbpProjectTemplate.SmsMessagelogs;
 
-namespace YoYoCms.AbpProjectTemplate.smsmessage.EntityMapper.smsmessage
+namespace YoYoCms.AbpProjectTemplate.EntityMapper.SmsMessagelogs
 {
 
 	/// <summary>
