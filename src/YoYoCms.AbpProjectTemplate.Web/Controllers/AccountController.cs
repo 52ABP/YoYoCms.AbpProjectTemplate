@@ -582,6 +582,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// 是否启用用户注册验证码信息
+        /// </summary>
+        /// <returns></returns>
         private bool UseCaptchaOnRegistration()
         {
             if (DebugHelper.IsDebug)

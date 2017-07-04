@@ -7,13 +7,13 @@ namespace YoYoCms.AbpProjectTemplate.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ddddd : IMigrationMetadata
+    public sealed partial class Add_User_Name : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ddddd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_User_Name));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707040923007_ddddd"; }
+            get { return "201707041101220_Add_User_Name"; }
         }
         
         string IMigrationMetadata.Source

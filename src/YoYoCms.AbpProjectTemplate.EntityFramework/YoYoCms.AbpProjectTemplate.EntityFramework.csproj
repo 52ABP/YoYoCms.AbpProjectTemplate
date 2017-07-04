@@ -156,17 +156,9 @@
     <Compile Include="Migrations\201707040519364_Add_BinaryObjects.Designer.cs">
       <DependentUpon>201707040519364_Add_BinaryObjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707040742258_Add_UserChange.cs" />
-    <Compile Include="Migrations\201707040742258_Add_UserChange.Designer.cs">
-      <DependentUpon>201707040742258_Add_UserChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707040810137_Add_ENtity.cs" />
-    <Compile Include="Migrations\201707040810137_Add_ENtity.Designer.cs">
-      <DependentUpon>201707040810137_Add_ENtity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707040923007_ddddd.cs" />
-    <Compile Include="Migrations\201707040923007_ddddd.Designer.cs">
-      <DependentUpon>201707040923007_ddddd.cs</DependentUpon>
+    <Compile Include="Migrations\201707041101220_Add_User_Name.cs" />
+    <Compile Include="Migrations\201707041101220_Add_User_Name.Designer.cs">
+      <DependentUpon>201707041101220_Add_User_Name.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AbpProjectTemplateDataModule.cs" />
@@ -199,14 +191,8 @@
     <EmbeddedResource Include="Migrations\201707040519364_Add_BinaryObjects.resx">
       <DependentUpon>201707040519364_Add_BinaryObjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040742258_Add_UserChange.resx">
-      <DependentUpon>201707040742258_Add_UserChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040810137_Add_ENtity.resx">
-      <DependentUpon>201707040810137_Add_ENtity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040923007_ddddd.resx">
-      <DependentUpon>201707040923007_ddddd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707041101220_Add_User_Name.resx">
+      <DependentUpon>201707041101220_Add_User_Name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
