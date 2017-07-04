@@ -14,7 +14,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Routing
             routes.MapRoute(
                 name: "ForntProj",
                 url: "view/{*path}",
-                defaults: new { controller = "Home", action = "ForntProj" },
+                defaults: new { controller = "Application", action = "Vue" },
                 namespaces: new[] { "YoYoCms.AbpProjectTemplate.Web.Controllers" }
             );
 
