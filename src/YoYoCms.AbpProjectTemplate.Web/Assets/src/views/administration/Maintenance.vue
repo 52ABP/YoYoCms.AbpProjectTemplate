@@ -90,6 +90,7 @@
                     <section v-for="item in weblogs.data">
                         <el-tag type="primary" v-if="item.indexOf('DEBUG') == 0">DEBUG</el-tag>
                         <el-tag type="warning" v-else-if="item.indexOf('WARN') == 0">WARN</el-tag>
+                        <el-tag type="danger" v-else-if="item.indexOf('ERROR') == 0">ERROR</el-tag>
                         {{item}}
                     </section>
                 </article>
