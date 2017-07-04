@@ -164,6 +164,10 @@
     <Compile Include="Migrations\201707040810137_Add_ENtity.Designer.cs">
       <DependentUpon>201707040810137_Add_ENtity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707040923007_ddddd.cs" />
+    <Compile Include="Migrations\201707040923007_ddddd.Designer.cs">
+      <DependentUpon>201707040923007_ddddd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AbpProjectTemplateDataModule.cs" />
     <Compile Include="Migrations\Seed\Host\DefaultEditionCreator.cs" />
@@ -200,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707040810137_Add_ENtity.resx">
       <DependentUpon>201707040810137_Add_ENtity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707040923007_ddddd.resx">
+      <DependentUpon>201707040923007_ddddd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
