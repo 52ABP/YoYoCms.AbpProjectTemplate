@@ -13,11 +13,11 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users.Dto
         /// </summary>
         public long? Id { get; set; }
 
-        [Required]
+       
         [StringLength(User.MaxNameLength)]
         public string Name { get; set; }
 
-        [Required]
+      
         [StringLength(User.MaxSurnameLength)]
         public string Surname { get; set; }
 

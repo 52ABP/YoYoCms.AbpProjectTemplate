@@ -100,8 +100,8 @@
                 activeName: 'first',
                 currUser: this.user || {},
                 rules: {
-                    name: [{required: true, message: '请输入名字', trigger: 'change'}],
-                    surname: [{required: true, message: '请输入姓氏', trigger: 'change'}],
+                    name: [{required: false, message: '请输入名字', trigger: 'change'}],
+                    surname: [{required: false, message: '请输入姓氏', trigger: 'change'}],
                     emailAddress: [{required: true, message: '请输入邮箱', trigger: 'change'}],
                     repassword: [{validator: this.validRepass, trigger: 'change'}],
                     userName: [{required: true, message: '请输入用户名', trigger: 'change'}],

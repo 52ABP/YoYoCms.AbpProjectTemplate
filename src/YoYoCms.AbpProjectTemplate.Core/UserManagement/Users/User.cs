@@ -20,10 +20,11 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
         public virtual bool ShouldChangePasswordOnNextLogin { get; set; }
 
         //Can add application specific user properties here
+        [Required(AllowEmptyStrings = true)]
+        public override string Name { get; set; }
 
-        private new string Name { get; set; }
-
-        private new string Surname { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        public override string Surname { get; set; }
 
         [Required(AllowEmptyStrings = true)]
         public override string EmailAddress { get; set; }

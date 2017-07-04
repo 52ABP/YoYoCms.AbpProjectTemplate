@@ -55,9 +55,9 @@
                                             continue;
                                         }
 
-                                    <li class="language-menu-item">
-                                        <a href="@Url.Action("ChangeCulture", "AbpLocalization")?cultureName=@(language.Name)&returnUrl=@Request.Path"><i class="@language.Icon"></i> <span>@language.DisplayName</span></a>
-                                    </li>
+                                        <li class="language-menu-item">
+                                            <a href="@Url.Action("ChangeCulture", "AbpLocalization")?cultureName=@(language.Name)&returnUrl=@Request.Path"><i class="@language.Icon"></i> <span>@language.DisplayName</span></a>
+                                        </li>
                                     }
                                 </ul>
                             </div>
@@ -72,7 +72,7 @@
                     <li>
                         @if (Model.LoginInformations != null)
                         {
-                            <a href="@Url.Action("Vue", "Application")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
+                            <a href="@Url.Action("dashboard","view")">@Model.GetShownLoginName() (@L("GoToApplication"))</a>
                         }
                         else
                         {

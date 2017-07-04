@@ -1,11 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Entity;
-using System.Diagnostics;
-using System.Linq;
-using System.Linq.Dynamic;
-using System.Threading.Tasks;
-using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.Authorization.Users;
@@ -17,6 +10,13 @@ using Abp.Notifications;
 using Abp.Runtime.Session;
 using Abp.UI;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
+using System.Diagnostics;
+using System.Linq;
+using System.Linq.Dynamic;
+using System.Threading.Tasks;
 using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.Authorization.Permissions;
 using YoYoCms.AbpProjectTemplate.Authorization.Permissions.Dto;
@@ -224,9 +224,19 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
         [AbpAuthorize(AppPermissions.Pages_Administration_Users_Edit)]
         protected virtual async Task UpdateUserAsync(CreateOrUpdateUserInput input)
         {
+           
+
             Debug.Assert(input.User.Id != null, "input.User.Id should be set.");
 
             var user = await UserManager.FindByIdAsync(input.User.Id.Value);
+            if (input.User.Name.IsNullOrEmpty())
+            {
+                input.User.Name = string.Empty;
+            }
+            if (input.User.Surname.IsNullOrEmpty())
+            {
+                input.User.Surname = string.Empty;
+            }
 
             //Update user properties
             input.User.MapTo(user); //Passwords is not mapped (see mapping configuration)
