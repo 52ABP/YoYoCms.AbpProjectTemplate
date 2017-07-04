@@ -3,11 +3,10 @@ using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
 using YoYoCms.AbpProjectTemplate.EntityMapper.BinaryObjects;
-
+using YoYoCms.AbpProjectTemplate.EntityMapper.SmsMessagelogs;
+using YoYoCms.AbpProjectTemplate.EntityMapper.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
-using YoYoCms.AbpProjectTemplate.smsmessage;
-using YoYoCms.AbpProjectTemplate.smsmessage.EntityMapper.smsmessage;
-using YoYoCms.AbpProjectTemplate.SmsMessagelogs;
+ using YoYoCms.AbpProjectTemplate.SmsMessagelogs;
 using YoYoCms.AbpProjectTemplate.Storage;
 using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
@@ -67,6 +66,7 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
             //Change_Table_Name
             #endregion
 
+            modelBuilder.Configurations.Add(new UserCfg());
             modelBuilder.Configurations.Add(new SmsMessagelogCfg());
 
             base.OnModelCreating(modelBuilder);

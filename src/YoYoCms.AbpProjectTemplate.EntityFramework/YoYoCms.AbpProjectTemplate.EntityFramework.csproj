@@ -143,6 +143,7 @@
     <Compile Include="EntityFramework\AbpZeroDbMigrator.cs" />
     <Compile Include="EntityMapper\BinaryObjects\BinaryObjectCfg.cs" />
     <Compile Include="EntityMapper\SmsMessagelogs\SmsMessagelogCfg.cs" />
+    <Compile Include="EntityMapper\Users\UserCfg.cs" />
     <Compile Include="Migrations\201707040517045_InitialCreate.cs" />
     <Compile Include="Migrations\201707040517045_InitialCreate.Designer.cs">
       <DependentUpon>201707040517045_InitialCreate.cs</DependentUpon>
