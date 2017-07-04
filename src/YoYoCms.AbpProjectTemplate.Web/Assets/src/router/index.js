@@ -1,44 +1,31 @@
-import Vue from 'vue'
+﻿import Vue from 'vue'
 import Router from 'vue-router'
 // import authUtils from '../common/utils/authUtils'
 import store from '../store'
 
 Vue.use(Router)
 
+import dashboard from '../router/dashboard'
+import loginRegister from '../router/loginregister'
 import administration from '../router/administration/index'
 
 let router = new Router({
     routes: [
-        {path: '/', redirect: '/dashboard'},
-        {
-            path: '/login',
-            name: 'login',
-            component: resolve => {
-                require.ensure([], () => {
-                    resolve(require('../views/loginregist/Login.vue'))
-                })
-            },
-            meta: {
-                notAuth: true, // 不需要权限验证
-            }
-        },
+        {path: '/', redirect: '/login'},
+        //  =================================登录注册=====================================
+        ...loginRegister,
         {
             path: '/',
             name: 'index',
             component: resolve => {
-                require.ensure([], () => {
-                    resolve(require('../views/Index.vue'))
-                })
-            },
-            children: [{ // 工作台
-                path: '/dashboard',
-                name: 'Dashboard.Tenant',
-                component: resolve => {
-                    require.ensure([], () => {
-                        resolve(require('../views/dashboard/Dashboard.vue'))
+                require.ensure([],
+                    () => {
+                        resolve(require('../views/Index.vue'))
                     })
-                },
             },
+            children: [
+                //  =================================dashboard=====================================
+                dashboard,
                 //  =================================管理=====================================
                 administration
             ]

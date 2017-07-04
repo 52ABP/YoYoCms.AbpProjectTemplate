@@ -21,6 +21,16 @@
                 }
             }
         }
+
+        .content {
+            /*margin: 0;*/
+            /*!*100px 15px 0 315px*!*/
+            /*top: 100px;*/
+            /*right: 15px;*/
+            /*bottom: 15px;*/
+            /*left: 315px;*/
+            /*position: absolute;*/
+        }
     }
 </style>
 
@@ -84,7 +94,8 @@
                                                     <i class="material-icons">delete_forever</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>Nancy Doe</b> deleted account</h4>
+                                                    <h4>
+                                                        <b>Nancy Doe</b> deleted account</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 3 hours ago
                                                     </p>
@@ -97,7 +108,8 @@
                                                     <i class="material-icons">mode_edit</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>Nancy</b> changed name</h4>
+                                                    <h4>
+                                                        <b>Nancy</b> changed name</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 2 hours ago
                                                     </p>
@@ -110,7 +122,8 @@
                                                     <i class="material-icons">comment</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>John</b> commented your post</h4>
+                                                    <h4>
+                                                        <b>John</b> commented your post</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 4 hours ago
                                                     </p>
@@ -123,7 +136,8 @@
                                                     <i class="material-icons">cached</i>
                                                 </div>
                                                 <div class="menu-info">
-                                                    <h4><b>John</b> updated status</h4>
+                                                    <h4>
+                                                        <b>John</b> updated status</h4>
                                                     <p>
                                                         <i class="material-icons">access_time</i> 3 hours ago
                                                     </p>
@@ -239,8 +253,11 @@
                             </ul>
                         </li>
                         <!-- #END# Tasks -->
-                        <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i
-                                class="material-icons">more_vert</i></a></li>
+                        <li class="pull-right">
+                            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -262,13 +279,22 @@
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
-                                <li><a @click="dialogMe.isShow= true"><i class="material-icons">person</i>个人中心</a></li>
-                                <li><a @click="dialogPwd.isShow= true"><i class="material-icons">vpn_key</i>修改密码</a>
+                                <li>
+                                    <a @click="dialogMe.isShow= true">
+                                        <i class="material-icons">person</i>个人中心</a>
                                 </li>
-                                <li><a @click="dialogPortrait.isShow= true"><i class="material-icons">image</i>修改头像</a>
+                                <li>
+                                    <a @click="dialogPwd.isShow= true">
+                                        <i class="material-icons">vpn_key</i>修改密码</a>
+                                </li>
+                                <li>
+                                    <a @click="dialogPortrait.isShow= true">
+                                        <i class="material-icons">image</i>修改头像</a>
                                 </li>
                                 <li role="seperator" class="divider"></li>
-                                <li @click="logout"><a href="javascript:void(0);"><i class="material-icons">input</i>注销</a>
+                                <li @click="logout">
+                                    <a href="javascript:void(0);">
+                                        <i class="material-icons">input</i>注销</a>
                                 </li>
                             </ul>
                         </div>
@@ -286,7 +312,8 @@
                 <!-- Footer -->
                 <div class="legal">
                     <div class="copyright">
-                        &copy; 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                        &copy; 2017
+                        <a href="javascript:void(0);">AdminBSB - Material Design</a>.
                     </div>
                     <div class="version">
                         <b>Version: </b> 1.0.4
@@ -337,7 +364,7 @@
             }
         },
         watch: {
-            '$store.state.auth.user' (val) {
+            '$store.state.auth.user'(val) {
                 this.user = val
             }
         },
@@ -347,20 +374,20 @@
                 let ret = await sessionService.getCurrentLoginInformations()
                 let user = ret.user
                 this.$store.dispatch('setAuthUser', {user})
-//                authUtils.setUserInfo(user)
+                //                authUtils.setUserInfo(user)
                 this.user = user
             }
         },
         activated() {
         },
-        async mounted () {
+        async mounted() {
             // 获取菜单信息
             await abpScriptService.getScripts()
             this.menus = abp.nav.menus.MainMenu
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
             this.$nextTick(async () => {
-//                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
+                //                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
                 await loadFile.loadJs(require('../vendor/bsb/js/demo'))
                 await loadFile.loadJs(require('../vendor/bsb/js/admin'))
                 window.initDemoJs()
@@ -370,10 +397,10 @@
         },
         methods: {
             // 登出
-            logout () {
+            logout() {
                 userService.logout()
                 abp.nav = null
-//                authUtils.setToken('')
+                //                authUtils.setToken('')
                 this.$router.push({name: 'login'})
                 abp.notify.success('已成功退出登录', '提示')
             }

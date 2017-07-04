@@ -198,3 +198,4 @@ FakesAssemblies/
 # Custom
 Logs/
 /src/MyCompanyName.AbpZeroTemplate.Web/Logs
+/src/YoYoCms.AbpProjectTemplate.Web/Temp/Downloads

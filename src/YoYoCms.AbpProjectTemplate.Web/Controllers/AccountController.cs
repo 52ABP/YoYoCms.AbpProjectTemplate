@@ -160,11 +160,18 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                                 TenantId = SimpleStringCipher.Instance.Encrypt(tenantId == null ? null : tenantId.ToString()),
                                 UserId = SimpleStringCipher.Instance.Encrypt(loginResult.User.Id.ToString()),
                                 ResetCode = loginResult.User.PasswordResetCode
-                            })
+                            }),
+                        Result = new
+                        {
+                            TenantId = SimpleStringCipher.Instance.Encrypt(tenantId == null ? null : tenantId.ToString()),
+                            UserId = SimpleStringCipher.Instance.Encrypt(loginResult.User.Id.ToString()),
+                            ResetCode = loginResult.User.PasswordResetCode,
+                            ResetPassword = true
+                        }
                     });
                 }
 
-            var listClaims=   AddIdentityInfo(loginResult.Identity, loginResult.User);
+                var listClaims = AddIdentityInfo(loginResult.Identity, loginResult.User);
 
                 loginResult.Identity.AddClaims(listClaims);
 
@@ -218,7 +225,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         private async Task<AbpLoginResult<Tenant, User>> GetLoginResultAsync(string usernameOrEmailAddress, string password, string tenancyName)
         {
             var loginResult = await _logInManager.LoginAsync(usernameOrEmailAddress, password, tenancyName);
-         
+
             switch (loginResult.Result)
             {
                 case AbpLoginResultType.Success:
@@ -296,7 +303,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
             var tenantId = await _signInManager.GetVerifiedTenantIdAsync();
 
-            var isRememberBrowserEnabled = tenantId == null 
+            var isRememberBrowserEnabled = tenantId == null
                 ? await SettingManager.GetSettingValueForApplicationAsync<bool>(AbpZeroSettingNames.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled)
                 : await SettingManager.GetSettingValueForTenantAsync<bool>(AbpZeroSettingNames.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled, tenantId.Value);
 
@@ -349,7 +356,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// </summary>
         /// <param name="identity"></param>
         /// <returns></returns>
-        private List<Claim> AddIdentityInfo(ClaimsIdentity identity,User user)
+        private List<Claim> AddIdentityInfo(ClaimsIdentity identity, User user)
         {
 
             var list = new List<Claim>
@@ -391,9 +398,15 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             return View("Register", model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="type">default-默认提交 ajax</param>
+        /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
-        public virtual async Task<ActionResult> Register(RegisterViewModel model)
+        public virtual async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
         {
             try
             {
@@ -526,6 +539,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     Logger.Warn("New registered user could not be login. This should not be normally. login result: " + loginResult.Result);
                 }
 
+                // 如果是ajax请求
+                if (type == "ajax")
+                    return Json(new AjaxResponse(new RegisterResultViewModel()
+                    {
+                        IsActive = user.IsActive,
+                        IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin
+                    }));
+
                 return View("RegisterResult", new RegisterResultViewModel
                 {
                     TenancyName = tenant.TenancyName,
@@ -538,6 +559,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             }
             catch (UserFriendlyException ex)
             {
+                // 如果是ajax请求
+                if (type == "ajax")
+                    return Json(new AjaxResponse() { Success = false, Error = new ErrorInfo(ex.Message) });
+
                 ViewBag.IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled;
                 ViewBag.UseCaptcha = !model.IsExternalLogin && UseCaptchaOnRegistration();
                 ViewBag.ErrorMessage = ex.Message;

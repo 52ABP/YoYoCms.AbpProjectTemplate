@@ -53,5 +53,13 @@ export default {
                 resolve(require('../../views/administration/AuditLogs.vue'))
             })
         }
+    }, { // Maintenance
+        path: 'maintenance',
+        name: namePre + `Maintenance`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/Maintenance.vue'))
+            })
+        }
     }]
 }

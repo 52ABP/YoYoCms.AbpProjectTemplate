@@ -148,7 +148,8 @@ import authUtils from '../../../../common/utils/authUtils'
                     userOptions.error && userOptions.error(data.error, jqXHR);
 
                     if (jqXHR.status === 401 && userOptions.abpHandleError !== false) {
-                        abp.ajax.handleUnAuthorizedRequest(messagePromise, data.targetUrl);
+                        // 修改跳转链接
+                        abp.ajax.handleUnAuthorizedRequest(messagePromise, '/view/login');
                     }
                 } else { //not wrapped result
                     $dfd && $dfd.resolve(data, null, jqXHR);

@@ -29,7 +29,7 @@
                                 </span>
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="username" placeholder="用户名或邮箱地址"
-                                               v-model="fetchParam.usernameOrEmailAddress"
+                                               v-model="fetchParam.usernameOrEmailAddress" ref="txtUsername"
                                                required
                                                autofocus>
                                     </div>
@@ -51,7 +51,7 @@
                         </el-form>
                         <div class="row">
                             <div class="col-xs-8 p-t-5">
-                                <input type="checkbox" name="rememberme" id="rememberme"
+                                <input type="checkbox" id="rememberme" v-model="fetchParam.rememberMe"
                                        class="filled-in chk-col-pink">
                                 <label for="rememberme">记住我</label>
                             </div>
@@ -61,11 +61,14 @@
                             </div>
                         </div>
                         <div class="row m-t-15 m-b--20">
-                            <div class="col-xs-6">
-                                <a href="sign-up.html">立即注册!</a>
+                            <div class="col-xs-4">
+                                <a @click="$router.push({name:'register'})" style="cursor:pointer;">立即注册!</a>
                             </div>
-                            <div class="col-xs-6 align-right">
-                                <a href="forgot-password.html">忘记密码?</a>
+                            <div class="col-xs-4" style="text-align: center">
+                                <a @click="$router.push({name:'SendActiveEmail'})" style="cursor:pointer;">激活邮件</a>
+                            </div>
+                            <div class="col-xs-4 align-right">
+                                <a @click="$router.push({name: 'forgetPwd'})" style="cursor: pointer">忘记密码?</a>
                             </div>
                         </div>
                     </div>
@@ -87,6 +90,7 @@
                     usernameOrEmailAddress: '',
                     password: '',
                     tenancyName: 'default',
+                    rememberMe: false
                 },
                 rules: {
                     usernameOrEmailAddress: [
@@ -98,22 +102,34 @@
                 }
             }
         },
-        created() {
-        },
-        activated() {
+        mounted() {
+            this.$refs.txtUsername.focus()
         },
         methods: {
             login () {
-                this.$refs.form.validate((valid) => {
+                this.$refs.form.validate(async (valid) => {
                     if (!valid) return
                     this.loading = true
-                    userService.login(this.fetchParam)
-                    setTimeout(() => {
+                    try {
+                        let ret = await userService.login(this.fetchParam)
+
+                        // 如果需要重新设置密码
+                        if (ret.result && ret.result.resetPassword) {
+                            abp.notify.success('请重新设置密码!', '登录成功')
+                            delete ret.result.resetPassword
+                            this.$router.push({name: 'resetpassword', query: ret.result})
+                            return
+                        }
+                        setTimeout(() => {
 //                        authUtils.setToken(ret)
-                        this.$router.push({name: 'Dashboard.Tenant'})
-                        abp.notify.success('登录成功!', '恭喜')
+                            this.$router.push({name: 'Dashboard.Tenant'})
+                            abp.notify.success('登录成功!', '恭喜')
+                            this.loading = false
+                        }, 5e2)
+                    } catch (e) {
+                        abp.notify.error('请确认账号密码是否正确!', '登录失败')
                         this.loading = false
-                    }, 5e2)
+                    }
                 })
             },
         },

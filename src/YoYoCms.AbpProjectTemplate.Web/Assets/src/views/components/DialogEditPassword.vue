@@ -35,7 +35,7 @@
         },
         data() {
             let validRepass = (rule, value, callback) => {
-                debugger
+                // debugger
                 if (value !== this.fetchParam.newPassword)
                     callback(new Error('两次密码输入不一致!'))
                 else

@@ -4,29 +4,162 @@
     @import "../../mixins/common";
 
     .administration-organizationUnits-container {
-        @extend %content-container;
+        //        @extend %content-container;
+        background: transparent;
+        margin: 0 !important;
 
-        .search {
-            @extend %top-search-container;
+        %header {
+            border-bottom: 1px solid #eee;
+            /*height: ;*/
+            font-size: 22px;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+
+            .el-button {
+                float: right;
+            }
+        }
+
+        // 左边的树
+        .left-tree {
+            padding: 15px;
+
+            // 左边头部
+            .left-header {
+                @extend %header;
+            }
+
+            .el-card__body {
+                padding: 0;
+            }
+        }
+
+        .right-list {
+            margin-left: 3%;
+            padding: 15px;
+            .el-card__body {
+                padding: 0;
+            }
+            .right-header {
+                @extend %header;
+            }
+
+            .el-pagination {
+                float: right;
+                margin-top: 10px;
+            }
         }
     }
 </style>
 
 <template>
-    <article class="administration-organizationUnits-container" v-loading="loading">
-        <JsTree ref="jstree" :treeData="treeData" :onDragStop="dragStop"
-                :plugins="['dnd','types', 'wholerow']"></JsTree>
+    <article class="administration-organizationUnits-container row" v-loading="loading">
+        <!--左边树-->
+        <el-card class="left-tree col-lg-5">
+            <div class="left-header">
+                组织结构树
+                <el-button icon="plus" size="small" @click="showDialogAddOrgan(null)">
+                    添加根单元
+                </el-button>
+            </div>
+            <JsTree ref="jstree" :treeData="treeData" :onDragStop="dragStop" :onItemClick="orgaizationTreeclick"
+                    :contextMenu="treeContextMenu"
+                    :plugins="['dnd','types', 'wholerow', 'contextmenu']"></JsTree>
+
+            <!--// 添加单元的弹出框-->
+            <el-dialog
+                    :title="dialogAddOrgan.title"
+                    :visible.sync="dialogAddOrgan.isShow"
+                    size="tiny">
+                <el-input placeholder="名字" v-model="dialogAddOrgan.displayName"></el-input>
+                <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogAddOrgan.isShow = false">取 消</el-button>
+            <el-button type="primary" @click="saveOrgan">确 定</el-button>
+          </span>
+            </el-dialog>
+        </el-card>
+
+        <!--右边用户列表-->
+        <el-card class="col-lg-6 right-list">
+            <div class="right-header">
+                [成员]: {{selectedOrgan.displayName}}
+                <el-button :disabled="!selectedOrgan.id" icon="plus" size="small" @click="dialogUser.isShow=true">添加用户
+                </el-button>
+            </div>
+            <el-table class="data-table" v-loading="userList.loading"
+                      :data="userList.data"
+                      :fit="true"
+                      border>
+                <el-table-column
+                        min-width="120"
+                        label="用户名">
+                    <template scope="scope">
+                        <i>{{scope.row.userName}}</i>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        width="150"
+                        prop="lastLoginTime"
+                        label="添加时间">
+                    <template scope="scope">
+                        <i>{{scope.row.addedTime | date2str}}</i>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        width="80"
+                        label="操作">
+                    <template scope="scope">
+                        <i style="cursor:pointer;" class="material-icons" title="删除"
+                           @click="delUser(scope.$index,scope.row)">delete_forever</i>
+                    </template>
+                </el-table-column>
+            </el-table>
+
+            <el-pagination class="pagin" v-show="userList.total > 0"
+                           @size-change="handleSizeChange"
+                           @current-change="handleCurrentChange"
+                           :current-page="userList.fetchParam.page"
+                           :page-size="userList.fetchParam.maxResultCount"
+                           :page-sizes="[15, 30, 60, 100]"
+                           layout="sizes,total, prev, pager, next"
+                           :total="userList.total">
+            </el-pagination>
+            <DialogUserlist :selectedUserCb="selectedUser" :visible.sync="dialogUser.isShow"
+                            :getUserFn="getUsers"></DialogUserlist>
+        </el-card>
     </article>
 </template>
 
 <script>
     import JsTree from '../../components/tree/JsTree.vue'
     import organizationUnitService from '../../services/organizationUnitService'
+    import commonService from '../../services/commonLookupService'
+    import DialogUserlist from '../../components/dialog/UserList.vue'
     export default {
         data() {
             return {
+                orignTreeData: [],
                 treeData: [],
-                loading: false
+                loading: false,
+                // 添加组织机构
+                dialogAddOrgan: {
+                    isShow: false,
+                    parentId: 0,
+                    displayName: void 0,
+                    type: 'add', // 'add' 或 'edit'
+                },
+                selectedOrgan: {},
+                userList: {
+                    id: void 0,
+                    total: 0,
+                    data: [],
+                    loading: false,
+                    fetchParam: resetUserListFetchParam()
+                },
+                // 用户列表弹出框
+                dialogUser: {
+                    isShow: false
+                }
             }
         },
         created() {
@@ -37,15 +170,18 @@
         methods: {
             async fetchData () {
                 this.loading = true
-                let treeData = (await organizationUnitService.getOrganizationUnits()).items
-                treeData.map((item) => {
+                this.orignTreeData = (await organizationUnitService.getOrganizationUnits()).items
+                this.initTree()
+                this.loading = false
+            },
+            initTree() {
+                this.orignTreeData.map((item) => {
                     item.text = `${item.displayName} (${item.memberCount})`
                     item.parent = item.parentId || '#'
                     item.state = {opened: true}
                 })
-                this.treeData = treeData
+                this.treeData = this.orignTreeData
                 this.$refs.jstree.init()
-                this.loading = false
             },
             //
             dragStop (id, newParentId) {
@@ -63,8 +199,128 @@
                         this.loading = false
                     }
                 })
+            },
+            async saveOrgan() {
+                if (this.dialogAddOrgan.type === 'add') await organizationUnitService.createOrganizationUnit(this.dialogAddOrgan)
+                else await organizationUnitService.updateOrganizationUnit(this.dialogAddOrgan)
+                abp.notify.success('保存成功', '恭喜')
+                this.dialogAddOrgan.isShow = false
+                this.fetchData()
+            },
+            // 显示添加或修改组织单元的弹出框
+            showDialogAddOrgan (pid, displayName = null, type = 'add', id) {
+                this.dialogAddOrgan.parentId = pid
+                this.dialogAddOrgan.displayName = displayName
+                this.dialogAddOrgan.isShow = true
+                this.dialogAddOrgan.type = type
+                this.dialogAddOrgan.id = id
+
+                if (type === 'add') this.dialogAddOrgan.title = !pid ? '添加根单元' : `添加子单元`
+                else this.dialogAddOrgan.title = `编辑: ${displayName}`
+            },
+            // 组织机构的右键菜单
+            treeContextMenu(node) {
+                let _this = this
+                let items = {
+                    addSubUnit: {
+                        label: '添加子单元',
+                        action(data) {
+                            _this.showDialogAddOrgan(node.id, null, 'add')
+                        },
+                        icon: 'el-icon-plus'
+                    },
+                    editUnit: {
+                        label: '编辑',
+                        action(data) {
+                            _this.showDialogAddOrgan(null, node.displayName, 'edit', node.id)
+                        },
+                        icon: 'el-icon-edit'
+                    },
+                    delUnit: {
+                        label: '删除',
+                        action(data) {
+                            abp.message.confirm(`是否确定删除 ${node.displayName} 及其子单元?`, async (ret) => {
+                                if (!ret) return
+                                await organizationUnitService.deleteOrganizationUnit({id: node.id})
+                                this.fetchData()
+                                abp.notify.success('操作成功!', '恭喜')
+                            })
+                        },
+                        icon: 'el-icon-delete2'
+                    },
+                }
+                return items
+            },
+            //  =================================右边 用户列表部分=====================================
+            // 获取用户列表数据
+            async fetchData4Users () {
+                let ret = await organizationUnitService.getOrganizationUnitUsers(this.userList.fetchParam)
+                this.userList.data = ret.items
+                this.userList.total = ret.totalCount
+                this.userList.loading = false
+            },
+            // 权限树点击
+            async orgaizationTreeclick (item) {
+                this.userList.loading = true
+                this.selectedOrgan = item
+                this.userList.fetchParam = resetUserListFetchParam()
+                this.userList.fetchParam.id = item.id
+                this.fetchData4Users()
+            },
+            handleCurrentChange (val) {
+                this.userList.fetchParam.skipCount = Math.abs((val - 1)) * this.userList.fetchParam.maxResultCount
+                this.fetchData4Users()
+            },
+            handleSizeChange (val) {
+                this.userList.fetchParam.maxResultCount = val
+                this.fetchData4Users()
+            },
+            // 获取用户列表的方法
+            getUsers(params) {
+                return commonService.findUsers(params)
+            },
+            // 选中用户的回调
+            async selectedUser (user) {
+                for (let i = 0; i < this.userList.data.length; i++) {
+                    let item = this.userList.data[i]
+                    if (item.id == user.value) {
+                        abp.notify.error('该用户已添加', '提示')
+                        return
+                    }
+                }
+                await organizationUnitService.addUserToOrganizationUnit({
+                    userId: user.value,
+                    organizationUnitId: this.selectedOrgan.id
+                })
+                this.dialogUser.isShow = false
+                this.fetchData4Users()
+                abp.notify.success('添加成功!', '恭喜')
+                this.fetchData()
+            },
+            // 删除用户
+            delUser (index, item) {
+                abp.message.confirm(`是否确认删除用户 【${item.userName}】`, async (ret) => {
+                    if (!ret) return
+                    await organizationUnitService.removeUserFromOrganizationUnit({
+                        userId: item.id,
+                        organizationUnitId: this.selectedOrgan.id
+                    })
+                    abp.notify.success('删除成功', '恭喜')
+                    this.userList.data.splice(index, 1)
+                    this.fetchData()
+                })
             }
         },
-        components: {JsTree}
+        components: {JsTree, DialogUserlist}
+    }
+
+    function resetUserListFetchParam() {
+        return {
+            id: void 0,
+            maxResultCount: 15,
+            skipCount: 0,
+            page: 1,
+            sorting: void 0,
+        }
     }
 </script>

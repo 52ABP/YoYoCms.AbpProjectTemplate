@@ -35,5 +35,6 @@ loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(() => {
         // i18n
     })
 }).catch(() => {
+    // //todo:黄总这里有个问题，就是我的后端崩溃了。。你这个怎么玩。。这里的错误提示就GG了。。
     abp.message.error('加载失败,请刷新后重试')
 })

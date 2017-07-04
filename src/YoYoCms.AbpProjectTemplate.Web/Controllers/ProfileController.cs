@@ -83,8 +83,8 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 }
 
                 var file = Request.Files[0];
-
-                if (file.ContentLength > 30720) //30KB.
+                //10240
+                if (file.ContentLength > 10240) //100KB.
                 {
                     throw new UserFriendlyException(L("ProfilePicture_Warn_SizeLimit"));
                 }
