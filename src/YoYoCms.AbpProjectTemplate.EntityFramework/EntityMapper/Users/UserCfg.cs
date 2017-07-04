@@ -7,7 +7,7 @@ namespace YoYoCms.AbpProjectTemplate.EntityMapper.Users
     {
         public UserCfg()
         {
-          //  ToTable("")
+            ToTable("User", AbpProjectTemplateConsts.SchemaName.ABP);
             Ignore(a => a.Name);
             Ignore(a => a.Surname);
 

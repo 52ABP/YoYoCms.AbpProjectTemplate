@@ -87,7 +87,17 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
 
                 return AbpIdentityResult.Failed(string.Format(L("Identity.DuplicateName"), userName));
             }
-            //删除邮箱的验证。
+            
+            if (!string.IsNullOrEmpty(emailAddress))
+            {
+                user = (await FindByEmailAsync(emailAddress));
+                if (user != null && user.Id != expectedUserId)
+                {
+                    return AbpIdentityResult.Failed(string.Format(L("Identity.DuplicateEmail"), emailAddress));
+                }
+            }
+           
+
 
             return IdentityResult.Success;
         }
@@ -104,7 +114,7 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
                 return result;
             }
 
-            user.EmailAddress = string.Empty;
+          //  user.EmailAddress = string.Empty;
 
             var tenantId = GetCurrentTenantId();
             if (tenantId.HasValue && !user.TenantId.HasValue)
