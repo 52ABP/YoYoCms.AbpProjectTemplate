@@ -39,6 +39,26 @@ userService.register = function (data) {
     })
 }
 
+// 发送找回密码链接
+userService.sendPasswordResetLink = function (data) {
+    return abp.ajax({
+        url: '/Account/SendPasswordResetLink',
+        data,
+        method: 'post',
+        contentType: 'application/x-www-form-urlencoded'
+    })
+}
+
+// 发送激活邮件
+userService.sendEmailActivationLink = function (data) {
+    return abp.ajax({
+        url: '/Account/SendEmailActivationLink',
+        data,
+        method: 'post',
+        contentType: 'application/x-www-form-urlencoded'
+    })
+}
+
 userService.logout = function () {
     apiHelper.get('/Account/Logout')
 }

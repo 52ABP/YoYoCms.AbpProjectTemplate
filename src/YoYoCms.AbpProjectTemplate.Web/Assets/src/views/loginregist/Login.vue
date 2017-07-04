@@ -61,11 +61,14 @@
                             </div>
                         </div>
                         <div class="row m-t-15 m-b--20">
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <a @click="$router.push({name:'register'})" style="cursor:pointer;">立即注册!</a>
                             </div>
-                            <div class="col-xs-6 align-right">
-                                <a @click="$router.push({name: 'forgetpwd'})" style="cursor: pointer">忘记密码?</a>
+                            <div class="col-xs-4" style="text-align: center">
+                                <a @click="$router.push({name:'SendActiveEmail'})" style="cursor:pointer;">激活邮件</a>
+                            </div>
+                            <div class="col-xs-4 align-right">
+                                <a @click="$router.push({name: 'forgetPwd'})" style="cursor: pointer">忘记密码?</a>
                             </div>
                         </div>
                     </div>
