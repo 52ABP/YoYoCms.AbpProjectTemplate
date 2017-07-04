@@ -342,7 +342,7 @@
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
     //    import authUtils from '../common/utils/authUtils'
     import loadFile from '../common/utils/loadFile'
-    import abpScriptService from '../services/abpScriptService'
+//    import abpScriptService from '../services/abpScriptService'
     import sessionService from '../services/sessionService'
     import userService from '../services/userService'
 
@@ -381,9 +381,6 @@
         activated() {
         },
         async mounted() {
-            // 获取菜单,语言包等信息
-            await abpScriptService.getScripts()
-
             this.menus = abp.nav.menus.MainMenu
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})

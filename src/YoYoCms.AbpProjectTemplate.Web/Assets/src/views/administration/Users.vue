@@ -27,7 +27,7 @@
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>
-                <i>{{L('Permission')}}</i>
+                <i>{{L('Permissions')}}</i>
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
             <!--<section>-->
@@ -57,7 +57,7 @@
             </el-table-column>
             <el-table-column
                     width="180"
-                    :label="L('Role')">
+                    :label="L('Roles')">
                 <template scope="scope">
                     <i v-for="(item,index) in scope.row.roles">{{item.roleName}}<i
                             v-if="index+1 < scope.row.roles.length">, </i></i>
@@ -110,7 +110,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
-                                <a>{{L('Permission')}}</a></li>
+                                <a>{{L('Permissions')}}</a></li>
                             <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
                                 <a>{{L('Edit')}}</a>
                             </li>

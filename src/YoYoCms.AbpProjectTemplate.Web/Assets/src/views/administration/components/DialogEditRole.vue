@@ -27,7 +27,7 @@
                 </el-form>
             </el-tab-pane>
 
-            <el-tab-pane :label="L('Permission')" name="second" style="min-height: 100px">
+            <el-tab-pane :label="L('Permissions')" name="second" style="min-height: 100px">
                 <PermissionTree :context.sync="permissionVm" :orignPermission="permissions"></PermissionTree>
             </el-tab-pane>
         </el-tabs>

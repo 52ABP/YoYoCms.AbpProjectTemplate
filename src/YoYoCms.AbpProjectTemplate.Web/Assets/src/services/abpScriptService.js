@@ -3,6 +3,7 @@
  */
 
 import apiHelper from './apiHelper'
+
 class AbpScriptService {
     getScripts() {
         return apiHelper.get(`/AbpScripts/GetScripts?v=${Date.now()}`)
