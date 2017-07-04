@@ -22,7 +22,7 @@ using YoYoCms.AbpProjectTemplate.Editions;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Notifications;
 using YoYoCms.AbpProjectTemplate.UserManagement.Users;
-using YoYoCms.AbpProjectTemplate.Web.Auth;
+using YoYoCms.AbpProjectTemplate.Web.Authorization;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {

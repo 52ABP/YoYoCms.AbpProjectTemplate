@@ -3156,9 +3156,9 @@
     <Compile Include="App_Start\Navigation\PageNames.cs" />
     <Compile Include="App_Start\Routing\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Auth\AuthenticationManagerExtensions.cs" />
-    <Compile Include="Auth\SignInManager.cs" />
-    <Compile Include="Auth\TwitterEmailRetriever.cs" />
+    <Compile Include="Authorization\AuthenticationManagerExtensions.cs" />
+    <Compile Include="Authorization\SignInManager.cs" />
+    <Compile Include="Authorization\TwitterEmailRetriever.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

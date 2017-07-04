@@ -13,9 +13,9 @@ using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.Owin.Security.Twitter;
 using Microsoft.Owin.Security.WsFederation;
 using YoYoCms.AbpProjectTemplate.Web;
-using YoYoCms.AbpProjectTemplate.Web.Auth;
 using YoYoCms.AbpProjectTemplate.WebApi.Controllers;
 using Owin;
+using YoYoCms.AbpProjectTemplate.Web.Authorization;
 using YoYoCms.AbpProjectTemplate.WebApi.Providers;
 
 [assembly: OwinStartup(typeof(Startup))]

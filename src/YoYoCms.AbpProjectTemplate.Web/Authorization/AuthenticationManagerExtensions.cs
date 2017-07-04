@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace YoYoCms.AbpProjectTemplate.Web.Auth
+namespace YoYoCms.AbpProjectTemplate.Web.Authorization
 {
     public static class AuthenticationManagerExtensions
     {
