@@ -7,6 +7,11 @@ $bgColor: #ededed;
     background: #fff;
     margin-right: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    //position: absolute;
+    //max-height: 80%;
+    //max-width: 100%;
+    //overflow-y: auto;
 
     &:after {
         content: '';
@@ -52,7 +57,6 @@ $bgColor: #ededed;
         }
     }
 }
-
 
 i, em {
     font-style: normal;

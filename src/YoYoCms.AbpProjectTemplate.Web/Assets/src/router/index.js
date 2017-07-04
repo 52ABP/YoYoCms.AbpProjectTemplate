@@ -5,6 +5,7 @@ import store from '../store'
 
 Vue.use(Router)
 
+import dashboard from '../router/dashboard'
 import loginRegister from '../router/loginregister'
 import administration from '../router/administration/index'
 
@@ -23,16 +24,8 @@ let router = new Router({
                     })
             },
             children: [
-                { // 工作台
-                    path: '/dashboard',
-                    name: 'Dashboard.Tenant',
-                    component: resolve => {
-                        require.ensure([],
-                            () => {
-                                resolve(require('../views/dashboard/Dashboard.vue'))
-                            })
-                    },
-                },
+                //  =================================dashboard=====================================
+                dashboard,
                 //  =================================管理=====================================
                 administration
             ]
