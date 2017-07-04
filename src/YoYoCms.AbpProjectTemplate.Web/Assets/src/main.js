@@ -24,6 +24,7 @@ import abpScriptService from './services/abpScriptService'
 
 // window.abp.appPath = config.apiHost
 Vue.config.productionTip = config.isDebug
+console.log(abp.localization.getSource)
 Vue.use(vueLangPlugin)
 
 // 加载apb的ajax库

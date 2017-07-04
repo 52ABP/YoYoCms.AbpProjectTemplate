@@ -57,9 +57,9 @@
         <!--左边树-->
         <el-card class="left-tree col-lg-5">
             <div class="left-header">
-                组织结构树
+                {{L('OrganizationTree')}}
                 <el-button icon="plus" size="small" @click="showDialogAddOrgan(null)">
-                    添加根单元
+                    {{L('AddRootUnit')}}
                 </el-button>
             </div>
             <JsTree ref="jstree" :treeData="treeData" :onDragStop="dragStop" :onItemClick="orgaizationTreeclick"
@@ -71,10 +71,10 @@
                     :title="dialogAddOrgan.title"
                     :visible.sync="dialogAddOrgan.isShow"
                     size="tiny">
-                <el-input placeholder="名字" v-model="dialogAddOrgan.displayName"></el-input>
+                <el-input :placeholder="L('Name')" v-model="dialogAddOrgan.displayName"></el-input>
                 <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogAddOrgan.isShow = false">取 消</el-button>
-            <el-button type="primary" @click="saveOrgan">确 定</el-button>
+            <el-button @click="dialogAddOrgan.isShow = false">{{L('Cancel')}}</el-button>
+            <el-button type="primary" @click="saveOrgan">{{L('Save')}}</el-button>
           </span>
             </el-dialog>
         </el-card>
@@ -82,8 +82,9 @@
         <!--右边用户列表-->
         <el-card class="col-lg-6 right-list">
             <div class="right-header">
-                [成员]: {{selectedOrgan.displayName}}
-                <el-button :disabled="!selectedOrgan.id" icon="plus" size="small" @click="dialogUser.isShow=true">添加用户
+                [{{L('Members')}}] <i v-show="selectedOrgan.displayName">{{ ':' + selectedOrgan.displayName}}</i>
+                <el-button :disabled="!selectedOrgan.id" icon="plus" size="small" @click="dialogUser.isShow=true">
+                    {{L('AddMember')}}
                 </el-button>
             </div>
             <el-table class="data-table" v-loading="userList.loading"
@@ -92,7 +93,7 @@
                       border>
                 <el-table-column
                         min-width="120"
-                        label="用户名">
+                        :label="L('UserName')">
                     <template scope="scope">
                         <i>{{scope.row.userName}}</i>
                     </template>
@@ -100,16 +101,16 @@
                 <el-table-column
                         width="150"
                         prop="lastLoginTime"
-                        label="添加时间">
+                        :label="L('AddedTime')">
                     <template scope="scope">
                         <i>{{scope.row.addedTime | date2str}}</i>
                     </template>
                 </el-table-column>
                 <el-table-column
                         width="80"
-                        label="操作">
+                        :label="L('Action')">
                     <template scope="scope">
-                        <i style="cursor:pointer;" class="material-icons" title="删除"
+                        <i style="cursor:pointer;" class="material-icons" :title="L('Delete')"
                            @click="delUser(scope.$index,scope.row)">delete_forever</i>
                     </template>
                 </el-table-column>
@@ -185,7 +186,7 @@
             },
             //
             dragStop (id, newParentId) {
-                abp.message.confirm('是否确认移动?', async (ret) => {
+                abp.message.confirm(lang.L('OrganizationUnitMoveConfirmMessage'), async (ret) => {
                     if (!ret) {
                         this.$refs.jstree.init()
                         return
@@ -194,16 +195,17 @@
                     try {
                         this.loading = true
                         await organizationUnitService.moveOrganizationUnit({id, newParentId})
-                        abp.notify.success('操作成功!', '恭喜')
+                        abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
                     } finally {
                         this.loading = false
                     }
                 })
             },
+            // 保存添加和修改操作
             async saveOrgan() {
                 if (this.dialogAddOrgan.type === 'add') await organizationUnitService.createOrganizationUnit(this.dialogAddOrgan)
                 else await organizationUnitService.updateOrganizationUnit(this.dialogAddOrgan)
-                abp.notify.success('保存成功', '恭喜')
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
                 this.dialogAddOrgan.isShow = false
                 this.fetchData()
             },
@@ -215,35 +217,35 @@
                 this.dialogAddOrgan.type = type
                 this.dialogAddOrgan.id = id
 
-                if (type === 'add') this.dialogAddOrgan.title = !pid ? '添加根单元' : `添加子单元`
-                else this.dialogAddOrgan.title = `编辑: ${displayName}`
+                if (type === 'add') this.dialogAddOrgan.title = lang.L('NewOrganizationUnit') // !pid ? '添加根单元' : `添加子单元`
+                else this.dialogAddOrgan.title = `${lang.L('Edit')}: ${displayName}`
             },
             // 组织机构的右键菜单
             treeContextMenu(node) {
                 let _this = this
                 let items = {
                     addSubUnit: {
-                        label: '添加子单元',
+                        label: lang.L('AddSubUnit'),
                         action(data) {
                             _this.showDialogAddOrgan(node.id, null, 'add')
                         },
                         icon: 'el-icon-plus'
                     },
                     editUnit: {
-                        label: '编辑',
+                        label: lang.L('Edit'),
                         action(data) {
                             _this.showDialogAddOrgan(null, node.displayName, 'edit', node.id)
                         },
                         icon: 'el-icon-edit'
                     },
                     delUnit: {
-                        label: '删除',
+                        label: lang.L('Delete'),
                         action(data) {
-                            abp.message.confirm(`是否确定删除 ${node.displayName} 及其子单元?`, async (ret) => {
+                            abp.message.confirm(lang.L('OrganizationUnitDeleteWarningMessage', node.displayName), async (ret) => {
                                 if (!ret) return
                                 await organizationUnitService.deleteOrganizationUnit({id: node.id})
-                                this.fetchData()
-                                abp.notify.success('操作成功!', '恭喜')
+                                _this.fetchData()
+                                abp.notify.success(lang.L('SuccessfullyDeleted'), lang.L('Success'))
                             })
                         },
                         icon: 'el-icon-delete2'
@@ -284,7 +286,7 @@
                 for (let i = 0; i < this.userList.data.length; i++) {
                     let item = this.userList.data[i]
                     if (item.id == user.value) {
-                        abp.notify.error('该用户已添加', '提示')
+                        abp.notify.error(lang.L('UserIsAlreadyInTheOrganizationUnit'), lang.L('Error'))
                         return
                     }
                 }
@@ -294,18 +296,18 @@
                 })
                 this.dialogUser.isShow = false
                 this.fetchData4Users()
-                abp.notify.success('添加成功!', '恭喜')
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
                 this.fetchData()
             },
             // 删除用户
             delUser (index, item) {
-                abp.message.confirm(`是否确认删除用户 【${item.userName}】`, async (ret) => {
+                abp.message.confirm(lang.L('RemoveUserFromOuWarningMessage', item.userName, this.selectedOrgan.displayName), async (ret) => {
                     if (!ret) return
                     await organizationUnitService.removeUserFromOrganizationUnit({
                         userId: item.id,
                         organizationUnitId: this.selectedOrgan.id
                     })
-                    abp.notify.success('删除成功', lang.L('Success'))
+                    abp.notify.success(lang.L('SuccessfullyDeleted'), lang.L('Success'))
                     this.userList.data.splice(index, 1)
                     this.fetchData()
                 })

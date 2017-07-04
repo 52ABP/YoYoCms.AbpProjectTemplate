@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-CN">
   <texts>
+    <text name="UserIsAlreadyInTheOrganizationUnit" value="该用户已存在" />
+    <text name="AddSubUnit" value="添加子单元" />
+    
     <text name="HomePage" value="主页" />
     <text name="AboutUs" value="关于我们" />
     <text name="Administration" value="管理" />

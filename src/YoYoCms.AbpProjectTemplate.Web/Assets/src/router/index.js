@@ -5,6 +5,7 @@ import store from '../store'
 
 Vue.use(Router)
 
+import abpScriptService from '../services/abpScriptService'
 import dashboard from '../router/dashboard'
 import loginRegister from '../router/loginregister'
 import administration from '../router/administration/index'
@@ -40,7 +41,8 @@ let router = new Router({
 // setTimeout(() => {
 //     loginouted = true
 // }, 1e4)
-router.beforeEach((to, from, next) => {
+let loadedAbpScript = false // 是否已经加载 菜单 语言包等信息
+router.beforeEach(async (to, from, next) => {
     // if (!to.matched.some(record => record.meta.notAuth) && !authUtils.getToken()) {
     //     // 第一次进来不提示超时
     //     loginouted && abp.notify.error('未登录或登录已超时, 请重新登录!', '未登录')
@@ -50,10 +52,19 @@ router.beforeEach((to, from, next) => {
     // }
 
     let menu = []
-    to.matched.forEach((item) => {
-        item.meta.displayName = item.meta.displayName
+    for (let i = 0; i < to.matched.length; i++) {
+        let item = to.matched[i]
+        // 如果要开始加载正式内容
+        if (item.name === 'index' && !loadedAbpScript) {
+            loadedAbpScript = true
+            // 获取菜单,语言包等信息
+            await abpScriptService.getScripts()
+        }
+        // debugger
+        // item.meta.displayName = item.meta.displayName
         menu.push({name: item.name})
-    })
+    }
+
     store.dispatch('setIndexMenuActive', {menu})
 
     next()

@@ -10,7 +10,7 @@
 <template>
     <el-dialog ref="dialog" class="dialog-userlist--container"
                @open="handleOpen"
-               title="选择用户"
+               :title="L('SelectAUser')"
                :visible.sync="dialogVisible"
                size="tiny">
         <el-table class="data-table" v-loading="loading"
@@ -21,15 +21,15 @@
             <el-table-column
                     min-width="120"
                     prop="name"
-                    label="用户名">
+                    :label="L('UserName')">
             </el-table-column>
             <el-table-column
                     width="100"
-                    label="操作">
+                    :label="L('Action')">
                 <template scope="scope">
                     <el-button size="mini" @click="selectUser(scope.row)">
-                        <i style="vertical-align: middle;font-size: 12px" class="material-icons" title="选择">done</i>
-                        选择
+                        <i style="vertical-align: middle;font-size: 12px" class="material-icons" :title="L('Select')">done</i>
+                        {{L('Select')}}
                     </el-button>
                 </template>
             </el-table-column>

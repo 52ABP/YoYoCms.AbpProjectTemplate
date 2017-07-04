@@ -62,7 +62,7 @@
             <!--角色管理-->
             <el-tab-pane name="second">
                 <span slot="label">
-                    <el-badge :hidden="false" :value="assignedRoleCount" class="item">{{L('Role')}}</el-badge>
+                    <el-badge :hidden="false" :value="assignedRoleCount" class="item">{{L('Roles')}}</el-badge>
                 </span>
 
                 <el-checkbox @change="setRoleCount" v-for="item in roles" v-model="item.isAssigned" :key="item.roleId">
