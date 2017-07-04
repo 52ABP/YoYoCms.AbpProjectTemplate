@@ -61,5 +61,13 @@ export default {
                 resolve(require('../../views/administration/Maintenance.vue'))
             })
         }
+    }, { // 设置
+        path: 'settings',
+        name: namePre + `Settings.Tenant`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/Settting.vue'))
+            })
+        }
     }]
 }

@@ -1,9 +1,9 @@
 ## 项目介绍
 前端使用的框架
 
-1.vue
-2.vuex
-3.vue-router
+1.vue   
+2.vuex   
+3.vue-router   
 element-ui jquery
 
 ### 运行项目
