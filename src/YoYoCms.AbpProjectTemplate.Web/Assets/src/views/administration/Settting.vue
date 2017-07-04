@@ -66,7 +66,8 @@
                 </el-form>
             </el-tab-pane>
             <el-tab-pane label="保密信息" name="security">
-                <el-form :model="security" label-position="left" :rules="securityRules" ref="formSecurity" label-width="160px">
+                <el-form :model="security" label-position="left" :rules="securityRules" ref="formSecurity"
+                         label-width="160px">
                     <el-form label-width="0">
                         <h2>[锁定用户]</h2>
                     </el-form>
