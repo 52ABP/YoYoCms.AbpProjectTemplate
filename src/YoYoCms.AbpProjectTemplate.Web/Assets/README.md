@@ -1,10 +1,13 @@
 ## 项目介绍
-前端使用的框架
+####前端使用的框架
 
-1.vue   
-2.vuex   
-3.vue-router   
-element-ui jquery
+1.[vue](https://vuefe.cn "vue")   
+2.[vuex](https://vuex.vuejs.org/zh-cn/)   
+3.[vue-router](https://router.vuejs.org/zh-cn/)   
+4.jquery   
+#### UI库
+1.[element-ui](https://element.eleme.io)   
+2.[waves](http://fian.my.id/Waves/)
 
 ### 运行项目
 ```
