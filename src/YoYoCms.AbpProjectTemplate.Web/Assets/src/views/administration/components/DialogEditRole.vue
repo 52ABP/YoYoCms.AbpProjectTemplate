@@ -40,7 +40,7 @@
 
 <script>
     import clone from 'clone'
-    import roleService from '../../../services/roleService'
+    import roleService from '../../../services/administration/roleService'
     import PermissionTree from '../../../components/tree/PermissionCheck.vue'
     export default {
         props: {

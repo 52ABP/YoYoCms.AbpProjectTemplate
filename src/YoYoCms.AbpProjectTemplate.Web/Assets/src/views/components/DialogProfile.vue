@@ -26,14 +26,14 @@
         </el-form>
         <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">{{L('Cancel')}}</el-button>
-            <el-button type="primary" @click="save">
+            <el-button class="waves-effect" type="primary" @click="save">
                 <i class="material-icons" style="font-size: 14px;vertical-align: middle">save</i>{{L('Save')}}</el-button>
           </span>
     </el-dialog>
 </template>
 
 <script>
-    import profileService from '../../services/profileService'
+    import profileService from '../../services/administration/profileService'
     import clone from 'clone'
     export default {
         props: {

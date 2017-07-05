@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import profileService from '../../services/profileService'
+    import profileService from '../../services/administration/profileService'
     export default {
         props: {
             visible: Boolean,

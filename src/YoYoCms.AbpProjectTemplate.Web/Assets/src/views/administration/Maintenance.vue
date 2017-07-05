@@ -100,8 +100,8 @@
 </template>
 
 <script>
-    import cachingService from '../../services/cachingService'
-    import weblogService from '../../services/weblogService'
+    import cachingService from '../../services/administration/cachingService'
+    import weblogService from '../../services/administration/weblogService'
     export default {
         data() {
             return {
