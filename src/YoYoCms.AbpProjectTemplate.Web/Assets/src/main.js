@@ -19,15 +19,15 @@ import App from './App.vue'
 import router from './router'
 import config from './common/config'
 import loadFile from './common/utils/loadFile'
-import vueLangPlugin from './common/language/vuePlugin'
+import vueLangPlugin from './vuePlugins/langPlugin'
+import hooksPlugin from './vuePlugins/hooksPlugin'
 import abpScriptService from './services/abpScriptService'
 
 // window.abp.appPath = config.apiHost
 Vue.config.productionTip = config.isDebug
-console.log(abp.localization.getSource)
 
 Vue.use(vueLangPlugin)
-
+Vue.use(hooksPlugin)
 // 加载apb的ajax库
 loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(async () => {
     await setElementUiLang()
