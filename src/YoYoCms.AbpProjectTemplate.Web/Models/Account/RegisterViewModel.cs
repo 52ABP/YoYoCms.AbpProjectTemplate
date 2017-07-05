@@ -36,7 +36,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Models.Account
         [StringLength(User.MaxPlainPasswordLength)]
         [DisableAuditing]
         public string Password { get; set; }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        public string Captcha { get; set; }
 
+        /// <summary>
+        /// 默认请求为false
+        /// </summary>
         public bool IsExternalLogin { get; set; }
 
         public PasswordComplexitySetting PasswordComplexitySetting { get; set; }

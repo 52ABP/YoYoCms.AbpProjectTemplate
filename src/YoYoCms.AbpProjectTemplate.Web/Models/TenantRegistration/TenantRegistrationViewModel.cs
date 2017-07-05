@@ -13,6 +13,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Models.TenantRegistration
         [Required]
         [StringLength(User.MaxNameLength)]
         public string Name { get; set; }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        public string Captcha { get; set; }
 
         [Required]
         [EmailAddress]
