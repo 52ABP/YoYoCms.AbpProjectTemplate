@@ -3,7 +3,7 @@
  */
 //
 
-import serviceHelper from './serviceHelper'
+import serviceHelper from '../serviceHelper'
 // import apiHelper from './apiHelper'
 let profile = serviceHelper.requireService('profile')
 

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import profileService from '../../services/profileService'
+    import profileService from '../../services/administration/profileService'
     import clone from 'clone'
     export default {
         props: {
