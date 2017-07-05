@@ -2,8 +2,8 @@
  * Created by huanghx on 2017/6/26.
  */
 //
-import fileSerivce from './fileService'
-import serviceHelper from './serviceHelper'
+import fileSerivce from '../fileService'
+import serviceHelper from '../serviceHelper'
 let webLog = serviceHelper.requireService('webLog')
 
 // 导出所有

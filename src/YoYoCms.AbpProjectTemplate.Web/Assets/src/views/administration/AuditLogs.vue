@@ -185,7 +185,7 @@
 </template>
 
 <script>
-    import auditLogService from '../../services/auditLogService'
+    import auditLogService from '../../services/administration/auditLogService'
 
     import DateRange from '../../components/date/DateRange.vue'
 

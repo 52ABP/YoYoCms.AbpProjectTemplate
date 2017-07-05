@@ -133,7 +133,7 @@
 
 <script>
     import JsTree from '../../components/tree/JsTree.vue'
-    import organizationUnitService from '../../services/organizationUnitService'
+    import organizationUnitService from '../../services/administration/organizationUnitService'
     import commonService from '../../services/commonLookupService'
     import DialogUserlist from '../../components/dialog/UserList.vue'
     export default {

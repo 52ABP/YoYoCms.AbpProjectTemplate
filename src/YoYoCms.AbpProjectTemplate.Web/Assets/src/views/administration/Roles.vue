@@ -87,7 +87,7 @@
 </template>
 
 <script>
-    import rolesService from '../../services/roleService'
+    import rolesService from '../../services/administration/roleService'
     import DialogEditRole from './components/DialogEditRole.vue'
     import SelPermissionTree from '../../components/select/PermissionTree.vue'
     export default {

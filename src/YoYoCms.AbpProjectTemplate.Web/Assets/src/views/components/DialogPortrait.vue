@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import profileService from '../../services/profileService'
+    import profileService from '../../services/administration/profileService'
     import CropperImg from '../../components/upload/ImgEcropper.vue'
     export default {
         props: {
