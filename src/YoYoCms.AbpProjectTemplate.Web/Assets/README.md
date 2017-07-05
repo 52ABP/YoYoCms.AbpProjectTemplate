@@ -1,7 +1,7 @@
 ## 项目介绍
 ####前端使用的框架
 
-1.[vue](https://vuefe.cn "vue")   
+1.[vue](https://vuefe.cn)   
 2.[vuex](https://vuex.vuejs.org/zh-cn/)   
 3.[vue-router](https://router.vuejs.org/zh-cn/)   
 4.jquery   
@@ -13,15 +13,15 @@
 
 ### 运行项目
 ```
- npm i
- npm run dev
+ $ npm i
+ $ npm run dev
 ```
 webpack会启动一个8080端口的web服务器
 
 ### 部署
 ```$xslt
-npm i
-npm run build
+ $ npm i
+ $ npm run build
 ```
 如果已安装node依赖, 则直接运行 `npm run build` 即可
 
@@ -29,10 +29,11 @@ npm run build
 ### 项目结构
 - build  webpack构建的脚本
 - config  webpack构建的配置
+- dist build之后的文件
 - src  源代码目录
     - assets  全局的资源文件
     - common  公共样式 公共的方法
-        - language  语言包(还未实现)
+        - language  语言包(暂时无用)
         - utils  工具类
     - components  全局的组件
     - filters  过滤器
