@@ -46,40 +46,40 @@
                 </div>
                 <div class="card">
                     <div class="body" v-loading="loading" v-if="!registerSucc">
-                        <div class="msg">注册</div>
+                        <div class="msg">{{L('CreateAnAccount')}}</div>
                         <el-form ref="form" :model="fetchParam" label-position="center" :rules="rules" label-width="7em"
                                  class="demo-ruleForm">
                             <el-form-item label-width="0">
-                                <h2>个人信息</h2>
+                                <h2>{{L('PersonalInformations')}}</h2>
                             </el-form-item>
-                            <el-form-item label="名字" prop="name">
+                            <el-form-item :label="L('Name')" prop="name">
                                 <input type="text" ref="txtName" class="form-control" name="username"
-                                       placeholder="请输入名字" v-model="fetchParam.name" autofocus>
+                                       :placeholder="L('Name')" v-model="fetchParam.name" autofocus>
                             </el-form-item>
-                            <el-form-item prop="surname" label="姓氏">
+                            <el-form-item prop="surname" :label="L('Surname')">
                                 <input type="text" @keyup.enter="submit" v-model="fetchParam.surname"
-                                       class="form-control" placeholder="请输入姓氏">
+                                       class="form-control" :placeholder="L('Surname')">
                             </el-form-item>
-                            <el-form-item prop="emailAddress" label="邮箱地址">
+                            <el-form-item prop="emailAddress" :label="L('EmailAddress')">
                                 <input type="email" @keyup.enter="submit" v-model="fetchParam.emailAddress"
-                                       class="form-control" placeholder="请输入邮箱地址">
+                                       class="form-control" :placeholder="L('EmailAddress')">
                             </el-form-item>
                             <el-form-item label-width="0">
-                                <h2>账号设置</h2>
+                                <h2>{{L('AccountSettings')}}</h2>
                             </el-form-item>
-                            <el-form-item prop="userName" label="用户名">
+                            <el-form-item prop="userName" :label="L('UserName')">
                                 <input type="text" @keyup.enter="submit" v-model="fetchParam.userName"
-                                       class="form-control" placeholder="请输入用户名"
+                                       class="form-control" :placeholder="L('UserName')"
                                        required>
                             </el-form-item>
-                            <el-form-item prop="password" label="密码">
+                            <el-form-item prop="password" :label="L('Password')">
                                 <input type="password" @keyup.enter="submit" v-model="fetchParam.password"
-                                       class="form-control" placeholder="请输入密码"
+                                       class="form-control" :placeholder="L('Password')"
                                        required>
                             </el-form-item>
-                            <el-form-item prop="passwordRepeat" label="重复密码">
+                            <el-form-item prop="passwordRepeat" :label="L('PasswordRepeat')">
                                 <input type="password" @keyup.enter="submit" v-model="fetchParam.passwordRepeat"
-                                       class="form-control" placeholder="确认密码(核对)"
+                                       class="form-control" :placeholder="L('PasswordRepeat')"
                                        required>
                             </el-form-item>
                         </el-form>
@@ -87,31 +87,37 @@
                             <div class="col-xs-8 p-t-5">
                             </div>
                             <div class="col-xs-4">
-                                <button @click="submit" class="btn btn-block bg-pink waves-effect" type="submit">提交
+                                <button @click="submit" class="btn btn-block bg-pink waves-effect" type="submit">
+                                    {{L('Submit')}}
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div class="body not-active" v-else>
-                        <h2>注册成功</h2>
+                        <h2>{{L('SuccessfullyRegistered')}}</h2>
                         <ul>
                             <li>
-                                <em>姓名: </em> <i>{{fetchParam.name}}</i>
+                                <em>{{L('Name')}}: </em> <i>{{fetchParam.name}}</i>
                             </li>
                             <li>
-                                <em>租户名称: </em> <i>Default</i>
+                                <em>{{L('TenancyName')}}: </em> <i>Default</i>
                             </li>
                             <li>
-                                <em>用户名: </em> <i>{{fetchParam.userName}}</i>
+                                <em>{{L('UserName')}}: </em> <i>{{fetchParam.userName}}</i>
                             </li>
                             <li>
-                                <em>邮箱: </em> <i>{{fetchParam.emailAddress}}</i>
+                                <em>{{L('EmailAddress')}}: </em> <i>{{fetchParam.emailAddress}}</i>
                             </li>
                         </ul>
 
                         <p>
-                            您的用户账号尚未激活，待系统管理员激活后方能登录使用系统.
+                            {{L('YourAccountIsWaitingToBeActivatedByAdmin')}}
                         </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5 col-xs-offset-1" style="margin-bottom: 10px">
+                            <Languages></Languages>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,32 +128,33 @@
 <script>
     //    import config from '../../common/config'
     import userService from '../../services/userService'
+    import Languages from './components/Languages.vue'
     //    import authUtils from '../../common/utils/authUtils'
     export default {
         data() {
             let validRepass = (rule, value, callback) => {
                 if (value != this.fetchParam.password)
-                    callback(new Error('两次输入密码不一致!'))
+                    callback(new Error(lang.L('RepeatPasswordError')))
                 else
                     callback()
             }
             return {
                 loading: false,
                 fetchParam: {
-                    name: 'hhx',
-                    surname: 'hhx',
-                    emailAddress: 'hhx@asd.asd',
-                    userName: 'admin',
-                    password: '123qwe',
-                    passwordRepeat: '123qwe',
+                    name: '',
+                    surname: '',
+                    emailAddress: '',
+                    userName: '',
+                    password: '',
+                    passwordRepeat: '',
                 },
                 rules: {
-                    name: [{type: 'string', required: true, message: '请输入名字', trigger: 'change'}],
-                    surname: [{type: 'string', required: true, message: '请输入姓氏', trigger: 'change'}],
+                    name: [{type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'change'}],
+                    surname: [{type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'change'}],
 //                    password: [{type: 'string', required: true, message: '请输入新密码', trigger: 'blur'}],
-                    emailAddress: [{type: 'string', required: true, message: '请输入邮箱地址', trigger: 'blur'}],
-                    userName: [{type: 'string', required: true, message: '请输入用户名', trigger: 'blur'}],
-                    password: [{type: 'string', required: true, message: '请输入密码', trigger: 'blur'}],
+                    emailAddress: [{type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'blur'}],
+                    userName: [{type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'blur'}],
+                    password: [{type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'blur'}],
                     passwordRepeat: [{validator: this.validRepass, trigger: 'change'}],
                 },
                 registerSucc: false,
@@ -168,7 +175,7 @@
 
                         setTimeout(() => {
 //                        this.$router.push({name: 'Dashboard.Tenant'})
-                            abp.notify.success('注册成功!', '恭喜')
+                            abp.notify.success(lang.L('SuccessfullyRegistered'), lang.L('Success'))
                             this.loading = false
                             if (!ret.isActive) this.registerSucc = true
                             else this.$router.push({name: 'login'})
@@ -179,6 +186,6 @@
                 })
             },
         },
-        components: {}
+        components: {Languages}
     }
 </script>

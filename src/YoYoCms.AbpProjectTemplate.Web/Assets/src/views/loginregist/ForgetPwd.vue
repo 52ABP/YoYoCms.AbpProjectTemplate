@@ -20,11 +20,11 @@
                 </div>
                 <div class="card">
                     <div class="body" v-loading="loading">
-                        <div class="msg">忘记密码</div>
+                        <div class="msg">{{L('ForgotPassword')}}</div>
                         <div class="row">
                             <i class="col-xs-12">
                                 <input type="email" @keyup.enter="submit" v-model="fetchParam.emailAddress"
-                                       class="form-control" placeholder="邮箱地址" ref="txtEmail">
+                                       class="form-control" :placeholder="L('EmailAddress')" ref="txtEmail">
                             </i>
                         </div>
                         <div class="row">
@@ -33,8 +33,13 @@
                             <!--</button>-->
                             <!--</div>-->
                             <div class="col-xs-4 col-xs-offset-8">
-                                <button @click="submit" class="btn btn-block bg-pink waves-effect" type="submit">提交
+                                <button @click="submit" class="btn btn-block bg-pink waves-effect" type="submit">{{L('Submit')}}
                                 </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <Languages></Languages>
                             </div>
                         </div>
                     </div>
@@ -47,6 +52,7 @@
 <script>
     //    import config from '../../common/config'
     import userService from '../../services/userService'
+    import Languages from './components/Languages.vue'
     //    import authUtils from '../../common/utils/authUtils'
     export default {
         data() {
@@ -66,7 +72,7 @@
 
                 try {
                     await userService.sendPasswordResetLink(this.fetchParam)
-                    abp.message.confirm('已向您的邮箱发送了一封密码重置邮件，请查收', '邮件已发送', (ret) => {
+                    abp.message.confirm(lang.L('PasswordResetMailSentMessage'), lang.L('MailSent'), (ret) => {
                         if (ret) this.$router.replace({name: 'login'})
                     })
                 } finally {
@@ -74,6 +80,6 @@
                 }
             },
         },
-        components: {}
+        components: {Languages}
     }
 </script>

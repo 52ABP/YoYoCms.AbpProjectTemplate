@@ -1,5 +1,6 @@
 ﻿<style rel="styleesheet" lang="scss">
     @import "common/style";
+    @import "./vendor/flags/famfamfam-flags.css";
 </style>
 <template>
     <div id="app">

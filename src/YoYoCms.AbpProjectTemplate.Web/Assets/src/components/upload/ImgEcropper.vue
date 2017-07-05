@@ -11,15 +11,15 @@
 
 <template>
     <article ref="container">
-        <el-button v-show="isShowBtn" type="primary" @click="chooseImg">上传<i class="el-icon-upload el-icon--right"></i>
+        <el-button v-show="isShowBtn" type="primary" @click="chooseImg">{{L('Upload')}}<i class="el-icon-upload el-icon--right"></i>
         </el-button>
-        <el-dialog :close-on-click-modal="false" title="裁切图片" v-model="showCropper" size="large" top="15px">
+        <el-dialog :close-on-click-modal="false" :title="L('CropImage')" v-model="showCropper" size="large" top="15px">
             <div class="croppercontainer">
                 <img @load="startCropper()" class="image-preview" :src="imgData">
             </div>
             <span slot="footer">
-                <el-button @click="showCropper = false">取 消</el-button>
-                <el-button type="primary" @click="confirmCropper()">确 定</el-button>
+                <el-button @click="showCropper = false">{{L('Cancel')}}</el-button>
+                <el-button type="primary" @click="confirmCropper()">{{L('Save')}}</el-button>
             </span>
         </el-dialog>
 
