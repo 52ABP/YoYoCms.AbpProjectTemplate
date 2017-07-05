@@ -41,7 +41,6 @@ let router = new Router({
 // setTimeout(() => {
 //     loginouted = true
 // }, 1e4)
-let loadedAbpScript = false // 是否已经加载 菜单 语言包等信息
 router.beforeEach(async (to, from, next) => {
     // if (!to.matched.some(record => record.meta.notAuth) && !authUtils.getToken()) {
     //     // 第一次进来不提示超时
@@ -55,8 +54,8 @@ router.beforeEach(async (to, from, next) => {
     for (let i = 0; i < to.matched.length; i++) {
         let item = to.matched[i]
         // 如果要开始加载正式内容
-        if (item.name === 'index' && !loadedAbpScript) {
-            loadedAbpScript = true
+        if (item.name === 'index' && abpScriptService.isNeedLoad) {
+            abpScriptService.isNeedLoad = false
             // 获取菜单,语言包等信息
             await abpScriptService.getScripts()
         }
