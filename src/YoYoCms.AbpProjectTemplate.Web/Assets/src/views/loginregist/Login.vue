@@ -28,7 +28,8 @@
                                     <i class="material-icons">person</i>
                                 </span>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="username" placeholder="用户名或邮箱地址"
+                                        <input type="text" class="form-control" name="username"
+                                               :placeholder="L('UserNameOrEmail')"
                                                v-model="fetchParam.usernameOrEmailAddress" ref="txtUsername"
                                                required
                                                autofocus>
@@ -43,7 +44,7 @@
                         </span>
                                     <div class="form-line">
                                         <input type="password" @keyup.enter="login" v-model="fetchParam.password"
-                                               class="form-control" placeholder="密码"
+                                               class="form-control" :placeholder="L('Password')"
                                                required>
                                     </div>
                                 </div>
@@ -53,22 +54,31 @@
                             <div class="col-xs-8 p-t-5">
                                 <input type="checkbox" id="rememberme" v-model="fetchParam.rememberMe"
                                        class="filled-in chk-col-pink">
-                                <label for="rememberme">记住我</label>
+                                <label for="rememberme">{{L('RememberMe')}}</label>
                             </div>
                             <div class="col-xs-4">
-                                <button @click="login" class="btn btn-block bg-pink waves-effect" type="submit">登录
+                                <button @click="login" class="btn btn-block bg-pink waves-effect" type="submit">
+                                    {{L('LogIn')}}
                                 </button>
                             </div>
                         </div>
                         <div class="row m-t-15 m-b--20">
                             <div class="col-xs-4">
-                                <a @click="$router.push({name:'register'})" style="cursor:pointer;">立即注册!</a>
+                                <a @click="$router.push({name:'register'})"
+                                   style="cursor:pointer;">{{L('CreateAnAccount')}}</a>
                             </div>
                             <div class="col-xs-4" style="text-align: center">
-                                <a @click="$router.push({name:'SendActiveEmail'})" style="cursor:pointer;">激活邮件</a>
+                                <a @click="$router.push({name:'SendActiveEmail'})"
+                                   style="cursor:pointer;">{{L('EmailActivation')}}</a>
                             </div>
                             <div class="col-xs-4 align-right">
-                                <a @click="$router.push({name: 'forgetPwd'})" style="cursor: pointer">忘记密码?</a>
+                                <a @click="$router.push({name: 'forgetPwd'})"
+                                   style="cursor: pointer">{{L('ForgotPassword')}}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <Languages></Languages>
                             </div>
                         </div>
                     </div>
@@ -81,6 +91,7 @@
 <script>
     //    import config from '../../common/config'
     import userService from '../../services/userService'
+    import Languages from './components/Languages.vue'
     //    import authUtils from '../../common/utils/authUtils'
     export default {
         data() {
@@ -94,10 +105,10 @@
                 },
                 rules: {
                     usernameOrEmailAddress: [
-                        {type: 'string', required: true, message: '请输入邮箱或用户名', trigger: 'change'},
+                        {type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'change'},
                     ],
                     password: [
-                        {type: 'string', required: true, message: '请输入密码', trigger: 'blur'}
+                        {type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'blur'}
                     ],
                 }
             }
@@ -115,7 +126,7 @@
 
                         // 如果需要重新设置密码
                         if (ret.result && ret.result.resetPassword) {
-                            abp.notify.success('请重新设置密码!', '登录成功')
+                            abp.notify.success(lang.L('PasswordResetEmail_SubTitle'), lang.L('LoginSuccessful'))
                             delete ret.result.resetPassword
                             this.$router.push({name: 'resetpassword', query: ret.result})
                             return
@@ -123,16 +134,16 @@
                         setTimeout(() => {
 //                        authUtils.setToken(ret)
                             this.$router.push({name: 'Dashboard.Tenant'})
-                            abp.notify.success('登录成功!', '恭喜')
+                            abp.notify.success(lang.L('LoginSuccessful'), lang.L('Success'))
                             this.loading = false
                         }, 5e2)
                     } catch (e) {
-                        abp.notify.error('请确认账号密码是否正确!', '登录失败')
+                        abp.notify.error(lang.L('UserNameOrPasswordError'), lang.L('LoginFailed'))
                         this.loading = false
                     }
                 })
             },
         },
-        components: {}
+        components: {Languages}
     }
 </script>

@@ -5,16 +5,16 @@
 <template>
     <article>
         <el-dialog
-                title="头像修改"
+                :title="L('ChangeProfilePicture')"
                 :visible.sync="dialogVisible"
                 size="tiny">
 
             <div>
-                <el-button @click="choose">选择图片</el-button>
-                只能选择1mb内的JPG/JPEG/PNG图片.
+                <el-button @click="choose">{{L('ChooseImg')}}</el-button>
+                {{L('ProfilePicture_Change_Info')}}
             </div>
             <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button @click="dialogVisible = false">{{L('Cancel')}}</el-button>
           </span>
         </el-dialog>
 
@@ -59,7 +59,7 @@
                 })
                 this.dialogVisible = false
                 this.$store.dispatch('setAuthUser', {user: Object.assign({}, this.$store.state.auth.user, {portrait: data})})
-                abp.notify.success('修改成功', '恭喜')
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
             }
         },
         components: {CropperImg}

@@ -25,11 +25,12 @@ import abpScriptService from './services/abpScriptService'
 // window.abp.appPath = config.apiHost
 Vue.config.productionTip = config.isDebug
 console.log(abp.localization.getSource)
+
 Vue.use(vueLangPlugin)
 
 // 加载apb的ajax库
 loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(async () => {
-    setElementUiLang()
+    await setElementUiLang()
 
     /* eslint-disable no-new */
     new Vue({
@@ -45,6 +46,7 @@ loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(async () => {
     alert('加载失败,请刷新后重试')
 })
 
+// 设置elementui的语言包
 async function setElementUiLang() {
     // 获取菜单,语言包等信息
     await abpScriptService.getScripts()
