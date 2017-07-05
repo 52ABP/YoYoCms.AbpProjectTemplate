@@ -7,13 +7,23 @@
 4.jquery   
 #### UI库
 1.[element-ui](https://element.eleme.io)   
-2.[waves](http://fian.my.id/Waves/)
+2.[waves](http://fian.my.id/Waves/)   
+3.[bootstrap](http://www.bootcss.com/)   
+4.[bsb](http://bsb.ddxc.org/pages/ui/breadcrumbs.html)
 
 ### 运行项目
 ```
  npm i
  npm run dev
 ```
+webpack会启动一个8080端口的web服务器
+
+### 部署
+```$xslt
+npm i
+npm run build
+```
+如果已安装node依赖, 则直接运行 `npm run build` 即可
 
 
 ### 项目结构
@@ -32,4 +42,5 @@
     - store  vuex
     - vendor  存放第三方的库
     - views  视图文件
+    - vuePlugin 自定义的vue插件
 - static  静态文件,编译后的目录不变
