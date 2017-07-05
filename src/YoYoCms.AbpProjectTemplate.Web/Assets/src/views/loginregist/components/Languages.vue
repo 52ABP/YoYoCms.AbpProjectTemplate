@@ -10,7 +10,7 @@
 
 <template>
     <article class="loginregister__languages-container" v-loading="loading">
-        <section v-for="item in langs">
+        <section v-for="item in langs" class="waves-effect">
             <i :class="item.icon" :title="item.displayName" @click="choose(item)"></i>
         </section>
     </article>
