@@ -12,8 +12,6 @@ using Abp.Zero.Configuration;
 using YoYoCms.AbpProjectTemplate.Configuration;
 using YoYoCms.AbpProjectTemplate.Debugging;
 using YoYoCms.AbpProjectTemplate.Web.Models.TenantRegistration;
-using Recaptcha.Web;
-using Recaptcha.Web.Mvc;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -82,16 +80,28 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
                 if (UseCaptchaOnRegistration())
                 {
-                    var recaptchaHelper = this.GetRecaptchaVerificationHelper();
-                    if (recaptchaHelper.Response.IsNullOrEmpty())
+                    if (model.Captcha.IsNullOrWhiteSpace())
                     {
                         throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
                     }
 
-                    if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    var result = VerifyTheCaptcha(model.Captcha);
+                    if (result)
                     {
-                        throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                        return Json(true);
                     }
+                    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                    //todo:租户注册的时候需要验证码
+                    //var recaptchaHelper = this.GetRecaptchaVerificationHelper();
+                    //if (recaptchaHelper.Response.IsNullOrEmpty())
+                    //{
+                    //    throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
+                    //}
+
+                    //if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    //{
+                    //    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                    //}
                 }
 
                 //Getting host-specific settings

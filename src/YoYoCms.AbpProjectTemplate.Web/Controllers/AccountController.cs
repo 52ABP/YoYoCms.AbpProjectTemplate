@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -25,6 +27,7 @@ using Abp.Web.Mvc.Authorization;
 using Abp.Web.Models;
 using Abp.Web.Security.AntiForgery;
 using Abp.Zero.Configuration;
+using LTM.Common.Drawing;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -38,8 +41,7 @@ using YoYoCms.AbpProjectTemplate.Notifications;
 using YoYoCms.AbpProjectTemplate.Web.Controllers.Results;
 using YoYoCms.AbpProjectTemplate.Web.Models.Account;
 using YoYoCms.AbpProjectTemplate.Web.MultiTenancy;
-using Recaptcha.Web;
-using Recaptcha.Web.Mvc;
+
 using Newtonsoft.Json;
 using YoYoCms.AbpProjectTemplate.Security;
 using YoYoCms.AbpProjectTemplate.UserManagement.Users;
@@ -355,6 +357,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// Identity身份信息拓展
         /// </summary>
         /// <param name="identity"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
         private List<Claim> AddIdentityInfo(ClaimsIdentity identity, User user)
         {
@@ -362,8 +365,8 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             var list = new List<Claim>
             {
                 new Claim(ClaimTypes.Email, user.EmailAddress),
-                new Claim(AbpProjectTemplateConsts.ClaimTypes.UserName, user.UserName),
-                new Claim("ceshi", "001")
+                new Claim(AbpProjectTemplateConsts.ClaimTypes.UserName, user.UserName)
+             
             };
 
             return list;
@@ -387,7 +390,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 PasswordComplexitySetting = JsonConvert.DeserializeObject<PasswordComplexitySetting>(SettingManager.GetSettingValue(AppSettings.Security.PasswordComplexity))
             });
         }
-
+        /// <summary>
+        /// 注册后的页面
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public ActionResult RegisterView(RegisterViewModel model)
         {
             CheckSelfRegistrationIsEnabled();
@@ -406,7 +413,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
-        public virtual async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
+        public  async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
         {
             try
             {
@@ -414,16 +421,32 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
                 if (!model.IsExternalLogin && UseCaptchaOnRegistration())
                 {
-                    var recaptchaHelper = this.GetRecaptchaVerificationHelper();
-                    if (recaptchaHelper.Response.IsNullOrEmpty())
+                 
+
+                    if (model.Captcha.IsNullOrWhiteSpace())
                     {
                         throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
                     }
 
-                    if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    var result = VerifyTheCaptcha(model.Captcha);
+                    if (result)
                     {
-                        throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                        return Json(true);
                     }
+                    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+
+                    //todo:制作验证码功能
+                    //  var recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+                    //if (recaptchaHelper.Response.IsNullOrEmpty())
+                    //{
+                    //    throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
+                    //}
+
+                    //if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    //{
+                    //    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                    //}
                 }
 
                 if (!_multiTenancyConfig.IsEnabled)
@@ -583,10 +606,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         }
 
         /// <summary>
-        /// 是否启用用户注册验证码信息
+        /// 是否启用用户注册验证码信息(前端调用判断是否启用验证码)
         /// </summary>
         /// <returns></returns>
-        private bool UseCaptchaOnRegistration()
+        public bool UseCaptchaOnRegistration()
         {
             if (DebugHelper.IsDebug)
             {
