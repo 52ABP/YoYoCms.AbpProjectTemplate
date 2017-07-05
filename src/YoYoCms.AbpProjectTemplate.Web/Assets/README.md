@@ -16,7 +16,7 @@
  $ npm i
  $ npm run dev
 ```
-webpack会启动一个8080端口的web服务器
+webpack会启动一个8986端口的web服务器
 
 ### 部署
 ```$xslt
