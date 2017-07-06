@@ -1,7 +1,15 @@
-﻿using Abp.IdentityFramework;
+﻿using System.Drawing;
+using System.IO;
+using System.Web.Mvc;
+using Abp.Application.Services.Dto;
+using Abp.Extensions;
+using Abp.IdentityFramework;
+using Abp.UI;
 using Abp.Web.Mvc.Controllers;
+using LTM.Common.Drawing;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
+using YoYoCms.AbpProjectTemplate.Configuration;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
@@ -24,5 +32,31 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         {
             identityResult.CheckErrors(LocalizationManager);
         }
+
+
+        #region 验证码生成和验证
+   
+
+        /// <summary>
+        /// 校验验证码信息
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool VerifyTheCaptcha(string code)
+        {
+            var sessionCaptcha = Session[AppSettings.UserManagement.UseCaptchaOnRegistration].ToString().ToLower();
+            return sessionCaptcha == code.ToLower();
+        }
+
+
+ 
+
+
+
+
+
+        #endregion
+
+
     }
 }

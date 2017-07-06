@@ -18,7 +18,7 @@ namespace LTM.Common.Drawing
         /// </summary>
         public ValidateCoder()
         {
-            ///
+           
             FontNames = new List<string> { "Arial", "Batang", "Buxton Sketch", "David", "SketchFlow Print" };
             FontNamesForHanzi = new List<string> { "宋体", "幼圆", "楷体", "仿宋", "隶书", "黑体" };
             FontSize = 20;
