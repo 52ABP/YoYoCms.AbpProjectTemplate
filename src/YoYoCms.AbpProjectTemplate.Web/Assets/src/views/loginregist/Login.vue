@@ -91,8 +91,9 @@
 <script>
     //    import config from '../../common/config'
     import userService from '../../services/userService'
+    import sessionService from '../../services/sessionService'
     import Languages from './components/Languages.vue'
-    //    import authUtils from '../../common/utils/authUtils'
+    import authUtils from '../../common/utils/authUtils'
     export default {
         data() {
             return {
@@ -131,8 +132,12 @@
                             this.$router.push({name: 'resetpassword', query: ret.result})
                             return
                         }
-                        setTimeout(() => {
-//                        authUtils.setToken(ret)
+                        setTimeout(async () => {
+                            // 获取用户信息
+                            let user = (await sessionService.getCurrentLoginInformations()).user
+                            this.$store.dispatch('setAuthUser', {user})
+                            authUtils.setUserInfo(user)
+
                             this.$router.push({name: 'Dashboard.Tenant'})
                             abp.notify.success(lang.L('LoginSuccessful'), lang.L('Success'))
                             this.loading = false

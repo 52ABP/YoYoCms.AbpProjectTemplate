@@ -269,10 +269,10 @@
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-    //    import authUtils from '../common/utils/authUtils'
+//    import authUtils from '../common/utils/authUtils'
     import loadFile from '../common/utils/loadFile'
     //    import abpScriptService from '../services/abpScriptService'
-    import sessionService from '../services/sessionService'
+//    import sessionService from '../services/sessionService'
     import userService from '../services/userService'
     import abpScriptService from '../services/abpScriptService'
 
@@ -302,11 +302,7 @@
         async created() {
             // 如果用户信息没获取到
             if (!this.user.id) {
-                let ret = await sessionService.getCurrentLoginInformations()
-                let user = ret.user
-                this.$store.dispatch('setAuthUser', {user})
-                //                authUtils.setUserInfo(user)
-                this.user = user
+                // 跳转到登录
             }
         },
         activated() {
