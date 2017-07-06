@@ -101,7 +101,7 @@
             </el-table-column>
             <el-table-column
                     width="100"
-                    :label="L('Action')">
+                    :label="L('Actions')">
                 <template scope="scope">
                     <div class="btn-group">
                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
