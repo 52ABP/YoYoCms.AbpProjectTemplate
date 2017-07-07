@@ -5,7 +5,7 @@ const actions = {
     setIndexMenuActive (store, {menu}) {
         if (abp.nav && menu) {
             menu.map((item) => {
-                item.displayName = searchcDisplayName(item.name, abp.nav.menus.MainMenu)
+                item.displayName = item.displayName || searchcDisplayName(item.name, abp.nav.menus.MainMenu)
             })
         }
         store.commit(types.INDEX_SETACTIVEMENU, {menu})

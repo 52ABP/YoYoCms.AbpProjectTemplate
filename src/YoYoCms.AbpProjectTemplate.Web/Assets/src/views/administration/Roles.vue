@@ -8,21 +8,15 @@
         .search {
             @extend %top-search-container;
         }
-
-        .el-table {
-            overflow: visible !important;
-
-            * {
-                overflow: visible !important;
-            }
-        }
     }
 </style>
 
 <template>
     <article class="administration-roles-container">
         <section class="right-top-btnContainer">
-            <el-button class="waves-effect" type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.role={}">{{L('CreateNewRole')}}</el-button>
+            <el-button class="waves-effect" type="primary" icon="plus"
+                       @click="dialogEdit.isShow=true;dialogEdit.role={}">{{L('CreateNewRole')}}
+            </el-button>
         </section>
         <article class="search">
             <section>
@@ -64,17 +58,20 @@
                     width="100"
                     :label="L('Action')">
                 <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            {{L('Action')}} <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
-                                <a>{{L('Edit')}}</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <el-dropdown trigger="click">
+                        <el-button type="primary" size="small" class="waves-effect">
+                            {{L('Actions')}}
+                            <i class="el-icon-caret-bottom el-icon--right"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item>
+                                <div @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
+                                    {{L('Edit')}}
+                                </div>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+
                 </template>
             </el-table-column>
         </el-table>

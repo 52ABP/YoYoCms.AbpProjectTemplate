@@ -13,6 +13,15 @@ import administration from '../router/administration/index'
 let router = new Router({
     routes: [
         {path: '/', redirect: '/login'},
+        {
+            path: '/test',
+            component: resolve => {
+                require.ensure([],
+                    () => {
+                        resolve(require('../views/Test.vue'))
+                    })
+            }
+        },
         //  =================================登录注册=====================================
         ...loginRegister,
         {
@@ -61,7 +70,7 @@ router.beforeEach(async (to, from, next) => {
         }
         // debugger
         // item.meta.displayName = item.meta.displayName
-        menu.push({name: item.name})
+        menu.push({name: item.name, displayName: item.meta.displayName})
     }
 
     store.dispatch('setIndexMenuActive', {menu})

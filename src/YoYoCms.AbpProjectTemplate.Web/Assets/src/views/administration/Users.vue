@@ -16,7 +16,9 @@
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
             <el-button icon="upload2" @click="exportExcel">{{L('ExportToExcel')}}</el-button>
-            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">{{L('CreateNewUser')}}</el-button>
+            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
+                {{L('CreateNewUser')}}
+            </el-button>
         </section>
 
         <!--搜索-->
@@ -31,7 +33,7 @@
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
             <!--<section>-->
-                <!--<el-button type="primary" icon="search" @click="fetchData">搜索</el-button>-->
+            <!--<el-button type="primary" icon="search" @click="fetchData">搜索</el-button>-->
             <!--</section>-->
         </article>
 
@@ -100,24 +102,33 @@
                 </template>
             </el-table-column>
             <el-table-column
+                    fixed="right"
                     width="100"
                     :label="L('Actions')">
                 <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            {{L('Action')}} <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
-                                <a>{{L('Permissions')}}</a></li>
-                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
-                                <a>{{L('Edit')}}</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li @click="del(scope.$index,scope.row)"><a>{{L('Delete')}}</a></li>
-                        </ul>
-                    </div>
+                    <el-dropdown trigger="click">
+                        <el-button type="primary" size="small" class="waves-effect">
+                            {{L('Actions')}}
+                            <i class="el-icon-caret-bottom el-icon--right"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item>
+                                <div @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
+                                    {{L('Permissions')}}</div>
+                            </el-dropdown-item>
+                            <el-dropdown-item>
+                                <div @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
+                                    {{L('Edit')}}
+                                </div>
+                            </el-dropdown-item>
+                            <el-dropdown-item>
+                                <div role="separator" class="divider"></div>
+                            </el-dropdown-item>
+                            <el-dropdown-item divided>
+                                <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </template>
             </el-table-column>
         </el-table>
