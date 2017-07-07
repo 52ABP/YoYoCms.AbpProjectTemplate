@@ -16,7 +16,6 @@ import './vendor/bsb/plugin/node-waves/waves'
 import Vue from 'vue'
 import './store'
 import App from './App.vue'
-import router from './router'
 import config from './common/config'
 import loadFile from './common/utils/loadFile'
 import vueLangPlugin from './vuePlugins/langPlugin'
@@ -28,11 +27,12 @@ Vue.config.productionTip = config.isDebug
 
 Vue.use(vueLangPlugin)
 Vue.use(hooksPlugin)
+
 // 加载apb的ajax库
 loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(async () => {
     await setElementUiLang()
-
     /* eslint-disable no-new */
+    let router = require('./router').default
     new Vue({
         el: '#app',
         router,

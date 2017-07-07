@@ -64,26 +64,31 @@
                     width="110"
                     :label="L('Actions')">
                 <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            {{L('Actions')}} <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <!--改变文本信息-->
-                            <li @click="fetchData"><a>{{L('ChangeTexts')}}</a></li>
-                            <!--设置当前语言为默认语言-->
-                            <li v-if="defaultLanguageName != scope.row.name" @click="setDefaultLang(scope.row)">
-                                <a>{{L('SetAsDefaultLanguage')}}</a></li>
-                            <!--修改-->
-                            <li v-if="tenantId == scope.row.tenantId"
-                                @click="showAddDialog(scope.row)"><a>{{L('Edit')}}</a></li>
-                            <li v-if="tenantId == scope.row.tenantId" role="separator" class="divider"></li>
-                            <!--删除-->
-                            <li v-if="tenantId == scope.row.tenantId"
-                                @click="del(scope.$index, scope.row)"><a>{{L('Delete')}}</a></li>
-                        </ul>
-                    </div>
+                    <el-dropdown trigger="click">
+                        <el-button type="primary" size="small" class="waves-effect">
+                            {{L('Actions')}}
+                            <i class="el-icon-caret-bottom el-icon--right"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item>
+                                <!--改变文本信息-->
+                                <div @click="$router.push({name:'Administration.languagestext', params:{lang: scope.row.name}})">{{L('ChangeTexts')}}</div>
+                            </el-dropdown-item>
+                            <el-dropdown-item v-if="defaultLanguageName != scope.row.name">
+                                <!--设置当前语言为默认语言-->
+                                <div @click="setDefaultLang(scope.row)">
+                                    {{L('SetAsDefaultLanguage')}}</div>
+                            </el-dropdown-item>
+                            <el-dropdown-item v-if="tenantId == scope.row.tenantId">
+                                <!--修改-->
+                                <div @click="showAddDialog(scope.row)">{{L('Edit')}}</div>
+                            </el-dropdown-item>
+                            <el-dropdown-item divided v-if="tenantId == scope.row.tenantId">
+                                <!--删除-->
+                                <div @click="del(scope.$index, scope.row)">{{L('Delete')}}</div>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </template>
             </el-table-column>
         </el-table>
@@ -112,7 +117,7 @@
                 loading: false,
                 data: [], // 表格数据
                 defaultLanguageName: void 0, // 默认语言
-                user: this.$store.state.auth.user,
+                user: this.$store.state.auth.user || {},
                 tenantId: abp.session.tenantId,
                 dialogAdd: {
                     isShow: false,

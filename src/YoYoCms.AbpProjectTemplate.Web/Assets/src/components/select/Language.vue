@@ -1,11 +1,4 @@
-<!--工业连锁店-->
-
-<!--使用示范:-->
-<!--<IndustryCompanySelect v-model="fetchParam.enterprise_id"-->
-<!--v-on:change="val=>fetchParam.enterprise_id=val"-->
-<!--:change="fetchData">-->
-<!--</IndustryCompanySelect>-->
-
+<!--所有语言和国旗-->
 <style lang="scss" rel="stylesheet">
     .select__language-container {
         section {
