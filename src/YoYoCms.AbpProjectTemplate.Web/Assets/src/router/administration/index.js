@@ -18,9 +18,6 @@ export default {
                 resolve(require('../../views/administration/organizationUnits.vue'))
             })
         },
-        meta: {
-            navName: 'organizationunits'
-        },
     }, { // 角色信息
         path: 'roles',
         name: namePre + `Roles`,

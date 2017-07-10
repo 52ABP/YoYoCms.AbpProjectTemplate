@@ -46,9 +46,9 @@ const Auth = {
         },
         // 设置消息为已读
         [INDEX_SET_NOTIFICATIONSREADED](state, {id, data}) {
-            if (!data) {
+            if (!id) {
                 state.notifications.forEach((item) => {
-                    if (item.id == id) data = item
+                    if (item.id == data.id) data = item
                 })
             }
             if (!data) throw Object('没找到该消息!')
