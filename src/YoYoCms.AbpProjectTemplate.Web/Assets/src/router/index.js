@@ -9,6 +9,7 @@ import abpScriptService from '../services/abpScriptService'
 import dashboard from '../router/dashboard'
 import loginRegister from '../router/loginregister'
 import administration from '../router/administration/index'
+import common from '../router/common'
 
 let router = new Router({
     routes: [
@@ -37,7 +38,9 @@ let router = new Router({
                 //  =================================dashboard=====================================
                 dashboard,
                 //  =================================管理=====================================
-                administration
+                administration,
+                //  =================================公共页面=====================================
+                common
             ]
         },
     ],

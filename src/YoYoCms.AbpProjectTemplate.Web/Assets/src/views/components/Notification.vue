@@ -66,15 +66,15 @@
                     </li>
                 </ul>
             </li>
-            <li class="footer">
-                <a href="javascript:void(0);">View All Notifications</a>
+            <li class="footer" @click="$router.push({name:'common-notifications'})">
+                <a href="javascript:void(0);">{{L('SeeAllNotifications')}}</a>
             </li>
         </ul>
     </li>
 </template>
 
 <script>
-    import notificationService from '../../services/administration/notificationService'
+    import notificationService from '../../services/common/notificationService'
     export default {
         data() {
             return {
@@ -86,7 +86,6 @@
             '$store.state.index.notifications'(val) {
                 this.data = val
                 this.$nextTick(() => {
-//                    window.initAdminJs && window.initAdminJs()
                     $.AdminBSB && $.AdminBSB.dropdownMenu && $.AdminBSB.dropdownMenu.activate()
                 })
             },
