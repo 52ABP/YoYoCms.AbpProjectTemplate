@@ -99,6 +99,7 @@
             this.$store.dispatch('setNotifications', {data: ret.items})
             abp.event.on('abp.notifications.received', (userNotification) => {
                 this.$store.dispatch('pushNofications', {data: userNotification})
+                console.log('收到消息', userNotification)
             })
 
             abp.event.on('app.notifications.read', (userNotificationId) => {

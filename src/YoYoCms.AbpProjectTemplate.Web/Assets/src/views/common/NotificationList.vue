@@ -24,9 +24,12 @@
             <section>
                 <i>{{L('Search')}}</i>
                 <el-select v-model="fetchParam.state" @change="fetchData">
-                    <el-option label="全部" value=""></el-option>
-                    <el-option label="未读" value="0"></el-option>
+                    <el-option :label="L('All')" value=""></el-option>
+                    <el-option :label="L('Unread')" value="0"></el-option>
                 </el-select>
+            </section>
+            <section>
+                <el-button class="waves-effect" @click="fetchData">{{L('Refresh')}}</el-button>
             </section>
         </article>
 
@@ -52,7 +55,8 @@
                     width="200"
                     :label="L('Actions')">
                 <template scope="scope">
-                    <el-button @click="setReaded(scope.row)" size="mini" v-if="scope.row.state == 0">
+                    <el-button class="waves-effect" @click="setReaded(scope.row)" type="primary" size="mini"
+                               v-if="scope.row.state == 0">
                         {{L('SetAsRead')}}
                     </el-button>
                     <el-tag type="gray" v-else>{{L('Readed')}}</el-tag>
