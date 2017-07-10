@@ -1,4 +1,4 @@
-﻿var abp = abp || {};
+﻿var abp = window.abp || {};
 (function ($) {
 
     //Check if SignalR is defined

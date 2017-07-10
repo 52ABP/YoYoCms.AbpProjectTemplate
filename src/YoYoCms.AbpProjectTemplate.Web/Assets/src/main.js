@@ -1,3 +1,6 @@
+import loadFile from './common/utils/loadFile'
+import config from './common/config'
+window.appConfig = config
 // elementui
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/zh-CN'
@@ -7,6 +10,7 @@ Vue.use(ElementUI, {locale})
 // abp的一系列框架封装
 import './vendor/abp/scripts/abp.js'
 import './common/utils/toastrImp'
+import './vendor/jquery.singlR.min'
 import './vendor/abp/scripts/libs/abp.jquery.js'
 import './vendor/abp/scripts/libs/sweetalert/sweetalert.min'
 import './vendor/abp/scripts/libs/abp.sweet-alert'
@@ -16,8 +20,6 @@ import './vendor/bsb/plugin/node-waves/waves'
 import Vue from 'vue'
 import './store'
 import App from './App.vue'
-import config from './common/config'
-import loadFile from './common/utils/loadFile'
 import vueLangPlugin from './vuePlugins/langPlugin'
 import hooksPlugin from './vuePlugins/hooksPlugin'
 import abpScriptService from './services/abpScriptService'
@@ -28,8 +30,9 @@ Vue.config.productionTip = config.isDebug
 Vue.use(vueLangPlugin)
 Vue.use(hooksPlugin)
 
-// 加载apb的ajax库
-loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(async () => {
+// 加载apb的ajax库 和 singlr
+Promise.all([loadFile.loadJs(config.apiHost + '/signalr/hubs'), loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery')]).then(async () => {
+    require('./vendor/abp/scripts/libs/abp.signalr.js')
     await setElementUiLang()
     /* eslint-disable no-new */
     let router = require('./router').default
@@ -40,10 +43,11 @@ loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery').then(async () => {
         components: {App},
         // i18n
     })
-}).catch(() => {
+}).catch((e) => {
     // //todo:黄总这里有个问题，就是我的后端崩溃了。。你这个怎么玩。。这里的错误提示就GG了。。 ==============答: 刷新页面================
     abp.message.error('加载失败,请刷新后重试')
     alert('加载失败,请刷新后重试')
+    console.log(e)
 })
 
 // 设置elementui的语言包

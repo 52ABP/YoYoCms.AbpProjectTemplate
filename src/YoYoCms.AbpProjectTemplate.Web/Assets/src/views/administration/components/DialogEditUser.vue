@@ -45,7 +45,7 @@
                     <el-form-item :label="L('PasswordRepeat')" prop="repassword" v-show="!fetchParam.setRandomPassword">
                         <el-input type="password" v-model="currUser.repassword" :placeholder="L('PasswordRepeat')"></el-input>
                     </el-form-item>
-                    <el-form-item :label="L('SetRandomPassword')" prop="shouldChangePasswordOnNextLogin">
+                    <el-form-item :label="L('ShouldChangePasswordOnNextLogin')" prop="shouldChangePasswordOnNextLogin">
                         <el-checkbox v-model="currUser.shouldChangePasswordOnNextLogin"></el-checkbox>
                     </el-form-item>
                     <el-form-item :label="L('SendActivationEmail')" prop="sendActivationEmail">

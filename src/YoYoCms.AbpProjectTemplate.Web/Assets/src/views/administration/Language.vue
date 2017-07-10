@@ -72,12 +72,15 @@
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item>
                                 <!--改变文本信息-->
-                                <div @click="$router.push({name:'Administration.languagestext', params:{lang: scope.row.name}})">{{L('ChangeTexts')}}</div>
+                                <div @click="$router.push({name:'Administration.languagestext', params:{lang: scope.row.name}})">
+                                    {{L('ChangeTexts')}}
+                                </div>
                             </el-dropdown-item>
                             <el-dropdown-item v-if="defaultLanguageName != scope.row.name">
                                 <!--设置当前语言为默认语言-->
                                 <div @click="setDefaultLang(scope.row)">
-                                    {{L('SetAsDefaultLanguage')}}</div>
+                                    {{L('SetAsDefaultLanguage')}}
+                                </div>
                             </el-dropdown-item>
                             <el-dropdown-item v-if="tenantId == scope.row.tenantId">
                                 <!--修改-->
@@ -164,6 +167,7 @@
             // 显示添加或修改的弹出框
             showAddDialog (item = {}) {
                 this.dialogAdd.isShow = true
+                this.dialogAdd.model = {}
                 this.$nextTick(() => {
                     this.dialogAdd.model = item
                 })

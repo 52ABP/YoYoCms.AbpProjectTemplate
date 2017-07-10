@@ -70,117 +70,7 @@
                             <SelLanguage></SelLanguage>
                         </li>
                         <!-- Notifications -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                <i class="material-icons">notifications</i>
-                                <span class="label-count">7</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">通知</li>
-                                <li class="body">
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-light-green">
-                                                    <i class="material-icons">person_add</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>12 new members joined</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 14 mins ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-cyan">
-                                                    <i class="material-icons">add_shopping_cart</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>4 sales made</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 22 mins ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-red">
-                                                    <i class="material-icons">delete_forever</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>Nancy Doe</b> deleted account</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 3 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-orange">
-                                                    <i class="material-icons">mode_edit</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>Nancy</b> changed name</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 2 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-blue-grey">
-                                                    <i class="material-icons">comment</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>John</b> commented your post</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 4 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-light-green">
-                                                    <i class="material-icons">cached</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>John</b> updated status</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 3 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-purple">
-                                                    <i class="material-icons">settings</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>Settings updated</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> Yesterday
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer">
-                                    <a href="javascript:void(0);">View All Notifications</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <Notification></Notification>
                         <!-- #END# Tasks -->
                         <li class="pull-right">
                             <a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
@@ -269,10 +159,7 @@
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-//    import authUtils from '../common/utils/authUtils'
     import loadFile from '../common/utils/loadFile'
-    //    import abpScriptService from '../services/abpScriptService'
-//    import sessionService from '../services/sessionService'
     import userService from '../services/userService'
     import abpScriptService from '../services/abpScriptService'
 
@@ -282,6 +169,7 @@
     import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
     import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
     import SelLanguage from './components/SelLanguage.vue' // 多语言下拉框
+    import Notification from './components/Notification.vue' // 右上角的通知
     export default {
         data() {
             return {
@@ -300,12 +188,6 @@
             }
         },
         async created() {
-            // 如果用户信息没获取到
-            if (!this.user.id) {
-                // 跳转到登录
-            }
-        },
-        activated() {
         },
         async mounted() {
             this.menus = abp.nav.menus.MainMenu
@@ -331,6 +213,6 @@
                 abpScriptService.isNeedLoad = true
             }
         },
-        components: {MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage}
+        components: {MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage, Notification}
     }
 </script>
