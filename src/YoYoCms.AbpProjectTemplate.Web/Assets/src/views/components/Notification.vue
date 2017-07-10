@@ -86,7 +86,8 @@
             '$store.state.index.notifications'(val) {
                 this.data = val
                 this.$nextTick(() => {
-                    window.initAdminJs && window.initAdminJs()
+//                    window.initAdminJs && window.initAdminJs()
+                    $.AdminBSB && $.AdminBSB.dropdownMenu && $.AdminBSB.dropdownMenu.activate()
                 })
             },
             '$store.state.index.unReadNotification'(val) {
