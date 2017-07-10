@@ -16,6 +16,27 @@ const actions = {
         user.portrait = user.portrait || `/Profile/GetProfilePicture?v=${Date.now()}`
         store.commit(types.AUTH_SETUSER, {user})
     },
+    // 设置未读数量
+    setUnreadNotification (store, {count}) {
+        store.commit(types.INDEX_SET_UNREADNOTIFICATION, {count})
+    },
+    // 设置右上角消息列表
+    setNotifications (store, {data}) {
+        store.commit(types.INDEX_SET_NOTIFICATIONS, {data})
+    },
+    // 向右上角消息列表增加一条数据
+    pushNofications(store, {data}) {
+        store.commit(types.INDEX_PUSH_NOTIFICATIONS, {data})
+    },
+    /**
+     * 设置消息为已读
+     * @param store
+     * @param id 必填
+     * @param data 选填 为列表中的item
+     */
+    setNotificationReaded(store, {id, data}) {
+        store.commit(types.INDEX_SET_NOTIFICATIONSREADED, {id, data})
+    }
 }
 
 // 从abp.nav中 获取菜单显示的名字

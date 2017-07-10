@@ -45,6 +45,9 @@ module.exports = {
             },
             '/AbpLocalization/': {
                 target: 'http://localhost:16240/'
+            },
+            '/signalr/': {
+                target: 'http://localhost:16240/'
             }
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"

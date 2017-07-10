@@ -22,8 +22,7 @@
     <article class="select__language-container" v-loading="loading">
         <section>
             <i>{{L('Languages')}}</i>
-            <el-select v-model="currVal" :placeholder="L('Select')" filterable
-                       @change="changeTest">
+            <el-select v-model="currVal" :placeholder="L('Select')" filterable>
                 <el-option
                         v-for="item in data"
                         :label="item.displayText"
@@ -59,7 +58,7 @@
         },
         data () {
             return {
-                loading: false,
+                loading: true,
                 data: [],
                 currVal: void 0,
 
@@ -100,22 +99,18 @@
         activated () {
         },
         methods: {
-            search (val) {
-                console.log(val)
-            },
             async fetchData () {
                 this.loading = true
                 let ret = await langService.getLanguageForEdit({id: null})
 
                 this.data = ret.languageNames
                 this.flagData = ret.flags
-                this.loading = false
+                setTimeout(() => {
+                    this.loading = false
+                }, 500)
             },
             handleChange() {
                 this.onChange && this.onChange(this.currVal)
-            },
-            changeTest(item) {
-                console.log(item)
             },
         },
         components: {}
