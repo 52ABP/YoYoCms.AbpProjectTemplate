@@ -9,6 +9,7 @@
     <text name="Upload" value="upload" />
     <text name="LoginSuccessful" value="login successful!" />
     <text name="UserNameOrPasswordError" value="username or password error!" />
+    <text name="Readed" value="readed" />
 
     <text name="HomePage" value="Home page" />
     <text name="AboutUs" value="About us" />

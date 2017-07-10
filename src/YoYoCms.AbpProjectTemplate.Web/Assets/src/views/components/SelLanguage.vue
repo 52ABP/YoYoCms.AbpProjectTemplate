@@ -9,7 +9,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
             <el-dropdown-item v-for="item in langs" :key="item.displayName">
-                <div class="waves-effect" @click="choose(item)"><i :class="item.icon"></i> {{item.displayName}}</div>
+                <div @click="choose(item)"><i :class="item.icon"></i> {{item.displayName}}</div>
             </el-dropdown-item>
         </el-dropdown-menu>
     </el-dropdown>

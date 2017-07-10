@@ -5,6 +5,7 @@
     <text name="AddSubUnit" value="添加子单元" />
     <text name="SelectAUser" value="选择用户" />
     <text name="Members" value="用户" />
+    <text name="Readed" value="已读" />
     
     <text name="RequiredFiled" value="该字段为必填项" />
     <text name="ExitSuccessful" value="退出成功" />
