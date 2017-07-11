@@ -144,7 +144,7 @@
         </section>
         <!--内容部分-->
         <section class="content">
-            <Nav></Nav>
+            <Navs></Navs>
             <router-view></router-view>
         </section>
 
@@ -159,12 +159,12 @@
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-    import loadFile from '../common/utils/loadFile'
+//    import loadFile from '../common/utils/loadFile'
     import userService from '../services/userService'
     import abpScriptService from '../services/abpScriptService'
 
     import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
-    import Nav from './components/Nav.vue' // 内容上部的导航栏
+    import Navs from './components/Nav.vue' // 内容上部的导航栏
     import DialogProfile from './components/DialogProfile.vue' // 修改个人信息 弹出框
     import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
     import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
@@ -195,11 +195,15 @@
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
             this.$nextTick(async () => {
                 //                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
-                await loadFile.loadJs(require('../vendor/bsb/js/demo'))
-                await loadFile.loadJs(require('../vendor/bsb/js/admin'))
+//                await loadFile.loadJs(require('../vendor/bsb/js/demo'))
+//                await loadFile.loadJs(require('../vendor/bsb/js/admin'))
+                require('../vendor/bsb/js/demo')
+                require('../vendor/bsb/js/admin')
                 window.initDemoJs()
                 window.initAdminJs()
                 this.loading = false
+
+//                console.log(require('file?name=[path][name].[ext]?[hash]!../vendor/bsb/js/demo.js'), 'loadfile', loadFile, window.initDemoJs)
             })
         },
         methods: {
@@ -213,6 +217,6 @@
                 abpScriptService.isNeedLoad = true
             }
         },
-        components: {MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage, Notification}
+        components: {MenuTree, Navs, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage, Notification}
     }
 </script>

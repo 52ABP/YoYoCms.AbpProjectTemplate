@@ -126,7 +126,7 @@ window.initAdminJs = function () {
                 });
 
                 //Scroll active menu item when page load, if option set = true
-                if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad) {
+                if ($.AdminBSB.options.leftSideBar.scrollActiveItemWhenPageLoad && $('.menu .list li.active')[0]) {
                     var activeItemOffsetTop = $('.menu .list li.active')[0].offsetTop
                     if (activeItemOffsetTop > 150) $el.slimscroll({scrollTo: activeItemOffsetTop + 'px'});
                 }
@@ -328,28 +328,30 @@ window.initAdminJs = function () {
         activate: function () {
             var _this = this;
 
-            // $('.dropdown, .dropup, .btn-group').on({
-            //     "show.bs.dropdown": function () {
-            //         var dropdown = _this.dropdownEffect(this);
-            //         _this.dropdownEffectStart(dropdown, dropdown.effectIn);
-            //     },
-            //     "shown.bs.dropdown": function () {
-            //         var dropdown = _this.dropdownEffect(this);
-            //         if (dropdown.effectIn && dropdown.effectOut) {
-            //             _this.dropdownEffectEnd(dropdown, function () { });
-            //         }
-            //     },
-            //     "hide.bs.dropdown": function (e) {
-            //         var dropdown = _this.dropdownEffect(this);
-            //         if (dropdown.effectOut) {
-            //             e.preventDefault();
-            //             _this.dropdownEffectStart(dropdown, dropdown.effectOut);
-            //             _this.dropdownEffectEnd(dropdown, function () {
-            //                 dropdown.dropdown.removeClass('open');
-            //             });
-            //         }
-            //     }
-            // });
+            $('.dropdown, .dropup, .btn-group').on({
+                "show.bs.dropdown": function () {
+                    var dropdown = _this.dropdownEffect(this);
+                    _this.dropdownEffectStart(dropdown, dropdown.effectIn);
+                },
+                "shown.bs.dropdown": function () {
+                    var dropdown = _this.dropdownEffect(this);
+                    if (dropdown.effectIn && dropdown.effectOut) {
+                        _this.dropdownEffectEnd(dropdown, function () { });
+                    }
+                },
+                "hide.bs.dropdown": function (e) {
+                    // debugger
+                    var dropdown = _this.dropdownEffect(this);
+                    console.log(dropdown.target)
+                    // if (dropdown.effectOut) {
+                    //     e.preventDefault();
+                    //     _this.dropdownEffectStart(dropdown, dropdown.effectOut);
+                    //     _this.dropdownEffectEnd(dropdown, function () {
+                    //         dropdown.dropdown.removeClass('open');
+                    //     });
+                    // }
+                }
+            });
 
             //Set Waves
             Waves.attach('.dropdown-menu li a', ['waves-block']);

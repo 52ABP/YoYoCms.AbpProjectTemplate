@@ -25,7 +25,7 @@
                 <i>{{L('Search')}}</i>
                 <el-select v-model="fetchParam.state" @change="fetchData">
                     <el-option :label="L('All')" value=""></el-option>
-                    <el-option :label="L('Unread')" value="0"></el-option>
+                    <el-option :label="L('Unread')" :value="0"></el-option>
                 </el-select>
             </section>
             <section>
