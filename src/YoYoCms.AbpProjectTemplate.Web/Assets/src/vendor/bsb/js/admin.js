@@ -342,7 +342,6 @@ window.initAdminJs = function () {
                 "hide.bs.dropdown": function (e) {
                     // debugger
                     var dropdown = _this.dropdownEffect(this);
-                    console.log(dropdown.target)
                     // if (dropdown.effectOut) {
                     //     e.preventDefault();
                     //     _this.dropdownEffectStart(dropdown, dropdown.effectOut);

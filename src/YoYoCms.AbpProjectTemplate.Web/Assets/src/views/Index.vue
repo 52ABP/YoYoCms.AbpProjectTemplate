@@ -202,8 +202,6 @@
                 window.initDemoJs()
                 window.initAdminJs()
                 this.loading = false
-
-//                console.log(require('file?name=[path][name].[ext]?[hash]!../vendor/bsb/js/demo.js'), 'loadfile', loadFile, window.initDemoJs)
             })
         },
         methods: {

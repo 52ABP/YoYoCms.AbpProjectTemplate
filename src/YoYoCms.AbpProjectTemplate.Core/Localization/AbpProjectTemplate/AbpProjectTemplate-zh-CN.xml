@@ -6,7 +6,13 @@
     <text name="SelectAUser" value="选择用户" />
     <text name="Members" value="用户" />
     <text name="Readed" value="已读" />
-    
+    <text name="NotificationSettings" value="消息设置" />
+    <text name="ReceiveNotifications" value="接收消息" />
+    <text name="On" value="开" />
+    <text name="Off" value="关" />
+    <text name="ReceiveNotificationsDefinition" value="接收消息定义" />
+    <text name="NotificationtType" value="消息类型" />
+
     <text name="RequiredFiled" value="该字段为必填项" />
     <text name="ExitSuccessful" value="退出成功" />
     <text name="Tip" value="提示" />
