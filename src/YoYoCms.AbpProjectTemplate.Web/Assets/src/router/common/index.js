@@ -19,7 +19,7 @@ export default {
             })
         },
         meta: {
-            navName: lang.L('Notifications')
+            displayName: lang.L('Notifications')
         },
     }]
 }
