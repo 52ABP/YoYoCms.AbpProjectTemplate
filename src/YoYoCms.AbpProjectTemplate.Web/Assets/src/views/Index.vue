@@ -72,11 +72,11 @@
                         <!-- Notifications -->
                         <Notification></Notification>
                         <!-- #END# Tasks -->
-                        <li class="pull-right">
-                            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
-                                <i class="material-icons">more_vert</i>
-                            </a>
-                        </li>
+                        <!--<li class="pull-right">-->
+                            <!--<a href="javascript:void(0);" class="js-right-sidebar" data-close="true">-->
+                                <!--<i class="material-icons">more_vert</i>-->
+                            <!--</a>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
@@ -143,7 +143,7 @@
             <!-- #END# Left Sidebar -->
         </section>
         <!--内容部分-->
-        <section class="content">
+        <section class="content" v-loading="loadingContent">
             <Navs></Navs>
             <router-view></router-view>
         </section>
@@ -159,7 +159,6 @@
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-//    import loadFile from '../common/utils/loadFile'
     import userService from '../services/userService'
     import abpScriptService from '../services/abpScriptService'
 
@@ -179,7 +178,8 @@
                     isShow: false
                 },
                 dialogPwd: {isShow: false},
-                dialogPortrait: {isShow: false}
+                dialogPortrait: {isShow: false},
+                loadingContent: false, // 内容部分的loading状态
             }
         },
         watch: {
@@ -188,19 +188,16 @@
             }
         },
         async created() {
+            abp.setContentLoading = this.setContentLoading.bind(this)
         },
         async mounted() {
             this.menus = abp.nav.menus.MainMenu
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
             this.$nextTick(async () => {
-                //                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
-//                await loadFile.loadJs(require('../vendor/bsb/js/demo'))
-//                await loadFile.loadJs(require('../vendor/bsb/js/admin'))
                 require('../vendor/bsb/js/demo')
-                require('../vendor/bsb/js/admin')
                 window.initDemoJs()
-                window.initAdminJs()
+                window.initAdminJs && window.initAdminJs()
                 this.loading = false
             })
         },
@@ -209,10 +206,12 @@
             logout() {
                 userService.logout()
                 abp.nav = null
-                //                authUtils.setToken('')
                 this.$router.push({name: 'login'})
                 abp.notify.success(lang.L('ExitSuccessful'), lang.L('Tip'))
                 abpScriptService.isNeedLoad = true
+            },
+            setContentLoading(loading) {
+                this.loadingContent = loading
             }
         },
         components: {MenuTree, Navs, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage, Notification}

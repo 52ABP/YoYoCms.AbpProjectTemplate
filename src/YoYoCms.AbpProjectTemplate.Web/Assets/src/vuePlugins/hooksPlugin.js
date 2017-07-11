@@ -8,7 +8,13 @@ export default {
         Vue.mixin({
             mounted () {
                 Waves.init()
-            }
+            },
+            // deactivated() {
+            //     abp.setContentLoading(true)
+            // },
+            // beforeDestroy() {
+            //     abp.setContentLoading(true)
+            // }
         })
     }
 }

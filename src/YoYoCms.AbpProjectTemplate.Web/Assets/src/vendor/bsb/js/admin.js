@@ -481,3 +481,4 @@ window.initAdminJs = function () {
         $('.page-loader-wrapper').fadeOut();
     }, 50);
 }
+window.initAdminJs()

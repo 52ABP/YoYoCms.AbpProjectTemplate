@@ -135,6 +135,7 @@
                 this.caches.data = (await cachingService.getAllCaches()).items
 
                 this.loading = false
+                abp.setContentLoading(false)
             },
             // isAll 是否清除所有
             async clearCache (item, isAll) {

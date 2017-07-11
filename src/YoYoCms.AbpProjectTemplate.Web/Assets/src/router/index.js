@@ -77,7 +77,7 @@ router.beforeEach(async (to, from, next) => {
     }
 
     store.dispatch('setIndexMenuActive', {menu})
-
+    abp.setContentLoading && abp.setContentLoading(true)
     next()
 })
 
