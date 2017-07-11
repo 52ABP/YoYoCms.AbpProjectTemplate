@@ -103,7 +103,7 @@
             </el-table-column>
             <el-table-column
                     fixed="right"
-                    width="100"
+                    width="110"
                     :label="L('Actions')">
                 <template scope="scope">
                     <el-dropdown trigger="click">
@@ -207,9 +207,11 @@
                 let ret = await userService.getUsers(Object.assign({}, this.fetchParam, {permission: this.fetchParam.permission ? this.fetchParam.permission.id : null})).catch(() => {
                     this.loadingData = false
                 })
-                this.loadingData = false
+
                 this.data = ret.items
                 this.total = ret.totalCount
+                this.loadingData = false
+                abp.setContentLoading(false)
             },
             // 权限弹出框点击确定的回调
             async permissionConfirm (permissions) {

@@ -28,7 +28,7 @@
                                     <i class="material-icons">person</i>
                                 </span>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="username"
+                                        <input @focus type="text" class="form-control" name="username"
                                                :placeholder="L('UserNameOrEmail')"
                                                v-model="fetchParam.usernameOrEmailAddress" ref="txtUsername"
                                                required
@@ -115,6 +115,7 @@
             }
         },
         mounted() {
+            window.initAdminJs && window.initAdminJs()
             this.$refs.txtUsername.focus()
         },
         methods: {
@@ -140,7 +141,7 @@
 
                             this.$router.push({name: 'Dashboard.Tenant'})
                             abp.notify.success(lang.L('LoginSuccessful'), lang.L('Success'))
-                            this.loading = false
+//                            this.loading = false
                         }, 5e2)
                     } catch (e) {
                         abp.notify.error(lang.L('UserNameOrPasswordError'), lang.L('LoginFailed'))

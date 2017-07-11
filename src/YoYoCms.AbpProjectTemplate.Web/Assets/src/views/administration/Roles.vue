@@ -55,7 +55,7 @@
                 </template>
             </el-table-column>
             <el-table-column
-                    width="100"
+                    width="110"
                     :label="L('Action')">
                 <template scope="scope">
                     <el-dropdown trigger="click">
@@ -114,6 +114,7 @@
                     this.data = ret.items
                 } finally {
                     this.loadingData = false
+                    abp.setContentLoading(false)
                 }
             },
             permissionConfirm () {

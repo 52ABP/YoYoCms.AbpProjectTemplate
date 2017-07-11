@@ -192,6 +192,7 @@
                     this.total = ret.totalCount
                 } finally {
                     this.loading = false
+                    abp.setContentLoading(false)
                 }
             },
             // 显示或隐藏 修改弹出框
