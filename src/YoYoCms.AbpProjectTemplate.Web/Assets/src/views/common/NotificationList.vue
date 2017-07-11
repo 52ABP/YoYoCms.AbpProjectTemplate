@@ -16,7 +16,10 @@
     <article class="common__notification-container">
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
-            <el-button>test</el-button>
+            <!--设置-->
+            <el-button class="waves-effect" icon="setting" @click="dialogSetting.isShow=true">{{L('NotificationSettings')}}</el-button>
+            <!--设置所有为已读-->
+            <el-button class="waves-effect" type="primary" icon="check" @click="setAllReaded">{{L('SetAllAsRead')}}</el-button>
         </section>
 
         <!--搜索-->
@@ -73,11 +76,14 @@
                        layout="sizes,total, prev, pager, next"
                        :total="total">
         </el-pagination>
+        <NotifiSetting :visible.sync="dialogSetting.isShow"></NotifiSetting>
+
     </article>
 </template>
 
 <script>
     import notificationService from '../../services/common/notificationService'
+    import NotifiSetting from '../../components/dialog/NotifiSetting.vue'
     export default {
         data() {
             return {
@@ -90,6 +96,9 @@
                     skipCount: 0,
                     page: 1,
                 },
+                dialogSetting: {
+                    isShow: false
+                }
             }
         },
         created() {
@@ -112,14 +121,28 @@
                 this.fetchParam.maxResultCount = val
                 this.fetchData()
             },
+            // 设置为已读
             async setReaded(item) {
                 this.loadingData = true
                 await notificationService.setNotificationAsRead({id: item.id})
                 this.$store.dispatch('setNotificationReaded', {data: item})
                 item.state = 1
                 this.loadingData = false
+            },
+            // 设置所有为已读
+            async setAllReaded() {
+                this.loadingData = true
+                await notificationService.setAllNotificationsAsRead()
+                this.$store.state.index.notifications.forEach((item) => {
+                    this.$store.dispatch('setNotificationReaded', {data: item})
+                })
+
+                this.data.map((item) => {
+                    item.state = 1
+                })
+                this.loadingData = false
             }
         },
-        components: {}
+        components: {NotifiSetting}
     }
 </script>
