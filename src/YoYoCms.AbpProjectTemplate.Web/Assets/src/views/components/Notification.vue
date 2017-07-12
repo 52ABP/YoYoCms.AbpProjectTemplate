@@ -18,8 +18,8 @@
                 margin-bottom: 3px !important;
             }
 
-            .icon-circle{
-                i{
+            .icon-circle {
+                i {
                     font-size: 24px !important;
                 }
             }
@@ -107,6 +107,7 @@
             })
 
             abp.event.on('app.notifications.read', (userNotificationId) => {
+                console.log('app.notifications.read', 'notification.vue')
                 this.$store.dispatch('setNotificationReaded', {id: userNotificationId})
             })
         },

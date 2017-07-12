@@ -13,7 +13,7 @@
     <article ref="container">
         <el-button v-show="isShowBtn" type="primary" @click="chooseImg">{{L('Upload')}}<i class="el-icon-upload el-icon--right"></i>
         </el-button>
-        <el-dialog :close-on-click-modal="false" :title="L('CropImage')" v-model="showCropper" size="large" top="15px">
+        <el-dialog :close-on-click-modal="false" :title="L('CropImage')" v-model="showCropper" size="small" top="15px">
             <div class="croppercontainer">
                 <img @load="startCropper()" class="image-preview" :src="imgData">
             </div>
