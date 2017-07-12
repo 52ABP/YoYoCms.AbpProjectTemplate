@@ -112,18 +112,25 @@
                             <i class="el-icon-caret-bottom el-icon--right"></i>
                         </el-button>
                         <el-dropdown-menu slot="dropdown">
+                            <!--权限-->
                             <el-dropdown-item>
                                 <div @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
                                     {{L('Permissions')}}</div>
                             </el-dropdown-item>
+                            <!--编辑-->
                             <el-dropdown-item>
                                 <div @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
                                     {{L('Edit')}}
                                 </div>
                             </el-dropdown-item>
+                            <!--分隔符-->
                             <el-dropdown-item>
                                 <div role="separator" class="divider"></div>
                             </el-dropdown-item>
+                            <el-dropdown-item>
+                                <div @click="unlock(scope.$index,scope.row)">{{L('Unlock')}}</div>
+                            </el-dropdown-item>
+                            <!--删除-->
                             <el-dropdown-item divided>
                                 <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
                             </el-dropdown-item>
@@ -242,6 +249,11 @@
             // 导出到excel
             exportExcel () {
                 userService.exportExcel()
+            },
+            // 解锁
+            async unlock(index, item) {
+                await userService.unlockUser({id: item.id})
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
             }
         },
         components: {DialogUserPermission, DialogEditUser, SelPermissionTree}

@@ -73,9 +73,9 @@
                         <Notification></Notification>
                         <!-- #END# Tasks -->
                         <!--<li class="pull-right">-->
-                            <!--<a href="javascript:void(0);" class="js-right-sidebar" data-close="true">-->
-                                <!--<i class="material-icons">more_vert</i>-->
-                            <!--</a>-->
+                        <!--<a href="javascript:void(0);" class="js-right-sidebar" data-close="true">-->
+                        <!--<i class="material-icons">more_vert</i>-->
+                        <!--</a>-->
                         <!--</li>-->
                     </ul>
                 </div>
@@ -95,22 +95,32 @@
                             {{user.name}}
                         </div>
                         <div class="email">{{user.emailAddress}}</div>
+                        <!--用户信息弹出框-->
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
+                                <!--设置-->
                                 <li>
                                     <a @click="dialogMe.isShow= true">
                                         <i class="material-icons">person</i>{{L('MySettings')}}</a>
                                 </li>
+                                <!--修改密码-->
                                 <li>
                                     <a @click="dialogPwd.isShow= true">
                                         <i class="material-icons">vpn_key</i>{{L('ChangePassword')}}</a>
                                 </li>
+                                <!--修改头像-->
                                 <li>
                                     <a @click="dialogPortrait.isShow= true">
                                         <i class="material-icons">image</i>{{L('ChangeProfilePicture')}}</a>
                                 </li>
+                                <!--尝试登录记录-->
+                                <li>
+                                    <a @click="dialogLoginAttemp.isShow= true">
+                                        <i class="material-icons">assignment</i>{{L('LoginAttempts')}}</a>
+                                </li>
                                 <li role="seperator" class="divider"></li>
+                                <!--注销登录-->
                                 <li @click="logout">
                                     <a href="javascript:void(0);">
                                         <i class="material-icons">input</i>{{L('Logout')}}</a>
@@ -154,6 +164,8 @@
         <DialogEditPwd :visible.sync="dialogPwd.isShow"></DialogEditPwd>
         <!--修改头像弹出框-->
         <DialogPortrait :visible.sync="dialogPortrait.isShow"></DialogPortrait>
+        <!--登录尝试列表弹出框-->
+        <DialogLoginAttemp :visible.sync="dialogLoginAttemp.isShow"></DialogLoginAttemp>
     </article>
 </template>
 
@@ -167,6 +179,7 @@
     import DialogProfile from './components/DialogProfile.vue' // 修改个人信息 弹出框
     import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
     import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
+    import DialogLoginAttemp from './components/DialogLoginAttempts.vue' // 尝试登录 弹出框
     import SelLanguage from './components/SelLanguage.vue' // 多语言下拉框
     import Notification from './components/Notification.vue' // 右上角的通知
     export default {
@@ -179,6 +192,7 @@
                 },
                 dialogPwd: {isShow: false},
                 dialogPortrait: {isShow: false},
+                dialogLoginAttemp: {isShow: false},
                 loadingContent: false, // 内容部分的loading状态
             }
         },
@@ -214,6 +228,15 @@
                 this.loadingContent = loading
             }
         },
-        components: {MenuTree, Navs, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage, Notification}
+        components: {
+            MenuTree,
+            Navs,
+            DialogProfile,
+            DialogEditPwd,
+            DialogPortrait,
+            SelLanguage,
+            Notification,
+            DialogLoginAttemp
+        }
     }
 </script>

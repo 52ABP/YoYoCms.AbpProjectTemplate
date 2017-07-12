@@ -17,9 +17,12 @@
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
             <!--设置-->
-            <el-button class="waves-effect" icon="setting" @click="dialogSetting.isShow=true">{{L('NotificationSettings')}}</el-button>
+            <el-button class="waves-effect" icon="setting" @click="dialogSetting.isShow=true">
+                {{L('NotificationSettings')}}
+            </el-button>
             <!--设置所有为已读-->
-            <el-button class="waves-effect" type="primary" icon="check" @click="setAllReaded">{{L('SetAllAsRead')}}</el-button>
+            <el-button class="waves-effect" type="primary" icon="check" @click="setAllReaded">{{L('SetAllAsRead')}}
+            </el-button>
         </section>
 
         <!--搜索-->
@@ -112,6 +115,7 @@
                 this.total = ret.totalCount
 
                 this.loadingData = false
+                abp.setContentLoading(false)
             },
             handleCurrentChange (val) {
                 this.fetchParam.skipCount = Math.abs((val - 1)) * this.fetchParam.maxResultCount

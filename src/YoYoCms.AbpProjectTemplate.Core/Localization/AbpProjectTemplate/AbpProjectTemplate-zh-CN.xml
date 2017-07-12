@@ -12,6 +12,9 @@
     <text name="Off" value="关" />
     <text name="ReceiveNotificationsDefinition" value="接收消息定义" />
     <text name="NotificationtType" value="消息类型" />
+    <text name="Unlock" value="解锁"></text>
+    <text name="LoginAttempts">登录尝试</text>
+    <text name="Failed">失败</text>
 
     <text name="RequiredFiled" value="该字段为必填项" />
     <text name="ExitSuccessful" value="退出成功" />
