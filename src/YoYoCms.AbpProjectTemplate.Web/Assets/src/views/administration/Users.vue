@@ -16,7 +16,7 @@
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
             <el-button icon="upload2" @click="exportExcel">{{L('ExportToExcel')}}</el-button>
-            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
+            <el-button v-if="HasP('Pages.Administration.Users.Create')" type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
                 {{L('CreateNewUser')}}
             </el-button>
         </section>
@@ -113,25 +113,27 @@
                         </el-button>
                         <el-dropdown-menu slot="dropdown">
                             <!--权限-->
-                            <el-dropdown-item>
+                            <el-dropdown-item v-if="HasP('Pages.Administration.Users.ChangePermissions')">
                                 <div @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
-                                    {{L('Permissions')}}</div>
+                                    {{L('Permissions')}}
+                                </div>
                             </el-dropdown-item>
                             <!--编辑-->
-                            <el-dropdown-item>
+                            <el-dropdown-item v-if="HasP('Pages.Administration.Users.Edit')">
                                 <div @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
                                     {{L('Edit')}}
                                 </div>
                             </el-dropdown-item>
                             <!--分隔符-->
-                            <el-dropdown-item>
+                            <el-dropdown-item >
                                 <div role="separator" class="divider"></div>
                             </el-dropdown-item>
+                            <!--解锁-->
                             <el-dropdown-item>
                                 <div @click="unlock(scope.$index,scope.row)">{{L('Unlock')}}</div>
                             </el-dropdown-item>
                             <!--删除-->
-                            <el-dropdown-item divided>
+                            <el-dropdown-item divided v-if="HasP('Pages.Administration.Users.Delete')">
                                 <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
                             </el-dropdown-item>
                         </el-dropdown-menu>
@@ -218,7 +220,7 @@
                 this.data = ret.items
                 this.total = ret.totalCount
                 this.loadingData = false
-                abp.setContentLoading(false)
+                abp.view.setContentLoading(false)
             },
             // 权限弹出框点击确定的回调
             async permissionConfirm (permissions) {

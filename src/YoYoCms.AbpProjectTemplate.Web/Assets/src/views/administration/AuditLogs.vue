@@ -239,7 +239,7 @@
                     this.total = ret.totalCount
                 } finally {
                     this.loadingData = false
-                    abp.setContentLoading(false)
+                    abp.view.setContentLoading(false)
                 }
             },
             exportExcel() {
