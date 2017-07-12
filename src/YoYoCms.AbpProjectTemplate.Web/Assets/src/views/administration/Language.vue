@@ -140,7 +140,7 @@
                     this.data = ret.items
                 } finally {
                     this.loading = false
-                    abp.setContentLoading(false)
+                    abp.view.setContentLoading(false)
                 }
             },
             // 设置默认语言

@@ -115,7 +115,7 @@
                 this.total = ret.totalCount
 
                 this.loadingData = false
-                abp.setContentLoading(false)
+                abp.view.setContentLoading(false)
             },
             handleCurrentChange (val) {
                 this.fetchParam.skipCount = Math.abs((val - 1)) * this.fetchParam.maxResultCount

@@ -54,6 +54,7 @@ let router = new Router({
 //     loginouted = true
 // }, 1e4)
 router.beforeEach(async (to, from, next) => {
+    abp.view.setContentLoading && abp.view.setContentLoading(true)
     // if (!to.matched.some(record => record.meta.notAuth) && !authUtils.getToken()) {
     //     // 第一次进来不提示超时
     //     loginouted && abp.notify.error('未登录或登录已超时, 请重新登录!', '未登录')
@@ -77,7 +78,7 @@ router.beforeEach(async (to, from, next) => {
     }
 
     store.dispatch('setIndexMenuActive', {menu})
-    abp.setContentLoading && abp.setContentLoading(true)
+
     next()
 })
 

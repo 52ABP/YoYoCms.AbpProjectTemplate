@@ -1,3 +1,7 @@
+// 初始化abp的对象
+window.abp = window.abp || {}
+window.abp.view = window.abp.view || {}
+
 import loadFile from './common/utils/loadFile'
 import config from './common/config'
 window.appConfig = config
@@ -20,8 +24,9 @@ import './vendor/bsb/plugin/node-waves/waves'
 import Vue from 'vue'
 import './store'
 import App from './App.vue'
-import vueLangPlugin from './vuePlugins/langPlugin'
-import hooksPlugin from './vuePlugins/hooksPlugin'
+import vueLangPlugin from './vuePlugins/langPlugin' // 语言插件
+import hooksPlugin from './vuePlugins/hooksPlugin' // 生命周期插件
+import permissionPlugin from './vuePlugins/permissionPlugin' // 权限插件
 import abpScriptService from './services/abpScriptService'
 
 // window.abp.appPath = config.apiHost
@@ -29,6 +34,7 @@ Vue.config.productionTip = config.isDebug
 
 Vue.use(vueLangPlugin)
 Vue.use(hooksPlugin)
+Vue.use(permissionPlugin)
 
 // 加载apb的ajax库 和 singlr
 Promise.all([loadFile.loadJs(config.apiHost + '/signalr/hubs'), loadFile.loadJs('/api/AbpServiceProxies/GetAll?type=jquery')]).then(async () => {

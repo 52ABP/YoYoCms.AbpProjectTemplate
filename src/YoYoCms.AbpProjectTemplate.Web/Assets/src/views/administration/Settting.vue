@@ -157,7 +157,7 @@
                 this.email = ret.email
 
                 this.loading = false
-                abp.setContentLoading(false)
+                abp.view.setContentLoading(false)
             },
             handleTabClick(tab) {
                 console.log(tab)

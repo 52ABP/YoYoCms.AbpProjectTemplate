@@ -34,6 +34,12 @@
                     float: none;
                 }
             }
+
+            .menu {
+                .list a span {
+                    margin: 3px 0 7px 6px;
+                }
+            }
         }
 
         .content {
@@ -202,7 +208,7 @@
             }
         },
         async created() {
-            abp.setContentLoading = this.setContentLoading.bind(this)
+            abp.view.setContentLoading = this.setContentLoading.bind(this)
         },
         async mounted() {
             this.menus = abp.nav.menus.MainMenu
