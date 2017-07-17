@@ -22,8 +22,10 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
 
     public class AbpProjectTemplateDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        /* Define an IDbSet for each entity of the application */
-        public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
+		/* Define an IDbSet for each entity of the application */
+		//定义一个IDbSet为每个应用程序的实体
+		//在此处为每个实体，定义为IDbSet
+		public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
       
 
         public IDbSet<SmsMessagelog> SmsMessagelogs { get; set; }
