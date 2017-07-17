@@ -58,13 +58,13 @@
         <el-card class="left-tree col-lg-5">
             <div class="left-header">
                 {{L('OrganizationTree')}}
-                <el-button icon="plus" size="small" @click="showDialogAddOrgan(null)">
+                <el-button icon="plus" size="small" @click="showDialogAddOrgan(null)" v-if="HasP('ManageOrganizationTree')">
                     {{L('AddRootUnit')}}
                 </el-button>
             </div>
             <JsTree ref="jstree" :treeData="treeData" :onDragStop="dragStop" :onItemClick="orgaizationTreeclick"
                     :contextMenu="treeContextMenu"
-                    :plugins="['dnd','types', 'wholerow', 'contextmenu']"></JsTree>
+                    :plugins="HasP('ManageOrganizationTree') ? ['dnd','types', 'wholerow', 'contextmenu']: []"></JsTree>
 
             <!--// 添加单元的弹出框-->
             <el-dialog

@@ -22,7 +22,7 @@
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
             <!--创建新语言-->
-            <el-button type="primary" icon="plus" class="waves-effect" @click="showAddDialog()">
+            <el-button v-if="HasP('Create')" type="primary" icon="plus" class="waves-effect" @click="showAddDialog()">
                 {{L('CreateNewLanguage')}}
             </el-button>
         </section>
@@ -70,7 +70,7 @@
                             <i class="el-icon-caret-bottom el-icon--right"></i>
                         </el-button>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>
+                            <el-dropdown-item v-if="HasP('ChangeTexts')">
                                 <!--改变文本信息-->
                                 <div @click="$router.push({name:'Administration.languagestext', params:{lang: scope.row.name}})">
                                     {{L('ChangeTexts')}}
@@ -82,11 +82,11 @@
                                     {{L('SetAsDefaultLanguage')}}
                                 </div>
                             </el-dropdown-item>
-                            <el-dropdown-item v-if="tenantId == scope.row.tenantId">
+                            <el-dropdown-item v-if="tenantId == scope.row.tenantId && HasP('Edit')">
                                 <!--修改-->
                                 <div @click="showAddDialog(scope.row)">{{L('Edit')}}</div>
                             </el-dropdown-item>
-                            <el-dropdown-item divided v-if="tenantId == scope.row.tenantId">
+                            <el-dropdown-item divided v-if="tenantId == scope.row.tenantId && HasP('Delete')">
                                 <!--删除-->
                                 <div @click="del(scope.$index, scope.row)">{{L('Delete')}}</div>
                             </el-dropdown-item>
