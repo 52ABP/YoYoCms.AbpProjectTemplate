@@ -55,6 +55,12 @@
             }
         }
 
+        &.active {
+            > a {
+                margin-left: 0 !important;
+            }
+        }
+
         .menutree-link {
             cursor: pointer;
 

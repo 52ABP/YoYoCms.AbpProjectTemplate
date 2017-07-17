@@ -29,15 +29,8 @@ $bgColor: #ededed;
         margin-top: 15px;
     }
 
-    .el-table {
-        overflow: visible;
-        * {
-            overflow: visible
-        }
-        .dropdown-menu {
-            right: 0;
-            left: auto;
-        }
+    .el-table__header-wrapper{
+        overflow: hidden !important;
     }
 }
 

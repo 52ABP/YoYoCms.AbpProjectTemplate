@@ -1,8 +1,14 @@
 <!--用户列表弹窗-->
 <style rel="styleesheet" lang="scss">
+    @import "../../mixins/topSearch";
     .dialog-userlist--container {
         .el-dialog {
             padding-bottom: 15px;
+        }
+
+        .search{
+            @extend %top-search-container;
+            margin-bottom: 12px;
         }
     }
 </style>
@@ -13,6 +19,10 @@
                :title="L('SelectAUser')"
                :visible.sync="dialogVisible"
                size="tiny">
+        <article class="search">
+            <i>{{L('Search')}}</i>
+            <el-input size="mini" :placeholder="L('Search')" @keyup.enter.native="fetchData" v-model="fetchParam.filter"></el-input>
+        </article>
         <el-table class="data-table" v-loading="loading"
                   :data="data"
                   :fit="true"

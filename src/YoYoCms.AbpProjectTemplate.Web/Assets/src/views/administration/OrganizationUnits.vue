@@ -174,6 +174,7 @@
                 this.orignTreeData = (await organizationUnitService.getOrganizationUnits()).items
                 this.initTree()
                 this.loading = false
+                abp.view.setContentLoading(false)
             },
             initTree() {
                 this.orignTreeData.map((item) => {

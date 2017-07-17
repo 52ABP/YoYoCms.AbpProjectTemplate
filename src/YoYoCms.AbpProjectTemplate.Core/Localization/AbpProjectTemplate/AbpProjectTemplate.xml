@@ -9,6 +9,9 @@
     <text name="Upload" value="upload" />
     <text name="LoginSuccessful" value="login successful!" />
     <text name="UserNameOrPasswordError" value="username or password error!" />
+    <text name="Readed" value="readed" />
+    <text name="ReceiveNotificationsDefinition" value="Receive notifications_Definition" />
+    <text name="NotificationtType" value="Notificationt Type" />
 
     <text name="HomePage" value="Home page" />
     <text name="AboutUs" value="About us" />

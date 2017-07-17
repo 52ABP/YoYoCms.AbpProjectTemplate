@@ -16,7 +16,9 @@
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
             <el-button icon="upload2" @click="exportExcel">{{L('ExportToExcel')}}</el-button>
-            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">{{L('CreateNewUser')}}</el-button>
+            <el-button v-if="HasP('Pages.Administration.Users.Create')" type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
+                {{L('CreateNewUser')}}
+            </el-button>
         </section>
 
         <!--搜索-->
@@ -31,7 +33,7 @@
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
             <!--<section>-->
-                <!--<el-button type="primary" icon="search" @click="fetchData">搜索</el-button>-->
+            <!--<el-button type="primary" icon="search" @click="fetchData">搜索</el-button>-->
             <!--</section>-->
         </article>
 
@@ -100,24 +102,42 @@
                 </template>
             </el-table-column>
             <el-table-column
-                    width="100"
-                    :label="L('Action')">
+                    fixed="right"
+                    width="110"
+                    :label="L('Actions')">
                 <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            {{L('Action')}} <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
-                                <a>{{L('Permissions')}}</a></li>
-                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
-                                <a>{{L('Edit')}}</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li @click="del(scope.$index,scope.row)"><a>{{L('Delete')}}</a></li>
-                        </ul>
-                    </div>
+                    <el-dropdown trigger="click">
+                        <el-button type="primary" size="small" class="waves-effect">
+                            {{L('Actions')}}
+                            <i class="el-icon-caret-bottom el-icon--right"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                            <!--权限-->
+                            <el-dropdown-item v-if="HasP('Pages.Administration.Users.ChangePermissions')">
+                                <div @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
+                                    {{L('Permissions')}}
+                                </div>
+                            </el-dropdown-item>
+                            <!--编辑-->
+                            <el-dropdown-item v-if="HasP('Pages.Administration.Users.Edit')">
+                                <div @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
+                                    {{L('Edit')}}
+                                </div>
+                            </el-dropdown-item>
+                            <!--分隔符-->
+                            <el-dropdown-item >
+                                <div role="separator" class="divider"></div>
+                            </el-dropdown-item>
+                            <!--解锁-->
+                            <el-dropdown-item>
+                                <div @click="unlock(scope.$index,scope.row)">{{L('Unlock')}}</div>
+                            </el-dropdown-item>
+                            <!--删除-->
+                            <el-dropdown-item divided v-if="HasP('Pages.Administration.Users.Delete')">
+                                <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </template>
             </el-table-column>
         </el-table>
@@ -196,9 +216,11 @@
                 let ret = await userService.getUsers(Object.assign({}, this.fetchParam, {permission: this.fetchParam.permission ? this.fetchParam.permission.id : null})).catch(() => {
                     this.loadingData = false
                 })
-                this.loadingData = false
+
                 this.data = ret.items
                 this.total = ret.totalCount
+                this.loadingData = false
+                abp.view.setContentLoading(false)
             },
             // 权限弹出框点击确定的回调
             async permissionConfirm (permissions) {
@@ -229,6 +251,11 @@
             // 导出到excel
             exportExcel () {
                 userService.exportExcel()
+            },
+            // 解锁
+            async unlock(index, item) {
+                await userService.unlockUser({id: item.id})
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
             }
         },
         components: {DialogUserPermission, DialogEditUser, SelPermissionTree}

@@ -34,6 +34,12 @@
                     float: none;
                 }
             }
+
+            .menu {
+                .list a span {
+                    margin: 3px 0 7px 6px;
+                }
+            }
         }
 
         .content {
@@ -70,123 +76,13 @@
                             <SelLanguage></SelLanguage>
                         </li>
                         <!-- Notifications -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                <i class="material-icons">notifications</i>
-                                <span class="label-count">7</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">通知</li>
-                                <li class="body">
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-light-green">
-                                                    <i class="material-icons">person_add</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>12 new members joined</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 14 mins ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-cyan">
-                                                    <i class="material-icons">add_shopping_cart</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>4 sales made</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 22 mins ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-red">
-                                                    <i class="material-icons">delete_forever</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>Nancy Doe</b> deleted account</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 3 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-orange">
-                                                    <i class="material-icons">mode_edit</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>Nancy</b> changed name</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 2 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-blue-grey">
-                                                    <i class="material-icons">comment</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>John</b> commented your post</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 4 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-light-green">
-                                                    <i class="material-icons">cached</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>
-                                                        <b>John</b> updated status</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> 3 hours ago
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <div class="icon-circle bg-purple">
-                                                    <i class="material-icons">settings</i>
-                                                </div>
-                                                <div class="menu-info">
-                                                    <h4>Settings updated</h4>
-                                                    <p>
-                                                        <i class="material-icons">access_time</i> Yesterday
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer">
-                                    <a href="javascript:void(0);">View All Notifications</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <Notification></Notification>
                         <!-- #END# Tasks -->
-                        <li class="pull-right">
-                            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true">
-                                <i class="material-icons">more_vert</i>
-                            </a>
-                        </li>
+                        <!--<li class="pull-right">-->
+                        <!--<a href="javascript:void(0);" class="js-right-sidebar" data-close="true">-->
+                        <!--<i class="material-icons">more_vert</i>-->
+                        <!--</a>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
@@ -205,22 +101,32 @@
                             {{user.name}}
                         </div>
                         <div class="email">{{user.emailAddress}}</div>
+                        <!--用户信息弹出框-->
                         <div class="btn-group user-helper-dropdown">
                             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                             <ul class="dropdown-menu pull-right">
+                                <!--设置-->
                                 <li>
                                     <a @click="dialogMe.isShow= true">
                                         <i class="material-icons">person</i>{{L('MySettings')}}</a>
                                 </li>
+                                <!--修改密码-->
                                 <li>
                                     <a @click="dialogPwd.isShow= true">
                                         <i class="material-icons">vpn_key</i>{{L('ChangePassword')}}</a>
                                 </li>
+                                <!--修改头像-->
                                 <li>
                                     <a @click="dialogPortrait.isShow= true">
                                         <i class="material-icons">image</i>{{L('ChangeProfilePicture')}}</a>
                                 </li>
+                                <!--尝试登录记录-->
+                                <li>
+                                    <a @click="dialogLoginAttemp.isShow= true">
+                                        <i class="material-icons">assignment</i>{{L('LoginAttempts')}}</a>
+                                </li>
                                 <li role="seperator" class="divider"></li>
+                                <!--注销登录-->
                                 <li @click="logout">
                                     <a href="javascript:void(0);">
                                         <i class="material-icons">input</i>{{L('Logout')}}</a>
@@ -253,8 +159,8 @@
             <!-- #END# Left Sidebar -->
         </section>
         <!--内容部分-->
-        <section class="content">
-            <Nav></Nav>
+        <section class="content" v-loading="loadingContent">
+            <Navs></Navs>
             <router-view></router-view>
         </section>
 
@@ -264,24 +170,24 @@
         <DialogEditPwd :visible.sync="dialogPwd.isShow"></DialogEditPwd>
         <!--修改头像弹出框-->
         <DialogPortrait :visible.sync="dialogPortrait.isShow"></DialogPortrait>
+        <!--登录尝试列表弹出框-->
+        <DialogLoginAttemp :visible.sync="dialogLoginAttemp.isShow"></DialogLoginAttemp>
     </article>
 </template>
 
 <script>
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
-    //    import authUtils from '../common/utils/authUtils'
-    import loadFile from '../common/utils/loadFile'
-    //    import abpScriptService from '../services/abpScriptService'
-    import sessionService from '../services/sessionService'
     import userService from '../services/userService'
     import abpScriptService from '../services/abpScriptService'
 
     import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
-    import Nav from './components/Nav.vue' // 内容上部的导航栏
+    import Navs from './components/Nav.vue' // 内容上部的导航栏
     import DialogProfile from './components/DialogProfile.vue' // 修改个人信息 弹出框
     import DialogEditPwd from './components/DialogEditPassword.vue' // 修改密码 弹出框
     import DialogPortrait from './components/DialogPortrait.vue' // 修改头像 弹出框
+    import DialogLoginAttemp from './components/DialogLoginAttempts.vue' // 尝试登录 弹出框
     import SelLanguage from './components/SelLanguage.vue' // 多语言下拉框
+    import Notification from './components/Notification.vue' // 右上角的通知
     export default {
         data() {
             return {
@@ -291,7 +197,9 @@
                     isShow: false
                 },
                 dialogPwd: {isShow: false},
-                dialogPortrait: {isShow: false}
+                dialogPortrait: {isShow: false},
+                dialogLoginAttemp: {isShow: false},
+                loadingContent: false, // 内容部分的loading状态
             }
         },
         watch: {
@@ -300,27 +208,16 @@
             }
         },
         async created() {
-            // 如果用户信息没获取到
-            if (!this.user.id) {
-                let ret = await sessionService.getCurrentLoginInformations()
-                let user = ret.user
-                this.$store.dispatch('setAuthUser', {user})
-                //                authUtils.setUserInfo(user)
-                this.user = user
-            }
-        },
-        activated() {
+            abp.view.setContentLoading = this.setContentLoading.bind(this)
         },
         async mounted() {
             this.menus = abp.nav.menus.MainMenu
             // 刷新当前激活菜单的信息
             this.$store.dispatch('setIndexMenuActive', {menu: this.$store.state.index.navMenueActive})
             this.$nextTick(async () => {
-                //                await Promise.all(loadFile.loadJs(require('../vendor/bsb/js/demo')), loadFile.loadJs(require('../vendor/bsb/js/admin')))
-                await loadFile.loadJs(require('../vendor/bsb/js/demo'))
-                await loadFile.loadJs(require('../vendor/bsb/js/admin'))
+                require('../vendor/bsb/js/demo')
                 window.initDemoJs()
-                window.initAdminJs()
+                window.initAdminJs && window.initAdminJs()
                 this.loading = false
             })
         },
@@ -329,12 +226,23 @@
             logout() {
                 userService.logout()
                 abp.nav = null
-                //                authUtils.setToken('')
                 this.$router.push({name: 'login'})
                 abp.notify.success(lang.L('ExitSuccessful'), lang.L('Tip'))
                 abpScriptService.isNeedLoad = true
+            },
+            setContentLoading(loading) {
+                this.loadingContent = loading
             }
         },
-        components: {MenuTree, Nav, DialogProfile, DialogEditPwd, DialogPortrait, SelLanguage}
+        components: {
+            MenuTree,
+            Navs,
+            DialogProfile,
+            DialogEditPwd,
+            DialogPortrait,
+            SelLanguage,
+            Notification,
+            DialogLoginAttemp
+        }
     }
 </script>

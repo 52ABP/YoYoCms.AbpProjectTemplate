@@ -8,7 +8,7 @@ export default {
         Vue.mixin({
             mounted () {
                 Waves.init()
-            }
+            },
         })
     }
 }

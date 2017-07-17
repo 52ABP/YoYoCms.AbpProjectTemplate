@@ -18,9 +18,6 @@ export default {
                 resolve(require('../../views/administration/organizationUnits.vue'))
             })
         },
-        meta: {
-            navName: 'organizationunits'
-        },
     }, { // 角色信息
         path: 'roles',
         name: namePre + `Roles`,
@@ -44,6 +41,17 @@ export default {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Language.vue'))
             })
+        }
+    }, { // 语言文本信息
+        path: 'languagestext/:lang',
+        name: namePre + `languagestext`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/LanguageTextInfo.vue'))
+            })
+        },
+        meta: {
+            displayName: lang.L('LanguageTexts')
         }
     }, { // 审计日志
         path: 'audit-logs',
