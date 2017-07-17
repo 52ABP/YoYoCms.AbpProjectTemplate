@@ -6,6 +6,7 @@ class Config {
         this.isDebug = process && process.isDebug
         this.apiHost = this.isDebug ? '//localhost:16240' : ''
         this.apiHostName = this.apiHost.replace('//', '')
+        this.showPageTab = true // 是否增加tab页
     }
 }
 

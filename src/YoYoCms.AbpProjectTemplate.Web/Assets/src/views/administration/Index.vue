@@ -9,6 +9,7 @@
 
 <script>
     export default {
+        name: 'administration-index',
         data() {
             return {}
         },

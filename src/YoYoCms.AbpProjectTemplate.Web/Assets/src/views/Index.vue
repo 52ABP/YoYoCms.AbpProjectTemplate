@@ -161,7 +161,10 @@
         <!--内容部分-->
         <section class="content" v-loading="loadingContent">
             <Navs></Navs>
-            <router-view></router-view>
+            <PageTabs v-if="showPageTab"></PageTabs>
+            <keep-alive exclude="dashboard-Dashboard">
+                <router-view></router-view>
+            </keep-alive>
         </section>
 
         <!--个人信息弹窗-->
@@ -179,6 +182,7 @@
     import '../vendor/bsb/plugin/jquery-slimscroll/jquery.slimscroll'
     import userService from '../services/userService'
     import abpScriptService from '../services/abpScriptService'
+    import config from '../common/config'
 
     import MenuTree from '../components/menu/MenuTree.vue' // 左边菜单
     import Navs from './components/Nav.vue' // 内容上部的导航栏
@@ -188,6 +192,7 @@
     import DialogLoginAttemp from './components/DialogLoginAttempts.vue' // 尝试登录 弹出框
     import SelLanguage from './components/SelLanguage.vue' // 多语言下拉框
     import Notification from './components/Notification.vue' // 右上角的通知
+    import PageTabs from './components/PageTabs.vue'
     export default {
         data() {
             return {
@@ -200,6 +205,7 @@
                 dialogPortrait: {isShow: false},
                 dialogLoginAttemp: {isShow: false},
                 loadingContent: false, // 内容部分的loading状态
+                showPageTab: config.showPageTab
             }
         },
         watch: {
@@ -242,7 +248,8 @@
             DialogPortrait,
             SelLanguage,
             Notification,
-            DialogLoginAttemp
+            DialogLoginAttemp,
+            PageTabs
         }
     }
 </script>

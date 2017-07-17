@@ -10,6 +10,10 @@ export const INDEX_SET_NOTIFICATIONS = 'INDEX_SET_NOTIFICATIONS'
 export const INDEX_PUSH_NOTIFICATIONS = 'INDEX_PUSH_NOTIFICATIONS'
 // 设置消息为已读
 export const INDEX_SET_NOTIFICATIONSREADED = 'INDEX_SET_NOTIFICATIONSREADED'
+// 增加一个标签页
+export const INDEX_ADD_PAGETAB = 'INDEX_ADD_PAGETAB'
+// 删除一个标签页
+export const INDEX_DEL_PAGETAB = 'INDEX_DEL_PAGETAB'
 
 //  =================================用户信息部分=====================================
 // 设置用户信息

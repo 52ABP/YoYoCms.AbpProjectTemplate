@@ -119,7 +119,7 @@
         created() {
         },
         activated() {
-            this.fetchData4Caches()
+//            this.fetchData()
         },
         mounted() {
             this.weblogs.contentHeight = window.innerHeight - 400
@@ -130,7 +130,7 @@
                     this.getWeblog()
                 }
             },
-            async fetchData4Caches() {
+            async fetchData() {
                 this.loading = true
                 this.caches.data = (await cachingService.getAllCaches()).items
 

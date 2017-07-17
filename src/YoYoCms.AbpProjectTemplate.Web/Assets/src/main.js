@@ -42,6 +42,7 @@ Promise.all([loadFile.loadJs(config.apiHost + '/signalr/hubs'), loadFile.loadJs(
     await setElementUiLang()
     /* eslint-disable no-new */
     let router = require('./router').default
+    abp.router = router
     new Vue({
         el: '#app',
         router,
