@@ -413,7 +413,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
-        public  async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
+        public virtual async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
         {
             try
             {

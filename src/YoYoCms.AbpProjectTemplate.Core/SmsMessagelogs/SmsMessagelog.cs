@@ -12,8 +12,6 @@ namespace YoYoCms.AbpProjectTemplate.SmsMessagelogs
         /// 发送电话
         /// </summary>
         public string PhoneNumber { get; set; }
-
-
         /// <summary>
         /// 发送内容
         /// </summary>
@@ -23,7 +21,6 @@ namespace YoYoCms.AbpProjectTemplate.SmsMessagelogs
         /// 短信代码(验证码)
         /// </summary>
         public string SmsCode { get; set; }
-
 
         /// <summary>
         /// 失效时间

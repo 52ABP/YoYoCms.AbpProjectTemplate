@@ -141,6 +141,7 @@
     <Compile Include="Authorization\Roles\Role.cs" />
     <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\StaticRoleNames.cs" />
+    <Compile Include="Changelogs\AppChangelog.cs" />
     <Compile Include="UserManagement\Users\IUserEmailer.cs" />
     <Compile Include="UserManagement\Users\IUserLinkManager.cs" />
     <Compile Include="UserManagement\Users\SwitchToLinkedAccountCacheItem.cs" />
