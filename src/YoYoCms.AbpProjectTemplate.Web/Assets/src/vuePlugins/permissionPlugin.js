@@ -8,7 +8,17 @@ export default {
         Vue.mixin({
             methods: {
                 HasP(...args) {
-                    return abp.auth.isGranted(...args)
+                    let ret = []
+                    if (this.$route.meta && this.$route.meta.permission) {
+                        for (let i = 0; i < args.length; i++) {
+                            let item = args[i]
+                            if (item.indexOf(this.$route.meta.permission) < 0)
+                                item = this.$route.meta.permission + '.' + item
+                            ret.push(item)
+                        }
+                    }
+
+                    return abp.auth.isGranted(...ret)
                 }
             }
         })

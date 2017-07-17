@@ -16,7 +16,7 @@
         <!--右上角按钮-->
         <section class="right-top-btnContainer">
             <el-button icon="upload2" @click="exportExcel">{{L('ExportToExcel')}}</el-button>
-            <el-button v-if="HasP('Pages.Administration.Users.Create')" type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
+            <el-button v-if="HasP('Create')" type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
                 {{L('CreateNewUser')}}
             </el-button>
         </section>
@@ -113,13 +113,13 @@
                         </el-button>
                         <el-dropdown-menu slot="dropdown">
                             <!--权限-->
-                            <el-dropdown-item v-if="HasP('Pages.Administration.Users.ChangePermissions')">
+                            <el-dropdown-item v-if="HasP('ChangePermissions')">
                                 <div @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
                                     {{L('Permissions')}}
                                 </div>
                             </el-dropdown-item>
                             <!--编辑-->
-                            <el-dropdown-item v-if="HasP('Pages.Administration.Users.Edit')">
+                            <el-dropdown-item v-if="HasP('Edit')">
                                 <div @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
                                     {{L('Edit')}}
                                 </div>
@@ -133,7 +133,7 @@
                                 <div @click="unlock(scope.$index,scope.row)">{{L('Unlock')}}</div>
                             </el-dropdown-item>
                             <!--删除-->
-                            <el-dropdown-item divided v-if="HasP('Pages.Administration.Users.Delete')">
+                            <el-dropdown-item divided v-if="HasP('Delete')">
                                 <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
                             </el-dropdown-item>
                         </el-dropdown-menu>

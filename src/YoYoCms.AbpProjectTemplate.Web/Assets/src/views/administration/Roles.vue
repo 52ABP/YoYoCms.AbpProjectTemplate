@@ -14,7 +14,7 @@
 <template>
     <article class="administration-roles-container">
         <section class="right-top-btnContainer">
-            <el-button class="waves-effect" type="primary" icon="plus" v-if="HasP('Pages.Administration.Roles.Create')"
+            <el-button class="waves-effect" type="primary" icon="plus" v-if="HasP('Create')"
                        @click="dialogEdit.isShow=true;dialogEdit.role={}">{{L('CreateNewRole')}}
             </el-button>
         </section>
@@ -54,9 +54,9 @@
                     <i>{{scope.row.creationTime | date2str}}</i>
                 </template>
             </el-table-column>
-            <el-table-column
-                    width="110"
-                    :label="L('Actions')">
+            <el-table-column v-if="HasP('Edit', 'Delete')"
+                             width="110"
+                             :label="L('Actions')">
                 <template scope="scope">
                     <el-dropdown trigger="click">
                         <el-button type="primary" size="small" class="waves-effect">
@@ -66,13 +66,13 @@
                         <!--编辑-->
                         <el-dropdown-menu slot="dropdown">
                             <!--编辑-->
-                            <el-dropdown-item v-if="HasP('Pages.Administration.Roles.Edit')">
+                            <el-dropdown-item v-if="HasP('Edit')">
                                 <div @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
                                     {{L('Edit')}}
                                 </div>
                             </el-dropdown-item>
                             <!--删除-->
-                            <el-dropdown-item v-if="HasP('Pages.Administration.Roles.Delete') && !scope.row.isStatic">
+                            <el-dropdown-item v-if="HasP('Delete') && !scope.row.isStatic">
                                 <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
                             </el-dropdown-item>
                         </el-dropdown-menu>
