@@ -82,4 +82,17 @@ router.beforeEach(async (to, from, next) => {
     next()
 })
 
+router.afterEach(route => {
+    Vue.nextTick(() => {
+        store.dispatch('addPageTab', {
+            item: {
+                name: route.name,
+                displayName: route.meta.displayName,
+                query: route.query,
+                params: route.params
+            }
+        })
+    })
+})
+
 export default router

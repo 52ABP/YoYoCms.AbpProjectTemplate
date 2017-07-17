@@ -38,6 +38,7 @@
 
 <script>
     export default {
+        name: 'dashboard-Dashboard',
         data() {
             return {}
         },

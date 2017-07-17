@@ -10,7 +10,15 @@ const actions = {
         }
         store.commit(types.INDEX_SETACTIVEMENU, {menu})
     },
-
+    // 增加tab标签页
+    addPageTab(store, {item}) {
+        item.displayName = item.displayName || searchcDisplayName(item.name, abp.nav.menus.MainMenu)
+        store.commit(types.INDEX_ADD_PAGETAB, {item})
+    },
+    // 删除tab标签页
+    delPageTab(store, {item}) {
+        store.commit(types.INDEX_DEL_PAGETAB, {item})
+    },
     // 设置用户信息
     setAuthUser (store, {user}) {
         user.portrait = user.portrait || `/Profile/GetProfilePicture?v=${Date.now()}`

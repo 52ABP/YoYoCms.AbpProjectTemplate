@@ -200,7 +200,7 @@
         created() {
         },
         activated() {
-            this.fetchData()
+//            this.fetchData()
         },
         methods: {
             handleCurrentChange (val) {

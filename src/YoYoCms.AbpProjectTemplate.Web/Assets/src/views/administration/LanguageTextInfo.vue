@@ -125,7 +125,8 @@
                 <section>
                     <em><i :class="targetFlag"></i> {{targetDisplayName}} </em>
                     <i>
-                        <el-input @keyup.enter.native="saveLang" ref="txtDialogTarget" type="textarea" v-model="dialogEdit.model.targetValue">
+                        <el-input @keyup.enter.native="saveLang" ref="txtDialogTarget" type="textarea"
+                                  v-model="dialogEdit.model.targetValue">
                         </el-input>
                     </i>
                 </section>
@@ -172,6 +173,7 @@
             }
         },
         activated () {
+//            console.log('进入language')
             this.fetchParam.targetLanguageName = this.$route.params.lang
 //            this.fetchData()
         },

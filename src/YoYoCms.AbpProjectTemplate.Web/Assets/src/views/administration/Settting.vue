@@ -145,7 +145,7 @@
         created() {
         },
         activated() {
-            this.fetchData()
+//            this.fetchData()
         },
         methods: {
             async fetchData () {
@@ -160,7 +160,6 @@
                 abp.view.setContentLoading(false)
             },
             handleTabClick(tab) {
-                console.log(tab)
             },
             async saveAll() {
                 try {
