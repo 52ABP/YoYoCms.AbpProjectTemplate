@@ -219,7 +219,6 @@
             this.fetchParam.endDate.setHours(23, 59, 59, 999)
         },
         activated() {
-//            this.fetchData()
         },
         methods: {
             handleCurrentChange (val) {

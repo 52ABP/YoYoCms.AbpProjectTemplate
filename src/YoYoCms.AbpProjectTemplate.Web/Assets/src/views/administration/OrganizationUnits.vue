@@ -166,7 +166,6 @@
         created() {
         },
         async activated() {
-//            this.fetchData()
         },
         methods: {
             async fetchData () {

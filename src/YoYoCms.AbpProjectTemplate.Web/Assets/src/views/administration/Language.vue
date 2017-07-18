@@ -129,7 +129,6 @@
             }
         },
         activated () {
-//            this.fetchData()
         },
         methods: {
             async fetchData () {
