@@ -67,8 +67,14 @@ const Auth = {
             data.state = 1
         },
         // 删除标签页
-        [INDEX_DEL_PAGETAB](state, {item}) {
-
+        [INDEX_DEL_PAGETAB](state, {name}) {
+            for (let i = 0; i < state.pageTab.length; i++) {
+                let item = state.pageTab[i]
+                if (item.name === name) {
+                    state.pageTab.splice(i, 1)
+                    return
+                }
+            }
         },
         // 增加标签页
         [INDEX_ADD_PAGETAB](state, {item}) {
