@@ -119,7 +119,6 @@
         created() {
         },
         activated() {
-//            this.fetchData()
         },
         mounted() {
             this.weblogs.contentHeight = window.innerHeight - 400

@@ -173,9 +173,7 @@
             }
         },
         activated () {
-//            console.log('进入language')
             this.fetchParam.targetLanguageName = this.$route.params.lang
-//            this.fetchData()
         },
         methods: {
             handleCurrentChange (val) {
