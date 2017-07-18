@@ -16,8 +16,8 @@ const actions = {
         store.commit(types.INDEX_ADD_PAGETAB, {item})
     },
     // 删除tab标签页
-    delPageTab(store, {item}) {
-        store.commit(types.INDEX_DEL_PAGETAB, {item})
+    delPageTab(store, {name}) {
+        store.commit(types.INDEX_DEL_PAGETAB, {name})
     },
     // 设置用户信息
     setAuthUser (store, {user}) {

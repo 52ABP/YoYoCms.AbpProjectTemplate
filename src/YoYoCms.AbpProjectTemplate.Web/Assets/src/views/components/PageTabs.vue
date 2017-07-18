@@ -3,7 +3,7 @@
 </style>
 
 <template>
-    <el-tabs v-model="currVal" type="card" @tab-click="tabClick">
+    <el-tabs v-model="currVal" type="card" @tab-click="tabClick" @tab-remove="tabRemove">
         <el-tab-pane :closable="index !== 0"
                      :key="item.name"
                      v-for="(item, index) in data"
@@ -44,6 +44,23 @@
                 val.forEach((item) => {
                     if (item.isActive) this.currVal = item.name
                 })
+            },
+            tabRemove(name) {
+                let currItem
+                let currItemIndex
+                this.data.forEach((item, index) => {
+                    if (item.name === name) {
+                        currItem = item
+                        currItemIndex = index
+                    }
+                })
+                this.$store.dispatch('delPageTab', {name})
+                // 如果当前是激活的tab 则跳转到工作台
+                if (currItem.isActive) {
+                    let preItem = this.data[currItemIndex - 1]
+                    this.currVal = preItem.name
+                    this.$router.push({name: preItem.name, query: preItem.query, params: preItem.params})
+                }
             }
         },
         components: {}
