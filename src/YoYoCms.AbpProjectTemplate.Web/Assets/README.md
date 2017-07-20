@@ -60,10 +60,12 @@ webpack会用 [express](http://expressjs.com/zh-cn/) 启动一个8986端口的we
 - 接下来添加一个 `Index.vue`, 作为父路由的页面, 用来控制该模块下的所有页面。   
 需要注意 [keep-alive](https://cn.vuejs.org/v2/api/#keep-alive) 的作用
 - 然后添加你需要的页面 比如叫 `User.vue`   
-如果需要获取数据, 请在 `methods` 中添加名为 `fetchData` 的方法, 在该方法中, 需要在获取完数据后调用 `abp.view.setContentLoading(false)`关闭内容区域的loading遮罩层。（可以参照User.vue)   
+如果需要获取数据, 请在 `methods` 中添加名为 `fetchData` 的方法, 在该方法中, 需要在获取完数据后调用 `abp.view.setContentLoading(false)`关闭内容区域的loading遮罩层。（可以参照User.vue)
+   
 #### 2.添加路由
 - 进入`src/router`目录，添加路由的模块文件夹，在该文件夹中添加名为 `index.js`的文件   
 - 然后向`src/router/index.js` 中注册当前添加的路由信息   
+
 #### 3.添加service   
 - 进入`src/services`目录, 添加对应接口请求的模块, 比如role相关的都放到`roleService.js`中   
 该`roleService.js`文件导出的对象和`abp.services.yoyocms.role`是对应的。这样使用的好处是可以统一管理和扩展
