@@ -11,19 +11,24 @@
 3.[bootstrap](http://www.bootcss.com/)   
 4.[bsb](http://bsb.ddxc.org/pages/ui/breadcrumbs.html)
 
-### 运行项目
+### 安装前端依赖
+进入Assets目录
 ```
- $ npm i
+$ npm i
+```
+
+### 运行项目
+`记得先启动后台`
+```
  $ npm run dev
 ```
-webpack会启动一个8986端口的web服务器
+webpack会用 [express](http://expressjs.com/zh-cn/) 启动一个8986端口的web服务器
 
 ### 部署
-```$xslt
- $ npm i
+```
  $ npm run build
 ```
-如果已安装node依赖, 则直接运行 `npm run build` 即可
+该命令会将所有文件编译到 `dist` 目录下, 参考下面的项目结构图
 
 
 ### 项目结构
