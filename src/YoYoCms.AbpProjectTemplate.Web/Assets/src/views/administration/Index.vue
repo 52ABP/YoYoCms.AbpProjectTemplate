@@ -10,13 +10,5 @@
 <script>
     export default {
         name: 'administration-index',
-        data() {
-            return {}
-        },
-        created() {
-        },
-        activated() {
-        },
-        components: {}
     }
 </script>
