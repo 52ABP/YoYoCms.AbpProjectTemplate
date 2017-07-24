@@ -8,8 +8,14 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+let fs = require('fs')
 
 var env = config.build.env
+fs.un
+fs.unlink(config.build.assetsRoot,function (res) {
+    console.log(res);
+    console.log("删除dist文件夹");
+})
 
 var webpackConfig = merge(baseWebpackConfig, {
     module: {
