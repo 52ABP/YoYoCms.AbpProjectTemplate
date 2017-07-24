@@ -153,7 +153,6 @@
     <Compile Include="Drawing\ValidateCodeType.cs" />
     <Compile Include="Dynamic\Exposed.cs" />
     <Compile Include="Dynamic\MetaObject.cs" />
-    <Compile Include="Enums\UploadState.cs" />
     <Compile Include="Epplus\EpPlusHelper.cs" />
     <Compile Include="Exceptions\ExceptionMessage.cs" />
     <Compile Include="Exceptions\KingsSharpException.cs" />
