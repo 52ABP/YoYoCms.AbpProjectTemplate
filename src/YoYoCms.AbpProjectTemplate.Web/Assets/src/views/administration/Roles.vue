@@ -8,25 +8,21 @@
         .search {
             @extend %top-search-container;
         }
-
-        .el-table {
-            overflow: visible !important;
-
-            * {
-                overflow: visible !important;
-            }
-        }
     }
 </style>
 
 <template>
     <article class="administration-roles-container">
+        <!--右上角按钮-->
         <section class="right-top-btnContainer">
-            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.role={}">添加角色</el-button>
+            <el-button class="waves-effect" type="primary" icon="plus" v-if="HasP('Create')"
+                       @click="dialogEdit.isShow=true;dialogEdit.role={}">{{L('CreateNewRole')}}
+            </el-button>
         </section>
+        <!--搜索-->
         <article class="search">
             <section>
-                <i>权限</i>
+                <i>{{L('Permissions')}}</i>
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
             <section>
@@ -40,41 +36,50 @@
                   border>
             <el-table-column
                     min-width="120"
-                    label="角色名称">
+                    :label="L('RoleName')">
                 <template scope="scope">
                     <i>{{scope.row.displayName}}</i>
-                    <el-tooltip content="不能删除系统角色" placement="top" v-if="scope.row.isStatic">
-                        <el-tag type="success">系统</el-tag>
+                    <el-tooltip :content="L('StaticRole_Tooltip')" placement="top" v-if="scope.row.isStatic">
+                        <el-tag type="success">{{L('Static')}}</el-tag>
                     </el-tooltip>
 
-                    <el-tooltip content="新用户将默认拥有此角色" placement="top" v-if="scope.row.isDefault">
-                        <el-tag type="gray">默认</el-tag>
+                    <el-tooltip :content="L('DefaultRole_Description')" placement="top" v-if="scope.row.isDefault">
+                        <el-tag type="gray">{{L('Default')}}</el-tag>
                     </el-tooltip>
                 </template>
             </el-table-column>
             <el-table-column
                     width="190"
                     prop="lastLoginTime"
-                    label="创建时间">
+                    :label="L('CreationTime')">
                 <template scope="scope">
                     <i>{{scope.row.creationTime | date2str}}</i>
                 </template>
             </el-table-column>
-            <el-table-column
-                    width="100"
-                    label="操作">
+            <el-table-column v-if="HasP('Edit', 'Delete')"
+                             width="110"
+                             :label="L('Actions')">
                 <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            操作 <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
-                                <a>修改</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <el-dropdown trigger="click">
+                        <el-button type="primary" size="small" class="waves-effect">
+                            {{L('Actions')}}
+                            <i class="el-icon-caret-bottom el-icon--right"></i>
+                        </el-button>
+                        <!--编辑-->
+                        <el-dropdown-menu slot="dropdown">
+                            <!--编辑-->
+                            <el-dropdown-item v-if="HasP('Edit')">
+                                <div @click="dialogEdit.isShow=true;dialogEdit.role=scope.row">
+                                    {{L('Edit')}}
+                                </div>
+                            </el-dropdown-item>
+                            <!--删除-->
+                            <el-dropdown-item v-if="HasP('Delete') && !scope.row.isStatic">
+                                <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+
                 </template>
             </el-table-column>
         </el-table>
@@ -87,7 +92,7 @@
 </template>
 
 <script>
-    import rolesService from '../../services/roleService'
+    import rolesService from '../../services/administration/roleService'
     import DialogEditRole from './components/DialogEditRole.vue'
     import SelPermissionTree from '../../components/select/PermissionTree.vue'
     export default {
@@ -107,7 +112,6 @@
         created() {
         },
         activated() {
-            this.fetchData()
         },
         methods: {
             async fetchData () {
@@ -117,7 +121,17 @@
                     this.data = ret.items
                 } finally {
                     this.loadingData = false
+                    abp.view.setContentLoading(false)
                 }
+            },
+            // 删除
+            del(index, item) {
+                abp.message.confirm(lang.L('RoleDeleteWarningMessage', item.displayName), async (ret) => {
+                    if (!ret) return
+                    await rolesService.deleteRole({id: item.id})
+                    this.data.splice(index, 1)
+                    abp.notify.success(lang.L('SuccessfullyDeleted'), lang.L('Success'))
+                })
             },
             permissionConfirm () {
             }

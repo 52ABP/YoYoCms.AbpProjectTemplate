@@ -1,3 +1,4 @@
+$bgColor: #ededed;
 %content-container {
     padding: 15px;
     position: relative;
@@ -6,6 +7,11 @@
     background: #fff;
     margin-right: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    //position: absolute;
+    //max-height: 80%;
+    //max-width: 100%;
+    //overflow-y: auto;
 
     &:after {
         content: '';
@@ -23,14 +29,8 @@
         margin-top: 15px;
     }
 
-    .el-table {
-        * {
-            overflow: visible !important;
-        }
-        .dropdown-menu {
-            right: 0;
-            left: auto;
-        }
+    .el-table__header-wrapper{
+        overflow: hidden !important;
     }
 }
 
@@ -51,7 +51,6 @@
         }
     }
 }
-
 
 i, em {
     font-style: normal;

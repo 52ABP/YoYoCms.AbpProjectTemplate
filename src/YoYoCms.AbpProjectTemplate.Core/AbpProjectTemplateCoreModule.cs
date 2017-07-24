@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Reflection;
 using Abp.AutoMapper;
-using Abp.Configuration.Startup;
 using Abp.Dependency;
 using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Net.Mail;
-using Abp.Runtime.Session;
 using Abp.Zero;
 using Abp.Zero.Configuration;
 using Abp.Zero.Ldap;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Chat;
 using YoYoCms.AbpProjectTemplate.Configuration;
 using YoYoCms.AbpProjectTemplate.Debugging;
 using YoYoCms.AbpProjectTemplate.Features;
-using YoYoCms.AbpProjectTemplate.Friendships;
-using YoYoCms.AbpProjectTemplate.Friendships.Cache;
+
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Notifications;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate
 {
@@ -31,7 +27,8 @@ namespace YoYoCms.AbpProjectTemplate
     public class AbpProjectTemplateCoreModule : AbpModule
     {
         public override void PreInitialize()
-        {
+        {   //Adding authorization providers
+            
             Configuration.Auditing.IsEnabledForAnonymousUsers = true;
 
             //Declare entity types
@@ -74,10 +71,7 @@ namespace YoYoCms.AbpProjectTemplate
                 IocManager.Register<IEmailSender, NullEmailSender>(DependencyLifeStyle.Transient);
             }
 
-            Configuration.Caching.Configure(FriendCacheItem.CacheName, cache =>
-            {
-                cache.DefaultSlidingExpireTime = TimeSpan.FromMinutes(30);
-            });
+          
         }
 
         public override void Initialize()
@@ -87,8 +81,7 @@ namespace YoYoCms.AbpProjectTemplate
 
         public override void PostInitialize()
         {
-            IocManager.RegisterIfNot<IChatCommunicator, NullChatCommunicator>();
-            IocManager.Resolve<ChatUserStateWatcher>().Initialize();
+           
         }
     }
 }

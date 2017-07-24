@@ -13,6 +13,8 @@
         public static class SchemaName
         {
             public const string ABP = "ABP";
+            public const string Business = "Business";
+            public const string Basic = "Basic";
         }
         /// <summary>
         /// 身份请求类型
@@ -23,11 +25,15 @@
 
              public const string FullName = "FullName";
             public const string SurName = "SurName";
-            public const string UserName = "Name";
+            public const string UserName = "UserName";
             
             public const string CompanyName = "CompanyName";
             public const string LinkMan = "LinkMan";
             public const string QQ = "QQ";
         }
+
+
+
+
     }
 }

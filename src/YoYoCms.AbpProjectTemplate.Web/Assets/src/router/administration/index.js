@@ -15,12 +15,12 @@ export default {
         name: namePre + 'OrganizationUnits',
         component: resolve => {
             require.ensure([], () => {
-                resolve(require('../../views/administration/organizationUnits.vue'))
+                resolve(require('../../views/administration/OrganizationUnits.vue'))
             })
         },
         meta: {
-            navName: 'organizationunits'
-        },
+            permission: 'Pages.Administration.OrganizationUnits'
+        }
     }, { // 角色信息
         path: 'roles',
         name: namePre + `Roles`,
@@ -28,6 +28,9 @@ export default {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Roles.vue'))
             })
+        },
+        meta: {
+            permission: 'Pages.Administration.Roles'
         }
     }, { // 用户信息
         path: 'users',
@@ -36,6 +39,9 @@ export default {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Users.vue'))
             })
+        },
+        meta: {
+            permission: 'Pages.Administration.Users'
         }
     }, { // 语言列表
         path: 'languages',
@@ -44,6 +50,20 @@ export default {
             require.ensure([], () => {
                 resolve(require('../../views/administration/Language.vue'))
             })
+        },
+        meta: {
+            permission: 'Pages.Administration.Languages'
+        }
+    }, { // 语言文本信息
+        path: 'languagestext/:lang',
+        name: namePre + `languagestext`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/LanguageTextInfo.vue'))
+            })
+        },
+        meta: {
+            displayName: lang.L('LanguageTexts')
         }
     }, { // 审计日志
         path: 'audit-logs',
@@ -51,6 +71,22 @@ export default {
         component: resolve => {
             require.ensure([], () => {
                 resolve(require('../../views/administration/AuditLogs.vue'))
+            })
+        }
+    }, { // Maintenance
+        path: 'maintenance',
+        name: namePre + `Maintenance`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/Maintenance.vue'))
+            })
+        }
+    }, { // 设置
+        path: 'settings',
+        name: namePre + `Settings.Tenant`,
+        component: resolve => {
+            require.ensure([], () => {
+                resolve(require('../../views/administration/Settting.vue'))
             })
         }
     }]

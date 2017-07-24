@@ -1,6 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
   <texts>
+    <text name="Search" value="Search" />
+    <text name="Tip" value="tip" />
+    <text name="RepeatPasswordError" value="repeat password not valid" />
+    <text name="ChooseImg" value="choose image" />
+    <text name="CropImage" value="crop the image" />
+    <text name="Upload" value="upload" />
+    <text name="LoginSuccessful" value="login successful!" />
+    <text name="UserNameOrPasswordError" value="username or password error!" />
+    <text name="Readed" value="readed" />
+    <text name="ReceiveNotificationsDefinition" value="Receive notifications_Definition" />
+    <text name="NotificationtType" value="Notificationt Type" />
+
     <text name="HomePage" value="Home page" />
     <text name="AboutUs" value="About us" />
     <text name="Administration" value="Administration" />

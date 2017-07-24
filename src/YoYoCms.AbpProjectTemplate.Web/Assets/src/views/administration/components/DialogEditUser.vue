@@ -18,43 +18,43 @@
                :visible.sync="dialogVisible"
                size="small">
 
-        <el-tabs v-model="activeName" v-loading="loading">
-            <el-tab-pane label="用户管理" name="first">
+        <el-tabs v-model="activeName" v-loading="loading" ref="tab">
+            <el-tab-pane :label="L('UserInformations')" name="first">
                 <el-form :model="currUser" :rules="rules" ref="form" label-width="170px" class="demo-ruleForm">
-                    <el-form-item label="用户名" prop="userName">
-                        <el-input v-model="currUser.userName" placeholder="用户名" :disabled="!!currUser.id"></el-input>
+                    <el-form-item :label="L('UserName')" prop="userName">
+                        <el-input v-model="currUser.userName" :placeholder="L('UserName')" :disabled="!!currUser.id"></el-input>
                     </el-form-item>
-                    <el-form-item label="名字" prop="name">
-                        <el-input v-model="currUser.name" placeholder="名字"></el-input>
+                    <el-form-item :label="L('Name')" prop="name">
+                        <el-input v-model="currUser.name" :placeholder="L('Name')"></el-input>
                     </el-form-item>
-                    <el-form-item label="姓氏" prop="surname">
-                        <el-input v-model="currUser.surname" placeholder="姓氏"></el-input>
+                    <el-form-item :label="L('Surname')" prop="surname">
+                        <el-input v-model="currUser.surname" :placeholder="L('Surname')"></el-input>
                     </el-form-item>
-                    <el-form-item label="邮箱地址" prop="emailAddress">
-                        <el-input v-model="currUser.emailAddress" placeholder="邮箱地址"></el-input>
+                    <el-form-item :label="L('EmailAddress')" prop="emailAddress">
+                        <el-input v-model="currUser.emailAddress" :placeholder="L('EmailAddress')"></el-input>
                     </el-form-item>
-                    <el-form-item label="手机号" prop="phoneNumber">
-                        <el-input v-model="currUser.phoneNumber" placeholder="手机号码"></el-input>
+                    <el-form-item :label="L('PhoneNumber')" prop="phoneNumber">
+                        <el-input v-model="currUser.phoneNumber" :placeholder="L('PhoneNumber')"></el-input>
                     </el-form-item>
-                    <el-form-item label="使用随机密码" prop="setRandomPassword">
+                    <el-form-item :label="L('SetRandomPassword')" prop="setRandomPassword">
                         <el-checkbox v-model="fetchParam.setRandomPassword"></el-checkbox>
                     </el-form-item>
-                    <el-form-item label="密码" prop="password" v-show="!fetchParam.setRandomPassword">
-                        <el-input type="password" v-model="currUser.password" placeholder="密码"></el-input>
+                    <el-form-item :label="L('Password')" prop="password" v-show="!fetchParam.setRandomPassword">
+                        <el-input type="password" v-model="currUser.password" :placeholder="L('Password')"></el-input>
                     </el-form-item>
-                    <el-form-item label="密码(核对)" prop="repassword" v-show="!fetchParam.setRandomPassword">
-                        <el-input type="password" v-model="currUser.repassword" placeholder="密码(核对)"></el-input>
+                    <el-form-item :label="L('PasswordRepeat')" prop="repassword" v-show="!fetchParam.setRandomPassword">
+                        <el-input type="password" v-model="currUser.repassword" :placeholder="L('PasswordRepeat')"></el-input>
                     </el-form-item>
-                    <el-form-item label="下次登录需要修改密码" prop="shouldChangePasswordOnNextLogin">
+                    <el-form-item :label="L('ShouldChangePasswordOnNextLogin')" prop="shouldChangePasswordOnNextLogin">
                         <el-checkbox v-model="currUser.shouldChangePasswordOnNextLogin"></el-checkbox>
                     </el-form-item>
-                    <el-form-item label="发送激活邮件" prop="sendActivationEmail">
+                    <el-form-item :label="L('SendActivationEmail')" prop="sendActivationEmail">
                         <el-checkbox v-model="fetchParam.sendActivationEmail"></el-checkbox>
                     </el-form-item>
-                    <el-form-item label="激活" prop="isActive">
+                    <el-form-item :label="L('Active')" prop="isActive">
                         <el-checkbox v-model="currUser.isActive"></el-checkbox>
                     </el-form-item>
-                    <el-form-item label="锁定" prop="isLockoutEnabled">
+                    <el-form-item :label="L('IsLockoutEnabled')" prop="isLockoutEnabled">
                         <el-checkbox v-model="currUser.isLockoutEnabled"></el-checkbox>
                     </el-form-item>
                 </el-form>
@@ -62,7 +62,7 @@
             <!--角色管理-->
             <el-tab-pane name="second">
                 <span slot="label">
-                    <el-badge :hidden="false" :value="assignedRoleCount" class="item">角色</el-badge>
+                    <el-badge :hidden="false" :value="assignedRoleCount" class="item">{{L('Roles')}}</el-badge>
                 </span>
 
                 <el-checkbox @change="setRoleCount" v-for="item in roles" v-model="item.isAssigned" :key="item.roleId">
@@ -71,8 +71,8 @@
             </el-tab-pane>
         </el-tabs>
         <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="confirmClick">保 存</el-button>
+                <el-button @click="dialogVisible = false">{{L('Cancel')}}</el-button>
+                <el-button type="primary" @click="confirmClick">{{L('Save')}}</el-button>
           </span>
     </el-dialog>
 </template>
@@ -100,8 +100,8 @@
                 activeName: 'first',
                 currUser: this.user || {},
                 rules: {
-                    name: [{required: true, message: '请输入名字', trigger: 'change'}],
-                    surname: [{required: true, message: '请输入姓氏', trigger: 'change'}],
+                    name: [{required: false, message: '请输入名字', trigger: 'change'}],
+                    surname: [{required: false, message: '请输入姓氏', trigger: 'change'}],
                     emailAddress: [{required: true, message: '请输入邮箱', trigger: 'change'}],
                     repassword: [{validator: this.validRepass, trigger: 'change'}],
                     userName: [{required: true, message: '请输入用户名', trigger: 'change'}],
@@ -155,7 +155,7 @@
                     })
                     this.loading = false
                     this.dialogVisible = false
-                    abp.notify.success('修改成功!', '恭喜')
+                    abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
 
                     this.$emit('update:user', this.currUser)
 
@@ -167,13 +167,16 @@
             },
             // 当弹框出现时调用
             async handleOpen () {
+                this.$nextTick(() => {
+                    this.$refs.form.resetFields()
+                })
                 this.activeName = 'first'
                 this.loading = true
-                this.title = `修改用户: ${this.user.name}`
+                this.title = `${lang.L('EditUser')}: ${this.user.name}`
                 this.rules['repassword'] = [{validator: this.validRepass, trigger: 'change'}]
                 this.fetchParam.setRandomPassword = this.fetchParam.sendActivationEmail = false
                 if (!this.user.id) {
-                    this.title = '添加用户'
+                    this.title = lang.L('CreateNewUser')
                     this.fetchParam.setRandomPassword = this.fetchParam.sendActivationEmail = true
                     delete this.rules['repassword']
                 }

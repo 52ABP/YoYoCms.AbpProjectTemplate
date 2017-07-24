@@ -14,11 +14,10 @@ using Abp.Runtime.Session;
 using Abp.UI;
 using Abp.Web.Models;
 using Abp.Web.Mvc.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Friendships;
 using YoYoCms.AbpProjectTemplate.IO;
 using YoYoCms.AbpProjectTemplate.Net.MimeTypes;
 using YoYoCms.AbpProjectTemplate.Storage;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
@@ -28,18 +27,15 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         private readonly UserManager _userManager;
         private readonly IBinaryObjectManager _binaryObjectManager;
         private readonly IAppFolders _appFolders;
-        private readonly IFriendshipManager _friendshipManager;
 
         public ProfileController(
             UserManager userManager,
             IBinaryObjectManager binaryObjectManager,
-            IAppFolders appFolders,
-            IFriendshipManager friendshipManager)
+            IAppFolders appFolders)
         {
             _userManager = userManager;
             _binaryObjectManager = binaryObjectManager;
             _appFolders = appFolders;
-            _friendshipManager = friendshipManager;
         }
 
         /// <summary>
@@ -74,22 +70,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             return await GetProfilePictureById(Guid.Parse(id));
         }
 
-        [DisableAuditing]
-        [UnitOfWork]
-        public virtual async Task<FileResult> GetFriendProfilePictureById(long userId, int? tenantId, string id = "")
-        {
-            if (id.IsNullOrEmpty() ||
-                _friendshipManager.GetFriendshipOrNull(AbpSession.ToUserIdentifier(), new UserIdentifier(tenantId, userId)) == null)
-            {
-                return GetDefaultProfilePicture();
-            }
-
-            using (CurrentUnitOfWork.SetTenantId(tenantId))
-            {
-                return await GetProfilePictureById(Guid.Parse(id));
-            }
-        }
-
+       
         [UnitOfWork]
         public virtual async Task<JsonResult> ChangeProfilePicture()
         {

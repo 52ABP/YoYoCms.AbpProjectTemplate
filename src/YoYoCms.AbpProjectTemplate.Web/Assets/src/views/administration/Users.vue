@@ -13,23 +13,28 @@
 
 <template>
     <article class="administration-users-container">
+        <!--右上角按钮-->
         <section class="right-top-btnContainer">
-            <el-button icon="upload2" @click="exportExcel">导出到excel</el-button>
-            <el-button type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">添加用户</el-button>
+            <el-button icon="upload2" @click="exportExcel">{{L('ExportToExcel')}}</el-button>
+            <el-button v-if="HasP('Create')" type="primary" icon="plus" @click="dialogEdit.isShow=true;dialogEdit.user={}">
+                {{L('CreateNewUser')}}
+            </el-button>
         </section>
+
+        <!--搜索-->
         <article class="search">
             <section>
-                <i>搜索</i>
-                <el-input placeholder="输入任意搜索条件进行搜索" v-model="fetchParam.filter"
+                <i>{{L('Search')}}</i>
+                <el-input :placeholder="L('Search')" v-model="fetchParam.filter"
                           @keyup.enter.native="fetchData"></el-input>
             </section>
             <section>
-                <i>权限</i>
+                <i>{{L('Permissions')}}</i>
                 <SelPermissionTree v-model="fetchParam.permission" :onChange="fetchData"></SelPermissionTree>
             </section>
-            <section>
-                <el-button type="primary" icon="search" @click="fetchData">搜索</el-button>
-            </section>
+            <!--<section>-->
+            <!--<el-button type="primary" icon="search" @click="fetchData">搜索</el-button>-->
+            <!--</section>-->
         </article>
 
         <el-table class="data-table" v-loading="loadingData"
@@ -40,21 +45,21 @@
             <el-table-column
                     min-width="120"
                     prop="userName"
-                    label="用户名">
+                    :label="L('UserName')">
             </el-table-column>
             <el-table-column
                     min-width="120"
                     prop="name"
-                    label="名字">
+                    :label="L('Name')">
             </el-table-column>
             <el-table-column
                     width="120"
                     prop="surname"
-                    label="姓氏">
+                    :label="L('Surname')">
             </el-table-column>
             <el-table-column
                     width="180"
-                    label="角色">
+                    :label="L('Roles')">
                 <template scope="scope">
                     <i v-for="(item,index) in scope.row.roles">{{item.roleName}}<i
                             v-if="index+1 < scope.row.roles.length">, </i></i>
@@ -63,58 +68,76 @@
             <el-table-column
                     width="190"
                     prop="emailAddress"
-                    label="邮箱地址">
+                    :label="L('EmailAddress')">
             </el-table-column>
             <el-table-column
-                    width="80"
-                    label="邮箱地址验证">
+                    width="100"
+                    :label="L('EmailConfirm')">
                 <template scope="scope">
-                    <el-tag type="success" v-if="scope.row.isEmailConfirmed">是</el-tag>
-                    <el-tag type="gray" v-else>否</el-tag>
+                    <el-tag type="success" v-if="scope.row.isEmailConfirmed">{{L('Yes')}}</el-tag>
+                    <el-tag type="gray" v-else>{{L('No')}}</el-tag>
                 </template>
             </el-table-column>
             <el-table-column
                     width="80"
-                    label="激活">
+                    :label="L('Active')">
                 <template scope="scope">
-                    <el-tag type="success" v-if="scope.row.isActive">是</el-tag>
-                    <el-tag type="gray" v-else>否</el-tag>
+                    <el-tag type="success" v-if="scope.row.isActive">{{L('Yes')}}</el-tag>
+                    <el-tag type="gray" v-else>{{L('No')}}</el-tag>
                 </template>
             </el-table-column>
             <el-table-column
                     width="190"
                     prop="lastLoginTime"
-                    label="上次登录时间">
+                    :label="L('LastLoginTime')">
                 <template scope="scope">
                     <i>{{scope.row.lastLoginTime | date2str}}</i>
                 </template>
             </el-table-column>
             <el-table-column
                     width="190"
-                    label="创建时间">
+                    :label="L('CreationTime')">
                 <template scope="scope">
                     <i>{{scope.row.creationTime | date2str}}</i>
                 </template>
             </el-table-column>
             <el-table-column
-                    width="100"
-                    label="操作">
+                    fixed="right"
+                    width="110"
+                    :label="L('Actions')">
                 <template scope="scope">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            操作 <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= '设置用户权限: '+scope.row.name">
-                                <a>权限</a></li>
-                            <li @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
-                                <a>修改</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li @click="del(scope.$index,scope.row)"><a>删除</a></li>
-                        </ul>
-                    </div>
+                    <el-dropdown trigger="click">
+                        <el-button type="primary" size="small" class="waves-effect">
+                            {{L('Actions')}}
+                            <i class="el-icon-caret-bottom el-icon--right"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                            <!--权限-->
+                            <el-dropdown-item v-if="HasP('ChangePermissions')">
+                                <div @click="dialogPermissionTree.isShow = true;dialogPermissionTree.userid = scope.row.id; dialogPermissionTree.title= L('Permissions') + ' - '+scope.row.name">
+                                    {{L('Permissions')}}
+                                </div>
+                            </el-dropdown-item>
+                            <!--编辑-->
+                            <el-dropdown-item v-if="HasP('Edit')">
+                                <div @click="dialogEdit.isShow=true;dialogEdit.user=scope.row">
+                                    {{L('Edit')}}
+                                </div>
+                            </el-dropdown-item>
+                            <!--分隔符-->
+                            <el-dropdown-item >
+                                <div role="separator" class="divider"></div>
+                            </el-dropdown-item>
+                            <!--解锁-->
+                            <el-dropdown-item>
+                                <div @click="unlock(scope.$index,scope.row)">{{L('Unlock')}}</div>
+                            </el-dropdown-item>
+                            <!--删除-->
+                            <el-dropdown-item divided v-if="HasP('Delete')">
+                                <div @click="del(scope.$index,scope.row)">{{L('Delete')}}</div>
+                            </el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </template>
             </el-table-column>
         </el-table>
@@ -177,7 +200,6 @@
         created() {
         },
         activated() {
-            this.fetchData()
         },
         methods: {
             handleCurrentChange (val) {
@@ -193,9 +215,11 @@
                 let ret = await userService.getUsers(Object.assign({}, this.fetchParam, {permission: this.fetchParam.permission ? this.fetchParam.permission.id : null})).catch(() => {
                     this.loadingData = false
                 })
-                this.loadingData = false
+
                 this.data = ret.items
                 this.total = ret.totalCount
+                this.loadingData = false
+                abp.view.setContentLoading(false)
             },
             // 权限弹出框点击确定的回调
             async permissionConfirm (permissions) {
@@ -203,7 +227,7 @@
                     id: this.dialogPermissionTree.userid,
                     grantedPermissionNames: permissions || []
                 })
-                abp.notify.success('操作成功!', '恭喜')
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
             },
             async del(index, user) {
                 abp.message.confirm(`用户 ${user.name} 将被删除, 是否确认?`, async (ret) => {
@@ -226,6 +250,11 @@
             // 导出到excel
             exportExcel () {
                 userService.exportExcel()
+            },
+            // 解锁
+            async unlock(index, item) {
+                await userService.unlockUser({id: item.id})
+                abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
             }
         },
         components: {DialogUserPermission, DialogEditUser, SelPermissionTree}

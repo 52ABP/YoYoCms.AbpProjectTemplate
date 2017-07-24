@@ -9,13 +9,6 @@
 
 <script>
     export default {
-        data() {
-            return {}
-        },
-        created() {
-        },
-        activated() {
-        },
-        components: {}
+        name: 'administration-index',
     }
 </script>

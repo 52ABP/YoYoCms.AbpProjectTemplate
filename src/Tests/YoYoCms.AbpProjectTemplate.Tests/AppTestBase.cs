@@ -16,12 +16,12 @@ using Castle.MicroKernel.Registration;
 using Effort;
 using EntityFramework.DynamicFilters;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.EntityFramework;
 using YoYoCms.AbpProjectTemplate.Migrations.Seed.Host;
 using YoYoCms.AbpProjectTemplate.Migrations.Seed.Tenants;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Tests.TestDatas;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Tests
 {

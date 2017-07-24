@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Abp;
 using Abp.Notifications;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Notifications
 {

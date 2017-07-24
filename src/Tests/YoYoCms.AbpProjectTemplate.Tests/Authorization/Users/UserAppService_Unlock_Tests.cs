@@ -2,10 +2,10 @@
 using Abp.Application.Services.Dto;
 using Abp.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Authorization.Users
 {

@@ -4,36 +4,36 @@
 
 <template>
     <el-dialog
-            title="我的信息"
+            :title="L('MySettings')"
             :visible.sync="dialogVisible"
             size="tiny">
         <el-form :model="user" :rules="rules" ref="form" label-width="100px">
-            <el-form-item label="用户名" prop="userName">
-                <el-input v-model="user.userName" placeholder="用户名" :disabled="true"></el-input>
+            <el-form-item :label="L('UserName')" prop="userName">
+                <el-input v-model="user.userName" :placeholder="L('UserName')" :disabled="true"></el-input>
             </el-form-item>
-            <el-form-item label="名字" prop="name">
+            <el-form-item :label="L('Name')" prop="name">
                 <el-input v-model="user.name"></el-input>
             </el-form-item>
-            <el-form-item label="姓氏" prop="surname">
+            <el-form-item :label="L('Surname')" prop="surname">
                 <el-input v-model="user.surname"></el-input>
             </el-form-item>
-            <el-form-item label="邮箱地址" prop="emailAddress">
+            <el-form-item :label="L('EmailAddress')" prop="emailAddress">
                 <el-input v-model="user.emailAddress"></el-input>
             </el-form-item>
-            <el-form-item label="手机号" prop="phoneNumber">
-                <el-input v-model="user.phoneNumber" placeholder="手机号"></el-input>
+            <el-form-item :label="L('PhoneNumber')" prop="phoneNumber">
+                <el-input v-model="user.phoneNumber" :placeholder="L('PhoneNumber')"></el-input>
             </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="save">
-                <i class="material-icons" style="font-size: 14px;vertical-align: middle">save</i> 保 存</el-button>
+            <el-button @click="dialogVisible = false">{{L('Cancel')}}</el-button>
+            <el-button class="waves-effect" type="primary" @click="save">
+                <i class="material-icons" style="font-size: 14px;vertical-align: middle">save</i>{{L('Save')}}</el-button>
           </span>
     </el-dialog>
 </template>
 
 <script>
-    import profileService from '../../services/profileService'
+    import profileService from '../../services/administration/profileService'
     import clone from 'clone'
     export default {
         props: {
@@ -44,9 +44,9 @@
                 user: {},
                 dialogVisible: false,
                 rules: {
-                    name: [{required: true, message: '请输入名字', trigger: 'change'}],
-                    surname: [{required: true, message: '请输入姓氏', trigger: 'change'}],
-                    emailAddress: [{required: true, message: '请输入邮箱', trigger: 'change'}]
+                    name: [{required: true, message: lang.L('RequiredFiled'), trigger: 'change'}],
+                    surname: [{required: true, message: lang.L('RequiredFiled'), trigger: 'change'}],
+                    emailAddress: [{required: true, message: lang.L('RequiredFiled'), trigger: 'change'}]
                 },
             }
         },

@@ -6,16 +6,12 @@ using System.Web.Routing;
 using Abp;
 using Abp.Configuration.Startup;
 using Abp.Hangfire;
-using Abp.Hangfire.Configuration;
 using Abp.IO;
 using Abp.Modules;
-using Abp.Runtime.Caching.Redis;
-using Abp.Timing;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
 using Abp.Zero.Configuration;
 using Castle.MicroKernel.Registration;
-using Hangfire;
 using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Web.App.Startup;//SPA!
 using YoYoCms.AbpProjectTemplate.Web.Bundling;

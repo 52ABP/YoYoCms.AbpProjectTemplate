@@ -5,24 +5,27 @@ import store from '../store'
 
 Vue.use(Router)
 
+import abpScriptService from '../services/abpScriptService'
+import dashboard from '../router/dashboard'
+import loginRegister from '../router/loginregister'
 import administration from '../router/administration/index'
+import common from '../router/common'
 
 let router = new Router({
     routes: [
-        { path: '/', redirect: '/login' },
+        {path: '/', redirect: '/login'},
         {
-            path: '/login',
-            name: 'login',
+            path: '/test',
             component: resolve => {
                 require.ensure([],
                     () => {
-                        resolve(require('../views/loginregist/Login.vue'))
+                        resolve(require('../views/Test.vue'))
                     })
-            },
-            meta: {
-                notAuth: true, // 不需要权限验证
             }
         },
+        //  =================================登录注册=====================================
+        ...loginRegister,
+        //  =================================内容部分=====================================
         {
             path: '/',
             name: 'index',
@@ -33,18 +36,12 @@ let router = new Router({
                     })
             },
             children: [
-                { // 工作台
-                    path: '/dashboard',
-                    name: 'Dashboard.Tenant',
-                    component: resolve => {
-                        require.ensure([],
-                            () => {
-                                resolve(require('../views/dashboard/Dashboard.vue'))
-                            })
-                    },
-                },
+                //  =================================dashboard=====================================
+                dashboard,
                 //  =================================管理=====================================
-                administration
+                administration,
+                //  =================================公共页面=====================================
+                common
             ]
         },
     ],
@@ -57,7 +54,8 @@ let router = new Router({
 // setTimeout(() => {
 //     loginouted = true
 // }, 1e4)
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+    abp.view.setContentLoading && abp.view.setContentLoading(true)
     // if (!to.matched.some(record => record.meta.notAuth) && !authUtils.getToken()) {
     //     // 第一次进来不提示超时
     //     loginouted && abp.notify.error('未登录或登录已超时, 请重新登录!', '未登录')
@@ -67,13 +65,35 @@ router.beforeEach((to, from, next) => {
     // }
 
     let menu = []
-    to.matched.forEach((item) => {
-        item.meta.displayName = item.meta.displayName
-        menu.push({ name: item.name })
-    })
-    store.dispatch('setIndexMenuActive', { menu })
+    for (let i = 0; i < to.matched.length; i++) {
+        let item = to.matched[i]
+        // 如果要开始加载正式内容
+        if (item.name === 'index' && abpScriptService.isNeedLoad) {
+            abpScriptService.isNeedLoad = false
+            // 获取菜单,语言包等信息
+            await abpScriptService.getScripts()
+        }
+        // debugger
+        // item.meta.displayName = item.meta.displayName
+        menu.push({name: item.name, displayName: item.meta.displayName})
+    }
+
+    store.dispatch('setIndexMenuActive', {menu})
 
     next()
+})
+
+router.afterEach(route => {
+    Vue.nextTick(() => {
+        store.dispatch('addPageTab', {
+            item: {
+                name: route.name,
+                displayName: route.meta.displayName,
+                query: route.query,
+                params: route.params
+            }
+        })
+    })
 })
 
 export default router

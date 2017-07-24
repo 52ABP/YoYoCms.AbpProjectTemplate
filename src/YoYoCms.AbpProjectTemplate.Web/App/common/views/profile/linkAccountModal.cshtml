@@ -13,12 +13,12 @@
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <input class="form-control" type="text" name="UserName" ng-class="{'edited':vm.linkUser.usernameOrEmailAddress}" ng-model="vm.linkUser.usernameOrEmailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength">
+                <input class="form-control" type="text" name="UserName" ng-class="{'edited':vm.linkUser.usernameOrEmailAddress}" ng-model="vm.linkUser.usernameOrEmailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxEmailAddressLength">
                 <label>@L("UserName")</label>
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="password" ng-class="{'edited':vm.linkUser.password}" name="Password" class="form-control" ng-model="vm.linkUser.password" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPasswordLength">
+                <input type="password" ng-class="{'edited':vm.linkUser.password}" name="Password" class="form-control" ng-model="vm.linkUser.password" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPasswordLength">
                 <label>@L("Password")</label>
             </div>
 

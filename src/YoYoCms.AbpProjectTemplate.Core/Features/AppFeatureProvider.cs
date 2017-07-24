@@ -1,6 +1,5 @@
 ﻿using Abp.Application.Features;
 using Abp.Localization;
-using Abp.Runtime.Validation;
 using Abp.UI.Inputs;
 
 namespace YoYoCms.AbpProjectTemplate.Features

@@ -28,8 +28,9 @@
                                     <i class="material-icons">person</i>
                                 </span>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="username" placeholder="用户名或邮箱地址"
-                                               v-model="fetchParam.usernameOrEmailAddress"
+                                        <input @focus type="text" class="form-control" name="username"
+                                               :placeholder="L('UserNameOrEmail')"
+                                               v-model="fetchParam.usernameOrEmailAddress" ref="txtUsername"
                                                required
                                                autofocus>
                                     </div>
@@ -43,7 +44,7 @@
                         </span>
                                     <div class="form-line">
                                         <input type="password" @keyup.enter="login" v-model="fetchParam.password"
-                                               class="form-control" placeholder="密码"
+                                               class="form-control" :placeholder="L('Password')"
                                                required>
                                     </div>
                                 </div>
@@ -51,21 +52,33 @@
                         </el-form>
                         <div class="row">
                             <div class="col-xs-8 p-t-5">
-                                <input type="checkbox" name="rememberme" id="rememberme"
+                                <input type="checkbox" id="rememberme" v-model="fetchParam.rememberMe"
                                        class="filled-in chk-col-pink">
-                                <label for="rememberme">记住我</label>
+                                <label for="rememberme">{{L('RememberMe')}}</label>
                             </div>
                             <div class="col-xs-4">
-                                <button @click="login" class="btn btn-block bg-pink waves-effect" type="submit">登录
+                                <button @click="login" class="btn btn-block bg-pink waves-effect" type="submit">
+                                    {{L('LogIn')}}
                                 </button>
                             </div>
                         </div>
                         <div class="row m-t-15 m-b--20">
-                            <div class="col-xs-6">
-                                <a href="sign-up.html">立即注册!</a>
+                            <div class="col-xs-4">
+                                <a @click="$router.push({name:'register'})"
+                                   style="cursor:pointer;">{{L('CreateAnAccount')}}</a>
                             </div>
-                            <div class="col-xs-6 align-right">
-                                <a href="forgot-password.html">忘记密码?</a>
+                            <div class="col-xs-4" style="text-align: center">
+                                <a @click="$router.push({name:'SendActiveEmail'})"
+                                   style="cursor:pointer;">{{L('EmailActivation')}}</a>
+                            </div>
+                            <div class="col-xs-4 align-right">
+                                <a @click="$router.push({name: 'forgetPwd'})"
+                                   style="cursor: pointer">{{L('ForgotPassword')}}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <Languages></Languages>
                             </div>
                         </div>
                     </div>
@@ -78,7 +91,9 @@
 <script>
     //    import config from '../../common/config'
     import userService from '../../services/userService'
-    //    import authUtils from '../../common/utils/authUtils'
+    import sessionService from '../../services/sessionService'
+    import Languages from './components/Languages.vue'
+    import authUtils from '../../common/utils/authUtils'
     export default {
         data() {
             return {
@@ -87,36 +102,54 @@
                     usernameOrEmailAddress: '',
                     password: '',
                     tenancyName: 'default',
+                    rememberMe: false
                 },
                 rules: {
                     usernameOrEmailAddress: [
-                        {type: 'string', required: true, message: '请输入邮箱或用户名', trigger: 'change'},
+                        {type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'change'},
                     ],
                     password: [
-                        {type: 'string', required: true, message: '请输入密码', trigger: 'blur'}
+                        {type: 'string', required: true, message: lang.L('RequiredFiled'), trigger: 'blur'}
                     ],
                 }
             }
         },
-        created() {
-        },
-        activated() {
+        mounted() {
+            window.initAdminJs && window.initAdminJs()
+            this.$refs.txtUsername.focus()
         },
         methods: {
             login () {
-                this.$refs.form.validate((valid) => {
+                this.$refs.form.validate(async (valid) => {
                     if (!valid) return
                     this.loading = true
-                    userService.login(this.fetchParam)
-                    setTimeout(() => {
-//                        authUtils.setToken(ret)
-                        this.$router.push({name: 'Dashboard.Tenant'})
-                        abp.notify.success('登录成功!', '恭喜')
+                    try {
+                        let ret = await userService.login(this.fetchParam)
+
+                        // 如果需要重新设置密码
+                        if (ret.result && ret.result.resetPassword) {
+                            abp.notify.success(lang.L('PasswordResetEmail_SubTitle'), lang.L('LoginSuccessful'))
+                            delete ret.result.resetPassword
+                            this.$router.push({name: 'resetpassword', query: ret.result})
+                            return
+                        }
+                        setTimeout(async () => {
+                            // 获取用户信息
+                            let user = (await sessionService.getCurrentLoginInformations()).user
+                            this.$store.dispatch('setAuthUser', {user})
+                            authUtils.setUserInfo(user)
+
+                            this.$router.push({name: 'Dashboard.Tenant'})
+                            abp.notify.success(lang.L('LoginSuccessful'), lang.L('Success'))
+//                            this.loading = false
+                        }, 5e2)
+                    } catch (e) {
+                        abp.notify.error(lang.L('UserNameOrPasswordError'), lang.L('LoginFailed'))
                         this.loading = false
-                    }, 5e2)
+                    }
                 })
             },
         },
-        components: {}
+        components: {Languages}
     }
 </script>

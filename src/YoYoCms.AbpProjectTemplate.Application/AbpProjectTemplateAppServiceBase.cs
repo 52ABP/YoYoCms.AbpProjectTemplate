@@ -6,8 +6,8 @@ using Abp.MultiTenancy;
 using Abp.Runtime.Session;
 using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate
 {
@@ -35,7 +35,7 @@ namespace YoYoCms.AbpProjectTemplate
             {
                 throw new ApplicationException("There is no current user!");
             }
-
+        // Logger.IsDebugEnabled
             return user;
         }
 

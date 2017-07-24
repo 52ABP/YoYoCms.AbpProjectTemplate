@@ -12,17 +12,15 @@ using Abp.Zero.Configuration;
 using YoYoCms.AbpProjectTemplate.Configuration;
 using YoYoCms.AbpProjectTemplate.Debugging;
 using YoYoCms.AbpProjectTemplate.Web.Models.TenantRegistration;
-using Recaptcha.Web;
-using Recaptcha.Web.Mvc;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Editions;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Notifications;
-using YoYoCms.AbpProjectTemplate.Web.Auth;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
+using YoYoCms.AbpProjectTemplate.Web.Authorization;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
@@ -82,16 +80,28 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
                 if (UseCaptchaOnRegistration())
                 {
-                    var recaptchaHelper = this.GetRecaptchaVerificationHelper();
-                    if (recaptchaHelper.Response.IsNullOrEmpty())
+                    if (model.Captcha.IsNullOrWhiteSpace())
                     {
                         throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
                     }
 
-                    if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    var result = VerifyTheCaptcha(model.Captcha);
+                    if (result)
                     {
-                        throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                        return Json(true);
                     }
+                    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                    //todo:租户注册的时候需要验证码
+                    //var recaptchaHelper = this.GetRecaptchaVerificationHelper();
+                    //if (recaptchaHelper.Response.IsNullOrEmpty())
+                    //{
+                    //    throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
+                    //}
+
+                    //if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    //{
+                    //    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                    //}
                 }
 
                 //Getting host-specific settings
@@ -125,7 +135,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
                 CurrentUnitOfWork.SetTenantId(tenant.Id);
 
-                var user = await _userManager.FindByNameAsync(Authorization.Users.User.AdminUserName);
+                var user = await _userManager.FindByNameAsync(UserManagement.Users.User.AdminUserName);
 
                 //Directly login if possible
                 if (tenant.IsActive && user.IsActive && (user.IsEmailConfirmed || !isEmailConfirmationRequiredForLogin))
@@ -145,7 +155,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 {
                     TenancyName = model.TenancyName,
                     Name = model.Name,
-                    UserName = Authorization.Users.User.AdminUserName,
+                    UserName = UserManagement.Users.User.AdminUserName,
                     EmailAddress = model.AdminEmailAddress,
                     IsActive = isNewRegisteredTenantActiveByDefault,
                     IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin

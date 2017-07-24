@@ -10,8 +10,8 @@ using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using YoYoCms.AbpProjectTemplate.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 using YoYoCms.AbpProjectTemplate.WebApi.Models;
 
 namespace YoYoCms.AbpProjectTemplate.WebApi.Controllers

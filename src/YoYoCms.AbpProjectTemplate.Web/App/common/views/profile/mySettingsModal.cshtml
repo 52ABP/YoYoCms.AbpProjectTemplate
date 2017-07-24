@@ -9,27 +9,27 @@
         <div class="modal-body">
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <input class="form-control" type="text" name="Name" ng-class="{'edited':vm.user.name}" ng-model="vm.user.name" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxNameLength">
+                <input class="form-control" type="text" name="Name" ng-class="{'edited':vm.user.name}" ng-model="vm.user.name" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxNameLength">
                 <label>@L("Name")</label>
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.user.surname}" ng-model="vm.user.surname" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxSurnameLength">
+                <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.user.surname}" ng-model="vm.user.surname" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxSurnameLength">
                 <label>@L("Surname")</label>
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <input type="email" name="EmailAddress" class="form-control" ng-class="{'edited':vm.user.emailAddress}" ng-model="vm.user.emailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxEmailAddressLength">
+                <input type="email" name="EmailAddress" class="form-control" ng-class="{'edited':vm.user.emailAddress}" ng-model="vm.user.emailAddress" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxEmailAddressLength">
                 <label>@L("EmailAddress")</label>
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                <input type="text" name="PhoneNumber" class="form-control" ng-class="{'edited':vm.user.phoneNumber}" ng-model="vm.user.phoneNumber" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPhoneNumberLength">
+                <input type="text" name="PhoneNumber" class="form-control" ng-class="{'edited':vm.user.phoneNumber}" ng-model="vm.user.phoneNumber" maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPhoneNumberLength">
                 <label>@L("PhoneNumber")</label>
             </div>
 
             <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="text" ng-disabled="!vm.canChangeUserName" ng-class="{'edited':vm.user.userName}" name="UserName" class="form-control" ng-model="vm.user.userName" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxUserNameLength">
+                <input type="text" ng-disabled="!vm.canChangeUserName" ng-class="{'edited':vm.user.userName}" name="UserName" class="form-control" ng-model="vm.user.userName" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxUserNameLength">
                 <label>@L("UserName")</label>
                 <span class="help-block" ng-show="!vm.canChangeUserName">@L("CanNotChangeAdminUserName")</span>
             </div>

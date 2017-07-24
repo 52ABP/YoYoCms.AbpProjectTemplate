@@ -23,7 +23,7 @@ module.exports = {
     },
     dev: {
         env: require('./dev.env'),
-        port: 8080,
+        port: 8986,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
@@ -41,6 +41,12 @@ module.exports = {
                 target: 'http://localhost:16240/'
             },
             '/Profile/': {
+                target: 'http://localhost:16240/'
+            },
+            '/AbpLocalization/': {
+                target: 'http://localhost:16240/'
+            },
+            '/signalr/': {
                 target: 'http://localhost:16240/'
             }
         },

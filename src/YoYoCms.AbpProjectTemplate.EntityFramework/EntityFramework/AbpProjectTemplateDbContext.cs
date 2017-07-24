@@ -2,14 +2,13 @@
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
-using YoYoCms.AbpProjectTemplate.Chat;
 using YoYoCms.AbpProjectTemplate.EntityMapper.BinaryObjects;
-using YoYoCms.AbpProjectTemplate.EntityMapper.ChatMessages;
-using YoYoCms.AbpProjectTemplate.EntityMapper.FriendShips;
-using YoYoCms.AbpProjectTemplate.Friendships;
+using YoYoCms.AbpProjectTemplate.EntityMapper.SmsMessagelogs;
+using YoYoCms.AbpProjectTemplate.EntityMapper.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
+ using YoYoCms.AbpProjectTemplate.SmsMessagelogs;
 using YoYoCms.AbpProjectTemplate.Storage;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.EntityFramework
 {
@@ -23,12 +22,14 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
 
     public class AbpProjectTemplateDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
-        /* Define an IDbSet for each entity of the application */
-        public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
-        public virtual IDbSet<Friendship> Friendships { get; set; }
-        public virtual IDbSet<ChatMessage> ChatMessages { get; set; }
+		/* Define an IDbSet for each entity of the application */
+		//定义一个IDbSet为每个应用程序的实体
+		//在此处为每个实体，定义为IDbSet
+		public virtual IDbSet<BinaryObject> BinaryObjects { get; set; }
+      
 
-
+        public IDbSet<SmsMessagelog> SmsMessagelogs { get; set; }
+      
 
 
         public AbpProjectTemplateDbContext()
@@ -59,15 +60,16 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             #region 修改ABP默认的架构设置功能
-            modelBuilder.ChangeAbpTablePrefix<Tenant, Role, User>("", "ABP");
-            modelBuilder.Configurations.Add(new BinaryObjectCfg());
-            modelBuilder.Configurations.Add(new FriendshipCfg());
-            modelBuilder.Configurations.Add(new ChatMessageCfg());
+        //    InitialCreate
+       modelBuilder.ChangeAbpTablePrefix<Tenant, Role, User>("", "ABP");
+           modelBuilder.Configurations.Add(new BinaryObjectCfg());
 
-
+         
+            //Change_Table_Name
             #endregion
 
-
+            modelBuilder.Configurations.Add(new UserCfg());
+            modelBuilder.Configurations.Add(new SmsMessagelogCfg());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -16,9 +16,9 @@
     <AssemblyName>YoYoCms.AbpProjectTemplate.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressSSLPort>44357</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -234,10 +234,6 @@
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Recaptcha.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=171a6ec5fa4b1644, processorArchitecture=MSIL">
-      <HintPath>..\packages\RecaptchaNet.2.1.0\lib\net451\Recaptcha.Web.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="StackExchange.Redis, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StackExchange.Redis.1.2.1\lib\net46\StackExchange.Redis.dll</HintPath>
@@ -535,9 +531,6 @@
     <Content Include="Assets\config\index.js" />
     <Content Include="Assets\config\prod.env.js" />
     <Content Include="Assets\index.html" />
-    <Content Include="Assets\src\assets\logo.png" />
-    <Content Include="Assets\src\main.js" />
-    <Content Include="Assets\src\router\index.js" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
     <Content Include="Common\Images\open-id-connect.png" />
     <Content Include="Common\Images\ws-federation.png" />
@@ -630,112 +623,6 @@
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="landing\favicon.ico" />
-    <Content Include="landing\images\blank.svg" />
-    <Content Include="landing\images\camera_skins.png" />
-    <Content Include="landing\images\footer-bg.jpg" />
-    <Content Include="landing\images\footer-logo%402x.png" />
-    <Content Include="landing\images\footer-logo.png" />
-    <Content Include="landing\images\footer-widget-logo%402x.png" />
-    <Content Include="landing\images\footer-widget-logo.png" />
-    <Content Include="landing\images\grid.png" />
-    <Content Include="landing\images\icons\avatar.jpg" />
-    <Content Include="landing\images\icons\close.png" />
-    <Content Include="landing\images\icons\dotted.png" />
-    <Content Include="landing\images\icons\features\flag.png" />
-    <Content Include="landing\images\icons\features\map.png" />
-    <Content Include="landing\images\icons\features\performance.png" />
-    <Content Include="landing\images\icons\features\responsive.png" />
-    <Content Include="landing\images\icons\features\retina.png" />
-    <Content Include="landing\images\icons\features\seo.png" />
-    <Content Include="landing\images\icons\features\support.png" />
-    <Content Include="landing\images\icons\features\tick.png" />
-    <Content Include="landing\images\icons\features\tools.png" />
-    <Content Include="landing\images\icons\flags\french.png" />
-    <Content Include="landing\images\icons\flags\german.png" />
-    <Content Include="landing\images\icons\flags\italian.png" />
-    <Content Include="landing\images\icons\iconalt.svg" />
-    <Content Include="landing\images\icons\image.png" />
-    <Content Include="landing\images\icons\macbook.png" />
-    <Content Include="landing\images\icons\mainsubmenu.png" />
-    <Content Include="landing\images\icons\mainsubmenuh.png" />
-    <Content Include="landing\images\icons\map-icon-red.png" />
-    <Content Include="landing\images\icons\map-icon.png" />
-    <Content Include="landing\images\icons\menu-divider.png" />
-    <Content Include="landing\images\icons\menu-dividerd.png" />
-    <Content Include="landing\images\icons\play.png" />
-    <Content Include="landing\images\icons\restaurant\cup-dark.png" />
-    <Content Include="landing\images\icons\restaurant\cup.png" />
-    <Content Include="landing\images\icons\restaurant\fork-dark.png" />
-    <Content Include="landing\images\icons\restaurant\fork.png" />
-    <Content Include="landing\images\icons\restaurant\glass-dark.png" />
-    <Content Include="landing\images\icons\restaurant\glass.png" />
-    <Content Include="landing\images\icons\restaurant\tea-dark.png" />
-    <Content Include="landing\images\icons\restaurant\tea.png" />
-    <Content Include="landing\images\icons\submenu-dark.png" />
-    <Content Include="landing\images\icons\submenu.png" />
-    <Content Include="landing\images\icons\video-play.png" />
-    <Content Include="landing\images\icons\widget-comment%402x.png" />
-    <Content Include="landing\images\icons\widget-comment-dark%402x.png" />
-    <Content Include="landing\images\icons\widget-comment-dark.png" />
-    <Content Include="landing\images\icons\widget-comment.png" />
-    <Content Include="landing\images\icons\widget-link%402x.png" />
-    <Content Include="landing\images\icons\widget-link-dark%402x.png" />
-    <Content Include="landing\images\icons\widget-link-dark.png" />
-    <Content Include="landing\images\icons\widget-link.png" />
-    <Content Include="landing\images\landing\bootstrap.png" />
-    <Content Include="landing\images\landing\device1.png" />
-    <Content Include="landing\images\landing\device2.png" />
-    <Content Include="landing\images\landing\device3.png" />
-    <Content Include="landing\images\landing\landing1.jpg" />
-    <Content Include="landing\images\landing\landing2.jpg" />
-    <Content Include="landing\images\landing\responsive.png" />
-    <Content Include="landing\images\landing\static.jpg" />
-    <Content Include="landing\images\logo%402x.png" />
-    <Content Include="landing\images\logo-dark%402x.png" />
-    <Content Include="landing\images\logo-dark.png" />
-    <Content Include="landing\images\logo-resto%402x.png" />
-    <Content Include="landing\images\logo-resto-dark%402x.png" />
-    <Content Include="landing\images\logo-resto-dark.png" />
-    <Content Include="landing\images\logo-resto.png" />
-    <Content Include="landing\images\logo-side%402x.png" />
-    <Content Include="landing\images\logo-side-dark%402x.png" />
-    <Content Include="landing\images\logo-side-dark.png" />
-    <Content Include="landing\images\logo-side.png" />
-    <Content Include="landing\images\logo.png" />
-    <Content Include="landing\images\mac.png" />
-    <Content Include="landing\images\pattern.png" />
-    <Content Include="landing\images\pattern2.png" />
-    <Content Include="landing\images\preloader%402x.gif" />
-    <Content Include="landing\images\preloader-dark%402x.gif" />
-    <Content Include="landing\images\preloader-dark.gif" />
-    <Content Include="landing\images\preloader.gif" />
-    <Content Include="landing\images\testimonials\1.jpg" />
-    <Content Include="landing\images\testimonials\2.jpg" />
-    <Content Include="landing\images\testimonials\3.jpg" />
-    <Content Include="landing\images\testimonials\4.jpg" />
-    <Content Include="landing\images\testimonials\7.jpg" />
-    <Content Include="landing\images\testimonials\8.jpg" />
-    <Content Include="landing\images\testimonials\parallax.jpg" />
-    <Content Include="landing\images\testimonials\parallax2.jpg" />
-    <Content Include="landing\images\world-map.png" />
-    <Content Include="landing\Img\1.jpg" />
-    <Content Include="landing\Img\7.jpg" />
-    <Content Include="landing\Img\9.jpg" />
-    <Content Include="landing\Img\banner1.jpg" />
-    <Content Include="landing\Img\banner2.jpg" />
-    <Content Include="landing\Img\banner3.jpg" />
-    <Content Include="landing\Img\banner4.jpg" />
-    <Content Include="landing\Index.css">
-      <DependentUpon>Index.scss</DependentUpon>
-    </Content>
-    <Content Include="landing\Index.html" />
-    <Content Include="landing\Index.js" />
-    <Content Include="landing\Index.min.css">
-      <DependentUpon>Index.css</DependentUpon>
-    </Content>
-    <Content Include="landing\responsive\responsive-rtl.css" />
-    <Content Include="landing\responsive\responsive.css" />
     <Content Include="libs\angular-bootstrap-switch\angular-bootstrap-switch.js" />
     <Content Include="libs\angular-bootstrap-switch\angular-bootstrap-switch.min.js" />
     <Content Include="libs\angular-daterangepicker\angular-daterangepicker.js" />
@@ -749,7 +636,6 @@
     <Content Include="libs\angular-ui-grid\ui-grid.min.css" />
     <Content Include="libs\angular-ui-grid\ui-grid.min.js" />
     <Content Include="libs\angular-ui-grid\ui-grid.svg" />
-    <Content Include="landing\css\Animate\animate.css" />
     <Content Include="libs\bootstrap-daterangepicker\daterangepicker.css" />
     <Content Include="libs\bootstrap-daterangepicker\daterangepicker.js" />
     <Content Include="libs\bootstrap-hover-dropdown\bootstrap-hover-dropdown.js" />
@@ -936,15 +822,6 @@
     <Content Include="libs\fancybox\source\jquery.fancybox.css" />
     <Content Include="libs\fancybox\source\jquery.fancybox.js" />
     <Content Include="libs\fancybox\source\jquery.fancybox.pack.js" />
-    <Content Include="landing\css\font-icons\font-icons-rtl.css" />
-    <Content Include="landing\css\font-icons\font-icons-snapchat.css" />
-    <Content Include="landing\css\font-icons\font-icons.css" />
-    <Content Include="landing\css\font-icons\fonts.css" />
-    <Content Include="landing\css\font-icons\fonts\font-icons-snapchat.svg" />
-    <Content Include="landing\css\font-icons\fonts\font-icons.svg" />
-    <Content Include="landing\css\font-icons\fonts\lined-icons.svg" />
-    <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.dev.svg" />
-    <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="libs\html5shiv\html5shiv.js" />
     <Content Include="libs\jcrop\css\Jcrop.gif" />
     <Content Include="libs\jcrop\css\jquery.Jcrop.css" />
@@ -1278,7 +1155,6 @@
     <Content Include="libs\json2\json2.min.js" />
     <Content Include="libs\jstree\themes\default\32px_line.png" />
     <Content Include="libs\jstree\themes\default\32px_original.png" />
-    <Content Include="landing\css\magnific-popup\magnific-popup.css" />
     <Content Include="libs\morris\examples\area-as-line.html" />
     <Content Include="libs\morris\examples\area.html" />
     <Content Include="libs\morris\examples\bar-colors.html" />
@@ -2245,71 +2121,16 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
-    <Content Include="landing\Index.scss" />
-    <Content Include="landing\Sass\blog.scss" />
-    <Content Include="landing\Sass\content.scss" />
-    <Content Include="landing\Sass\dark.scss" />
-    <Content Include="landing\Sass\events.scss" />
-    <Content Include="landing\Sass\extras.scss" />
-    <Content Include="landing\Sass\footer.scss" />
-    <Content Include="landing\Sass\header.scss" />
-    <Content Include="landing\Sass\helpers.scss" />
-    <Content Include="landing\Sass\layouts.scss" />
-    <Content Include="landing\Sass\mixins.scss" />
-    <Content Include="landing\Sass\pagetitle.scss" />
-    <Content Include="landing\Sass\portfolio.scss" />
-    <Content Include="landing\Sass\responsive.scss" />
-    <Content Include="landing\Sass\shop.scss" />
-    <Content Include="landing\Sass\shortcodes.scss" />
-    <Content Include="landing\Sass\shortcodes\alerts.scss" />
-    <Content Include="landing\Sass\shortcodes\buttons.scss" />
-    <Content Include="landing\Sass\shortcodes\carousel.scss" />
-    <Content Include="landing\Sass\shortcodes\clients.scss" />
-    <Content Include="landing\Sass\shortcodes\countdown.scss" />
-    <Content Include="landing\Sass\shortcodes\counter-skills.scss" />
-    <Content Include="landing\Sass\shortcodes\dividers.scss" />
-    <Content Include="landing\Sass\shortcodes\faqs.scss" />
-    <Content Include="landing\Sass\shortcodes\feature-box.scss" />
-    <Content Include="landing\Sass\shortcodes\headings.scss" />
-    <Content Include="landing\Sass\shortcodes\misc.scss" />
-    <Content Include="landing\Sass\shortcodes\overlay.scss" />
-    <Content Include="landing\Sass\shortcodes\pricing.scss" />
-    <Content Include="landing\Sass\shortcodes\process-steps.scss" />
-    <Content Include="landing\Sass\shortcodes\promo.scss" />
-    <Content Include="landing\Sass\shortcodes\social-icons.scss" />
-    <Content Include="landing\Sass\shortcodes\styled-icons.scss" />
-    <Content Include="landing\Sass\shortcodes\tabs.scss" />
-    <Content Include="landing\Sass\shortcodes\team.scss" />
-    <Content Include="landing\Sass\shortcodes\testimonials.scss" />
-    <Content Include="landing\Sass\shortcodes\toggles-accordions.scss" />
-    <Content Include="landing\Sass\shortcodes\youtubebg.scss" />
-    <Content Include="landing\Sass\sliders.scss" />
-    <Content Include="landing\Sass\topbar.scss" />
-    <Content Include="landing\Sass\typography.scss" />
-    <Content Include="landing\Sass\variables.scss" />
-    <Content Include="landing\Sass\widgets.scss" />
-    <Content Include="landing\css\font-icons\fonts\font-icons-snapchat.eot" />
-    <Content Include="landing\css\font-icons\fonts\font-icons-snapchat.ttf" />
-    <Content Include="landing\css\font-icons\fonts\font-icons-snapchat.woff" />
-    <Content Include="landing\css\font-icons\fonts\font-icons.eot" />
-    <Content Include="landing\css\font-icons\fonts\font-icons.ttf" />
-    <Content Include="landing\css\font-icons\fonts\font-icons.woff" />
-    <Content Include="landing\css\font-icons\fonts\lined-icons.eot" />
-    <Content Include="landing\css\font-icons\fonts\lined-icons.ttf" />
-    <Content Include="landing\css\font-icons\fonts\lined-icons.woff" />
-    <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.eot" />
-    <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.ttf" />
-    <Content Include="landing\css\font-icons\fonts\Simple-Line-Icons.woff" />
     <Content Include="Assets\.babelrc" />
     <Content Include="Assets\.editorconfig" />
     <Content Include="Assets\.eslintignore" />
     <Content Include="Assets\package.json" />
     <Content Include="Assets\README.md" />
-    <Content Include="Assets\src\App.vue">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Assets\src\components\Hello.vue" />
     <Content Include="Assets\static\.gitkeep" />
+    <Content Include="App\common\views\smsmessage\createOrEditModalJs.js" />
+    <Content Include="App\common\views\smsmessage\IndexJs.js" />
+    <Content Include="App\common\views\smsmessage\____SmsMessagelogReadme.js" />
+    <None Include="Properties\PublishProfiles\169服务器.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -3074,6 +2895,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="App\common\views\smsmessage\index.cshtml" />
+    <Content Include="App\common\views\smsmessage\createOrEditModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
@@ -3090,15 +2913,12 @@
     <Compile Include="App_Start\Navigation\PageNames.cs" />
     <Compile Include="App_Start\Routing\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
-    <Compile Include="Auth\AuthenticationManagerExtensions.cs" />
-    <Compile Include="Auth\SignInManager.cs" />
-    <Compile Include="Auth\TwitterEmailRetriever.cs" />
-    <Compile Include="Chat\SignalR\ChatHub.cs" />
-    <Compile Include="Chat\SignalR\SendChatMessageInput.cs" />
-    <Compile Include="Chat\SignalR\SendFriendshipRequestInput.cs" />
-    <Compile Include="Chat\SignalR\SignalRChatCommunicator.cs" />
+    <Compile Include="Authorization\AuthenticationManagerExtensions.cs" />
+    <Compile Include="Authorization\SignInManager.cs" />
+    <Compile Include="Authorization\TwitterEmailRetriever.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\CaptchaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -3249,6 +3069,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Extensions\LTM.Common\LTM.Common.csproj">
+      <Project>{5eef45fd-b1f5-4830-9653-1f14364a9d72}</Project>
+      <Name>LTM.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YoYoCms.AbpProjectTemplate.Application\YoYoCms.AbpProjectTemplate.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>YoYoCms.AbpProjectTemplate.Application</Name>
@@ -3275,8 +3099,7 @@
     <TypeScriptCompile Include="Abp\Framework\scripts\libs\abp.signalr.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="landing\js\" />
-    <Folder Include="landing\pages\" />
+    <Folder Include="Views\Captcha\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

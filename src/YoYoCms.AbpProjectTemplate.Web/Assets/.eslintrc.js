@@ -35,10 +35,11 @@
         'abp': true,
         'alert': true,
         'fetch': true,
-        'xmview': true,
         'localStorage': true,
         'jquery': true,
         '$': true,
-        'Exception': true
+        'Exception': true,
+        'lang': true,
+        'Waves': true
     }
 }

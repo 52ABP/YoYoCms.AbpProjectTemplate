@@ -9,38 +9,38 @@
 
 <template>
     <el-dialog class="edit-role--dialog"
-               :title="currRole.id? '修改角色: ' + currRole.displayName :'添加角色'"
+               :title="currRole.id? L('EditRole') + ':' + currRole.displayName : L('CreateNewRole')"
                :visible.sync="dialogVisible"
                @open="handleOpen"
                @close="handleClose"
                size="tiny">
         <el-tabs v-model="activeName" @tab-click="handleTabClick" v-loading="loading">
-            <el-tab-pane label="角色属性" name="first">
+            <el-tab-pane :label="L('RoleProperties')" name="first">
                 <el-form :model="currRole" :rules="rules" ref="form" label-width="100px" class="demo-ruleForm">
-                    <el-form-item label="角色名称" prop="displayName">
+                    <el-form-item :label="L('RoleName')" prop="displayName">
                         <el-input v-model="currRole.displayName"></el-input>
                     </el-form-item>
-                    <el-form-item label="默认" prop="isDefault">
+                    <el-form-item :label="L('Default')" prop="isDefault">
                         <el-checkbox v-model="currRole.isDefault"></el-checkbox>
-                        &nbsp; <i style="font-size: 12px">新用户将默认拥有此角色.</i>
+                        &nbsp; <i style="font-size: 12px">{{L('DefaultRole_Description')}}</i>
                     </el-form-item>
                 </el-form>
             </el-tab-pane>
 
-            <el-tab-pane label="权限" name="second" style="min-height: 100px">
+            <el-tab-pane :label="L('Permissions')" name="second" style="min-height: 100px">
                 <PermissionTree :context.sync="permissionVm" :orignPermission="permissions"></PermissionTree>
             </el-tab-pane>
         </el-tabs>
         <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="save">保 存</el-button>
+            <el-button @click="dialogVisible = false">{{L('Cancel')}}</el-button>
+            <el-button type="primary" @click="save">{{L('Save')}}</el-button>
          </span>
     </el-dialog>
 </template>
 
 <script>
     import clone from 'clone'
-    import roleService from '../../../services/roleService'
+    import roleService from '../../../services/administration/roleService'
     import PermissionTree from '../../../components/tree/PermissionCheck.vue'
     export default {
         props: {
@@ -57,7 +57,7 @@
                 currRole: clone(this.role || {}),
                 permissions: void 0,
                 title: '',
-                rules: {displayName: [{required: true, message: '请输入角色名', trigger: 'change'}]},
+                rules: {displayName: [{required: true, message: lang.L('RoleName'), trigger: 'change'}]},
                 permissionVm: void 0
             }
         },
@@ -99,7 +99,7 @@
                     })
 
                     this.dialogVisible = false
-                    abp.notify.success('保存成功!', '恭喜')
+                    abp.notify.success(lang.L('SavedSuccessfully'), lang.L('Success'))
 
                     this.$emit('update:role', this.currRole)
                     Object.assign(this.orignRole, this.currRole)
