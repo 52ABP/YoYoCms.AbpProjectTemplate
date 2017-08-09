@@ -2733,7 +2733,7 @@
     <Compile Include="App_Start\Bundling\FrontEndBundleConfig.cs" />
     <Compile Include="App_Start\Bundling\ScriptPaths.cs" />
     <Compile Include="App_Start\Bundling\StylePaths.cs" />
-    <Compile Include="App_Start\AppStartup\AppNavigationProvider.cs" />
+    <Compile Include="App_Start\Navigation\AppNavigationProvider.cs" />
     <Compile Include="App_Start\AbpProjectTemplateWebModule.cs" />
     <Compile Include="App_Start\Navigation\FrontEndNavigationProvider.cs" />
     <Compile Include="App_Start\Navigation\PageNames.cs" />

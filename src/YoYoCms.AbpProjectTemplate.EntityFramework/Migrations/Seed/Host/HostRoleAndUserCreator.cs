@@ -3,6 +3,7 @@ using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.Authorization.Users;
 using Abp.MultiTenancy;
+using Microsoft.AspNet.Identity;
 using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
 using YoYoCms.AbpProjectTemplate.EntityFramework;
@@ -47,12 +48,12 @@ namespace YoYoCms.AbpProjectTemplate.Migrations.Seed.Host
                         UserName = User.AdminUserName,
                         Name = "admin",
                         Surname = "admin",
-                        EmailAddress = "admin@yoyocms.com",
+                        EmailAddress = "werltm@hotmail.com",
                         IsEmailConfirmed = true,
                         ShouldChangePasswordOnNextLogin = true,
                         IsActive = true,
-                        Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
-                    });
+						Password = new PasswordHasher().HashPassword("bb123456")
+ 					});
                 _context.SaveChanges();
 
                 //Assign Admin role to admin user

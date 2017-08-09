@@ -18,7 +18,7 @@
     import './vendor/bsb/plugin/node-waves/waves.scss'
     import './mixins/_common.scss'
 
-    import store from './store'
+    import store from './store/index.js'
     import './filters/timeFilter'
 
     import './vendor/bsb/js/admin'
