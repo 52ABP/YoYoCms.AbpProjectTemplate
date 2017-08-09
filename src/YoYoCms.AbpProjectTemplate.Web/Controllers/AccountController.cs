@@ -203,7 +203,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         public ActionResult Logout()
         {
             _authenticationManager.SignOutAll();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
         /// <summary>
         /// 注册到系统中
@@ -535,8 +535,8 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     //email可空
                 if (!user.IsEmailConfirmed)
                 {
-                    user.SetNewEmailConfirmationCode();
-                    await _userEmailer.SendEmailActivationLinkAsync(user);
+                //    user.SetNewEmailConfirmationCode();
+                  //  await _userEmailer.SendEmailActivationLinkAsync(user);
                 }
 
 
@@ -567,7 +567,12 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     if (loginResult.Result == AbpLoginResultType.Success)
                     {
                         await SignInAsync(loginResult.User, loginResult.Identity);
-                        return Redirect(Url.Action("Index", "Application"));
+	                    return Json(new AjaxResponse(new RegisterResultViewModel()
+	                    {
+		                    IsActive = user.IsActive,
+		                    IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin
+	                    }));
+
                     }
 
                     Logger.Warn("New registered user could not be login. This should not be normally. login result: " + loginResult.Result);

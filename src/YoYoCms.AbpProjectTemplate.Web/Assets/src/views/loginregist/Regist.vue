@@ -172,13 +172,13 @@
 
                     try {
                         let ret = await userService.register(this.fetchParam)
-
+    
                         setTimeout(() => {
 //                        this.$router.push({name: 'Dashboard.Tenant'})
                             abp.notify.success(lang.L('SuccessfullyRegistered'), lang.L('Success'))
                             this.loading = false
                             if (!ret.isActive) this.registerSucc = true
-                            else this.$router.push({name: 'login'})
+                            else this.$router.push({name: 'Dashboard.Tenant'})
                         }, 5e2)
                     } catch (e) {
                         this.loading = false
