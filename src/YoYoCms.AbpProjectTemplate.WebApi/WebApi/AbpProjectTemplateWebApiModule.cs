@@ -17,25 +17,29 @@ namespace YoYoCms.AbpProjectTemplate.WebApi
     [DependsOn(typeof(AbpWebApiModule), typeof(AbpProjectTemplateApplicationModule))]
     public class AbpProjectTemplateWebApiModule : AbpModule
     {
+        public override void PreInitialize()
+        {
+            Configuration.Modules.AbpWeb().AntiForgery.IsEnabled = false;
+        }
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
             //Automatically creates Web API controllers for all application services of the application
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "app")
+                .ForAll<IApplicationService>(typeof(AbpProjectTemplateApplicationModule).Assembly, "yoyocms")
                 .Build();
 
-            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("yoyocmsAuth"));
-
-            ConfigureSwaggerUi();  
+            Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
+ 
+            ConfigureSwaggerUi();
         }
 
         private void ConfigureSwaggerUi()
         {
             Configuration.Modules.AbpWebApi().HttpConfiguration
-                .EnableSwagger(c =>
-                {
+                 .EnableSwagger("docs/{apiVersion}/apis", c =>
+                 {
                     c.SingleApiVersion("v1", "YoYoCms.AbpProjectTemplate.WebApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 

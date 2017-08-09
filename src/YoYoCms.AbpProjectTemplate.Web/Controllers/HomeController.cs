@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Abp.Auditing;
+using System.Web.Mvc;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
@@ -8,5 +9,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
         {
             return View();
         }
-	}
+
+     
+    }
 }

@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('host.views.tenants.index', [
-        '$scope', '$stateParams', '$uibModal', 'uiGridConstants', 'abp.services.app.tenant', 'abp.services.app.commonLookup', 'lookupModal',
+        '$scope', '$stateParams', '$uibModal', 'uiGridConstants', 'abp.services.yoyocms.tenant', 'abp.services.yoyocms.commonLookup', 'lookupModal',
         function ($scope, $stateParams, $uibModal, uiGridConstants, tenantService, commonLookupService, lookupModal) {
             var vm = this;
 

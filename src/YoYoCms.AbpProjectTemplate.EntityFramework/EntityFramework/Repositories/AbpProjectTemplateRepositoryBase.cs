@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
+using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
 
 namespace YoYoCms.AbpProjectTemplate.EntityFramework.Repositories
 {
@@ -34,6 +35,7 @@ namespace YoYoCms.AbpProjectTemplate.EntityFramework.Repositories
         {
 
         }
+        public new IAbpSessionExtensions AbpSession { get; set; }
 
         //do not add any method here, add to the class above (since this inherits it)!!!
     }

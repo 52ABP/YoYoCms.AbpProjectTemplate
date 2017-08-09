@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.languages.index', [
-        '$scope', '$state', '$uibModal', 'abp.services.app.language', 'uiGridConstants',
+        '$scope', '$state', '$uibModal', 'abp.services.yoyocms.language', 'uiGridConstants',
         function ($scope, $state, $uibModal, languageService, uiGridConstants) {
             var vm = this;
 

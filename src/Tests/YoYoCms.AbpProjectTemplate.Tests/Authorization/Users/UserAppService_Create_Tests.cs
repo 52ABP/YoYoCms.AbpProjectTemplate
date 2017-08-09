@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using Abp.Collections.Extensions;
 using Abp.UI;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users.Dto;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users.Dto;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Authorization.Users
 {

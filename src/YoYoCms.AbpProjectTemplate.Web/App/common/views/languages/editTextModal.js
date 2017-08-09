@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.languages.editTextModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.language', 'sourceName', 'baseLanguageName', 'languageName', 'allTexts', 'initialText',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.language', 'sourceName', 'baseLanguageName', 'languageName', 'allTexts', 'initialText',
         function ($scope, $uibModalInstance, languageService, sourceName, baseLanguageName, languageName, allTexts, initialText) {
             var vm = this;
 

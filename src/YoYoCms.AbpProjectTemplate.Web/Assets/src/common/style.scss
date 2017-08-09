@@ -1,0 +1,19 @@
+.el-form-item {
+    margin-bottom: 10px;
+    &.is-error {
+        margin-bottom: 22px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+.material-icons-small {
+    font-size: 14px !important;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+}

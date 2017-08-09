@@ -1,0 +1,54 @@
+//列表样式
+.main-container {
+    background: #fff;
+    .search {
+        padding: 15px;
+        > div {
+            display: inline-block;
+            vertical-align: top;
+            label {
+                margin-right: 2%;
+            }
+            .el-input, .el-select, .el-date-editor {
+                width: 40%;
+            }
+            @media (max-width: 767px) {
+                .el-input, .el-select, .el-date-editor {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+            }
+            .time-container {
+                width: 80%;
+                display: inline-block;
+                @media (max-width: 767px) {
+                    width: 100%;
+                }
+            }
+        }
+        @media (min-width: 768px) {
+            display: flex;
+        }
+        @media (max-width: 767px) {
+            display: block;
+            > div {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .el-table {
+        width: 100%;
+    }
+    .block {
+        text-align: right;
+        margin-top: 10px;
+    }
+}
+
+//表单
+.dialog-footer {
+    text-align: right;
+    float: right;
+    margin-bottom: 30px;
+}

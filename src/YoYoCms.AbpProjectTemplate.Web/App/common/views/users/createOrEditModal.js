@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.users.createOrEditModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.user', 'userId',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.user', 'userId',
         function ($scope, $uibModalInstance, userService, userId) {
             var vm = this;
 

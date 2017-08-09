@@ -1,5 +1,5 @@
 ﻿(function () {
-    appModule.directive('permissionCombo', ['$timeout', 'abp.services.app.permission',
+    appModule.directive('permissionCombo', ['$timeout', 'abp.services.yoyocms.permission',
         function ($timeout, permissionService) {
             return {
                 restrict: 'E',

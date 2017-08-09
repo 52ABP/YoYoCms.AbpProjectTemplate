@@ -3,7 +3,7 @@ using System.Globalization;
 using Abp;
 using Abp.Dependency;
 using Microsoft.AspNet.Identity;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.MultiTenancy.Demo
 {

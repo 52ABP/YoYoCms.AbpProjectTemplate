@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.users.loginAttemptsModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.userLogin',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.userLogin',
         function ($scope, $uibModalInstance, userLoginService) {
             var vm = this;
 

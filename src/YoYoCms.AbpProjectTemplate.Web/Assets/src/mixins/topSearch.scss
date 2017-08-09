@@ -1,0 +1,22 @@
+%top-search-container {
+    > section {
+        margin-left: 10px;
+        margin-bottom: 14px;
+        display: inline-block;
+        margin-right: 10px;
+
+        > span, i {
+            margin-right: 2px;
+        }
+
+        > * {
+            vertical-align: middle;
+            display: inline-block;
+            max-height: 36px;
+        }
+    }
+
+    .el-input {
+        width: auto;
+    }
+}

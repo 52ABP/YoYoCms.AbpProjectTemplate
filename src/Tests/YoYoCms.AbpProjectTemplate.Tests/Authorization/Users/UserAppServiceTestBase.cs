@@ -1,4 +1,4 @@
-﻿using YoYoCms.AbpProjectTemplate.Authorization.Users;
+﻿using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Authorization.Users
 {

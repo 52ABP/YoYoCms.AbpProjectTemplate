@@ -1,0 +1,154 @@
+$designFont-Size: 50;
+
+@mixin col-6 {
+    width: 50%;
+    float: left;
+}
+
+$imported-modules: () !default;
+/// Module export mixin
+/// This mixin helps making sure a module is imported once and only once.
+/// @access public
+/// @param {String} $name - Name of exported module
+/// @param {Bool} $warn [true] - Warn when module has been already imported
+/// @require $imported-modules
+@mixin exports($name, $warn: true) {
+    @if (index($imported-modules, $name)==null) {
+        $imported-modules: append($imported-modules, $name) !global;
+        @content;
+    } @else if $warn==true {
+        // @warn "Module `#{$name}` has already been imported.";
+    }
+}
+
+@function px2rem($pxValue, $htmlFontSize:-1) {
+    @if $htmlFontSize > 0 {
+        @return $pxValue/ $htmlFontSize * 1rem;
+    } @else {
+        @return $pxValue/ $designFont-Size * 1rem;
+    }
+}
+
+@function px2percent($pxValue, $screenWidth) {
+    @return $pxValue / $screenWidth * 100%;
+}
+
+@function getBorderColor() {
+    //@return #3b99fc;
+    @return #52bff1;
+}
+
+@function getImgPathPre() {
+    @return "{[imgPath]}";
+}
+
+//清除浮动
+@mixin clearFloatByAfter() {
+    &:after {
+        display: block;
+        content: "clear";
+        clear: both;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+@mixin clear-inlineblock-marginRight {
+    font-size: 0;
+    letter-spacing: -3px;
+
+    > * {
+        letter-spacing: 0;
+    }
+}
+
+%clear-inlineblock-marginRight {
+    @include clear-inlineblock-marginRight;
+}
+
+%lineCount {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+//设置总共显示几行
+@mixin lineCount($line) {
+    @extend %lineCount;
+    -webkit-line-clamp: $line;
+}
+
+@mixin singline() {
+    word-break: keep-all; /* 不换行 */
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+
+%singline {
+    @include singline();
+}
+
+//两端对齐
+%justify {
+    text-align: justify;
+    text-align-last: justify;
+
+    &:after {
+        content: "";
+        display: inline-block;
+        position: relative;
+        height: 1px;
+        line-height: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    > * {
+        text-align: left;
+        text-align-last: left;
+
+    }
+}
+
+%teststyle {
+    color: black !important;
+    background: red !important;
+}
+
+//个人中心右侧箭头图标
+@mixin icon-arrow() {
+    top: 50%;
+    position: absolute;
+    right: 15px;
+    color: #c6c6c6;
+    display: block;
+    width: px2rem(30);
+    height: px2rem(30);
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    -webkit-transform: rotate(-45deg);
+    margin-top: px2rem(-15);
+}
+
+// 绝对居中
+%absoluteCenter {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+// 水平居中对齐
+%horizontalCenter{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// 竖直对齐
+%verticalCenter{
+    top: 50%;
+    transform: translateY(-50%);
+}
+

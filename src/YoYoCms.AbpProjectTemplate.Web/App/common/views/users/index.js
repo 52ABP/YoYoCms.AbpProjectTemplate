@@ -1,7 +1,7 @@
 ﻿(function () {
 
     appModule.controller('common.views.users.index', [
-        '$scope', '$uibModal', '$stateParams', 'uiGridConstants', 'abp.services.app.user',
+        '$scope', '$uibModal', '$stateParams', 'uiGridConstants', 'abp.services.yoyocms.user',
         function ($scope, $uibModal, $stateParams, uiGridConstants, userService) {
             var vm = this;
 

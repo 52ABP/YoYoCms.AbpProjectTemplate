@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.profile.changePicture', [
-        '$scope', 'appSession', '$uibModalInstance', 'FileUploader', 'abp.services.app.profile',
+        '$scope', 'appSession', '$uibModalInstance', 'FileUploader', 'abp.services.yoyocms.profile',
         function ($scope, appSession, $uibModalInstance, fileUploader, profileService) {
             var vm = this;
 

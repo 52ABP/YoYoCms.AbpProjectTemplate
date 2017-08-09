@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -25,13 +27,13 @@ using Abp.Web.Mvc.Authorization;
 using Abp.Web.Models;
 using Abp.Web.Security.AntiForgery;
 using Abp.Zero.Configuration;
+using LTM.Common.Drawing;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.Authorization.Impersonation;
 using YoYoCms.AbpProjectTemplate.Authorization.Roles;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Configuration;
 using YoYoCms.AbpProjectTemplate.Debugging;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
@@ -39,11 +41,11 @@ using YoYoCms.AbpProjectTemplate.Notifications;
 using YoYoCms.AbpProjectTemplate.Web.Controllers.Results;
 using YoYoCms.AbpProjectTemplate.Web.Models.Account;
 using YoYoCms.AbpProjectTemplate.Web.MultiTenancy;
-using Recaptcha.Web;
-using Recaptcha.Web.Mvc;
+
 using Newtonsoft.Json;
 using YoYoCms.AbpProjectTemplate.Security;
-using YoYoCms.AbpProjectTemplate.Web.Auth;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
+using YoYoCms.AbpProjectTemplate.Web.Authorization;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 {
@@ -124,6 +126,13 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 });
         }
 
+        /// <summary>
+        /// 登陆逻辑验证
+        /// </summary>
+        /// <param name="loginModel"></param>
+        /// <param name="returnUrl"></param>
+        /// <param name="returnUrlHash"></param>
+        /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
         public virtual async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "", string returnUrlHash = "")
@@ -153,9 +162,20 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                                 TenantId = SimpleStringCipher.Instance.Encrypt(tenantId == null ? null : tenantId.ToString()),
                                 UserId = SimpleStringCipher.Instance.Encrypt(loginResult.User.Id.ToString()),
                                 ResetCode = loginResult.User.PasswordResetCode
-                            })
+                            }),
+                        Result = new
+                        {
+                            TenantId = SimpleStringCipher.Instance.Encrypt(tenantId == null ? null : tenantId.ToString()),
+                            UserId = SimpleStringCipher.Instance.Encrypt(loginResult.User.Id.ToString()),
+                            ResetCode = loginResult.User.PasswordResetCode,
+                            ResetPassword = true
+                        }
                     });
                 }
+
+                var listClaims = AddIdentityInfo(loginResult.Identity, loginResult.User);
+
+                loginResult.Identity.AddClaims(listClaims);
 
                 var signInResult = await _signInManager.SignInOrTwoFactor(loginResult, loginModel.RememberMe);
                 if (signInResult == SignInStatus.RequiresVerification)
@@ -185,13 +205,21 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             _authenticationManager.SignOutAll();
             return RedirectToAction("Login");
         }
-
+        /// <summary>
+        /// 注册到系统中
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="identity"></param>
+        /// <param name="rememberMe"></param>
+        /// <returns></returns>
         private async Task SignInAsync(User user, ClaimsIdentity identity = null, bool rememberMe = false)
         {
             if (identity == null)
             {
                 identity = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             }
+
+
 
             _authenticationManager.SignOutAllAndSignIn(identity, rememberMe);
         }
@@ -277,7 +305,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
             var tenantId = await _signInManager.GetVerifiedTenantIdAsync();
 
-            var isRememberBrowserEnabled = tenantId == null 
+            var isRememberBrowserEnabled = tenantId == null
                 ? await SettingManager.GetSettingValueForApplicationAsync<bool>(AbpZeroSettingNames.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled)
                 : await SettingManager.GetSettingValueForTenantAsync<bool>(AbpZeroSettingNames.UserManagement.TwoFactorLogin.IsRememberBrowserEnabled, tenantId.Value);
 
@@ -322,6 +350,36 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
         #endregion
 
+
+        #region LoginResult.Identity扩展加载
+
+        /// <summary>
+        /// Identity身份信息拓展
+        /// </summary>
+        /// <param name="identity"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private List<Claim> AddIdentityInfo(ClaimsIdentity identity, User user)
+        {
+
+            var list = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, user.EmailAddress),
+                new Claim(AbpProjectTemplateConsts.ClaimTypes.UserName, user.UserName)
+             
+            };
+
+            return list;
+
+        }
+
+
+
+
+
+
+        #endregion
+
         #region Register
 
         public ActionResult Register()
@@ -332,7 +390,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 PasswordComplexitySetting = JsonConvert.DeserializeObject<PasswordComplexitySetting>(SettingManager.GetSettingValue(AppSettings.Security.PasswordComplexity))
             });
         }
-
+        /// <summary>
+        /// 注册后的页面
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public ActionResult RegisterView(RegisterViewModel model)
         {
             CheckSelfRegistrationIsEnabled();
@@ -343,9 +405,15 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             return View("Register", model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="type">default-默认提交 ajax</param>
+        /// <returns></returns>
         [HttpPost]
         [UnitOfWork]
-        public virtual async Task<ActionResult> Register(RegisterViewModel model)
+        public virtual async Task<ActionResult> Register(RegisterViewModel model, string type = "default")
         {
             try
             {
@@ -353,16 +421,32 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
 
                 if (!model.IsExternalLogin && UseCaptchaOnRegistration())
                 {
-                    var recaptchaHelper = this.GetRecaptchaVerificationHelper();
-                    if (recaptchaHelper.Response.IsNullOrEmpty())
+                 
+
+                    if (model.Captcha.IsNullOrWhiteSpace())
                     {
                         throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
                     }
 
-                    if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    var result = VerifyTheCaptcha(model.Captcha);
+                    if (result)
                     {
-                        throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                        return Json(true);
                     }
+                    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+
+                    //todo:制作验证码功能
+                    //  var recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+                    //if (recaptchaHelper.Response.IsNullOrEmpty())
+                    //{
+                    //    throw new UserFriendlyException(L("CaptchaCanNotBeEmpty"));
+                    //}
+
+                    //if (recaptchaHelper.VerifyRecaptchaResponse() != RecaptchaVerificationResult.Success)
+                    //{
+                    //    throw new UserFriendlyException(L("IncorrectCaptchaAnswer"));
+                    //}
                 }
 
                 if (!_multiTenancyConfig.IsEnabled)
@@ -418,7 +502,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     };
 
                     model.UserName = model.EmailAddress;
-                    model.Password = Authorization.Users.User.CreateRandomPassword();
+                    model.Password = UserManagement.Users.User.CreateRandomPassword();
 
                     if (string.Equals(externalLoginInfo.Email, model.EmailAddress, StringComparison.InvariantCultureIgnoreCase))
                     {
@@ -443,14 +527,25 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                 }
 
                 CheckErrors(await _userManager.CreateAsync(user));
-                await _unitOfWorkManager.Current.SaveChangesAsync();
+                try
+                {
+                    await _unitOfWorkManager.Current.SaveChangesAsync();
 
+             
+                    //email可空
                 if (!user.IsEmailConfirmed)
                 {
                     user.SetNewEmailConfirmationCode();
                     await _userEmailer.SendEmailActivationLinkAsync(user);
                 }
 
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
                 //Notifications
                 await _notificationSubscriptionManager.SubscribeToAllAvailableNotificationsAsync(user.ToUserIdentifier());
                 await _appNotifier.WelcomeToTheApplicationAsync(user);
@@ -478,6 +573,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
                     Logger.Warn("New registered user could not be login. This should not be normally. login result: " + loginResult.Result);
                 }
 
+                // 如果是ajax请求
+                if (type == "ajax")
+                    return Json(new AjaxResponse(new RegisterResultViewModel()
+                    {
+                        IsActive = user.IsActive,
+                        IsEmailConfirmationRequired = isEmailConfirmationRequiredForLogin
+                    }));
+
                 return View("RegisterResult", new RegisterResultViewModel
                 {
                     TenancyName = tenant.TenancyName,
@@ -490,6 +593,10 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             }
             catch (UserFriendlyException ex)
             {
+                // 如果是ajax请求
+                if (type == "ajax")
+                    return Json(new AjaxResponse() { Success = false, Error = new ErrorInfo(ex.Message) });
+
                 ViewBag.IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled;
                 ViewBag.UseCaptcha = !model.IsExternalLogin && UseCaptchaOnRegistration();
                 ViewBag.ErrorMessage = ex.Message;
@@ -498,7 +605,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Controllers
             }
         }
 
-        private bool UseCaptchaOnRegistration()
+        /// <summary>
+        /// 是否启用用户注册验证码信息(前端调用判断是否启用验证码)
+        /// </summary>
+        /// <returns></returns>
+        public bool UseCaptchaOnRegistration()
         {
             if (DebugHelper.IsDebug)
             {

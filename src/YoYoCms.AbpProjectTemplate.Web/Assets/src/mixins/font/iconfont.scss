@@ -1,0 +1,66 @@
+//
+//@font-face {font-family: "iconfont";
+//    src: url('./iconfont.eot'),
+//    url('./iconfont.woff') format('woff'),
+//    url('./iconfont.ttf') format('truetype') /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+//}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('~base/utils/mixins/font/iconfont.ttf') format("woff"), url('~base/utils/mixins/font/iconfont.ttf') format("truetype");
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    display: inline-block;
+    font-size: inherit;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    vertical-align: middle;
+
+    &:before {
+        vertical-align: middle;
+    }
+}
+
+.icon-edit:before { content: "\e602"; }
+
+.icon-iconfontexcel:before { content: "\e622"; }
+
+.icon-list:before { content: "\e600"; }
+
+.icon-service:before { content: "\e6c7"; }
+
+.icon-gifts:before { content: "\e6db"; }
+
+.icon-warn:before { content: "\e653"; }
+
+.icon-chat1:before { content: "\e61c"; }
+
+.icon-bell:before { content: "\e63f"; }
+
+.icon-zhuanzhang:before { content: "\e69e"; }
+
+.icon-oslash:before { content: "\e618"; }
+
+.icon-feedback:before { content: "\e639"; }
+
+.icon-feedback1:before { content: "\e6d6"; }
+
+.icon-feedback2:before { content: "\e609"; }
+
+.icon-signin:before { content: "\e7fa"; }
+
+.icon-cart:before { content: "\e68e"; }
+
+.icon-piaofang:before { content: "\e601"; }
+
+.icon--xianxing:before { content: "\e882"; }
+
+.icon-refresh:before { content: "\e640"; }
+
+.icon-daoru:before { content: "\e63a"; }
+
+

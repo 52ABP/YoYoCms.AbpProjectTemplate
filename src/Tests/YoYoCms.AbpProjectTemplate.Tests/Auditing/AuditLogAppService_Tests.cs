@@ -7,9 +7,9 @@ using Abp.Timing;
 using Abp.Zero;
 using YoYoCms.AbpProjectTemplate.Auditing;
 using YoYoCms.AbpProjectTemplate.Auditing.Dto;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using Shouldly;
 using Xunit;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Tests.Auditing
 {

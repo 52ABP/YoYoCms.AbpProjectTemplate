@@ -13,8 +13,8 @@ using Abp.Linq.Extensions;
 using YoYoCms.AbpProjectTemplate.Auditing.Dto;
 using YoYoCms.AbpProjectTemplate.Auditing.Exporting;
 using YoYoCms.AbpProjectTemplate.Authorization;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.Dto;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 
 namespace YoYoCms.AbpProjectTemplate.Auditing
 {

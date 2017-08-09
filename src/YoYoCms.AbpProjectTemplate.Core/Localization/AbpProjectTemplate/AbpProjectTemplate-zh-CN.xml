@@ -1,6 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-CN">
   <texts>
+    <text name="UserIsAlreadyInTheOrganizationUnit" value="该用户已存在" />
+    <text name="AddSubUnit" value="添加子单元" />
+    <text name="SelectAUser" value="选择用户" />
+    <text name="Members" value="用户" />
+    <text name="Readed" value="已读" />
+    <text name="NotificationSettings" value="消息设置" />
+    <text name="ReceiveNotifications" value="接收消息" />
+    <text name="On" value="开" />
+    <text name="Off" value="关" />
+    <text name="ReceiveNotificationsDefinition" value="接收消息定义" />
+    <text name="NotificationtType" value="消息类型" />
+    <text name="Unlock" value="解锁"></text>
+    <text name="LoginAttempts">登录尝试</text>
+    <text name="Failed">失败</text>
+
+    <text name="RequiredFiled" value="该字段为必填项" />
+    <text name="ExitSuccessful" value="退出成功" />
+    <text name="Tip" value="提示" />
+    <text name="RepeatPasswordError" value="两次密码不一致" />
+    <text name="ChooseImg" value="选择图片" />
+    <text name="CropImage" value="裁切图片" />
+    <text name="Upload" value="上传" />
+    <text name="LoginSuccessful" value="登录成功" />
+    <text name="UserNameOrPasswordError" value="账号或密码错误" />
+
     <text name="HomePage" value="主页" />
     <text name="AboutUs" value="关于我们" />
     <text name="Administration" value="管理" />
@@ -151,6 +176,7 @@
     <text name="ProfilePicture_Change_Error" value="头像修改错误." />
     <text name="ProfilePicture_Warn_SizeLimit" value="只能选择1mb内的JPG/JPEG图片，请重新选择头像文件." />
     <text name="ProfilePicture_Warn_FileType" value="只能选择1mb内的JPG/JPEG图片，请重新选择头像文件." />
+    <text name="ResizedProfilePicture_Warn_SizeLimit" value="您选择的图片大小已经超过100Kb,请重新头像大小，进行保存。" />
     <text name="Dashboard" value="工作台" />
     <text name="DashboardHeaderInfo" value="分析与报告" />
     <text name="GoToApplication" value="登录系统" />
@@ -280,5 +306,37 @@
     <text name="LookingForMpaVersion" value="查找多页面应用版本号" />
     <text name="LookingForSpaVersion" value="查找单页面应用版本号" />
     <text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
+
+
+ 
+    <text name="MustBe_Required" value="不能为空" />
+
+
+ 
+    <!-- 短信日志记录表管理 -->
+    <text name="SmsMessagelog" value="短信日志记录表" />
+    <text name="SmsMessagelogHeaderInfo" value="短信日志记录表管理列表" />
+    <text name="CreateSmsMessagelog" value="新增短信日志记录表" />
+    <text name="EditSmsMessagelog" value="编辑短信日志记录表" />
+    <text name="DeleteSmsMessagelog" value="删除短信日志记录表" />
+
+
+
+
+    <text name="SmsMessagelogDeleteWarningMessage" value="短信日志记录表名称: {0} 将被删除,是否确定删除它。" />
+    <!--//用于表格展示的数据信息的标题-->
+    <text name="PhoneNumber" value="发送电话" />
+    <text name="Content" value="发送内容" />
+    <text name="SmsCode" value="短信代码(验证码)" />
+    <text name="InvalidTime" value="失效时间" />
+    <text name="Sucess" value="是否发送成功" />
+    <text name="Result" value="短信提供商返回内容" />
+    <text name="IsChecked" value="是否已检测过" />
+    <text name="IsNotification" value="是否为通知短信" />
+    <text name="LastModificationTime" value="最后编辑时间" />
+ 
+ 
+
+
   </texts>
 </localizationDictionary>

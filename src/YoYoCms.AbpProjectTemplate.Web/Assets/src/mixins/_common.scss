@@ -1,0 +1,57 @@
+$bgColor: #ededed;
+%content-container {
+    padding: 15px;
+    position: relative;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    background: #fff;
+    margin-right: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    //position: absolute;
+    //max-height: 80%;
+    //max-width: 100%;
+    //overflow-y: auto;
+
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+
+    .pagin {
+        float: right;
+        margin-top: 15px;
+    }
+
+    // 底部的管理按钮 比如批量删除
+    .bottom-manage {
+        margin-top: 15px;
+    }
+
+    .el-table__header-wrapper{
+        overflow: hidden !important;
+    }
+}
+
+//右上角按钮的容器样式
+.right-top-btnContainer {
+    position: absolute;
+    right: 0;
+    top: -50px;
+    &.header-button {
+        > .el-button {
+            i {
+                margin-right: 5px;
+                &:before {
+                    position: relative;
+                    top: -1px;
+                }
+            }
+        }
+    }
+}
+
+i, em {
+    font-style: normal;
+}

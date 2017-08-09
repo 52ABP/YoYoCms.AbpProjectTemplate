@@ -18,12 +18,12 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                                <input class="form-control" type="text" name="Name" ng-class="{'edited':vm.user.name}" ng-model="vm.user.name" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxNameLength">
+                                <input class="form-control" type="text" name="Name" ng-class="{'edited':vm.user.name}" ng-model="vm.user.name" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxNameLength">
                                 <label>@L("Name")</label>
                             </div>
 
                             <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                                <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.user.surname}" ng-model="vm.user.surname" required maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxSurnameLength">
+                                <input type="text" name="Surname" class="form-control" ng-class="{'edited':vm.user.surname}" ng-model="vm.user.surname" required maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxSurnameLength">
                                 <label>@L("Surname")</label>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group form-md-line-input form-md-floating-label no-hint">
-                        <input type="text" name="PhoneNumber" class="form-control" ng-class="{'edited':vm.user.phoneNumber}" ng-model="vm.user.phoneNumber" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPhoneNumberLength">
+                        <input type="text" name="PhoneNumber" class="form-control" ng-class="{'edited':vm.user.phoneNumber}" ng-model="vm.user.phoneNumber" maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPhoneNumberLength">
                         <label>@L("PhoneNumber")</label>
                     </div>
 
@@ -58,12 +58,12 @@
                     </div>
 
                     <div class="form-group form-md-line-input form-md-floating-label no-hint" ng-if="!vm.setRandomPassword">
-                        <input type="password" name="Password" class="form-control" ng-model="vm.user.password" ng-required="!vm.user.id && !vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPlainPasswordLength" ng-minlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MinPlainPasswordLength">
+                        <input type="password" name="Password" class="form-control" ng-model="vm.user.password" ng-required="!vm.user.id && !vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPlainPasswordLength" ng-minlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MinPlainPasswordLength">
                         <label>@L("Password")</label>
                     </div>
 
                     <div class="form-group form-md-line-input form-md-floating-label no-hint" ng-if="!vm.setRandomPassword">
-                        <input type="password" name="PasswordRepeat" class="form-control" ng-model="vm.user.passwordRepeat" ng-required="!vm.user.id && !vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MaxPlainPasswordLength" ui-validate=" '$value==vm.user.password' " ui-validate-watch=" 'vm.user.password' " ng-minlength="@YoYoCms.AbpProjectTemplate.Authorization.Users.User.MinPlainPasswordLength">
+                        <input type="password" name="PasswordRepeat" class="form-control" ng-model="vm.user.passwordRepeat" ng-required="!vm.user.id && !vm.setRandomPassword" maxlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MaxPlainPasswordLength" ui-validate=" '$value==vm.user.password' " ui-validate-watch=" 'vm.user.password' " ng-minlength="@YoYoCms.AbpProjectTemplate.UserManagement.Users.User.MinPlainPasswordLength">
                         <label>@L("PasswordRepeat")</label>
                     </div>
 

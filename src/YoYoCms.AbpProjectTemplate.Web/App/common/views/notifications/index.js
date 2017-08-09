@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.notifications.index', [
-        '$scope', '$uibModal', 'uiGridConstants', 'appUserNotificationHelper', 'abp.services.app.notification',
+        '$scope', '$uibModal', 'uiGridConstants', 'appUserNotificationHelper', 'abp.services.yoyocms.notification',
         function ($scope, $uibModal, uiGridConstants, appUserNotificationHelper, notificationService) {
             var vm = this;
 

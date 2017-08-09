@@ -15,7 +15,7 @@
             };
             */
 
-            var _notificationService = abp.services.app.notification;
+            var _notificationService = abp.services.yoyocms.notification;
 
             /* Converter functions ***************************************/
 

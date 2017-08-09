@@ -1,6 +1,6 @@
 ﻿using Abp.Dependency;
-using Abp.Runtime.Session;
 using Abp.Web.Mvc.Views;
+using YoYoCms.AbpProjectTemplate.AppExtensions.AbpSessions;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Views
 {
@@ -11,11 +11,11 @@ namespace YoYoCms.AbpProjectTemplate.Web.Views
 
     public abstract class AbpProjectTemplateWebViewPageBase<TModel> : AbpWebViewPage<TModel>
     {
-        public IAbpSession AbpSession { get; private set; }
-        
+        public new IAbpSessionExtensions AbpSession { get; private set; }
+
         protected AbpProjectTemplateWebViewPageBase()
         {
-            AbpSession = IocManager.Instance.Resolve<IAbpSession>();
+            AbpSession = IocManager.Instance.Resolve<IAbpSessionExtensions>();
             LocalizationSourceName = AbpProjectTemplateConsts.LocalizationSourceName;
         }
     }

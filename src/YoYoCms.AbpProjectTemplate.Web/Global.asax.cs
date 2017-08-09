@@ -59,6 +59,9 @@ namespace YoYoCms.AbpProjectTemplate.Web
         private static readonly DateTime CacheExpireDate = new DateTime(2000, 1, 1);
         protected override void Application_BeginRequest(object sender, EventArgs e)
         {
+            // 测试环境 加上跨域头
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "x-xsrf-token,Authorization,Content-Type");
             base.Application_BeginRequest(sender, e);
             DisableClientCache();
         }

@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.organizationUnits.createOrEditUnitModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.organizationUnit', 'organizationUnit',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.organizationUnit', 'organizationUnit',
         function ($scope, $uibModalInstance, organizationUnitService, organizationUnit) {
             var vm = this;
 

@@ -18,11 +18,16 @@
             public const string UseCaptchaOnRegistration = "App.TenantManagement.UseCaptchaOnRegistration";
             public const string DefaultEdition = "App.TenantManagement.DefaultEdition";
         }
-
+        /// <summary>
+        /// 用户管理
+        /// </summary>
         public static class UserManagement
         {
             public const string AllowSelfRegistration = "App.UserManagement.AllowSelfRegistration";
             public const string IsNewRegisteredUserActiveByDefault = "App.UserManagement.IsNewRegisteredUserActiveByDefault";
+            /// <summary>
+            /// 用户注册时，是否启用验证码
+            /// </summary>
             public const string UseCaptchaOnRegistration = "App.UserManagement.UseCaptchaOnRegistration";
         }
 

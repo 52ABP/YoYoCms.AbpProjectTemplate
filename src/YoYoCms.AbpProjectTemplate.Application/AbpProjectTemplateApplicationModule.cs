@@ -3,6 +3,7 @@ using Abp.AutoMapper;
 using Abp.Localization;
 using Abp.Modules;
 using YoYoCms.AbpProjectTemplate.Authorization;
+using YoYoCms.AbpProjectTemplate.SmsMessagelogs.Authorization;
 
 namespace YoYoCms.AbpProjectTemplate
 {
@@ -16,6 +17,8 @@ namespace YoYoCms.AbpProjectTemplate
         {
             //Adding authorization providers
             Configuration.Authorization.Providers.Add<AppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<SmsMessagelogAppAuthorizationProvider>();
+
 
             //Adding custom AutoMapper mappings
             Configuration.Modules.AbpAutoMapper().Configurators.Add(mapper =>

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text.RegularExpressions;
 using Abp.Auditing;
-using YoYoCms.AbpProjectTemplate.Authorization.Users;
 using YoYoCms.AbpProjectTemplate.MultiTenancy;
 using YoYoCms.AbpProjectTemplate.Security;
 using Abp.Extensions;
+using YoYoCms.AbpProjectTemplate.UserManagement.Users;
 using YoYoCms.AbpProjectTemplate.Validation;
 
 namespace YoYoCms.AbpProjectTemplate.Web.Models.Account
@@ -37,7 +36,14 @@ namespace YoYoCms.AbpProjectTemplate.Web.Models.Account
         [StringLength(User.MaxPlainPasswordLength)]
         [DisableAuditing]
         public string Password { get; set; }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        public string Captcha { get; set; }
 
+        /// <summary>
+        /// 默认请求为false
+        /// </summary>
         public bool IsExternalLogin { get; set; }
 
         public PasswordComplexitySetting PasswordComplexitySetting { get; set; }

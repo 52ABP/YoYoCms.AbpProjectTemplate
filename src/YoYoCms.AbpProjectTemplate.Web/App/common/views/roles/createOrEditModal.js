@@ -1,6 +1,6 @@
 ﻿(function () {
     appModule.controller('common.views.roles.createOrEditModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.role', 'roleId',
+        '$scope', '$uibModalInstance', 'abp.services.yoyocms.role', 'roleId',
         function ($scope, $uibModalInstance, roleService, roleId) {
             var vm = this;
 
