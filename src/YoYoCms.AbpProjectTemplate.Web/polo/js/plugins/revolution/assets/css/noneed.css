@@ -1,0 +1,467 @@
+
+
+/**********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+
+
+
+
+      YOU DONT NEED THIS CSS FILE FOR YOUR ENDPRODUCT !
+
+	USED ONLY FOR THE DEMOS AND TOOLS HERE IN THIS FOLDER
+
+				TO SHOW THE EXAMPLES.
+
+
+
+
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************
+***********************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************************************************
+					-	RESET	-
+***********************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent;
+        -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ * {
+/*	 -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+*/
+}
+
+.toolpad * {
+	 -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+}
+
+.clearfix {   
+    clear:both; 
+    width:100%;
+    display: block;
+}
+
+/***********************
+	-	BASICS 	-
+***********************/
+
+html {   
+    font-family: "Roboto",sans-serif;
+}
+
+body {
+    color: #6f7c82;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+}
+.content {  
+    max-width:1240px; 
+    margin:auto;     
+}
+
+p { 
+    color: #6f7c82;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    overflow-x: hidden;
+}
+
+.content p,
+.content a  {   text-decoration:none; }
+
+h1 {   
+    line-height:60px;
+    font-size: 50px;
+    pading:5px 15px;    
+}
+
+h2  {       
+        font-size: 33px;
+        line-height: 45px;
+        font-weight: 500;
+        color:#292e31;
+    }
+
+label   {
+    color:#fff600;
+    font-size:15px;
+    font-weight:200;
+    line-height:40px;
+    margin-right:25px;
+    min-width:150px;
+    display: inline-block;
+    text-align: left;
+}
+
+.small-history  {   text-align: center; margin: auto; margin-top:50px; margin-bottom:50px; max-width:760px;}
+.header,
+.footer {   
+    line-height:50px;
+    z-index: 300;
+    position: relative;
+}
+
+
+
+.logo  {   
+    background-image:url(../images/logo.png);
+    display:block;
+    width:211px;  height: 38px;margin-top:10px;
+	margin-left: 30px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.button  {   
+    background:#fff600;     
+    color:#000; 
+    font-weight: 400;
+    font-size:18px;
+    text-decoration: none; 
+    line-height: 50px; 
+    margin:0px; 
+    display: block; 
+    padding:0px 20px;
+ 	transition: color 0.2s;
+     -webkit-transition: color 0.2s;
+}
+
+
+a.button i {
+	font-size: 36px;
+  font-weight: normal;
+  position: relative;
+  top: 10px;
+  color:#000;
+  margin-right: 7px;
+  transition: color 0.2s;
+     -webkit-transition: color 0.2s;
+}
+
+
+
+.button:hover {
+	background: #000;
+	color:#fff600;
+}
+
+a.button:hover i {
+	color:#fff600;
+}
+
+.header .button       { background: none; color: #000; font-weight: 300 !important }
+.header .button:hover { background: #fff600; color: #000; }
+.header .button:hover i {  color: #000; }
+
+.tp-infoicon i {
+    color: rgba(33,42,64,0.5);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    border: 2px solid rgba(33,42,64,0.05);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    line-height: 37px;
+    text-align: center;
+    margin: 0 !important;
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    -moz-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    -ms-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.tp-infoicon {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+}
+
+.textaligncenter {
+    text-align: center;
+}
+
+.tp-smallinfo {
+    color: rgba(33,42,64,0.5);
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top:25px;
+}
+
+[class*=" md-"], [class^=md-] {
+display: inline-block;
+    font: normal normal normal 14px/1 'Material Design Iconic Font';
+    font-size: inherit;
+    speak: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.tp-headicon {
+    color: #fff;
+    font-size: 40px !important;
+    line-height: 60px !important;
+    background: #d50000;
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+/* 
+    Further Demo Content Styling - can be ignored for your project 
+*/
+
+.history            {   font-size:16px;  font-weight:400; padding:95px 30px 80px; text-align: center; max-width: 1240px; box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box; margin:auto;}
+.history p          {   font-weight: 400; font-size: 16px; color:#3f4549;}
+p.history_count      {   color:#fff;font-size:33px; background:#000; display:inline-block; width:40px;height:40px;line-height: 40px; font-weight: 400; margin:0px 0px 10px;}
+.history_title      {   font-size:33px; font-weight:500; margin:0px 0px 40px; color:#000;}
+
+.history a          {   color:#000; background: #fff600; text-decoration: none;}
+
+p a,
+p a:visited                 {   color:#d50000; font-weight: 700; text-decoration: none}
+p a:hover           { text-decoration: underline}
+
+.history a:hover     {   background:#000; color:#fff600;}
+
+hr:not(.revslider-hr)                  {   width:90px;height:2px;background:#ddd;border:none;  margin:60px auto;}
+
+
+
+
+.example-table  {   background:#f5f7f9; padding:50px; border-top: 1px solid #e8ebee;
+                     border-bottom: 1px solid #e8ebee;}
+
+.filter             {   display:block; float:left; width:20%; text-align:right;}
+.example-list       {   
+display: inline-block;
+width: 80%;
+padding: 0px 0px 0px 50px;
+float: right;
+box-sizing: border-box;}
+
+
+.filter ul, .filter li {
+list-style:none;
+}
+
+
+.filter li{
+color: rgba(41,46,49,0.5);
+margin-right: 5px;
+cursor: pointer;
+padding: 0px 15px 0px 10px;
+line-height: 25px;
+font-size: 16px;
+font-weight: 700;
+font-family: "Roboto",sans-serif;
+display: inline-block;
+background: rgba(0, 0, 0, 0);
+margin-bottom: 5px;
+width: 100%;
+display: block;
+cursor: pointer;
+}
+
+.filter li:hover,
+.filter li.selected {  color:#000;  }
+
+
+.example-list .img-wrapper{
+display:block;
+vertical-align:top;             
+margin:0px 15px 15px 0px;
+float:left;
+position:relative;
+box-sizing:border-box;
+}
+
+
+.example-list img { display:block;vertical-align:top;width:100%;}
+
+
+.hover-cover    {   color: #6f7c82;
+font-weight: 400;
+font-family: 'Roboto', sans-serif;
+font-size: 16px;
+line-height: 26px; opacity:0; 
+visibility:hidden; position:absolute;top:5%;left:5%;width:90%;height:90%; background:#fff; padding:20px; box-sizing:border-box;  text-align:center;
+                                text-transform: uppercase;
+}
+
+
+footer  {   
+background:#2d3032; width:100%; padding:50px 150px; box-sizing:border-box; color:#fff;}
+
+footer h3   {   color:#b7bdc0;font-size: 17px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    margin-bottom: 19px;}
+
+footer, footer a {  
+
+    color: rgba(183,189,192,0.5);
+    font-weight: 500; 
+    cursor:pointer;
+}
+
+footer a    {   display:block; text-decoration: none;}
+
+footer a:hover  {   color:#fff;}
+
+.footer_inner   {   max-width:1240px; margin:auto;}
+
+.footerwidget   {   width:25%; padding:0px 20px; box-sizing:border-box; float:left;}
+
+
+.bottom-history {
+      /* display:table-cell;*/
+        min-width:0px;box-sizing:border-box;padding:50px 25px !important; margin:0px auto !important; width:100%; max-width:none !important;
+}
+
+.bottom-history p { max-width:760px; margin:auto;}
+
+.bottom-history-wrap    {  
+/* display:table;*/
+}
+
+.bottom-history a,
+.bottom-history a:visited { text-decoration: none !important; color:#d50000; font-weight: 700;}
+
+.bottom-history a:hover     {   text-decoration: underline !important;}
+
+@media (max-width:1124px){
+.bottom-history-wrap { display:block;}
+ .bottom-history {  display:block;float:none !important; width:100% !important; max-width:none !important;}
+}
+
+}
+
+
+/* Social Icons */
+.social { }
+.social ul { margin: 0; padding: 0; }
+.social li { display: inline-block; margin: 0; padding: 0; margin-right: 7px; }
+.social li:last-child { margin-right: 0; }
+.social li a { display: inline-block; width: 40px; height: 40px; opacity: 1; background: rgba(255,255,255,0.05); margin:0px 0px 4px 0px;
+-webkit-border-radius: 30px; -moz-border-radius: 30px; border-radius: 30px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; /*border: 1px solid rgba(255,255,255,0.15);*/ padding: 0; }
+.social li a:hover { border: 0; }
+.social .s_icon { float: left; font-size: 20px; color: #bbb; color: rgba(255,255,255,0.65); text-align: center; width: 40px; line-height:40px; }
+.social li a:hover .s_icon,
+.sidebar_widget.social li a:hover .s_icon { color: #fff; }
+.social ul li a.so_facebook:hover,
+.sidebar_widget.social ul li a.so_facebook:hover { background: #4672b3; }
+.social ul li a.so_twitter:hover,
+.sidebar_widget.social ul li a.so_twitter:hover  { background: #099bcc; }
+.social ul li a.so_gplus:hover,
+.sidebar_widget.social ul li a.so_gplus:hover { background: #da4a38; }
+
+.sidebar_widget .social li a { background: #eee; }
+.sidebar_widget .social .s_icon { color: #555; }
+
+
+.localwarning       { visibility: hidden;position: fixed; width:100%;height:100%;background:rgba(0,0,0,0.5); z-index:100000; top:0px;left:0px; }
+.localwarningimage  { width: 800px;height: 600px; position: absolute; top: 50%;left: 50%; margin-left: -400px; margin-top: -450px; background: #fff; box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.3); background-image:url(jquery_preview_warning.jpg); background-size:contain;}
+.localwarningadvert { cursor:pointer;width: 800px;height: 200px; position: absolute; top: 50%;left: 50%; margin-left: -400px; margin-top: 150px; background: #fff; box-shadow: 0px 20px 20px 10px rgba(0,0,0,0.3); background-image:url(jquery_visual_editor_ad.jpg); background-size:contain;}
+.localwarningclose  { position: absolute; color:#fff; font-size:25px; top:30px;right:30px; cursor: pointer}
+
+
+
+
+
+
+

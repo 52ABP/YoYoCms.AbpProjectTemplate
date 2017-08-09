@@ -12,33 +12,30 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>AbpProjectTemplate</title>
+    <title>YoYoCMS-模板网站门户首页</title>
+    
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
     @* Fill these meta tags upon your project specification *@
-    <meta content="AbpProjectTemplate" name="description">
-    <meta content="AbpProjectTemplate" name="keywords">
-    <meta content="AbpProjectTemplate" name="author">
-
-    @* You can enable and fill these lines according to documentation on http://ogp.me/
-    <meta property="og:site_name" content="-CUSTOMER VALUE-">
-    <meta property="og:title" content="-CUSTOMER VALUE-">
-    <meta property="og:description" content="-CUSTOMER VALUE-">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="-CUSTOMER VALUE-">
-    <meta property="og:url" content="-CUSTOMER VALUE-">*@
-
+    <meta content="YoYoCMS-模板网站门户首页" name="description">
+    <meta content="YoYoCMS-模板网站门户首页" name="keywords">
+    <meta content="YoYoCMS-模板网站门户首页" name="author">
+    <link href="~/polo/css/plugins.css" rel="stylesheet" />
+    <link href="~/polo/css/responsive.css" rel="stylesheet" />
+    <link href="~/polo/css/style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/favicon.ico">
+     
 
-    <link href="~/Content/fonts-open-sans.css" rel="stylesheet" type="text/css"/>
-    <link href="~/Content/fonts-ptsans-narrow.css" rel="stylesheet" type="text/css"/>
-    <link href="~/Content/fonts-sourcesans-pro.css" rel="stylesheet" type="text/css" />
+    <link href="~/polo/js/plugins/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-    @Styles.Render("~/Bundles/Frontend/libs/css" + (CultureHelper.IsRtl ? "RTL" : ""))
+     
     @RenderSection("Styles", false)
-    @Styles.Render("~/Bundles/Frontend/metronic/css" + (CultureHelper.IsRtl ? "RTL" : ""))
+    
+
     @Styles.Render("~/Bundles/Common/css")
 
     @Html.IncludeStyle("~/Views/Layout/layout.css")
