@@ -14,18 +14,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Bundling
             bundles.Add(
                 new ScriptBundle("~/Bundles/Frontend/libs/js")
                     .Include(
-                        ScriptPaths.Json2,
-                        ScriptPaths.JQuery,
-                        ScriptPaths.JQuery_Migrate,
-                        ScriptPaths.Bootstrap,
-                        ScriptPaths.Bootstrap_Hover_Dropdown,
-                        ScriptPaths.JQuery_Slimscroll,
-                        ScriptPaths.JQuery_BlockUi,
-                        ScriptPaths.Js_Cookie,
-                        ScriptPaths.SpinJs,
-                        ScriptPaths.SpinJs_JQuery,
-                        ScriptPaths.SweetAlert,
-                        ScriptPaths.Toastr,
+                       
                         ScriptPaths.MomentJs,
                         ScriptPaths.MomentTimezoneJs,
                         ScriptPaths.Abp,
@@ -43,13 +32,7 @@ namespace YoYoCms.AbpProjectTemplate.Web.Bundling
             AddFrontendCssMetronic(bundles, false);
             AddFrontendCssMetronic(bundles, true);
 
-            bundles.Add(
-                new ScriptBundle("~/Bundles/Frontend/metronic/js")
-                    .Include(
-                        "~/metronic/assets/frontend/layout/scripts/back-to-top.js",
-                        "~/metronic/assets/frontend/layout/scripts/layout.js"
-                    ).ForceOrdered()
-                );
+ 
         }
 
         private static void AddFrontendCssLibs(BundleCollection bundles, bool isRTL)

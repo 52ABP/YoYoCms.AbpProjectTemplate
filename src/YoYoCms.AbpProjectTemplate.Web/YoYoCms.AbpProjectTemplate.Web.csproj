@@ -429,6 +429,7 @@
     <Content Include="Assets\config\index.js" />
     <Content Include="Assets\config\prod.env.js" />
     <Content Include="Assets\index.html" />
+    <Content Include="Common\Images\logo%402x.png" />
     <Content Include="Common\Scripts\jquery-validation-custom.js" />
     <Content Include="Common\Images\open-id-connect.png" />
     <Content Include="Common\Images\ws-federation.png" />
@@ -454,7 +455,6 @@
     <Content Include="Common\Scripts\helpers.js" />
     <Content Include="Common\Scripts\consts.js" />
     <Content Include="Common\Scripts\jquery-custom.js" />
-    <Content Include="Common\Scripts\librarySettings.js" />
     <Content Include="Common\Scripts\ModalManager.js" />
     <Content Include="Common\Scripts\utils.js" />
     <Content Include="Common\Styles\core.css">
@@ -478,6 +478,8 @@
     <Content Include="polo\css\plugins.css" />
     <Content Include="polo\css\responsive.css" />
     <Content Include="polo\css\style.css" />
+    <Content Include="polo\js\functions.js" />
+    <Content Include="polo\js\plugins.js" />
     <Content Include="polo\js\plugins\revolution\assets\coloredbg.png" />
     <Content Include="polo\js\plugins\revolution\assets\css\jquery_preview_warning.jpg" />
     <Content Include="polo\js\plugins\revolution\assets\css\jquery_visual_editor_ad.jpg" />
@@ -2876,7 +2878,6 @@
     <Content Include="polo\js\plugins\revolution\fonts\font-awesome\css\font-awesome.css" />
     <Content Include="polo\js\plugins\revolution\fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="polo\js\plugins\revolution\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="polo\js\plugins\revolution\fonts\font-awesome\index.php" />
     <Content Include="polo\js\plugins\revolution\fonts\index.php" />
     <Content Include="polo\js\plugins\revolution\fonts\pe-icon-7-stroke\css\helper.css" />
     <Content Include="polo\js\plugins\revolution\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
@@ -3302,6 +3303,15 @@
     <Content Include="polo\js\plugins\revolution\revolution-addons\whiteboard\js\index.php" />
     <Content Include="polo\js\plugins\revolution\revolution-addons\whiteboard\js\revolution.addon.whiteboard.min.js" />
     <Content Include="polo\js\plugins\revolution\revolution-addons\whiteboard\js\source\revolution.addon.whiteboard.js" />
+    <Content Include="libs\sweetalert\ie9.css" />
+    <Content Include="libs\sweetalert\sweet-alert.css" />
+    <Content Include="libs\sweetalert\sweet-alert.html" />
+    <Content Include="libs\sweetalert\sweet-alert.js" />
+    <Content Include="libs\sweetalert\sweet-alert.min.js" />
+    <Content Include="libs\toastr\toastr.css" />
+    <Content Include="libs\toastr\toastr.js" />
+    <Content Include="libs\toastr\toastr.min.css" />
+    <Content Include="libs\toastr\toastr.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -3492,6 +3502,10 @@
     <Content Include="polo\js\plugins\revolution\revolution-addons\whiteboard\.DS_Store" />
     <Content Include="polo\js\plugins\revolution\revolution-addons\whiteboard\assets\.DS_Store" />
     <Content Include="polo\js\plugins\revolution\revolution-addons\whiteboard\js\.DS_Store" />
+    <Content Include="libs\sweetalert\sweet-alert.scss" />
+    <Content Include="libs\toastr\toastr.js.map" />
+    <Content Include="libs\toastr\toastr.less" />
+    <Content Include="libs\toastr\toastr.scss" />
     <None Include="Properties\PublishProfiles\169服务器.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
