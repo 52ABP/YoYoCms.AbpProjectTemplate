@@ -4,7 +4,7 @@ using YoYoCms.AbpProjectTemplate.Authorization;
 using YoYoCms.AbpProjectTemplate.SmsMessagelogs.Authorization;
 using YoYoCms.AbpProjectTemplate.Web.Navigation;
 
-namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
+namespace YoYoCms.AbpProjectTemplate.Web.AppStartup
 {
     /// <summary>
     /// This class defines menus for the application.

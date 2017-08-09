@@ -13,12 +13,13 @@ using Abp.Web.SignalR;
 using Abp.Zero.Configuration;
 using Castle.MicroKernel.Registration;
 using Microsoft.Owin.Security;
-using YoYoCms.AbpProjectTemplate.Web.App.Startup;//SPA!
+using YoYoCms.AbpProjectTemplate.Web.AppStartup;
+//SPA!
 using YoYoCms.AbpProjectTemplate.Web.Bundling;
 using YoYoCms.AbpProjectTemplate.Web.Navigation;
 using YoYoCms.AbpProjectTemplate.Web.Routing;
 using YoYoCms.AbpProjectTemplate.WebApi;
-
+ 
 namespace YoYoCms.AbpProjectTemplate.Web
 {
     /// <summary>

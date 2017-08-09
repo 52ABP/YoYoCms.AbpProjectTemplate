@@ -1,7 +1,7 @@
 ﻿using System.Web.Optimization;
 using YoYoCms.AbpProjectTemplate.Web.Bundling;
 
-namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
+namespace YoYoCms.AbpProjectTemplate.Web.AppStartup
 {
     public static class AppBundleConfig
     {
@@ -82,17 +82,9 @@ namespace YoYoCms.AbpProjectTemplate.Web.App.Startup
 
             //APPLICATION
 
-            bundles.Add(
-                new StyleBundle("~/Bundles/App/css")
-                    .IncludeDirectory("~/App", "*.css", true)
-                    .ForceOrdered()
-                );
+           
 
-            bundles.Add(
-                new ScriptBundle("~/Bundles/App/js")
-                    .IncludeDirectory("~/App", "*.js", true)
-                    .ForceOrdered()
-                );
+         
         }
 
         private static void AddAppCssLibs(BundleCollection bundles, bool isRTL)

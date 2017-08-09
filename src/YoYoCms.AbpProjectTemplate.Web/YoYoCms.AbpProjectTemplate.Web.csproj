@@ -413,108 +413,6 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="App\common\directives\enterKey.js" />
-    <Content Include="App\common\directives\focusIf.js" />
-    <Content Include="App\common\directives\passwordComplexity.js" />
-    <Content Include="App\common\directives\permissionCombo.js" />
-    <Content Include="App\common\directives\roleCombo.js" />
-    <Content Include="App\common\directives\timezoneCombo.js" />
-    <Content Include="App\common\services\appUserNotificationHelper.js" />
-    <Content Include="App\common\views\auditLogs\detailModal.css">
-      <DependentUpon>detailModal.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\auditLogs\detailModal.js" />
-    <Content Include="App\common\views\auditLogs\detailModal.min.css">
-      <DependentUpon>detailModal.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\common\lookupModal.js" />
-    <Content Include="App\common\views\languages\editTextModal.js" />
-    <Content Include="App\common\views\languages\createOrEditModal.js" />
-    <Content Include="App\common\views\layout\chatbar.css">
-      <DependentUpon>chatbar.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\layout\chatbar.js" />
-    <Content Include="App\common\views\layout\chatbar.min.css">
-      <DependentUpon>chatbar.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\layout\header.css">
-      <DependentUpon>header.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\layout\header.min.css">
-      <DependentUpon>header.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\layout\sidebar.css">
-      <DependentUpon>sidebar.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\layout\sidebar.min.css">
-      <DependentUpon>sidebar.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\notifications\index.css">
-      <DependentUpon>index.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\notifications\index.js" />
-    <Content Include="App\common\views\notifications\index.min.css">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\organizationUnits\index.css">
-      <DependentUpon>index.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\organizationUnits\index.js" />
-    <Content Include="App\common\views\organizationUnits\createOrEditUnitModal.js" />
-    <Content Include="App\common\views\organizationUnits\index.min.css">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\profile\changePicture.css">
-      <DependentUpon>changePicture.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\profile\changePicture.min.css">
-      <DependentUpon>changePicture.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\profile\linkAccountModal.js" />
-    <Content Include="App\common\views\profile\linkedAccountsModal.js" />
-    <Content Include="App\common\views\notifications\settingsModal.js" />
-    <Content Include="App\common\views\users\createOrEditModal.css">
-      <DependentUpon>createOrEditModal.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\users\createOrEditModal.min.css">
-      <DependentUpon>createOrEditModal.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\users\index.css">
-      <DependentUpon>index.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\users\index.min.css">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\auditLogs\index.js" />
-    <Content Include="App\common\views\languages\index.js" />
-    <Content Include="App\common\views\languages\texts.js" />
-    <Content Include="App\common\views\users\loginAttemptsModal.css">
-      <DependentUpon>loginAttemptsModal.less</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\users\loginAttemptsModal.js" />
-    <Content Include="App\common\views\users\loginAttemptsModal.min.css">
-      <DependentUpon>loginAttemptsModal.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\_empty\modal.js" />
-    <Content Include="App\common\views\_empty\index.js" />
-    <Content Include="App\common\views\_empty\README.txt" />
-    <Content Include="App\host\directives\featureTree.css">
-      <DependentUpon>featureTree.less</DependentUpon>
-    </Content>
-    <Content Include="App\host\directives\featureTree.js" />
-    <Content Include="App\host\directives\featureTree.min.css">
-      <DependentUpon>featureTree.css</DependentUpon>
-    </Content>
-    <Content Include="App\host\views\editions\createOrEditModal.js" />
-    <Content Include="App\host\views\editions\index.js" />
-    <Content Include="App\host\views\maintenance\index.css">
-      <DependentUpon>index.less</DependentUpon>
-    </Content>
-    <Content Include="App\host\views\maintenance\index.js" />
-    <Content Include="App\host\views\maintenance\index.min.css">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="App\host\views\tenants\featuresModal.js" />
     <Content Include="Assets\.eslintrc.js" />
     <Content Include="Assets\.gitignore" />
     <Content Include="Assets\.postcssrc.js" />
@@ -555,56 +453,6 @@
     <Content Include="Common\Scripts\appUserNotificationHelper.js" />
     <Content Include="Common\Scripts\helpers.js" />
     <Content Include="Common\Scripts\consts.js" />
-    <Content Include="App\app.css">
-      <DependentUpon>app.less</DependentUpon>
-    </Content>
-    <Content Include="App\app.js" />
-    <Content Include="App\app.min.css">
-      <DependentUpon>app.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\layout\layout.js" />
-    <Content Include="App\common\views\layout\header.js" />
-    <Content Include="App\common\views\layout\footer.js" />
-    <Content Include="App\common\views\layout\sidebar.js" />
-    <Content Include="App\common\views\profile\changePassword.js" />
-    <Content Include="App\common\views\profile\changePicture.js" />
-    <Content Include="App\common\views\profile\mySettingsModal.js" />
-    <Content Include="App\common\views\roles\createOrEditModal.js" />
-    <Content Include="App\common\views\roles\index.js" />
-    <Content Include="App\common\views\users\createOrEditModal.js" />
-    <Content Include="App\common\views\users\index.js" />
-    <Content Include="App\common\views\users\permissionsModal.js" />
-    <Content Include="App\common\directives\autoFocus.js" />
-    <Content Include="App\common\directives\busyIf.js" />
-    <Content Include="App\common\directives\buttonBusy.js" />
-    <Content Include="App\common\filters\momentjs-filters.js" />
-    <Content Include="App\common\services\appSession.js" />
-    <Content Include="App\common\views\welcome\index.js" />
-    <Content Include="App\host\views\settings\index.js" />
-    <Content Include="App\host\views\tenants\createModal.js" />
-    <Content Include="App\host\views\tenants\editModal.js" />
-    <Content Include="App\host\views\tenants\index.js" />
-    <Content Include="App\tenant\views\dashboard\index.js" />
-    <Content Include="App\common\directives\permissionTree.js" />
-    <Content Include="App\common\views\users\createOrEditModal.cshtml" />
-    <Content Include="App\common\views\users\index.cshtml" />
-    <Content Include="App\common\views\users\permissionsModal.cshtml" />
-    <Content Include="App\app.less" />
-    <Content Include="App\common\views\roles\createOrEditModal.cshtml" />
-    <Content Include="App\common\views\roles\index.cshtml" />
-    <Content Include="App\host\views\tenants\createModal.cshtml" />
-    <Content Include="App\host\views\tenants\editModal.cshtml" />
-    <Content Include="App\host\views\tenants\index.cshtml" />
-    <Content Include="App\host\views\settings\index.cshtml" />
-    <Content Include="App\common\views\profile\changePassword.cshtml" />
-    <Content Include="App\common\views\profile\changePicture.cshtml" />
-    <Content Include="App\common\views\profile\mySettingsModal.cshtml" />
-    <Content Include="App\tenant\views\dashboard\index.cshtml" />
-    <Content Include="App\common\views\layout\footer.cshtml" />
-    <Content Include="App\common\views\layout\header.cshtml" />
-    <Content Include="App\common\views\layout\layout.cshtml" />
-    <Content Include="App\common\views\layout\sidebar.cshtml" />
-    <Content Include="App\tenant\views\settings\index.js" />
     <Content Include="Common\Scripts\jquery-custom.js" />
     <Content Include="Common\Scripts\librarySettings.js" />
     <Content Include="Common\Scripts\ModalManager.js" />
@@ -1381,7 +1229,6 @@
     <Content Include="libs\simple-line-icons\Readme.txt" />
     <Content Include="libs\simple-line-icons\simple-line-icons.css" />
     <Content Include="libs\simple-line-icons\simple-line-icons.min.css" />
-    <Content Include="App\common\directives\metronic\directives.js" />
     <Content Include="libs\spinjs\jquery.spin.js" />
     <Content Include="libs\spinjs\spin.js" />
     <Content Include="libs\sweetalert\ie9.css" />
@@ -1869,7 +1716,6 @@
     <Content Include="metronic\assets\global\scripts\app.min.js" />
     <Content Include="metronic\assets\global\scripts\datatable.js" />
     <Content Include="metronic\assets\global\scripts\datatable.min.js" />
-    <Content Include="App\web.config" />
     <Content Include="log4net.config" />
     <Content Include="metronic\assets\layouts\global\scripts\quick-sidebar.js" />
     <Content Include="metronic\assets\layouts\global\scripts\quick-sidebar.min.js" />
@@ -1919,7 +1765,6 @@
     <Content Include="libs\angular-ui-grid\ui-grid.eot" />
     <Content Include="libs\angular-ui-grid\ui-grid.ttf" />
     <Content Include="libs\angular-ui-grid\ui-grid.woff" />
-    <Content Include="App\tenant\views\settings\index.cshtml" />
     <Content Include="libs\fancybox\CHANGELOG.md" />
     <Content Include="libs\fancybox\README.md" />
     <Content Include="libs\carousel-owl-carousel\demos\.htaccess" />
@@ -1980,9 +1825,6 @@
     <Content Include="libs\angular-moment\angular-moment.min.js.map" />
     <Content Include="libs\angular-moment\LICENSE" />
     <Content Include="libs\angular-moment\README.md" />
-    <Content Include="App\common\views\notifications\settingsModal.cshtml" />
-    <Content Include="App\common\views\notifications\index.cshtml" />
-    <Content Include="App\common\views\notifications\index.less" />
     <Content Include="fonts\open-sans\59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2" />
     <Content Include="fonts\open-sans\cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2" />
     <Content Include="fonts\open-sans\DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff2" />
@@ -2033,14 +1875,6 @@
     <Content Include="fonts\sourcesans-pro\toadOcfmlt9b38dHJxOBGJCDkYQxybH_Rl7Qv7ee2N4.woff2" />
     <Content Include="fonts\sourcesans-pro\toadOcfmlt9b38dHJxOBGLpVETArfVi9McBbsQ4atuQ.woff2" />
     <Content Include="fonts\sourcesans-pro\toadOcfmlt9b38dHJxOBGOode0-EuMkY--TSyExeINg.woff2" />
-    <Content Include="App\host\views\maintenance\index.cshtml" />
-    <Content Include="App\host\views\maintenance\index.less" />
-    <Content Include="App\common\views\profile\changePicture.less" />
-    <Content Include="App\common\views\users\loginAttemptsModal.cshtml" />
-    <Content Include="App\common\views\users\loginAttemptsModal.less" />
-    <Content Include="App\common\directives\timezoneCombo.cshtml" />
-    <Content Include="App\common\directives\permissionCombo.cshtml" />
-    <Content Include="App\common\directives\roleCombo.cshtml" />
     <Content Include="fonts\open-sans\59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff" />
     <Content Include="fonts\open-sans\cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff" />
     <Content Include="fonts\open-sans\DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff" />
@@ -2091,10 +1925,7 @@
     <Content Include="fonts\sourcesans-pro\toadOcfmlt9b38dHJxOBGJCDkYQxybH_Rl7Qv7ee2N4.woff" />
     <Content Include="fonts\sourcesans-pro\toadOcfmlt9b38dHJxOBGLpVETArfVi9McBbsQ4atuQ.woff" />
     <Content Include="fonts\sourcesans-pro\toadOcfmlt9b38dHJxOBGOode0-EuMkY--TSyExeINg.woff" />
-    <Content Include="App\common\views\layout\chatbar.cshtml" />
-    <Content Include="App\common\views\layout\chatFriendListItem.cshtml" />
     <Content Include="libs\jquery-timeago\locales\README.md" />
-    <Content Include="App\common\views\layout\chatbar.less" />
     <Content Include="libs\jquery-slimscroll\package.json" />
     <Content Include="libs\toastr\toastr.js.map" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -2127,9 +1958,6 @@
     <Content Include="Assets\package.json" />
     <Content Include="Assets\README.md" />
     <Content Include="Assets\static\.gitkeep" />
-    <Content Include="App\common\views\smsmessage\createOrEditModalJs.js" />
-    <Content Include="App\common\views\smsmessage\IndexJs.js" />
-    <Content Include="App\common\views\smsmessage\____SmsMessagelogReadme.js" />
     <None Include="Properties\PublishProfiles\169服务器.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -2895,19 +2723,17 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="App\common\views\smsmessage\index.cshtml" />
-    <Content Include="App\common\views\smsmessage\createOrEditModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Bundling\CssRewriteUrlWithVirtualDirectoryTransform.cs" />
     <Compile Include="App_Start\Bundling\AsIsBundleOrderer.cs" />
-    <Compile Include="App\Startup\AppBundleConfig.cs" />
+    <Compile Include="App_Start\AppStartup\AppBundleConfig.cs" />
     <Compile Include="App_Start\Bundling\BundleExtensions.cs" />
     <Compile Include="App_Start\Bundling\CommonBundleConfig.cs" />
     <Compile Include="App_Start\Bundling\FrontEndBundleConfig.cs" />
     <Compile Include="App_Start\Bundling\ScriptPaths.cs" />
     <Compile Include="App_Start\Bundling\StylePaths.cs" />
-    <Compile Include="App\Startup\AppNavigationProvider.cs" />
+    <Compile Include="App_Start\AppStartup\AppNavigationProvider.cs" />
     <Compile Include="App_Start\AbpProjectTemplateWebModule.cs" />
     <Compile Include="App_Start\Navigation\FrontEndNavigationProvider.cs" />
     <Compile Include="App_Start\Navigation\PageNames.cs" />
@@ -2979,20 +2805,8 @@
     <Content Include="Views\Account\EmailActivation.cshtml" />
     <Content Include="Views\Account\_Languages.cshtml" />
     <Content Include="Views\Error\E404.cshtml" />
-    <Content Include="App\common\views\welcome\index.cshtml" />
     <Content Include="Common\Styles\core.less" />
-    <Content Include="App\common\views\users\createOrEditModal.less" />
-    <Content Include="App\common\views\layout\sidebar.less" />
-    <Content Include="App\common\views\layout\header.less" />
-    <Content Include="App\common\views\users\index.less" />
-    <Content Include="App\app.css.map">
-      <DependentUpon>app.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\_empty\index.cshtml" />
-    <Content Include="App\common\views\auditLogs\index.cshtml" />
     <Content Include="libs\angular-daterangepicker\angular-daterangepicker.min.map" />
-    <Content Include="App\common\views\auditLogs\detailModal.cshtml" />
-    <Content Include="App\common\views\auditLogs\detailModal.less" />
     <Content Include="libs\bootstrap-switch\LICENSE" />
     <Content Include="libs\bootstrap-switch\README.md" />
     <Content Include="Common\Styles\core.css.map">
@@ -3018,41 +2832,17 @@
     <Content Include="libs\jquery-jtable\themes\metro\pink\jtable.less" />
     <Content Include="libs\jquery-jtable\themes\metro\purple\jtable.less" />
     <Content Include="libs\jquery-jtable\themes\metro\red\jtable.less" />
-    <Content Include="App\host\views\editions\index.cshtml" />
-    <Content Include="App\host\views\editions\createOrEditModal.cshtml" />
-    <Content Include="App\host\views\tenants\featuresModal.cshtml" />
-    <Content Include="App\host\directives\featureTree.less" />
-    <Content Include="App\host\directives\featureTree.css.map">
-      <DependentUpon>featureTree.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\languages\index.cshtml" />
-    <Content Include="App\common\views\_empty\modal.cshtml" />
-    <Content Include="App\common\views\languages\createOrEditModal.cshtml" />
     <Content Include="libs\bootstrap-select\bootstrap-select.css.map" />
     <Content Include="libs\bootstrap-select\bootstrap-select.js.map" />
     <Content Include="libs\bootstrap-select\LICENSE" />
     <Content Include="libs\bootstrap-select\README.md" />
-    <Content Include="App\common\views\languages\texts.cshtml" />
-    <Content Include="App\common\views\languages\editTextModal.cshtml" />
     <Content Include="metronic\assets\admin\layout4\scripts\layout.min.js.map">
       <DependentUpon>layout.min.js</DependentUpon>
     </Content>
-    <Content Include="App\common\views\organizationUnits\index.cshtml" />
-    <Content Include="App\common\views\organizationUnits\createOrEditUnitModal.cshtml" />
-    <Content Include="App\common\views\organizationUnits\index.less" />
-    <Content Include="App\common\views\organizationUnits\index.css.map">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="App\common\views\common\lookupModal.cshtml" />
-    <Content Include="App\common\views\profile\linkedAccountsModal.cshtml" />
-    <Content Include="App\common\views\profile\linkAccountModal.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="App\common\views\layout\header.css.map">
-      <DependentUpon>header.css</DependentUpon>
-    </Content>
     <Content Include="Views\Account\TenantSelection.cshtml" />
     <Content Include="Views\TenantRegistration\Index.cshtml" />
     <Content Include="Views\TenantRegistration\RegisterResult.cshtml" />
