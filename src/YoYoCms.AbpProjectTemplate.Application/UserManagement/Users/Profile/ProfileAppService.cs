@@ -78,6 +78,19 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users.Profile
 
         public async Task ChangePassword(ChangePasswordInput input)
         {
+
+	        if (AbpSession.UserName == "demo")
+	        {
+				throw new UserFriendlyException("少年不要调皮，demo的密码不能修改。");
+
+			}
+			if (AbpSession.UserName=="admin")
+	        {
+		        throw new UserFriendlyException("少年不要调皮，Admin的密码不能修改。");
+	        }
+
+
+
             await CheckPasswordComplexity(input.NewPassword);
 
             var user = await GetCurrentUserAsync();

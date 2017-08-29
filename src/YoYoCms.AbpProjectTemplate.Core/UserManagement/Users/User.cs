@@ -15,6 +15,9 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
 
         public const int MaxPhoneNumberLength = 24;
 
+	    public const string DefaultPassword = "bb123456";
+
+
         public virtual Guid? ProfilePictureId { get; set; }
 
         public virtual bool ShouldChangePasswordOnNextLogin { get; set; }
