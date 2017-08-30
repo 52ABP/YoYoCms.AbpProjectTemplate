@@ -224,9 +224,8 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
         [AbpAuthorize(AppPermissions.Pages_Administration_Users_Edit)]
         protected virtual async Task UpdateUserAsync(CreateOrUpdateUserInput input)
         {
-           
-
-            Debug.Assert(input.User.Id != null, "input.User.Id should be set.");
+			
+			Debug.Assert(input.User.Id != null, "input.User.Id should be set.");
 
             var user = await UserManager.FindByIdAsync(input.User.Id.Value);
             if (input.User.Name.IsNullOrEmpty())
@@ -248,7 +247,17 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
 
             if (!input.User.Password.IsNullOrEmpty())
             {
-                CheckErrors(await UserManager.ChangePasswordAsync(user, input.User.Password));
+	            if (input.User.UserName == "demo")
+	            {
+		            throw new UserFriendlyException("少年不要调皮，demo的密码不能修改。");
+
+	            }
+	            if (input.User.UserName == "admin")
+	            {
+		            throw new UserFriendlyException("少年不要调皮，Admin的密码不能修改。");
+	            }
+
+				CheckErrors(await UserManager.ChangePasswordAsync(user, input.User.Password));
             }
 
             CheckErrors(await UserManager.UpdateAsync(user));
