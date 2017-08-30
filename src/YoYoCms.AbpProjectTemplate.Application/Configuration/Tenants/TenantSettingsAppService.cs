@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using Abp.Authorization;
 using Abp.Configuration;
@@ -190,8 +191,12 @@ namespace YoYoCms.AbpProjectTemplate.Configuration.Tenants
 
         #region Update Settings
 
+		 
         public async Task UpdateAllSettings(TenantSettingsEditDto input)
         {
+
+	        return;
+
             await UpdateUserManagementSettingsAsync(input.UserManagement);
             await UpdateSecuritySettingsAsync(input.Security);
 

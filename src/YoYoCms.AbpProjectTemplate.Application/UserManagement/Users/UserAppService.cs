@@ -247,11 +247,11 @@ namespace YoYoCms.AbpProjectTemplate.UserManagement.Users
 
             if (!input.User.Password.IsNullOrEmpty())
             {
-	            if (input.User.UserName == "demo")
-	            {
-		            throw new UserFriendlyException("少年不要调皮，demo的密码不能修改。");
+	            //if (input.User.UserName == "demo")
+	            //{
+		           // throw new UserFriendlyException("少年不要调皮，demo的密码不能修改。");
 
-	            }
+	            //}
 	            if (input.User.UserName == "admin")
 	            {
 		            throw new UserFriendlyException("少年不要调皮，Admin的密码不能修改。");
